@@ -1,0 +1,32 @@
+Praticas sugerida:
+
+* Cenario : Novo desenvolvimento
+Utilizar o branch local master como sincronizador do branch remoto origin
+Antes de iniciar o desenvonvimento de uma nova Feature Baixar o que existe no repositorio remoto.
+Criar um branch a partir do master já sincronizado com o server
+Trabalhar no projeto
+Comitar o branch atual
+Alterar para o branch master
+Baixar alterações do server (se houver)
+Mesclar alterações do branch que estava trabalhando com o master
+Subir para o servidor
+
+git pull
+git checkout -b desenvolvimento
+(altera cria arquivos)
+git commit
+git checkout master
+git pull
+git merge desenvolvimento
+git push
+
+
+* Cenario : Voce esta em um Desenvolvimento e outros colegas efetuaram comits
+Altere para o branch master
+Baixa os commits dos colegas
+Sincronizar os commitis no seu branch
+
+git checkout master
+git pull
+git checkout desenvolvimento
+git rebase master
