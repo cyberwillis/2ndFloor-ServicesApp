@@ -5,9 +5,10 @@ namespace SecondFloor.Model
 {
     public class Oferta : EntityBase<Guid>
     {
-        public string Nome { get; set; }
+        //Produto ou Serviço
+        public string Titulo { get; set; }
         public string Descricao { get; set; }
-        public double Preco { get; set; }
+        public string Preco { get; set; }
         public Endereco Endereco { get; set; }
     }
 }

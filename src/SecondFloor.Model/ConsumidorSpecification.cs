@@ -5,10 +5,10 @@ namespace SecondFloor.Model
 {
     public static class ConsumidorSpecification
     {
-        public static IList<BusinessRule> GetBrokenBusinessRules(this Consumidor anunciante)
+        public static IList<BusinessRule> GetBrokenBusinessRules(this Consumidor consumidor)
         {
 
-            return anunciante.BrokenRules;
+            return consumidor.BrokenRules;
         }
     }
 }

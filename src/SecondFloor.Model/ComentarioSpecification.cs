@@ -5,10 +5,10 @@ namespace SecondFloor.Model
 {
     public static class ComentarioSpecification
     {
-        public static IList<BusinessRule> GetBrokenBusinessRules(this Comentario anunciante)
+        public static IList<BusinessRule> GetBrokenBusinessRules(this Comentario comentario)
         {
 
-            return anunciante.BrokenRules;
+            return comentario.BrokenRules;
         }
     }
 }
