@@ -36,6 +36,10 @@ namespace SecondFloor.Model
             {
                 oferta.BrokenRules.Add(new BusinessRule("Endereco", "A oferta deve conter um endereço."));
             }
+            else if (oferta.Endereco != null)
+            {
+                oferta.AddRangeBrokenRules(oferta.GetBrokenBusinessRules());
+            }
 
             return oferta.BrokenRules;
         }

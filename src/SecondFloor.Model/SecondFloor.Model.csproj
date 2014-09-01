@@ -49,6 +49,8 @@
     <Compile Include="ConsumidorSpecification.cs" />
     <Compile Include="Endereco.cs" />
     <Compile Include="EnderecoSpecification.cs" />
+    <Compile Include="IAnuncianteRepository.cs" />
+    <Compile Include="IAnuncioRepository.cs" />
     <Compile Include="Oferta.cs" />
     <Compile Include="OfertaSpecification.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

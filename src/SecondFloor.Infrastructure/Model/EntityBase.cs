@@ -26,6 +26,14 @@ namespace SecondFloor.Infrastructure.Model
             this._brokenRules.Add(businessRule);
         }
 
+        public void AddRangeBrokenRules(IList<BusinessRule> businessRules)
+        {
+            foreach (var businessRule in businessRules)
+            {
+                this._brokenRules.Add(businessRule);
+            }
+        }
+
         public StringBuilder GetErrorMessages()
         {
             var sb = new StringBuilder();
