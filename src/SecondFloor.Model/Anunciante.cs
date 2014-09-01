@@ -10,7 +10,7 @@ namespace SecondFloor.Model
         public string RazaoSocial { get; set; }
         public virtual IEnumerable<Anuncio> Anuncios { get; set; }
         public virtual IEnumerable<Endereco> Enderecos { get; set; }
-        public Comentario Comentario { get; set; }
+        public IEnumerable<Comentario> Comentarios { get; set; }
         public int Pontuacao { get; set; }
         public String Token { get; set; }
     }
