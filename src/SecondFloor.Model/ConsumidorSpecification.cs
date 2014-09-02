@@ -8,7 +8,6 @@ namespace SecondFloor.Model
         public static IList<BusinessRule> GetBrokenBusinessRules(this Consumidor consumidor)
         {
             //TODO:
-
             return consumidor.BrokenRules;
         }
     }
