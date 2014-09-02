@@ -8,10 +8,15 @@ namespace SecondFloor.Model
     {
         public string Cnpj { get; set; }
         public string RazaoSocial { get; set; }
-        public virtual IEnumerable<Anuncio> Anuncios { get; set; }
-        public virtual IEnumerable<Endereco> Enderecos { get; set; }
-        public IEnumerable<Comentario> Comentarios { get; set; }
+        public virtual IList<Anuncio> Anuncios { get; set; }
+        //public virtual IList<Endereco> Enderecos { get; set; }
+        public IList<Comentario> Comentarios { get; set; }
         public int Pontuacao { get; set; }
         public String Token { get; set; }
+
+        public Anunciante()
+        {
+            Anuncios = new List<Anuncio>();
+        }
     }
 }

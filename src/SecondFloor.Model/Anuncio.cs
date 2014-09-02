@@ -10,7 +10,7 @@ namespace SecondFloor.Model
         public DateTime DataInicio { get; set; }
         public DateTime DataFim { get; set; }
         public Anunciante Anunciante { get; set; }
-        public virtual IEnumerable<Oferta> Ofertas { get; set; }
+        public virtual IList<Oferta> Ofertas { get; set; }
 
         public Anuncio()
         {

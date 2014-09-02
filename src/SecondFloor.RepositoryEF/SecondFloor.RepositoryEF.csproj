@@ -30,7 +30,11 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -39,11 +43,28 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AnuncioRepository.cs" />
+    <Compile Include="Mappings\AnuncianteConfiguration.cs" />
+    <Compile Include="Mappings\AnuncioConfiguration.cs" />
+    <Compile Include="Mappings\EnderecoConfiguration.cs" />
+    <Compile Include="Mappings\OfertaConfiguration.cs" />
+    <Compile Include="Migrations\AnuncioModelConfiguration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="Mappings\" />
-    <Folder Include="Migrations\" />
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SecondFloor.Infrastructure\SecondFloor.Infrastructure.csproj">
+      <Project>{0B674E26-7392-4E08-B9F0-04078ECDE0BC}</Project>
+      <Name>SecondFloor.Infrastructure</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SecondFloor.Model\SecondFloor.Model.csproj">
+      <Project>{640A4CC8-F3CD-45C6-BC4B-37C2E22EB2F4}</Project>
+      <Name>SecondFloor.Model</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

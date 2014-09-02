@@ -39,7 +39,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AnuncioService.cs" />
+    <Compile Include="ExtensionMethods\AnuncioExtensionMethod.cs" />
+    <Compile Include="ExtensionMethods\EnderecoExtensionMethod.cs" />
+    <Compile Include="ExtensionMethods\OfertaExtensionMethod.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SecondFloor.DataContracts\SecondFloor.DataContracts.csproj">
+      <Project>{005BD132-A35B-4F72-9840-0228FCEFAFF5}</Project>
+      <Name>SecondFloor.DataContracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SecondFloor.Infrastructure\SecondFloor.Infrastructure.csproj">
+      <Project>{0b674e26-7392-4e08-b9f0-04078ecde0bc}</Project>
+      <Name>SecondFloor.Infrastructure</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SecondFloor.Model\SecondFloor.Model.csproj">
+      <Project>{640A4CC8-F3CD-45C6-BC4B-37C2E22EB2F4}</Project>
+      <Name>SecondFloor.Model</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
