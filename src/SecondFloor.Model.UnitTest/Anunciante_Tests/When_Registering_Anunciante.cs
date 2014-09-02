@@ -1,10 +1,10 @@
 ﻿using NUnit.Framework;
 using SecondFloor.Infrastructure;
 
-namespace SecondFloor.Model.UnitTest
+namespace SecondFloor.Model.UnitTest.Anunciante_Tests
 {
     [TestFixture]
-    public class AnuncianteTest
+    public class When_Registering_Anunciante
     {
         private Anunciante anunciante;
 
@@ -18,7 +18,7 @@ namespace SecondFloor.Model.UnitTest
         }
 
         [Test]
-        public void teste1_anunciante_com_mensagens_de_erro()
+        public void test_anunciante_with_improper_data()
         {
             anunciante.RazaoSocial = "";
             anunciante.Cnpj = "";
@@ -30,14 +30,14 @@ namespace SecondFloor.Model.UnitTest
         }
 
         [Test]
-        public void teste2_anunciante_com_token_correto()
+        public void test_anunciante_with_correct_token()
         {
             var esperado = Sha1Util.SHA1HashStringForUTF8String( anunciante.Cnpj + anunciante.RazaoSocial );
             Assert.AreEqual( esperado, anunciante.Token );
         }
 
         [Test]
-        public void teste3_anunciante_com_token_invalido()
+        public void test_anunciante_with_invalid_token()
         {
             //RazaoSocial Incorreto
             anunciante.RazaoSocial = "Oficina de entretenimento adulto do tio careca.";
@@ -47,7 +47,7 @@ namespace SecondFloor.Model.UnitTest
         }
 
         [Test]
-        public void teste4_anunciante_com_cnpj_invalido()
+        public void test_anunciante_with_invalid_cnpj()
         {
             //Cnpj incorreto
             anunciante.Cnpj = "40.123.456.0001-20";
