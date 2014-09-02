@@ -43,8 +43,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AnuncianteTest.cs" />
-    <Compile Include="AnuncioTests.cs" />
+    <Compile Include="Anunciante_Tests\When_Registering_Anunciante.cs" />
+    <Compile Include="Anuncio_Tests\When_Registering_Anuncio.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -59,6 +59,11 @@
       <Project>{640A4CC8-F3CD-45C6-BC4B-37C2E22EB2F4}</Project>
       <Name>SecondFloor.Model</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Consumidor_Tests\" />
+    <Folder Include="Endereco_Tests\" />
+    <Folder Include="Oferta_Tests\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

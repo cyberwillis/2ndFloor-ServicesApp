@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using NUnit.Framework;
 
-namespace SecondFloor.Model.UnitTest
+namespace SecondFloor.Model.UnitTest.Anuncio_Tests
 {
-    public class AnuncioTests
+    public class When_Registering_Anuncio
     {
         private Anuncio anuncio;
 
@@ -24,7 +24,7 @@ namespace SecondFloor.Model.UnitTest
         }
 
         [Test]
-        public void test1_anuncio_publicado_com_datainicio_anterior_a_data_atual_deve_gerar_erro()
+        public void test_anuncio_with_datainicio_before_dataatual()
         {
             var esperado = 0;
             anuncio.DataInicio = DateTime.Now.AddDays(-1); //ontem
@@ -40,7 +40,7 @@ namespace SecondFloor.Model.UnitTest
         }
 
         [Test]
-        public void test2_anuncio_publicado_com_datainicio_igual_a_data_atual_deve_gerar_erro()
+        public void test_anuncio_with_datainicio_with_same_dataatual()
         {
             var esperado = 0;
             anuncio.DataInicio = DateTime.Now.AddDays(0); //hj
@@ -56,7 +56,7 @@ namespace SecondFloor.Model.UnitTest
         }
 
         [Test]
-        public void test3_anuncio_publicado_com_datainicio_posterior_a_data_atual_deve_gerar_erro()
+        public void test_anuncio_with_datainicio_after_dataatual()
         {
             var esperado = 0;
             anuncio.DataInicio = DateTime.Now.AddDays(1);  //amanha
@@ -70,7 +70,7 @@ namespace SecondFloor.Model.UnitTest
         }
 
         [Test]
-        public void test4_anuncio_publicado_com_datafinal_igual_datainicio_gera_erro()
+        public void test_anuncio_with_datafinal_equal_datainicio()
         {
             anuncio.DataInicio = DateTime.Now.AddDays(3); //igual
             anuncio.DataFim = DateTime.Now.AddDays(3); //igual
@@ -82,7 +82,7 @@ namespace SecondFloor.Model.UnitTest
         }
 
         [Test]
-        public void test5_anuncio_publicado_com_datafinal_inferior_datainicio_gera_erro()
+        public void test_anuncio_with_datafinal_before_datainicio()
         {
             anuncio.DataInicio = DateTime.Now.AddDays(3); //inicio posterior ao fim
             anuncio.DataFim = DateTime.Now.AddDays(2); //fim inferior ao inicio
@@ -94,7 +94,7 @@ namespace SecondFloor.Model.UnitTest
         }
 
         [Test]
-        public void test6_anuncio_publicado_deve_conter_pelo_menos_um_produto_ou_servico()
+        public void test_anuncio_must_have_at_least_one_oferta()
         {
             anuncio.Ofertas = new List<Oferta>();
 
