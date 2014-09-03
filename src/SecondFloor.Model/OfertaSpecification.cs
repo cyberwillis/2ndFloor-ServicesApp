@@ -10,8 +10,9 @@ namespace SecondFloor.Model
             //Titulo Oferta
             if (string.IsNullOrEmpty(oferta.Titulo))
             {
-                oferta.BrokenRules.Add(new BusinessRule("Titulo","A oferta não foi informada."));
-            } else if (oferta.Titulo.Length > 20)
+                oferta.BrokenRules.Add(new BusinessRule("Titulo", "A oferta não foi informada."));
+            }
+            else if (oferta.Titulo.Length > 20)
             {
                 oferta.BrokenRules.Add(new BusinessRule("Titulo", "A oferta deve possuir no máximo (20) caracteres."));
             }
@@ -20,7 +21,8 @@ namespace SecondFloor.Model
             if (string.IsNullOrEmpty(oferta.Descricao))
             {
                 oferta.BrokenRules.Add(new BusinessRule("Descricao", "A descrição não foi informada."));
-            } else if (oferta.Descricao.Length > 200)
+            }
+            else if (oferta.Descricao.Length > 200)
             {
                 oferta.BrokenRules.Add(new BusinessRule("Descricao", "A descrição deve possui no máximo (200) caracteres."));
             }
@@ -38,7 +40,7 @@ namespace SecondFloor.Model
             }
             else if (oferta.Endereco != null)
             {
-                oferta.AddRangeBrokenRules(oferta.GetBrokenBusinessRules());
+                oferta.AddRangeBrokenRules(oferta.Endereco.GetBrokenBusinessRules());
             }
 
             return oferta.BrokenRules;

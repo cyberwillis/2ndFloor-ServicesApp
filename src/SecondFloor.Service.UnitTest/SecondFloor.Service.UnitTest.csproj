@@ -30,6 +30,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="nunit.framework">
+      <HintPath>..\packages\NUnit.2.6.3\lib\nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="Rhino.Mocks">
+      <HintPath>..\packages\RhinoMocks.3.6.1\lib\net\Rhino.Mocks.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -39,7 +45,29 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Anuncio_Tests\When_Publishing_Anuncio.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SecondFloor.DataContracts\SecondFloor.DataContracts.csproj">
+      <Project>{005BD132-A35B-4F72-9840-0228FCEFAFF5}</Project>
+      <Name>SecondFloor.DataContracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SecondFloor.Infrastructure\SecondFloor.Infrastructure.csproj">
+      <Project>{0B674E26-7392-4E08-B9F0-04078ECDE0BC}</Project>
+      <Name>SecondFloor.Infrastructure</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SecondFloor.Model\SecondFloor.Model.csproj">
+      <Project>{640A4CC8-F3CD-45C6-BC4B-37C2E22EB2F4}</Project>
+      <Name>SecondFloor.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SecondFloor.Service\SecondFloor.Service.csproj">
+      <Project>{E1A48511-FA19-4DA4-8826-AF46DD369BB2}</Project>
+      <Name>SecondFloor.Service</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
