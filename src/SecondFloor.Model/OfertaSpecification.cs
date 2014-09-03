@@ -12,9 +12,9 @@ namespace SecondFloor.Model
             {
                 oferta.BrokenRules.Add(new BusinessRule("Titulo", "A oferta não foi informada."));
             }
-            else if (oferta.Titulo.Length > 20)
+            else if (oferta.Titulo.Length > 100)
             {
-                oferta.BrokenRules.Add(new BusinessRule("Titulo", "A oferta deve possuir no máximo (20) caracteres."));
+                oferta.BrokenRules.Add(new BusinessRule("Titulo", "A oferta deve possuir no máximo (100) caracteres."));
             }
 
             //Descricao Oferta

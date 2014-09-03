@@ -15,7 +15,7 @@ namespace SecondFloor.Model
             }
             else if (consumidor.Nome.Length < 4)
             {
-                consumidor.AddBrokenRule(new BusinessRule("Nome", "O nome do consumidor deve possuir no mínimo 4 caracteres."));
+                consumidor.AddBrokenRule(new BusinessRule("Nome", "O nome do consumidor deve possuir no mínimo (4) caracteres."));
             }
             else if (consumidor.Nome.Length > 50)
             {
