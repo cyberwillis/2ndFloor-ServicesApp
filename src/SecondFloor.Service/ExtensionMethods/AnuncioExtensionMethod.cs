@@ -24,7 +24,28 @@ namespace SecondFloor.Service.ExtensionMethods
             anuncio.Titulo = anuncioDto.Titulo;
 
             return anuncio;
+        }
 
+        public static AnuncioDto ConvertToAnuncioDto(this Anuncio anuncio)
+        {
+            var anuncioDto = new AnuncioDto();
+
+            var ofertas = anuncio.Ofertas.Select(oferta => oferta.ConvertToOfertaDto()).ToList();
+            anuncioDto.Ofertas = ofertas;
+
+            var inicio = anuncio.DataInicio;
+            anuncioDto.AnoInicio = inicio.Year;
+            anuncioDto.MesInicio = inicio.Month;
+            anuncioDto.DiaInicio = inicio.Day;
+
+            var fim = anuncio.DataFim;
+            anuncioDto.AnoFim = fim.Year;
+            anuncioDto.MesFim = fim.Month;
+            anuncioDto.DiaFim = fim.Day;
+
+            anuncioDto.Titulo = anuncio.Titulo;
+
+            return anuncioDto;
         }
     }
 }
