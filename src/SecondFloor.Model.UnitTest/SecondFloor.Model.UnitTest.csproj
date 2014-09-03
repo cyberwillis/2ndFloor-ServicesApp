@@ -45,6 +45,7 @@
   <ItemGroup>
     <Compile Include="Anunciante_Tests\When_Registering_Anunciante.cs" />
     <Compile Include="Anuncio_Tests\When_Registering_Anuncio.cs" />
+    <Compile Include="Consumidor_Tests\When_Registering_Consumidor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -61,7 +62,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Consumidor_Tests\" />
     <Folder Include="Endereco_Tests\" />
     <Folder Include="Oferta_Tests\" />
   </ItemGroup>

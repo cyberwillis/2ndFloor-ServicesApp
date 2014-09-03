@@ -1,4 +1,6 @@
-﻿namespace SecondFloor.Infrastructure
+﻿using System.Text.RegularExpressions;
+
+namespace SecondFloor.Infrastructure
 {
     public class DocumentosUtil
     {
@@ -125,6 +127,15 @@
                 resto = 11 - resto;
 
             return pis.EndsWith(resto.ToString());
+        }
+
+        public static bool ValidaEmail(string email)
+        {
+            var theEmailPattern = @"^[\w!#$%&'*+\-/=?\^_`{|}~]+(\.[\w!#$%&'*+\-/=?\^_`{|}~]+)*"
+                                + "@"
+                                + @"((([\-\w]+\.)+[a-zA-Z]{2,4})|(([0-9]{1,3}\.){3}[0-9]{1,3}))$";
+
+            return Regex.IsMatch(email, theEmailPattern);
         }
     }
 }
