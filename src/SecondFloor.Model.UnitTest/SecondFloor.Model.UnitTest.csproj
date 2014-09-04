@@ -45,6 +45,7 @@
   <ItemGroup>
     <Compile Include="Anunciante_Tests\When_Registering_Anunciante.cs" />
     <Compile Include="Anuncio_Tests\When_Registering_Anuncio.cs" />
+    <Compile Include="Comentario_Tests\When_Registering_Comentario.cs" />
     <Compile Include="Consumidor_Tests\When_Registering_Consumidor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
