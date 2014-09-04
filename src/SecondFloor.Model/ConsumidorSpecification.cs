@@ -27,7 +27,7 @@ namespace SecondFloor.Model
             {
                 consumidor.AddBrokenRule(new BusinessRule("Email", "O email do consumidor não foi especificado."));
             }
-            else if (!DocumentosUtil.ValidaEmail(consumidor.Nome))
+            else if (!DocumentosUtil.ValidaEmail(consumidor.Email))
             {
                 consumidor.AddBrokenRule(new BusinessRule("Email", "O email do consumidor está inválido."));
             }

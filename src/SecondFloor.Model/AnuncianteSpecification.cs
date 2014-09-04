@@ -36,7 +36,7 @@ namespace SecondFloor.Model
             {
                 anunciante.AddBrokenRule(new BusinessRule("Token","Erro no cadastro do Anunciante, ficará impossibilitado de publicar ofertas"));
                 //cantactar Admin do portal por email
-            } else if (anunciante.Token == Sha1Util.SHA1HashStringForUTF8String(anunciante.Cnpj+anunciante.RazaoSocial) )
+            } else if (anunciante.Token != Sha1Util.SHA1HashStringForUTF8String(anunciante.Cnpj+anunciante.RazaoSocial) )
             {
                 anunciante.AddBrokenRule(new BusinessRule("Token", "O Token do anunciante não confere"));
             }
