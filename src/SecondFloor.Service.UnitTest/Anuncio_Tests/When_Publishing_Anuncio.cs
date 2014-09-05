@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.Runtime.InteropServices;
 using NUnit.Framework;
 using Rhino.Mocks;
 using SecondFloor.DataContracts.DTO;
@@ -59,16 +61,51 @@ namespace SecondFloor.Service.UnitTest.Anuncio_Tests
             mockAnuncianteRepository.Stub(x => x.GetByToken(Arg<string>.Is.Anything)).Return(new Anunciante());
 
             var anuncioService = new AnuncioService(mockAnuncioRepository, mockAnuncianteRepository);
-            var cadastrarAnuncioRequest = new CadastrarAnuncioRequest()
-            {
-                Anuncio = _anuncioDto
-            };
+            var cadastrarAnuncioRequest = new CadastrarAnuncioRequest() { Anuncio = _anuncioDto };
 
             //Act
             anuncioService.CadastrarAnuncio(cadastrarAnuncioRequest);
             
             //Assert
             mockAnuncioRepository.AssertWasCalled(x=>x.Persist());
+        }
+
+        [Test]
+        public void test_if_anunciante_is_unknown()
+        {
+            //Arrange
+            var mockAnuncioRepository = MockRepository.GenerateMock<IAnuncioRepository<Anuncio, Guid>>();
+            var mockAnuncianteRepository = MockRepository.GenerateMock<IAnuncianteRepository<Anunciante, Guid>>();
+            mockAnuncianteRepository.Stub(x => x.GetByToken(Arg<string>.Is.Anything)).Return(null); //anunciante é nulo
+
+            var anuncioService = new AnuncioService(mockAnuncioRepository, mockAnuncianteRepository);
+            var cadastrarAnuncioRequest = new CadastrarAnuncioRequest() { Anuncio = _anuncioDto };
+
+            //Act
+            var response = anuncioService.CadastrarAnuncio(cadastrarAnuncioRequest);
+
+            //Assert
+            Debug.WriteLine(response.Message);
+            Assert.IsFalse(response.Success);
+        }
+
+        [Test]
+        public void test_if_anuncio_contains_errors()
+        {
+            //Arrange
+            var mockAnuncioRepository = MockRepository.GenerateMock<IAnuncioRepository<Anuncio, Guid>>();
+            var mockAnuncianteRepository = MockRepository.GenerateMock<IAnuncianteRepository<Anunciante, Guid>>();
+            mockAnuncianteRepository.Stub(x => x.GetByToken(Arg<string>.Is.Anything)).Return(new Anunciante());
+            
+            var anuncioService = new AnuncioService(mockAnuncioRepository, mockAnuncianteRepository);
+            var cadastrarAnuncioRequest = new CadastrarAnuncioRequest() { Anuncio = new AnuncioDto() }; 
+
+            //Act
+            var response = anuncioService.CadastrarAnuncio(cadastrarAnuncioRequest);
+
+            //Assert
+            Debug.WriteLine(response.Message);
+            Assert.IsFalse(response.Success);
         }
     }
 }

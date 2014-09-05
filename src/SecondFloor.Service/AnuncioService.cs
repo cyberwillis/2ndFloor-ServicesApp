@@ -19,37 +19,28 @@ namespace SecondFloor.Service
 
         public CadastrarAnuncioResponse CadastrarAnuncio(CadastrarAnuncioRequest request )
         {
-            var response = new CadastrarAnuncioResponse();
-            response.Success = false;
-            response.Message = "";
-
+            var anuncio = request.Anuncio.ConvertToAnuncio();
+            
             var anunciante = _anuncianteRepository.GetByToken(request.Anuncio.AnuncianteToken); //(Contexto Anunciante)
-            if (anunciante != null)
+            if (anunciante == null)
+                return new CadastrarAnuncioResponse(){ Message = "Anunciante não identificado.", Success = false };
+
+            anuncio.Anunciante = anunciante; //(Contexto Anuncio), hidratacao por fora para que possamos passar para o contexto especifico, não há necessidade de cache
+
+            if (anuncio.GetBrokenBusinessRules().Count != 0)
+                return new CadastrarAnuncioResponse() { Message = anuncio.GetErrorMessages().ToString(), Success = false };
+
+            try
             {
-                var anuncio = request.Anuncio.ConvertToAnuncio();
-                anuncio.Anunciante = anunciante; //(Contexto Anuncio) ,hidratacao por fora para que possamos passar para o contexto especifico, não há necessidade de cache
-
-                if (anuncio.GetBrokenBusinessRules().Count == 0)
-                {
-                    _anuncioRepository.Insert(anuncio);
-
-                    _anuncioRepository.Persist();
-
-                    response.Message = "Anuncio cadastrado com sucesso";
-                    response.Success = true;
-                }
-                else
-                {
-                    response.Message = anuncio.GetErrorMessages().ToString(); //escreve uma lista imensa de erros para o WebApp
-                    response.Success = false;
-                }
+                _anuncioRepository.Insert(anuncio);
+                _anuncioRepository.Persist();
             }
-            else
+            catch (Exception ex)
             {
-                response.Message = "Anunciante não identificado";
-                response.Success = false;
+                return new CadastrarAnuncioResponse() { Message = "Ocorreu um erro:\n" + ex.Message, Success = false };
             }
-            return response;
+            
+            return new CadastrarAnuncioResponse() { Message = "Anuncio cadastrado com sucesso.", Success = true };
         }
     }
 }
