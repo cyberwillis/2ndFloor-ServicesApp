@@ -13,8 +13,8 @@ namespace SecondFloor.RepositoryEF.IntegratedTest
         [Test]
         public void test1()
         {
-            AnuncioRepository anuncioRepository = new AnuncioRepository();
-            var anuncios = anuncioRepository.Anuncios.ToList();
+            AnuncioContext anuncioContext = new AnuncioContext();
+            var anuncios = anuncioContext.Anuncios.ToList();
 
             Debug.WriteLine(anuncios.Count);
         }

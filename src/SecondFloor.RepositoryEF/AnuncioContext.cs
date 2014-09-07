@@ -5,14 +5,14 @@ using SecondFloor.RepositoryEF.Mappings;
 
 namespace SecondFloor.RepositoryEF
 {
-    public class AnuncioRepository : DbContext
+    public class AnuncioContext : DbContext
     {
         public DbSet<Anuncio> Anuncios { get; set; }
         public DbSet<Anunciante> Anunciante { get; set; }
         public DbSet<Oferta> Ofertas { get; set; }
         public DbSet<Endereco> Enderecos { get; set; }
 
-        public AnuncioRepository() : base("DefaultConnection")
+        public AnuncioContext() : base("DefaultConnection")
         {
         }
 
