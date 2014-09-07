@@ -36,6 +36,28 @@ namespace SecondFloor.Infrastructure.UnitTest
             Assert.IsTrue(ret);
         }
 
+        [TestCase("487.026.647-48")]
+        [TestCase("000.000.000-00")]
+        [TestCase("111.111.111-11")]
+        [TestCase("222.222.222-22")]
+        [TestCase("333.333.333-33")]
+        [TestCase("444.444.444-44")]
+        [TestCase("555.555.555-55")]
+        [TestCase("666.666.666-66")]
+        [TestCase("777.777.777-77")]
+        [TestCase("888.888.888-88")]
+        [TestCase("999.999.999-99")]
+        public void invalid_cpf(string cpf)
+        {
+            bool ret = DocumentosUtil.ValidaCpf(cpf);
+            Assert.IsFalse(ret);
+        }
 
+        [TestCase("487.026.647-47")]
+        public void valid_cpf(string cpf)
+        {
+            bool ret = DocumentosUtil.ValidaCpf(cpf);
+            Assert.IsTrue(ret);
+        }
     }
 }

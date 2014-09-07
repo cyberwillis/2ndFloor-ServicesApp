@@ -68,8 +68,24 @@ namespace SecondFloor.Infrastructure
             cpf = cpf.Replace(".", "").Replace("-", "");
             //cpf = (new Regex("[^0-9]")).Match(cpf).Value;
 
-            if (cpf.Length != 11)
-                return false;
+            if (cpf.Length != 11) return false;
+            else if (cpf.Equals("00000000000")) return false;
+            else if (cpf.Equals("11111111111")) return false;
+            else if (cpf.Equals("22222222222")) return false;
+            else if (cpf.Equals("33333333333")) return false;
+            else if (cpf.Equals("44444444444")) return false;
+            else if (cpf.Equals("55555555555")) return false;
+            else if (cpf.Equals("66666666666")) return false;
+            else if (cpf.Equals("77777777777")) return false;
+            else if (cpf.Equals("88888888888")) return false;
+            else if (cpf.Equals("99999999999")) return false;
+
+
+
+
+
+
+
 
             tempCpf = cpf.Substring(0, 9);
             soma = 0;
