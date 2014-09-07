@@ -1,8 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace SecondFloor.Infrastructure.Repository
 {
-    public interface IRepository<TEntity, TId>
+    public interface IRepository<TEntity, TId> :IDisposable
     {
         void Insert(TEntity entity);
         void Update(TEntity entity);

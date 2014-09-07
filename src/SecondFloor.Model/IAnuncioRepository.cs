@@ -1,8 +1,9 @@
-﻿using SecondFloor.Infrastructure.Repository;
+﻿using System;
+using SecondFloor.Infrastructure.Repository;
 
 namespace SecondFloor.Model
 {
-    public interface IAnuncioRepository<TEntity,TId> : IRepository<TEntity,TId>
+    public interface IAnuncioRepository : IRepository<Anuncio,Guid>
     {
          
     }
