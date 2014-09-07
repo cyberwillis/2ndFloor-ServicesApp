@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.30723.0
+VisualStudioVersion = 12.0.30501.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "6.Communications", "6.Communications", "{606185DC-4C46-4B08-83A5-E02DD37D02AE}"
 EndProject
@@ -49,6 +49,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{D464EC
 		.nuget\NuGet.exe = .nuget\NuGet.exe
 		.nuget\NuGet.targets = .nuget\NuGet.targets
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SecondFloor.Infrastructure.UnitTest", "SecondFloor.Infrastructure.UnitTest\SecondFloor.Infrastructure.UnitTest.csproj", "{281D990E-E67D-4F62-A4FD-26474A85FC52}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -112,6 +114,10 @@ Global
 		{9B77F134-64B3-43CB-8B88-DA3D89A1D381}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9B77F134-64B3-43CB-8B88-DA3D89A1D381}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9B77F134-64B3-43CB-8B88-DA3D89A1D381}.Release|Any CPU.Build.0 = Release|Any CPU
+		{281D990E-E67D-4F62-A4FD-26474A85FC52}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{281D990E-E67D-4F62-A4FD-26474A85FC52}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{281D990E-E67D-4F62-A4FD-26474A85FC52}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{281D990E-E67D-4F62-A4FD-26474A85FC52}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -131,5 +137,6 @@ Global
 		{9754EBB3-80DB-4C84-BBA1-7867AF07E03C} = {D1EC691C-E821-4F14-915E-5946EDC5C6D9}
 		{6E025549-48FE-4438-8CE0-7ACF04EF6C39} = {D1EC691C-E821-4F14-915E-5946EDC5C6D9}
 		{9B77F134-64B3-43CB-8B88-DA3D89A1D381} = {2285F44E-EEC0-4658-A259-960E8EA08DCE}
+		{281D990E-E67D-4F62-A4FD-26474A85FC52} = {FE677FC7-BA46-4D4F-B8AA-B8CA89A6CC16}
 	EndGlobalSection
 EndGlobal

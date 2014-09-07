@@ -20,6 +20,8 @@ namespace SecondFloor.Infrastructure
 
             if (cnpj.Length != 14)
                 return false;
+            else if(cnpj.Equals("00000000000000"))
+                return false;
 
             tempCnpj = cnpj.Substring(0, 12);
 
