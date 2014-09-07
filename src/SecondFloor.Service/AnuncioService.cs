@@ -3,10 +3,11 @@ using SecondFloor.DataContracts.Messages;
 using SecondFloor.Infrastructure.Repository;
 using SecondFloor.Model;
 using SecondFloor.Service.ExtensionMethods;
+using SecondFloor.ServiceContracts;
 
 namespace SecondFloor.Service
 {
-    public class AnuncioService
+    public class AnuncioService : IAnuncioService
     {
         private IAnuncioRepository<Anuncio, Guid> _anuncioRepository;
         private IAnuncianteRepository<Anunciante, Guid> _anuncianteRepository;
