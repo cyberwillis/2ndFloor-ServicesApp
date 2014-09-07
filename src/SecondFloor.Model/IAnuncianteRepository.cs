@@ -3,8 +3,10 @@ using SecondFloor.Infrastructure.Repository;
 
 namespace SecondFloor.Model
 {
-    public interface IAnuncianteRepository : IRepository<Anunciante,Guid>
+    public interface IAnuncianteRepository : IRepository, IDisposable
     {
-        Anunciante GetByToken(string anuncianteToken);
+        Anunciante EncontrarAnunciantePorToken(string anuncianteToken);
+
+        void InserirAnunciante(Anunciante anunciante);
     }
 }

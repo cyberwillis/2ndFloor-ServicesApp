@@ -8,7 +8,7 @@ namespace SecondFloor.RepositoryEF
     public class AnuncioContext : DbContext
     {
         public DbSet<Anuncio> Anuncios { get; set; }
-        public DbSet<Anunciante> Anunciante { get; set; }
+        public DbSet<Anunciante> Anunciantes { get; set; }
         public DbSet<Oferta> Ofertas { get; set; }
         public DbSet<Endereco> Enderecos { get; set; }
 
