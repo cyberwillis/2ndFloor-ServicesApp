@@ -120,8 +120,6 @@ namespace SecondFloor.Infrastructure
 
         public static bool ValidaPis(string pis)
         {
-            //string pis = entidade.Pis;
-
             int[] multiplicador = new int[10] { 3, 2, 9, 8, 7, 6, 5, 4, 3, 2 };
             int soma;
             int resto;
