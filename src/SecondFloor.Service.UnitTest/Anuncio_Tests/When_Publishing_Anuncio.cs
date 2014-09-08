@@ -49,7 +49,7 @@ namespace SecondFloor.Service.UnitTest.Anuncio_Tests
 
 
         [Test]
-        public void test_if_anuncio_is_saved_when_anuncio_is_vallid()
+        public void test_if_anuncio_was_valid_pass()
         {
             //Arrange
             var mockAnuncioRepository = MockRepository.GenerateMock<IAnuncioRepository>();
@@ -70,7 +70,7 @@ namespace SecondFloor.Service.UnitTest.Anuncio_Tests
         }
 
         [Test]
-        public void test_if_anunciante_is_unknown()
+        public void test_if_anunciante_was_unknown_fail()
         {
             //Arrange
             var mockAnuncioRepository = MockRepository.GenerateMock<IAnuncioRepository>();
@@ -89,7 +89,7 @@ namespace SecondFloor.Service.UnitTest.Anuncio_Tests
         }
 
         [Test]
-        public void test_if_anuncio_contains_errors()
+        public void test_if_anuncio_has_errors_fail()
         {
             //Arrange
             var mockAnuncioRepository = MockRepository.GenerateMock<IAnuncioRepository>();

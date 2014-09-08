@@ -43,7 +43,7 @@ namespace SecondFloor.Service.IntegratedTest.AnuncioService_Tests
         }
 
         [Test]
-        public void test_if_anuncio_was_inserted()
+        public void test_if_anuncio_was_inserted_pass()
         {
             //Arrange
             var anunciante = GerarAnunciante(); //Anunciante
@@ -66,7 +66,7 @@ namespace SecondFloor.Service.IntegratedTest.AnuncioService_Tests
         }
 
         [Test]
-        public void test_if_anuncio_was_invalid()
+        public void test_if_anuncio_was_invalid_fail()
         {
             //Arrange
             var anunciante = GerarAnunciante(); //Anunciante not exists in database

@@ -56,6 +56,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SecondFloor.Wcf.SelfHost", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SecondFloor.RepositoryNH", "SecondFloor.RepositoryNH\SecondFloor.RepositoryNH.csproj", "{C51D24C9-8C00-431D-8C38-E4C6D859EBA7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SecondFloor.RepositoryNH.IntegratedTest", "SecondFloor.RepositoryNH.IntegratedTest\SecondFloor.RepositoryNH.IntegratedTest.csproj", "{31E1BD23-FF19-490F-A3AE-1FD903C44D30}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -130,6 +132,10 @@ Global
 		{C51D24C9-8C00-431D-8C38-E4C6D859EBA7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C51D24C9-8C00-431D-8C38-E4C6D859EBA7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C51D24C9-8C00-431D-8C38-E4C6D859EBA7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{31E1BD23-FF19-490F-A3AE-1FD903C44D30}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{31E1BD23-FF19-490F-A3AE-1FD903C44D30}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{31E1BD23-FF19-490F-A3AE-1FD903C44D30}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{31E1BD23-FF19-490F-A3AE-1FD903C44D30}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -152,5 +158,6 @@ Global
 		{281D990E-E67D-4F62-A4FD-26474A85FC52} = {FE677FC7-BA46-4D4F-B8AA-B8CA89A6CC16}
 		{B491D2FF-9285-4EA6-A585-69B6BA301812} = {606185DC-4C46-4B08-83A5-E02DD37D02AE}
 		{C51D24C9-8C00-431D-8C38-E4C6D859EBA7} = {D1EC691C-E821-4F14-915E-5946EDC5C6D9}
+		{31E1BD23-FF19-490F-A3AE-1FD903C44D30} = {D1EC691C-E821-4F14-915E-5946EDC5C6D9}
 	EndGlobalSection
 EndGlobal
