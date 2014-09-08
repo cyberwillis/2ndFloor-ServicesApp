@@ -20,6 +20,8 @@ namespace SecondFloor.Infrastructure
 
             if (cnpj.Length != 14)
                 return false;
+            else if(cnpj.Equals("00000000000000"))
+                return false;
 
             tempCnpj = cnpj.Substring(0, 12);
 
@@ -66,8 +68,24 @@ namespace SecondFloor.Infrastructure
             cpf = cpf.Replace(".", "").Replace("-", "");
             //cpf = (new Regex("[^0-9]")).Match(cpf).Value;
 
-            if (cpf.Length != 11)
-                return false;
+            if (cpf.Length != 11) return false;
+            else if (cpf.Equals("00000000000")) return false;
+            else if (cpf.Equals("11111111111")) return false;
+            else if (cpf.Equals("22222222222")) return false;
+            else if (cpf.Equals("33333333333")) return false;
+            else if (cpf.Equals("44444444444")) return false;
+            else if (cpf.Equals("55555555555")) return false;
+            else if (cpf.Equals("66666666666")) return false;
+            else if (cpf.Equals("77777777777")) return false;
+            else if (cpf.Equals("88888888888")) return false;
+            else if (cpf.Equals("99999999999")) return false;
+
+
+
+
+
+
+
 
             tempCpf = cpf.Substring(0, 9);
             soma = 0;
@@ -102,8 +120,6 @@ namespace SecondFloor.Infrastructure
 
         public static bool ValidaPis(string pis)
         {
-            //string pis = entidade.Pis;
-
             int[] multiplicador = new int[10] { 3, 2, 9, 8, 7, 6, 5, 4, 3, 2 };
             int soma;
             int resto;

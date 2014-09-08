@@ -55,8 +55,8 @@ namespace SecondFloor.Model.UnitTest.Comentario_Tests
         {
             _anunciante = new Anunciante();
             _anunciante.RazaoSocial = "Oficina de entretenimento adulto do tio careca";
-            _anunciante.Cnpj = "40.123.456.0001-10";
-            _anunciante.Token = "62ac3355aedf50d4304cc0882a38cf5ef17eb764";
+            _anunciante.Cnpj = "49.107.344/0001-93";
+            _anunciante.Token = "4f2b36ac358c3b311ec5168f561b1325ca1cedde";
         }
     }
 }
