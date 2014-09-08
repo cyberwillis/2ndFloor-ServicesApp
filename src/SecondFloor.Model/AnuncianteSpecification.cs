@@ -45,6 +45,11 @@ namespace SecondFloor.Model
             return anunciante.BrokenRules;
         }
 
+
+        public static string GetToken(this Anunciante anunciante)
+        {
+            return Sha1Util.SHA1HashStringForUTF8String(anunciante.Cnpj + anunciante.RazaoSocial);
+        }
         
     }
 }
