@@ -20,8 +20,7 @@ namespace SecondFloor.Infrastructure
 
             if (cnpj.Length != 14)
                 return false;
-            else if(cnpj.Equals("00000000000000"))
-                return false;
+            else if (cnpj.Equals("00000000000000")) return false;
 
             tempCnpj = cnpj.Substring(0, 12);
 
@@ -79,13 +78,6 @@ namespace SecondFloor.Infrastructure
             else if (cpf.Equals("77777777777")) return false;
             else if (cpf.Equals("88888888888")) return false;
             else if (cpf.Equals("99999999999")) return false;
-
-
-
-
-
-
-
 
             tempCpf = cpf.Substring(0, 9);
             soma = 0;

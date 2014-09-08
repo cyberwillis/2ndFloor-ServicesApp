@@ -12,7 +12,7 @@ namespace SecondFloor.Infrastructure.UnitTest
     public class DocumentosUtilTest
     {
         [TestCase("40.123.456.0001-20")]
-        [TestCase("00.000.000.0000-00")]
+        [TestCase("00.000.000.0000-00")] //is valid but cannot exists in domain
         [TestCase("11.111.111.1111-11")]
         [TestCase("22.222.222.2222-22")]
         [TestCase("33.333.333.3333-33")]
@@ -38,16 +38,16 @@ namespace SecondFloor.Infrastructure.UnitTest
         }
 
         [TestCase("487.026.647-48")]
-        [TestCase("000.000.000-00")]
-        [TestCase("111.111.111-11")]
-        [TestCase("222.222.222-22")]
-        [TestCase("333.333.333-33")]
-        [TestCase("444.444.444-44")]
-        [TestCase("555.555.555-55")]
-        [TestCase("666.666.666-66")]
-        [TestCase("777.777.777-77")]
-        [TestCase("888.888.888-88")]
-        [TestCase("999.999.999-99")]
+        [TestCase("000.000.000-00")] //is valid but cannot exists in domain
+        [TestCase("111.111.111-11")] //is valid but cannot exists in domain
+        [TestCase("222.222.222-22")] //is valid but cannot exists in domain
+        [TestCase("333.333.333-33")] //is valid but cannot exists in domain
+        [TestCase("444.444.444-44")] //is valid but cannot exists in domain
+        [TestCase("555.555.555-55")] //is valid but cannot exists in domain
+        [TestCase("666.666.666-66")] //is valid but cannot exists in domain
+        [TestCase("777.777.777-77")] //is valid but cannot exists in domain
+        [TestCase("888.888.888-88")] //is valid but cannot exists in domain
+        [TestCase("999.999.999-99")] //is valid but cannot exists in domain
         public void invalid_cpf(string cpf)
         {
             bool ret = DocumentosUtil.ValidaCpf(cpf);
