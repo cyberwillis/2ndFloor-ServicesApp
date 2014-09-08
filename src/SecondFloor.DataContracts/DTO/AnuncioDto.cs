@@ -12,7 +12,7 @@ namespace SecondFloor.DataContracts.DTO
         public int DiaFim { get; set; }
         public int MesFim { get; set; }
         public int AnoFim { get; set; }
-        public string AnuncianteToken { get; set; }
+        //public string AnuncianteToken { get; set; }
         public IEnumerable<OfertaDto> Ofertas { get; set; }
     }
 }
