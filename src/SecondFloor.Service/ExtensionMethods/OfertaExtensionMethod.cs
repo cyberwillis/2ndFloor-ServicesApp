@@ -12,7 +12,7 @@ namespace SecondFloor.Service.ExtensionMethods
         {
             var oferta = new Oferta();
 
-            if (string.IsNullOrEmpty(ofertaDto.Id))
+            if (string.IsNullOrEmpty(ofertaDto.Id) || ofertaDto.Id == "00000000-0000-0000-0000-000000000000")
             {
                 oferta.Id = Guid.NewGuid();
             }
