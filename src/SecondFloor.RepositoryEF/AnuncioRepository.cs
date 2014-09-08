@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.Entity.Core;
+using System.Data.Entity.Core.Objects;
 using System.Linq;
 using SecondFloor.Model;
 
@@ -32,20 +34,38 @@ namespace SecondFloor.RepositoryEF
 
         public void AlterarAnuncio(Anuncio anuncio)
         {
-            var anucioOld = _context.Anuncios.Find(anuncio.Id); //somente para capturar o item em memoria
+            var anucioOld = EncontrarAnuncioPor(anuncio.Id); //somente para capturar o item em memoria
             _context.Entry(anuncio).State = EntityState.Modified; //altera entidade anuncio e foçar estado de alteracao
         }
 
         public void ExcluirAnuncio(Guid id)
         {
-            var anuncio = _context.Anuncios.Find(id);
-            if(anuncio!= null)
+            var anuncio = EncontrarAnuncioPor(id);
+            if (anuncio != null)
                 _context.Anuncios.Remove(anuncio);
         }
 
         public void Persist()
         {
             _context.SaveChanges();
+            _context.Configuration.ValidateOnSaveEnabled = true;
+            /*using (var transaction =  Connection.BeginTransaction())
+            {
+                try
+                {
+                    _context.SaveChanges();
+                    transaction.Commit();
+                }
+                catch (OptimisticConcurrencyException)
+                {
+                    if (ObjectStateManager.GetObjectStateEntry(entity).State == EntityState.Deleted || ObjectStateManager.GetObjectStateEntry(entity).State == EntityState.Modified)
+                        this.Refresh(RefreshMode.StoreWins, entity);
+                    else if (ObjectStateManager.GetObjectStateEntry(entity).State == EntityState.Added)
+                        Detach(entity);
+                    AcceptAllChanges();
+                    transaction.Commit();
+                }
+            }*/
         }
 
         public void Dispose()

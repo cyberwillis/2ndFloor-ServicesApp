@@ -15,7 +15,8 @@ namespace SecondFloor.RepositoryEF.Mappings
             Property(a => a.Pontuacao);
             Property(a => a.Token);
 
-            HasMany(a => a.Anuncios);
+            HasMany(a => a.Anuncios).WithRequired(a=>a.Anunciante)
+                .Map(x => x.MapKey("AnuncianteId").ToTable("tbAnuncio"));
         }
     }
 }
