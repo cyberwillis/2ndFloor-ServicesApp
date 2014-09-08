@@ -1,33 +1,56 @@
-﻿using System.Data.Entity;
-using SecondFloor.Infrastructure.Model;
+﻿using System;
+using System.Collections.Generic;
+using System.Data.Entity;
+using System.Linq;
 using SecondFloor.Model;
-using SecondFloor.RepositoryEF.Mappings;
 
 namespace SecondFloor.RepositoryEF
 {
-    public class AnuncioRepository : DbContext
+    public class AnuncioRepository : IAnuncioRepository
     {
-        public DbSet<Anuncio> Anuncios { get; set; }
-        public DbSet<Anunciante> Anunciante { get; set; }
-        public DbSet<Oferta> Ofertas { get; set; }
-        public DbSet<Endereco> Enderecos { get; set; }
+        private AnuncioContext _context;
 
-        public AnuncioRepository() : base("DefaultConnection")
+        public AnuncioRepository(AnuncioContext context)
         {
+            _context = context;
         }
 
-        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        public IList<Anuncio> EncontrarTodosAnuncios()
         {
-            modelBuilder.Configurations.Add(new AnuncioConfiguration());
-            modelBuilder.Configurations.Add(new OfertaConfiguration());
-            modelBuilder.Configurations.Add(new EnderecoConfiguration());
-            modelBuilder.Configurations.Add(new AnuncianteConfiguration());
+            return _context.Anuncios.ToList();
+        }
 
-            modelBuilder.Ignore<BusinessRule>();
-            modelBuilder.Ignore<Consumidor>(); //Usar em outro contexto
-            modelBuilder.Ignore<Comentario>(); //Usar em outro contexto
+        public Anuncio EncontrarAnuncioPor(Guid id)
+        {
+            return _context.Anuncios.Find(id);
+        }
 
-            base.OnModelCreating(modelBuilder);
+        public void InserirAnuncio(Anuncio anuncio)
+        {
+            _context.Anuncios.Add(anuncio);
+        }
+
+        public void AlterarAnuncio(Anuncio anuncio)
+        {
+            var anucioOld = _context.Anuncios.Find(anuncio.Id); //somente para capturar o item em memoria
+            _context.Entry(anuncio).State = EntityState.Modified; //altera entidade anuncio e foçar estado de alteracao
+        }
+
+        public void ExcluirAnuncio(Guid id)
+        {
+            var anuncio = _context.Anuncios.Find(id);
+            if(anuncio!= null)
+                _context.Anuncios.Remove(anuncio);
+        }
+
+        public void Persist()
+        {
+            _context.SaveChanges();
+        }
+
+        public void Dispose()
+        {
+            _context.Dispose();
         }
     }
 }

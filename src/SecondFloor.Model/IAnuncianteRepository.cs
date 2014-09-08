@@ -1,9 +1,12 @@
-﻿using SecondFloor.Infrastructure.Repository;
+﻿using System;
+using SecondFloor.Infrastructure.Repository;
 
 namespace SecondFloor.Model
 {
-    public interface IAnuncianteRepository<TEntity,TId> : IRepository<TEntity,TId>
+    public interface IAnuncianteRepository : IRepository, IDisposable
     {
-        TEntity GetByToken(string anuncianteToken);
+        Anunciante EncontrarAnunciantePorToken(string anuncianteToken);
+
+        void InserirAnunciante(Anunciante anunciante);
     }
 }

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using SecondFloor.DataContracts.DTO;
 using SecondFloor.Model;
@@ -10,6 +11,16 @@ namespace SecondFloor.Service.ExtensionMethods
         public static Oferta ConvertToOderta(this OfertaDto ofertaDto)
         {
             var oferta = new Oferta();
+
+            if (string.IsNullOrEmpty(ofertaDto.Id))
+            {
+                oferta.Id = Guid.NewGuid();
+            }
+            else
+            {
+                oferta.Id = new Guid(ofertaDto.Id);
+            }
+
             oferta.Titulo = ofertaDto.Titulo;
             oferta.Preco = ofertaDto.Preco;
 
@@ -25,6 +36,7 @@ namespace SecondFloor.Service.ExtensionMethods
         {
             var ofertaDto = new OfertaDto();
 
+            ofertaDto.Id = oferta.Id.ToString();
             ofertaDto.Titulo = oferta.Titulo;
             ofertaDto.Descricao = oferta.Descricao;
             ofertaDto.Preco = oferta.Preco;

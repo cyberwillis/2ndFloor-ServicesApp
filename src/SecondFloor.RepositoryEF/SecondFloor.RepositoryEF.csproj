@@ -45,6 +45,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AnuncianteRepository.cs" />
+    <Compile Include="AnuncioContext.cs" />
     <Compile Include="AnuncioRepository.cs" />
     <Compile Include="Mappings\AnuncianteConfiguration.cs" />
     <Compile Include="Mappings\AnuncioConfiguration.cs" />

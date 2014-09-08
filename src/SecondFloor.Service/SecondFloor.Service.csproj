@@ -58,6 +58,10 @@
       <Project>{640A4CC8-F3CD-45C6-BC4B-37C2E22EB2F4}</Project>
       <Name>SecondFloor.Model</Name>
     </ProjectReference>
+    <ProjectReference Include="..\SecondFloor.ServiceContracts\SecondFloor.ServiceContracts.csproj">
+      <Project>{7531dd5d-f281-49bd-a72e-c9b810968a0a}</Project>
+      <Name>SecondFloor.ServiceContracts</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

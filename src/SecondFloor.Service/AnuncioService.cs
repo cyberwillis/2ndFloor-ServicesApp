@@ -3,15 +3,16 @@ using SecondFloor.DataContracts.Messages;
 using SecondFloor.Infrastructure.Repository;
 using SecondFloor.Model;
 using SecondFloor.Service.ExtensionMethods;
+using SecondFloor.ServiceContracts;
 
 namespace SecondFloor.Service
 {
-    public class AnuncioService
+    public class AnuncioService : IAnuncioService
     {
-        private IAnuncioRepository<Anuncio, Guid> _anuncioRepository;
-        private IAnuncianteRepository<Anunciante, Guid> _anuncianteRepository;
+        private IAnuncioRepository _anuncioRepository;
+        private IAnuncianteRepository _anuncianteRepository;
 
-        public AnuncioService(IAnuncioRepository<Anuncio, Guid> anuncioRepository, IAnuncianteRepository<Anunciante, Guid> anuncianteRepository )
+        public AnuncioService(IAnuncioRepository anuncioRepository, IAnuncianteRepository anuncianteRepository )
         {
             _anuncianteRepository = anuncianteRepository;
             _anuncioRepository = anuncioRepository;
@@ -21,7 +22,7 @@ namespace SecondFloor.Service
         {
             var anuncio = request.Anuncio.ConvertToAnuncio();
             
-            var anunciante = _anuncianteRepository.GetByToken(request.Anuncio.AnuncianteToken); //(Contexto Anunciante)
+            var anunciante = _anuncianteRepository.EncontrarAnunciantePorToken(request.Anuncio.AnuncianteToken); //(Contexto Anunciante)
             if (anunciante == null)
                 return new CadastrarAnuncioResponse(){ Message = "Anunciante não identificado.", Success = false };
 
@@ -32,7 +33,7 @@ namespace SecondFloor.Service
 
             try
             {
-                _anuncioRepository.Insert(anuncio);
+                _anuncioRepository.InserirAnuncio(anuncio);
                 _anuncioRepository.Persist();
             }
             catch (Exception ex)
