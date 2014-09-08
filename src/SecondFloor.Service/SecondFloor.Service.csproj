@@ -39,7 +39,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AnuncianteService.cs" />
     <Compile Include="AnuncioService.cs" />
+    <Compile Include="ExtensionMethods\AnuncianteExtensionMethod.cs" />
     <Compile Include="ExtensionMethods\AnuncioExtensionMethod.cs" />
     <Compile Include="ExtensionMethods\EnderecoExtensionMethod.cs" />
     <Compile Include="ExtensionMethods\OfertaExtensionMethod.cs" />

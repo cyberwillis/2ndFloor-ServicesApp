@@ -33,11 +33,22 @@ namespace SecondFloor.Model
                 anunciante.AddBrokenRule(new BusinessRule("Cnpj", "O Cnpj está invalido"));
             }
 
+            //Email
+            /*if (string.IsNullOrEmpty(anunciante.Email))
+            {
+                anunciante.AddBrokenRule(new BusinessRule("Email", "O Email não pode ser nulo."));
+            }
+            else if (!DocumentosUtil.ValidaEmail(anunciante.Email))
+            {
+                anunciante.AddBrokenRule(new BusinessRule("Email", "O Email está invalido"));
+            }*/
+
+            //Token
             if (string.IsNullOrEmpty(anunciante.Token))
             {
                 anunciante.AddBrokenRule(new BusinessRule("Token","Erro no cadastro do Anunciante, ficará impossibilitado de publicar ofertas"));
                 //cantactar Admin do portal por email
-            } else if (anunciante.Token != Sha1Util.SHA1HashStringForUTF8String(anunciante.Cnpj+anunciante.RazaoSocial) )
+            } else if (anunciante.Token != GetToken(anunciante) )
             {
                 anunciante.AddBrokenRule(new BusinessRule("Token", "O Token do anunciante não confere"));
             }
@@ -45,10 +56,11 @@ namespace SecondFloor.Model
             return anunciante.BrokenRules;
         }
 
-
         public static string GetToken(this Anunciante anunciante)
         {
-            return Sha1Util.SHA1HashStringForUTF8String(anunciante.Cnpj + anunciante.RazaoSocial);
+            string parametroChave = anunciante.Cnpj + anunciante.RazaoSocial;
+
+            return Sha1Util.SHA1HashStringForUTF8String(parametroChave);
         }
         
     }
