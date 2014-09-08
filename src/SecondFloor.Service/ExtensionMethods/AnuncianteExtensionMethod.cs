@@ -1,4 +1,5 @@
-﻿using SecondFloor.DataContracts.DTO;
+﻿using System;
+using SecondFloor.DataContracts.DTO;
 using SecondFloor.Model;
 
 namespace SecondFloor.Service.ExtensionMethods
@@ -8,6 +9,15 @@ namespace SecondFloor.Service.ExtensionMethods
         public static Anunciante ConvertToAnunciante( this AnuncianteDto anuncianteDto )
         {
             var anunciante = new Anunciante();
+
+            if (string.IsNullOrEmpty(anuncianteDto.Id) || anuncianteDto.Id == "00000000-0000-0000-0000-000000000000")
+            {
+                anunciante.Id = Guid.NewGuid();
+            }
+            else
+            {
+                anunciante.Id = new Guid(anuncianteDto.Id);
+            }
 
             anunciante.RazaoSocial = anuncianteDto.RazaoSocial;
             anunciante.Email = anuncianteDto.Email;

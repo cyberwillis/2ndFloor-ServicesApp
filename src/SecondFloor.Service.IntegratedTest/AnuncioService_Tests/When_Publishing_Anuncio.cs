@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Diagnostics;
 using NUnit.Framework;
 using SecondFloor.DataContracts.DTO;
@@ -9,7 +8,7 @@ using SecondFloor.Model;
 using SecondFloor.RepositoryEF;
 using SecondFloor.Service.ExtensionMethods;
 
-namespace SecondFloor.Service.IntegratedTest.Anuncio_Tests
+namespace SecondFloor.Service.IntegratedTest.AnuncioService_Tests
 {
     [TestFixture]
     public class When_Publishing_Anuncio
@@ -67,7 +66,7 @@ namespace SecondFloor.Service.IntegratedTest.Anuncio_Tests
         }
 
         [Test]
-        public void test_if_anuncio_request_was_invalid()
+        public void test_if_anuncio_was_invalid()
         {
             //Arrange
             var anunciante = GerarAnunciante(); //Anunciante not exists in database

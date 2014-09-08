@@ -51,7 +51,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Anuncio_Tests\When_Publishing_Anuncio.cs" />
+    <Compile Include="AnuncianteService_Tests\When_Registering_Anunciante.cs" />
+    <Compile Include="AnuncioService_Tests\When_Publishing_Anuncio.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
