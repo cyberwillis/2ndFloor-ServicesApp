@@ -36,6 +36,13 @@ namespace SecondFloor.Service.ExtensionMethods
             return anuncio;
         }
 
+        public static IList<Anuncio> ConvertToListaAnuncio(this IList<AnuncioDto> anunciosDtos)
+        {
+            var anuncios = anunciosDtos.Select(anuncioDto => anuncioDto.ConvertToAnuncio()).ToList();
+
+            return anuncios;
+        }
+
         public static AnuncioDto ConvertToAnuncioDto(this Anuncio anuncio)
         {
             var anuncioDto = new AnuncioDto();
@@ -58,6 +65,13 @@ namespace SecondFloor.Service.ExtensionMethods
             anuncioDto.Titulo = anuncio.Titulo;
 
             return anuncioDto;
+        }
+
+        public static IList<AnuncioDto> ConvertToListaAnunciosDtos(this IList<Anuncio> anuncios)
+        {
+            var anunciosDtos = anuncios.Select(anuncio => anuncio.ConvertToAnuncioDto()).ToList();
+
+            return anunciosDtos;
         }
     }
 }
