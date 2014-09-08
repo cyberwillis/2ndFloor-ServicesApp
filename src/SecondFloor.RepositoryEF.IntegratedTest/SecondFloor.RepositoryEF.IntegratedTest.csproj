@@ -52,7 +52,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AnuncioRepository_Test\AnuncioTest.cs" />
+    <Compile Include="AnuncianteRepository_Tests.cs" />
+    <Compile Include="AnuncioRepository_Tests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

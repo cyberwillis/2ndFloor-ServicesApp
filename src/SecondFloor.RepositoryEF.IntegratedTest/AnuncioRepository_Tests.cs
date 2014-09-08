@@ -6,7 +6,7 @@ using SecondFloor.Model;
 namespace SecondFloor.RepositoryEF.IntegratedTest.AnuncioRepository_Test
 {
     [TestFixture]
-    public class AnuncioTest
+    public class AnuncioRepository_Tests
     {
         private AnuncioRepository _anuncioRepository;
         private AnuncianteRepository _anuncianteRepository;
@@ -46,7 +46,7 @@ namespace SecondFloor.RepositoryEF.IntegratedTest.AnuncioRepository_Test
         }
 
         [Test]
-        public void test_EncontrarTodosAnuncios_returns_one_or_zero_elements()
+        public void test_EncontrarTodosAnuncios_returns_one_or_zero_elements_pass()
         {
             var anuncios = _anuncioRepository.EncontrarTodosAnuncios();
 
@@ -54,7 +54,7 @@ namespace SecondFloor.RepositoryEF.IntegratedTest.AnuncioRepository_Test
         }
 
         [Test]
-        public void test_InserirAnuncio()
+        public void test_InserirAnuncio_pass()
         {
             var anuncianteId = _anunciante.Id;
 
