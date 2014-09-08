@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.Runtime.InteropServices;
 using NUnit.Framework;
 using Rhino.Mocks;
 using SecondFloor.DataContracts.DTO;
@@ -53,11 +52,11 @@ namespace SecondFloor.Service.UnitTest.Anuncio_Tests
         public void test_if_anuncio_is_saved_when_anuncio_is_vallid()
         {
             //Arrange
-            var mockAnuncioRepository = MockRepository.GenerateMock<IAnuncioRepository<Anuncio, Guid>>();
-            mockAnuncioRepository.Stub(x => x.Insert(Arg<Anuncio>.Is.Anything));
+            var mockAnuncioRepository = MockRepository.GenerateMock<IAnuncioRepository>();
+            mockAnuncioRepository.Stub(x => x.InserirAnuncio(Arg<Anuncio>.Is.Anything));
             mockAnuncioRepository.Stub(x => x.Persist());
             
-            var mockAnuncianteRepository = MockRepository.GenerateMock<IAnuncianteRepository<Anunciante, Guid>>();
+            var mockAnuncianteRepository = MockRepository.GenerateMock<IAnuncianteRepository>();
             mockAnuncianteRepository.Stub(x => x.EncontrarAnunciantePorToken(Arg<string>.Is.Anything)).Return(new Anunciante());
 
             var anuncioService = new AnuncioService(mockAnuncioRepository, mockAnuncianteRepository);
@@ -74,8 +73,8 @@ namespace SecondFloor.Service.UnitTest.Anuncio_Tests
         public void test_if_anunciante_is_unknown()
         {
             //Arrange
-            var mockAnuncioRepository = MockRepository.GenerateMock<IAnuncioRepository<Anuncio, Guid>>();
-            var mockAnuncianteRepository = MockRepository.GenerateMock<IAnuncianteRepository<Anunciante, Guid>>();
+            var mockAnuncioRepository = MockRepository.GenerateMock<IAnuncioRepository>();
+            var mockAnuncianteRepository = MockRepository.GenerateMock<IAnuncianteRepository>();
             mockAnuncianteRepository.Stub(x => x.EncontrarAnunciantePorToken(Arg<string>.Is.Anything)).Return(null); //anunciante é nulo
 
             var anuncioService = new AnuncioService(mockAnuncioRepository, mockAnuncianteRepository);
@@ -93,8 +92,8 @@ namespace SecondFloor.Service.UnitTest.Anuncio_Tests
         public void test_if_anuncio_contains_errors()
         {
             //Arrange
-            var mockAnuncioRepository = MockRepository.GenerateMock<IAnuncioRepository<Anuncio, Guid>>();
-            var mockAnuncianteRepository = MockRepository.GenerateMock<IAnuncianteRepository<Anunciante, Guid>>();
+            var mockAnuncioRepository = MockRepository.GenerateMock<IAnuncioRepository>();
+            var mockAnuncianteRepository = MockRepository.GenerateMock<IAnuncianteRepository>();
             mockAnuncianteRepository.Stub(x => x.EncontrarAnunciantePorToken(Arg<string>.Is.Anything)).Return(new Anunciante());
             
             var anuncioService = new AnuncioService(mockAnuncioRepository, mockAnuncianteRepository);

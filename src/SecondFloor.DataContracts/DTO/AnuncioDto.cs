@@ -4,6 +4,7 @@ namespace SecondFloor.DataContracts.DTO
 {
     public class AnuncioDto
     {
+        public string Id { get; set; }
         public string Titulo { get; set; }
         public int DiaInicio { get; set; }
         public int MesInicio { get; set; }

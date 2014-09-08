@@ -27,11 +27,7 @@ namespace SecondFloor.RepositoryEF
 
         public void InserirAnuncio(Anuncio anuncio)
         {
-            if (anuncio.Id == default (Guid))
-            {
-                anuncio.Id = Guid.NewGuid(); //gerar id unico
-                _context.Anuncios.Add(anuncio);
-            }
+            _context.Anuncios.Add(anuncio);
         }
 
         public void AlterarAnuncio(Anuncio anuncio)

@@ -68,6 +68,10 @@
       <Project>{6B967736-3832-4815-ADAA-11CCC62366D8}</Project>
       <Name>SecondFloor.RepositoryEF</Name>
     </ProjectReference>
+    <ProjectReference Include="..\SecondFloor.Service\SecondFloor.Service.csproj">
+      <Project>{E1A48511-FA19-4DA4-8826-AF46DD369BB2}</Project>
+      <Name>SecondFloor.Service</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

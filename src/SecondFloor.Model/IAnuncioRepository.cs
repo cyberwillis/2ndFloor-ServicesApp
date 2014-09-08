@@ -4,7 +4,7 @@ using SecondFloor.Infrastructure.Repository;
 
 namespace SecondFloor.Model
 {
-    public interface IAnuncioRepository : IRepository<Anuncio,Guid>, IDisposable
+    public interface IAnuncioRepository : IRepository, IDisposable
     {
         IList<Anuncio> EncontrarTodosAnuncios();
         Anuncio EncontrarAnuncioPor(Guid id);

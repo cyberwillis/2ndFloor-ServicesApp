@@ -9,10 +9,10 @@ namespace SecondFloor.Service
 {
     public class AnuncioService : IAnuncioService
     {
-        private IAnuncioRepository<Anuncio, Guid> _anuncioRepository;
-        private IAnuncianteRepository<Anunciante, Guid> _anuncianteRepository;
+        private IAnuncioRepository _anuncioRepository;
+        private IAnuncianteRepository _anuncianteRepository;
 
-        public AnuncioService(IAnuncioRepository<Anuncio, Guid> anuncioRepository, IAnuncianteRepository<Anunciante, Guid> anuncianteRepository )
+        public AnuncioService(IAnuncioRepository anuncioRepository, IAnuncianteRepository anuncianteRepository )
         {
             _anuncianteRepository = anuncianteRepository;
             _anuncioRepository = anuncioRepository;
@@ -33,7 +33,7 @@ namespace SecondFloor.Service
 
             try
             {
-                _anuncioRepository.Insert(anuncio);
+                _anuncioRepository.InserirAnuncio(anuncio);
                 _anuncioRepository.Persist();
             }
             catch (Exception ex)

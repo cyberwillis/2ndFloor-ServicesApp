@@ -11,7 +11,16 @@ namespace SecondFloor.Service.ExtensionMethods
         public static Anuncio ConvertToAnuncio(this AnuncioDto anuncioDto)
         {
             var anuncio = new Anuncio();
-            
+
+            if (string.IsNullOrEmpty(anuncioDto.Id))
+            {
+                anuncio.Id = Guid.NewGuid();
+            }
+            else
+            {
+                anuncio.Id = new Guid(anuncioDto.Id);
+            }
+
             if(anuncioDto.Ofertas!= null)
                 if (anuncioDto.Ofertas.Any())
                     anuncio.Ofertas = anuncioDto.Ofertas.ConvertToListaDeOfertas().ToList();
@@ -30,6 +39,8 @@ namespace SecondFloor.Service.ExtensionMethods
         public static AnuncioDto ConvertToAnuncioDto(this Anuncio anuncio)
         {
             var anuncioDto = new AnuncioDto();
+
+            anuncioDto.Id = anuncio.Id.ToString();
 
             var ofertas = anuncio.Ofertas.Select(oferta => oferta.ConvertToOfertaDto()).ToList();
             anuncioDto.Ofertas = ofertas;

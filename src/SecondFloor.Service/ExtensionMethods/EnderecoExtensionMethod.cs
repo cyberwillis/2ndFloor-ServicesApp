@@ -1,4 +1,5 @@
-﻿using SecondFloor.DataContracts.DTO;
+﻿using System;
+using SecondFloor.DataContracts.DTO;
 using SecondFloor.Model;
 
 namespace SecondFloor.Service.ExtensionMethods
@@ -8,6 +9,15 @@ namespace SecondFloor.Service.ExtensionMethods
         public static Endereco ConvertToEndereco(this EnderecoDto enderecoDto)
         {
             var endereco = new Endereco();
+
+            if (string.IsNullOrEmpty(enderecoDto.Id))
+            {
+                endereco.Id = Guid.NewGuid();
+            }
+            else
+            {
+                endereco.Id = new Guid(enderecoDto.Id);
+            }
 
             endereco.Logradouro = enderecoDto.Logradouro;
             endereco.Numero = enderecoDto.Numero;
@@ -26,6 +36,7 @@ namespace SecondFloor.Service.ExtensionMethods
         {
             var enderecoDto = new EnderecoDto();
 
+            enderecoDto.Id = endereco.Id.ToString();
             enderecoDto.Logradouro = endereco.Logradouro;
             enderecoDto.Numero = endereco.Numero;
             enderecoDto.Complemento = endereco.Complemento;
