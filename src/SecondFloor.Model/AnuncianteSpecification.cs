@@ -13,7 +13,8 @@ namespace SecondFloor.Model
             if (string.IsNullOrEmpty(anunciante.RazaoSocial))
             {
                 anunciante.AddBrokenRule(new BusinessRule("Razao Social","A razão social não pode ser nula."));
-            } if (anunciante.RazaoSocial.Length < 4)
+            }
+            else if (anunciante.RazaoSocial.Length < 4)
             {
                 anunciante.AddBrokenRule(new BusinessRule("Razao Social", "A razão social deve possuir no mínimo 4 caracteres."));
             }
@@ -27,7 +28,7 @@ namespace SecondFloor.Model
             {
                 anunciante.AddBrokenRule(new BusinessRule("Cnpj", "O Cnpj não pode ser nulo."));
             }
-            else if (DocumentosUtil.ValidaCnpj(anunciante.Cnpj))
+            else if (!DocumentosUtil.ValidaCnpj(anunciante.Cnpj))
             {
                 anunciante.AddBrokenRule(new BusinessRule("Cnpj", "O Cnpj está invalido"));
             }

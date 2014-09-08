@@ -1,5 +1,8 @@
-﻿using NUnit.Framework;
+﻿using System.Collections.Generic;
+using System.Linq;
+using NUnit.Framework;
 using SecondFloor.Infrastructure;
+using SecondFloor.Infrastructure.Model;
 
 namespace SecondFloor.Model.UnitTest.Anunciante_Tests
 {
@@ -23,15 +26,20 @@ namespace SecondFloor.Model.UnitTest.Anunciante_Tests
             anunciante.RazaoSocial = "";
             anunciante.Cnpj = "";
             anunciante.Token = "";
-            anunciante.GetBrokenBusinessRules();
 
-            var esperado = 0;
-            Assert.Greater( anunciante.GetBrokenBusinessRules().Count, esperado );
+            var brRazaoSocial = new BusinessRule("Razao Social","A razão social não pode ser nula.");
+            var brCNPJ = new BusinessRule("Cnpj", "O Cnpj não pode ser nulo.");
+            var brToken = new BusinessRule("Token", "Erro no cadastro do Anunciante, ficará impossibilitado de publicar ofertas");
+
+            Assert.IsTrue(anunciante.GetBrokenBusinessRules().Contains(brRazaoSocial));
+            Assert.IsTrue(anunciante.GetBrokenBusinessRules().Contains(brCNPJ));
+            Assert.IsTrue(anunciante.GetBrokenBusinessRules().Contains(brToken));
         }
 
         [Test]
         public void test_anunciante_with_correct_token()
         {
+            //TODO: (RAFAEL) Refactoring Encapsular Regra de criação de Token Anunciante
             var esperado = Sha1Util.SHA1HashStringForUTF8String( anunciante.Cnpj + anunciante.RazaoSocial );
             Assert.AreEqual( esperado, anunciante.Token );
         }
@@ -42,8 +50,8 @@ namespace SecondFloor.Model.UnitTest.Anunciante_Tests
             //RazaoSocial Incorreto
             anunciante.RazaoSocial = "Oficina de entretenimento adulto do tio careca.";
 
-            var esperado = Sha1Util.SHA1HashStringForUTF8String(anunciante.Cnpj + anunciante.RazaoSocial);
-            Assert.AreNotEqual(esperado, anunciante.Token);
+            var expected = new BusinessRule("Token", "O Token do anunciante não confere");
+            Assert.IsTrue(anunciante.GetBrokenBusinessRules().Contains(expected));
         }
 
         [Test]
@@ -52,8 +60,10 @@ namespace SecondFloor.Model.UnitTest.Anunciante_Tests
             //Cnpj incorreto
             anunciante.Cnpj = "40.123.456.0001-20";
 
-            var esperado = DocumentosUtil.ValidaCnpj(anunciante.Cnpj);
-            Assert.IsFalse(esperado);
+            var expected = new BusinessRule("Cnpj", "O Cnpj está invalido");
+            IList<BusinessRule> br = anunciante.GetBrokenBusinessRules();
+
+            Assert.IsTrue(anunciante.GetBrokenBusinessRules().Contains(expected));
         }
     }
 }

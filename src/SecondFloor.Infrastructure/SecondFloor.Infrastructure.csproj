@@ -40,7 +40,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DocumentosUtil.cs" />
-    <Compile Include="Model\BusinesRule.cs" />
+    <Compile Include="Model\BusinessRule.cs" />
     <Compile Include="Model\EntityBase.cs" />
     <Compile Include="Model\IAggregateRoot.cs" />
     <Compile Include="Model\IEntityBase.cs" />
