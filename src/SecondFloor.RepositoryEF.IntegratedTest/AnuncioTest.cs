@@ -27,45 +27,39 @@ namespace SecondFloor.RepositoryEF.IntegratedTest
         [Test]
         public void test_InserirAnuncio()
         {
-            /*var anunciante = new Anunciante
-            {
-                Id = Guid.NewGuid(),
-                Token = "1234567890",
-                Cnpj = "0000000000",
-                RazaoSocial = "Teste razao social"
-            };
-
             var anuncio = new Anuncio()
             {
                 Id = Guid.NewGuid(),
                 Titulo = "Anuncio Teste",
                 DataInicio = DateTime.Now.AddDays(1),
                 DataFim = DateTime.Now.AddDays(7),
+                Anunciante = new Anunciante
+                {
+                    Id = Guid.NewGuid(),
+                    Token = "1234567890",
+                    Cnpj = "0000000000",
+                    RazaoSocial = "Teste razao social"
+                }
             };
-            anunciante.Anuncios.Add(anuncio);
-            anuncio.Anunciante = anunciante;*/
 
-            /*var oferta = new Oferta()
+            var oferta = new Oferta()
             {
                 Id = Guid.NewGuid(),
                 Titulo = "Servico 1",
                 Descricao = "Fazemos qualquer negocia!",
                 Preco = "100.00",
+                Endereco = new Endereco()
+                {
+                    Id = Guid.NewGuid(),
+                    Logradouro = "Rua ABC",
+                    Numero = "1",
+                    Bairro = "Cidade Dultra",
+                    Cidade = "Sao Paulo",
+                    Estado = "SP"
+                }
             };
-            var endereco = new Endereco()
-            {
-                Id = Guid.NewGuid(),
-                Logradouro = "Rua ABC",
-                Numero = "1",
-                Bairro = "Cidade Dultra",
-                Cidade = "Sao Paulo",
-                Estado = "SP"
-            };*/
 
-            //oferta.Endereco = endereco;
-            
-            //var ofertas = new List<Oferta>();
-            //ofertas.Add(oferta);
+            anuncio.Ofertas.Add(oferta);
 
             _anuncioRepository.InserirAnuncio(anuncio);
             _anuncioRepository.Persist();
