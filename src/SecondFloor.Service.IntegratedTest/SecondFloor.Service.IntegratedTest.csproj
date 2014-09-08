@@ -11,6 +11,8 @@
     <AssemblyName>SecondFloor.Service.IntegratedTest</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -30,7 +32,17 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit.framework">
+      <HintPath>..\packages\NUnit.2.6.3\lib\nunit.framework.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -39,9 +51,47 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Anuncio_Tests\When_Publishing_Anuncio.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SecondFloor.DataContracts\SecondFloor.DataContracts.csproj">
+      <Project>{005BD132-A35B-4F72-9840-0228FCEFAFF5}</Project>
+      <Name>SecondFloor.DataContracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SecondFloor.Infrastructure\SecondFloor.Infrastructure.csproj">
+      <Project>{0B674E26-7392-4E08-B9F0-04078ECDE0BC}</Project>
+      <Name>SecondFloor.Infrastructure</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SecondFloor.Model\SecondFloor.Model.csproj">
+      <Project>{640A4CC8-F3CD-45C6-BC4B-37C2E22EB2F4}</Project>
+      <Name>SecondFloor.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SecondFloor.RepositoryEF\SecondFloor.RepositoryEF.csproj">
+      <Project>{6B967736-3832-4815-ADAA-11CCC62366D8}</Project>
+      <Name>SecondFloor.RepositoryEF</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SecondFloor.ServiceContracts\SecondFloor.ServiceContracts.csproj">
+      <Project>{7531DD5D-F281-49BD-A72E-C9B810968A0A}</Project>
+      <Name>SecondFloor.ServiceContracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SecondFloor.Service\SecondFloor.Service.csproj">
+      <Project>{E1A48511-FA19-4DA4-8826-AF46DD369BB2}</Project>
+      <Name>SecondFloor.Service</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
+  </Target>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
