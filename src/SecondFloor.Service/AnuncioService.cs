@@ -1,12 +1,17 @@
 ﻿using System;
+using System.ServiceModel;
+using System.ServiceModel.Activation;
 using SecondFloor.DataContracts.Messages;
-using SecondFloor.Infrastructure.Repository;
 using SecondFloor.Model;
+using SecondFloor.RepositoryEF;
 using SecondFloor.Service.ExtensionMethods;
 using SecondFloor.ServiceContracts;
+using StructureMap;
 
 namespace SecondFloor.Service
 {
+    [ServiceBehavior(InstanceContextMode = InstanceContextMode.PerCall)]
+    [AspNetCompatibilityRequirements(RequirementsMode = AspNetCompatibilityRequirementsMode.Allowed)]
     public class AnuncioService : IAnuncioService
     {
         private IAnuncioRepository _anuncioRepository;
@@ -16,6 +21,16 @@ namespace SecondFloor.Service
         {
             _anuncianteRepository = anuncianteRepository;
             _anuncioRepository = anuncioRepository;
+        }
+
+        static AnuncioService()
+        {
+            //IoC Container
+            BootStrapper.RegisterClasses();
+        }
+
+        public AnuncioService() :this(  ObjectFactory.GetInstance<IAnuncioRepository>(), ObjectFactory.GetInstance<IAnuncianteRepository>() )
+        {
         }
 
         public CadastrarAnuncioResponse CadastrarAnuncio(CadastrarAnuncioRequest request )
@@ -42,6 +57,27 @@ namespace SecondFloor.Service
             }
             
             return new CadastrarAnuncioResponse() { Message = "Anuncio cadastrado com sucesso.", Success = true };
+        }
+
+        public CadastroAnuncianteResponse CadastrarAnunciante(CadastroAnuncianteRequest request)
+        {
+            var anunciante = request.Anunciante.ConvertToAnunciante();
+            if (anunciante.GetBrokenBusinessRules().Count > 0)
+            {
+                return new CadastroAnuncianteResponse() { Message = anunciante.GetErrorMessages().ToString(), Success = false };
+            }
+
+            try
+            {
+                _anuncianteRepository.InserirAnunciante(anunciante);
+                _anuncianteRepository.Persist();
+            }
+            catch (Exception ex)
+            {
+                return new CadastroAnuncianteResponse() { Message = "Ocorreu um erro:\n" + ex.Message, Success = false };
+            }
+
+            return new CadastroAnuncianteResponse() { Message = "Anuncio cadastrado com sucesso.", Success = true };
         }
     }
 }

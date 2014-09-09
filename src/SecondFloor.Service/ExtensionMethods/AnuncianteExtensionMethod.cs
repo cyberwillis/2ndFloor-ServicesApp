@@ -32,6 +32,7 @@ namespace SecondFloor.Service.ExtensionMethods
         {
             var anuncianteDto = new AnuncianteDto();
 
+            anuncianteDto.Id = anunciante.Id.ToString();
             anuncianteDto.RazaoSocial = anunciante.RazaoSocial;
             anuncianteDto.Email = anunciante.Email;
             anuncianteDto.Cnpj = anunciante.Cnpj;
