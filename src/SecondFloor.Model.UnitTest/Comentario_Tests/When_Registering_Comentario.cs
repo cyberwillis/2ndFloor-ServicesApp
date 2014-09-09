@@ -1,5 +1,6 @@
 ﻿using System;
 using NUnit.Framework;
+using SecondFloor.Infrastructure.Model;
 
 namespace SecondFloor.Model.UnitTest.Comentario_Tests
 {
@@ -40,8 +41,17 @@ namespace SecondFloor.Model.UnitTest.Comentario_Tests
             _comentario.Data = DateTime.Now.AddDays(-3);
             _comentario.Ponto = 0;
 
-            var esperado = 0;
-            Assert.Greater(_comentario.GetBrokenBusinessRules().Count, esperado);
+            var brConsumidor = new BusinessRule("Cosumidor", "O consumidor não foi especificado.");
+            var brAnunciante = new BusinessRule("Para", "O anunciante não foi especificado.");
+            var brDescricao = new BusinessRule("Descricao", "A descrição deve possuir no mínimo (3) caracteres.");
+            var brData = new BusinessRule("Data", "A data esta diferente do dia atual.");
+            var brPonto = new BusinessRule("Ponto", "Pontuação deve ser no mínimo 1.");
+         
+            Assert.IsTrue(_comentario.GetBrokenBusinessRules().Contains(brConsumidor));
+            Assert.IsTrue(_comentario.GetBrokenBusinessRules().Contains(brAnunciante));
+            Assert.IsTrue(_comentario.GetBrokenBusinessRules().Contains(brDescricao));
+            Assert.IsTrue(_comentario.GetBrokenBusinessRules().Contains(brData));
+            Assert.IsTrue(_comentario.GetBrokenBusinessRules().Contains(brPonto));
         }
 
         private void CreateConsumidor()
