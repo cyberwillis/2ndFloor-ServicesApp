@@ -29,23 +29,28 @@ namespace SecondFloor.Model
                 anuncio.AddBrokenRule(new BusinessRule("Data Inicio","Estas ofertas devem possuir uma data de inicio posterior a de hoje."));
             }
 
-            //Data Fim
-            if (!(anuncio.DataFim.Date.CompareTo(dataHoje.Date) > 0))
-            {
-                anuncio.AddBrokenRule(new BusinessRule("Data Fim", "Estas ofertas devem possuir uma data de fim posterior a de hoje."));
-            }
-
             //Data inicio e fim
-            if (!( anuncio.DataFim.Date.CompareTo(anuncio.DataInicio.Date) > 0 ))
+            if (anuncio.DataFim.Date == anuncio.DataInicio.Date)
             {
                 anuncio.AddBrokenRule(new BusinessRule("Data Inicio", "Estas ofertas devem possuir uma data de inicio diferente da data de fim."));
                 anuncio.AddBrokenRule(new BusinessRule("Data Fim", "Estas ofertas devem possuir uma data de fim diferente da data de inicio."));
             }
 
-            //Ofertas
-            if (anuncio.Ofertas == null )
+            //Data Fim 
+            else if (!(anuncio.DataFim.Date.CompareTo(dataHoje.Date) > 0))
             {
-                anuncio.AddBrokenRule(new BusinessRule("Data Inicio", "A publicação da oferta precisa conter produtos ou serviços."));
+                anuncio.AddBrokenRule(new BusinessRule("Data Fim", "Estas ofertas devem possuir uma data de fim posterior a de hoje."));
+            }
+            //Data Fim 
+            else if (!(anuncio.DataFim.Date.CompareTo(anuncio.DataInicio.Date) > 0))
+            {
+                anuncio.AddBrokenRule(new BusinessRule("Data Fim", "Estas ofertas devem possuir uma data de fim posterior a de inicio."));
+            }
+
+            //Ofertas
+            if (anuncio.Ofertas == null || anuncio.Ofertas.Count == 0)
+            {
+                anuncio.AddBrokenRule(new BusinessRule("Oferas", "A publicação da oferta precisa conter produtos ou serviços."));
             } 
             else if ( anuncio.Ofertas.Any())
             {

@@ -3,6 +3,7 @@ using System.Linq;
 using NUnit.Framework;
 using SecondFloor.Infrastructure;
 using SecondFloor.Infrastructure.Model;
+using SecondFloor.Model.UnitTest.Anuncio_Tests;
 
 namespace SecondFloor.Model.UnitTest.Anunciante_Tests
 {
@@ -10,14 +11,13 @@ namespace SecondFloor.Model.UnitTest.Anunciante_Tests
     public class When_Registering_Anunciante
     {
         private Anunciante anunciante;
+        private Builder _builder;
 
         [SetUp]
         public void Init()
         {
-            anunciante = new Anunciante();
-            anunciante.RazaoSocial = "Oficina de entretenimento adulto do tio careca";
-            anunciante.Cnpj = "49.107.344/0001-93";
-            anunciante.Token = "4f2b36ac358c3b311ec5168f561b1325ca1cedde";
+            _builder =new Builder();
+            anunciante = _builder.ValidAnunciante();
         }
 
         [Test]
