@@ -16,8 +16,8 @@ namespace SecondFloor.Model.UnitTest.Anunciante_Tests
         {
             anunciante = new Anunciante();
             anunciante.RazaoSocial = "Oficina de entretenimento adulto do tio careca";
-            anunciante.Cnpj = "40.123.456.0001-10";
-            anunciante.Token = "62ac3355aedf50d4304cc0882a38cf5ef17eb764";
+            anunciante.Cnpj = "49.107.344/0001-93";
+            anunciante.Token = "4f2b36ac358c3b311ec5168f561b1325ca1cedde";
         }
 
         [Test]
@@ -39,8 +39,7 @@ namespace SecondFloor.Model.UnitTest.Anunciante_Tests
         [Test]
         public void test_anunciante_with_correct_token()
         {
-            //TODO: (RAFAEL) Refactoring Encapsular Regra de criação de Token Anunciante
-            var esperado = Sha1Util.SHA1HashStringForUTF8String( anunciante.Cnpj + anunciante.RazaoSocial );
+            var esperado = anunciante.GetToken();
             Assert.AreEqual( esperado, anunciante.Token );
         }
 
@@ -61,8 +60,6 @@ namespace SecondFloor.Model.UnitTest.Anunciante_Tests
             anunciante.Cnpj = "40.123.456.0001-20";
 
             var expected = new BusinessRule("Cnpj", "O Cnpj está invalido");
-            IList<BusinessRule> br = anunciante.GetBrokenBusinessRules();
-
             Assert.IsTrue(anunciante.GetBrokenBusinessRules().Contains(expected));
         }
     }
