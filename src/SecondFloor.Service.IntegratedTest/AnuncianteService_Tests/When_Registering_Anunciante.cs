@@ -2,7 +2,6 @@
 using System.Diagnostics;
 using NUnit.Framework;
 using SecondFloor.DataContracts.Messages;
-using SecondFloor.Infrastructure;
 using SecondFloor.Model;
 using SecondFloor.RepositoryEF;
 using SecondFloor.Service.ExtensionMethods;
@@ -13,12 +12,14 @@ namespace SecondFloor.Service.IntegratedTest.AnuncianteService_Tests
     public class When_Registering_Anunciante
     {
         private AnuncioContext _commonContext;
+        private AnuncioRepository _anuncioRepository;
         private AnuncianteRepository _anuncianteRepository;
 
         [SetUp]
         public void Init()
         {
             _commonContext = new AnuncioContext();
+            _anuncioRepository = new AnuncioRepository(_commonContext);
             _anuncianteRepository = new AnuncianteRepository(_commonContext);
         }
 
@@ -26,6 +27,7 @@ namespace SecondFloor.Service.IntegratedTest.AnuncianteService_Tests
         public void Finish()
         {
             _anuncianteRepository.Dispose();
+            _anuncioRepository.Dispose();
             _commonContext.Dispose();
         }
 
@@ -41,8 +43,8 @@ namespace SecondFloor.Service.IntegratedTest.AnuncianteService_Tests
             request.Anunciante.Anuncios = null;
 
             //Act
-            var anuncianteService = new AnuncianteService(_anuncianteRepository);
-            var response = anuncianteService.CadastrarAnunciante(request);
+            var anuncioService = new AnuncioService(_anuncioRepository, _anuncianteRepository);
+            var response = anuncioService.CadastrarAnunciante(request);
 
             //Assert
             Debug.WriteLine(response.Message);
@@ -60,8 +62,8 @@ namespace SecondFloor.Service.IntegratedTest.AnuncianteService_Tests
             request.Anunciante.Anuncios = null;
 
             //Act
-            var anuncianteService = new AnuncianteService(_anuncianteRepository);
-            var response = anuncianteService.CadastrarAnunciante(request);
+            var anuncioService = new AnuncioService(_anuncioRepository, _anuncianteRepository);
+            var response = anuncioService.CadastrarAnunciante(request);
 
             //Assert
             Debug.WriteLine(response.Message);
