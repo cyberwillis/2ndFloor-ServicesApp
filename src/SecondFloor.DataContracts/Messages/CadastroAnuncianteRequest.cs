@@ -3,7 +3,7 @@ using SecondFloor.DataContracts.DTO;
 
 namespace SecondFloor.DataContracts.Messages
 {
-    [MessageContract(IsWrapped = false)]
+    [MessageContract]
     public class CadastroAnuncianteRequest
     {
         [MessageBodyMember]
