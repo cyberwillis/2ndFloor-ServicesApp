@@ -55,7 +55,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AnuncianteService.cs" />
     <Compile Include="AnuncioService.cs" />
     <Compile Include="BootStrapper.cs" />
     <Compile Include="ExtensionMethods\AnuncianteExtensionMethod.cs" />
