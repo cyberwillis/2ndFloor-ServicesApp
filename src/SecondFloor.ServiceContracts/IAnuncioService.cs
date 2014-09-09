@@ -8,5 +8,8 @@ namespace SecondFloor.ServiceContracts
     {
         [OperationContract]
         CadastrarAnuncioResponse CadastrarAnuncio( CadastrarAnuncioRequest request );
+
+        [OperationContract]
+        CadastroAnuncianteResponse CadastrarAnunciante( CadastroAnuncianteRequest request );
     }
 }
