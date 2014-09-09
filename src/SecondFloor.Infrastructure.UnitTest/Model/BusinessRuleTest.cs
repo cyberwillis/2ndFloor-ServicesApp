@@ -9,7 +9,7 @@ using SecondFloor.Infrastructure.Model;
 namespace SecondFloor.Infrastructure.UnitTest.Model
 {
     [TestFixture]
-    public class BusinesRuleTest
+    public class BusinessRuleTest
     {
         [Test]
         public void is_equal()
