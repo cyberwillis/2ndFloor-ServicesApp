@@ -2,9 +2,8 @@
 using System.ServiceModel;
 using System.ServiceModel.Activation;
 using Microsoft.Practices.Unity;
-using Unity.Wcf;
 
-namespace SecondFloor.Wcf.SelfHost
+namespace SecondFloor.Wcf.SelfHost.IoC
 {
     public abstract class UnityServiceHostFactory : ServiceHostFactory
     {

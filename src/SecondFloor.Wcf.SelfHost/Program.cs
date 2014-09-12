@@ -6,6 +6,7 @@ using SecondFloor.Model;
 using SecondFloor.RepositoryEF;
 using SecondFloor.Service;
 using SecondFloor.ServiceContracts;
+using SecondFloor.Wcf.SelfHost.IoC;
 
 namespace SecondFloor.Wcf.SelfHost
 {
@@ -13,18 +14,13 @@ namespace SecondFloor.Wcf.SelfHost
     {
         static void Main(string[] args)
         {
-            //IoC Unity inicialization
-            var container = new UnityContainer()
-                .RegisterType<IAnuncioService, AnuncioService>()
-                .RegisterType<IAnuncioRepository, AnuncioRepository>()
-                .RegisterType<IAnuncianteRepository, AnuncianteRepository>()
-                .RegisterType<AnuncioContext, AnuncioContext>(new HierarchicalLifetimeManager());
-            
-            //var host = new ServiceHost(typeof(AnuncioService));
-            //IoC Container implementation: 
-            //http://www.devtrends.co.uk/blog/introducing-unity.wcf-providing-easy-ioc-integration-for-your-wcf-services
-            var host = new UnityServiceHost(container,typeof(AnuncioService)); 
 
+            //IoC Unity inicialization
+            //http://www.devtrends.co.uk/blog/introducing-unity.wcf-providing-easy-ioc-integration-for-your-wcf-services
+            var container = new UnityContainer();
+            var host = new UnityServiceHost(container,typeof(AnuncioService));
+
+            //var host = new ServiceHost(typeof(AnuncioService)); //old
             try
             {
                 host.Open();

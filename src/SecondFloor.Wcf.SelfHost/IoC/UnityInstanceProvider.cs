@@ -5,7 +5,7 @@ using System.ServiceModel.Dispatcher;
 using Microsoft.Practices.Unity;
 using Unity.Wcf;
 
-namespace SecondFloor.Wcf.SelfHost
+namespace SecondFloor.Wcf.SelfHost.IoC
 {
     public class UnityInstanceProvider : IInstanceProvider
     {

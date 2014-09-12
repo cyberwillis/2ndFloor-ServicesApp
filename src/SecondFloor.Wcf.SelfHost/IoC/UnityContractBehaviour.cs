@@ -4,7 +4,7 @@ using System.ServiceModel.Description;
 using System.ServiceModel.Dispatcher;
 using Unity.Wcf;
 
-namespace SecondFloor.Wcf.SelfHost
+namespace SecondFloor.Wcf.SelfHost.IoC
 {
     public class UnityContractBehavior : IContractBehavior
     {

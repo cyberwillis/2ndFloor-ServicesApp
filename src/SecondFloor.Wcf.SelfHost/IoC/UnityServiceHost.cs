@@ -3,7 +3,7 @@ using System.ServiceModel;
 using System.ServiceModel.Description;
 using Microsoft.Practices.Unity;
 
-namespace SecondFloor.Wcf.SelfHost
+namespace SecondFloor.Wcf.SelfHost.IoC
 {
     public class UnityServiceHost : ServiceHost
     {
