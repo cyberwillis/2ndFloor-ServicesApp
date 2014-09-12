@@ -3,10 +3,8 @@ using System.ServiceModel;
 using System.ServiceModel.Activation;
 using SecondFloor.DataContracts.Messages;
 using SecondFloor.Model;
-using SecondFloor.RepositoryEF;
 using SecondFloor.Service.ExtensionMethods;
 using SecondFloor.ServiceContracts;
-using StructureMap;
 
 namespace SecondFloor.Service
 {
@@ -21,16 +19,6 @@ namespace SecondFloor.Service
         {
             _anuncianteRepository = anuncianteRepository;
             _anuncioRepository = anuncioRepository;
-        }
-
-        static AnuncioService()
-        {
-            //IoC Container
-            BootStrapper.RegisterClasses();
-        }
-
-        public AnuncioService() :this(  ObjectFactory.GetInstance<IAnuncioRepository>(), ObjectFactory.GetInstance<IAnuncianteRepository>() )
-        {
         }
 
         public CadastrarAnuncioResponse CadastrarAnuncio(CadastrarAnuncioRequest request )
