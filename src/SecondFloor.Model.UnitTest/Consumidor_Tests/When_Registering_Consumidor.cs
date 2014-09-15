@@ -1,5 +1,8 @@
-﻿using NUnit.Framework;
+﻿using System.Threading;
+using NUnit.Framework;
 using SecondFloor.Infrastructure;
+using SecondFloor.Infrastructure.Model;
+using SecondFloor.Model.UnitTest.Anuncio_Tests;
 
 namespace SecondFloor.Model.UnitTest.Consumidor_Tests
 {
@@ -7,13 +10,22 @@ namespace SecondFloor.Model.UnitTest.Consumidor_Tests
     public class When_Registering_Consumidor
     {
         private Consumidor _consumidor;
+        private Mother _mother;
 
         [SetUp]
         public void Init()
         {
-            _consumidor = new Consumidor();
-            _consumidor.Nome = "Rafael dos Anjos";
-            _consumidor.Email = "rafael@dosanjos.com.br";
+            _mother = new Mother();
+            _consumidor = _mother.CreateConsumidor();
+        }
+
+        [Test]
+        public void test_consumidor_correct_data()
+        {
+            var expected = 0;
+            var actual = _consumidor.GetBrokenBusinessRules().Count;
+
+            Assert.AreEqual(expected, actual);
         }
 
         [Test]
@@ -22,8 +34,11 @@ namespace SecondFloor.Model.UnitTest.Consumidor_Tests
             _consumidor.Nome = string.Empty;
             _consumidor.Email = string.Empty;
 
-            var esperado = 0;
-            Assert.Greater( _consumidor.GetBrokenBusinessRules().Count, esperado );
+            var brNomeNull = new BusinessRule("Nome", "O nome do consumidor não foi especificado.");
+            var brEmailNUll = new BusinessRule("Email", "O email do consumidor não foi especificado.");
+
+            Assert.IsTrue(_consumidor.GetBrokenBusinessRules().Contains(brNomeNull));
+            Assert.IsTrue(_consumidor.GetBrokenBusinessRules().Contains(brEmailNUll));
         }
 
         [Test]
@@ -31,8 +46,8 @@ namespace SecondFloor.Model.UnitTest.Consumidor_Tests
         {
             _consumidor.Email = "bolinha";
 
-            var esperado = DocumentosUtil.ValidaEmail(_consumidor.Email);
-            Assert.IsFalse(esperado);
+            var brEmail = new BusinessRule("Email", "O email do consumidor está inválido.");
+            Assert.IsTrue(_consumidor.GetBrokenBusinessRules().Contains(brEmail));
         }
     }
 }
