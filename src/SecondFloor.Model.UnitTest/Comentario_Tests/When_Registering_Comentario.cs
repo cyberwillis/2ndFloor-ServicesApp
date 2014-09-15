@@ -9,13 +9,13 @@ namespace SecondFloor.Model.UnitTest.Comentario_Tests
     public class When_Registering_Comentario
     {
         private Comentario _comentario;
-        private Builder _builder;
+        private Mother _mother;
 
         [SetUp]
         public void Init()
         {
-            _builder = new Builder();
-            _comentario = _builder.ValidComentario();
+            _mother = new Mother();
+            _comentario = _mother.CreateComentario();
         }
 
 

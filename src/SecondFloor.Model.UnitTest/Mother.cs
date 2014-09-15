@@ -3,9 +3,15 @@ using System.Collections.Generic;
 
 namespace SecondFloor.Model.UnitTest.Anuncio_Tests
 {
-    public class Builder
+    /// <summary>
+    /// TDD ObjectMotherPattern
+    /// http://martinfowler.com/bliki/ObjectMother.html
+    /// For Complex class or business rules use Test Data Builder Pattern
+    /// http://geekswithblogs.net/Podwysocki/archive/2008/01/08/118362.aspx
+    /// </summary>
+    public class Mother
     {
-        public Anunciante ValidAnunciante()
+        public Anunciante CreateAnunciante()
         {
             var anunciante = new Anunciante();
             anunciante.RazaoSocial = "Oficina de entretenimento adulto do tio careca";
@@ -15,7 +21,7 @@ namespace SecondFloor.Model.UnitTest.Anuncio_Tests
             return anunciante;
         }
 
-        public Endereco ValidEndereco()
+        public Endereco CreateEndereco()
         {
             var endereco = new Endereco();
             endereco.Logradouro = "Rua Xpto";
@@ -28,7 +34,7 @@ namespace SecondFloor.Model.UnitTest.Anuncio_Tests
             return endereco;
         }
 
-        public List<Oferta> ValidOfertas()
+        public List<Oferta> CreateOfertas()
         {
             var ofertas = new List<Oferta>();
 
@@ -36,24 +42,24 @@ namespace SecondFloor.Model.UnitTest.Anuncio_Tests
             oferta.Titulo = "Um produto qualquer.";
             oferta.Descricao = "Descrição de um produto qualquer.";
             oferta.Preco = "10.00";
-            oferta.Endereco = this.ValidEndereco();
+            oferta.Endereco = this.CreateEndereco();
 
             ofertas.Add(oferta);
             return ofertas;
         }
 
-        public Anuncio ValidAnuncio()
+        public Anuncio CreateAnuncio()
         {
             var anuncio = new Anuncio();
             anuncio.Titulo = "Ofertas Relampago";
             anuncio.DataInicio = DateTime.Now;
             anuncio.DataFim = DateTime.Now.AddDays(7);
-            anuncio.Ofertas = this.ValidOfertas();
-            anuncio.Anunciante = this.ValidAnunciante();
+            anuncio.Ofertas = this.CreateOfertas();
+            anuncio.Anunciante = this.CreateAnunciante();
             return anuncio;
         }
 
-        public Consumidor ValidConsumidor()
+        public Consumidor CreateConsumidor()
         {
             var consumidor = new Consumidor();
             consumidor.Nome = "Rafael dos Anjos";
@@ -62,11 +68,11 @@ namespace SecondFloor.Model.UnitTest.Anuncio_Tests
             return consumidor;
         }
 
-        public Comentario ValidComentario()
+        public Comentario CreateComentario()
         {
             var comentario = new Comentario();
-            comentario.Consumidor = this.ValidConsumidor();
-            comentario.Para = this.ValidAnunciante();
+            comentario.Consumidor = this.CreateConsumidor();
+            comentario.Para = this.CreateAnunciante();
             comentario.Descricao = "Enchendo linguiça .com";
             comentario.Data = DateTime.Now;
             comentario.Ponto = 5;

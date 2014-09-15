@@ -11,13 +11,13 @@ namespace SecondFloor.Model.UnitTest.Anunciante_Tests
     public class When_Registering_Anunciante
     {
         private Anunciante anunciante;
-        private Builder _builder;
+        private Mother _mother;
 
         [SetUp]
         public void Init()
         {
-            _builder =new Builder();
-            anunciante = _builder.ValidAnunciante();
+            _mother =new Mother();
+            anunciante = _mother.CreateAnunciante();
         }
 
         [Test]
