@@ -38,15 +38,23 @@ namespace SecondFloor.Model.UnitTest.Anuncio_Tests
         {
             var ofertas = new List<Oferta>();
 
+            var oferta = CreateOferta();
+
+            ofertas.Add(oferta);
+            return ofertas;
+        }
+
+        public Oferta CreateOferta()
+        {
             var oferta = new Oferta();
             oferta.Titulo = "Um produto qualquer.";
             oferta.Descricao = "Descrição de um produto qualquer.";
             oferta.Preco = "10.00";
             oferta.Endereco = this.CreateEndereco();
 
-            ofertas.Add(oferta);
-            return ofertas;
+            return oferta;
         }
+
 
         public Anuncio CreateAnuncio()
         {
