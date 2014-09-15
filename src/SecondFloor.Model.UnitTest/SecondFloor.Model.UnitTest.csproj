@@ -46,6 +46,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Anunciante_Tests\When_Registering_Anunciante.cs" />
+    <Compile Include="Endereco_Tests\When_Registering_Endereco.cs" />
     <Compile Include="Mother.cs" />
     <Compile Include="Anuncio_Tests\When_Registering_Anuncio.cs" />
     <Compile Include="Comentario_Tests\When_Registering_Comentario.cs" />
@@ -66,7 +67,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Endereco_Tests\" />
     <Folder Include="Oferta_Tests\" />
   </ItemGroup>
   <ItemGroup>
