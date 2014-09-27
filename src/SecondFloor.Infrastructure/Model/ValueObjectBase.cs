@@ -4,16 +4,19 @@ namespace SecondFloor.Infrastructure.Model
 {
     public class ValueObjectBase : IValueObjectBase
     {
-        protected IList<BusinessRule> BrokenRules = new List<BusinessRule>();
+        protected IDictionary<string,string> _brokenRules = new Dictionary<string, string>();
 
-        public IList<BusinessRule> GetBrokenRules()
+        public IDictionary<string,string> BrokenRules
         {
-            return BrokenRules;
+            get { return _brokenRules; }
         }
 
-        public void AddBrokenRule(BusinessRule businessRule)
+        public void AddBrokenRule(string key, string message)
         {
-            BrokenRules.Add(businessRule);
+            if (this._brokenRules.ContainsKey(key))
+                _brokenRules[key] = message;
+            else
+                _brokenRules.Add(key, message);
         }
     }
 }

@@ -4,7 +4,7 @@ namespace SecondFloor.Infrastructure.Model
 {
     public interface IValueObjectBase
     {
-        IList<BusinessRule> GetBrokenRules();
-        void AddBrokenRule(BusinessRule businessRule);
+        //IDictionary<string,string> BrokenRules { get; }
+        void AddBrokenRule(string key, string message);
     }
 }

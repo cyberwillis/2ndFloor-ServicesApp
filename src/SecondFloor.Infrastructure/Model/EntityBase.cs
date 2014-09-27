@@ -7,9 +7,10 @@ namespace SecondFloor.Infrastructure.Model
     {
         public TId Id { get; set; }
 
-        private IList<BusinessRule> _brokenRules= new List<BusinessRule>();
+        private IDictionary<string,string> _brokenRules = new Dictionary<string, string>();
+        //private IList<BusinessRule> _brokenRules= new List<BusinessRule>();
 
-        public IList<BusinessRule> BrokenRules
+        public IDictionary<string,string> BrokenRules
         {
             get { return _brokenRules; }
         }
@@ -21,12 +22,15 @@ namespace SecondFloor.Infrastructure.Model
             return brokenRules;
         }*/
 
-        public void AddBrokenRule(BusinessRule businessRule)
+        public void AddBrokenRule(string key, string message)
         {
-            this._brokenRules.Add(businessRule);
+            if ( this._brokenRules.ContainsKey(key) )
+                _brokenRules[key] = message;
+            else
+                _brokenRules.Add(key, message);
         }
 
-        public void AddRangeBrokenRules(IList<BusinessRule> businessRules)
+        public void AddRangeBrokenRules(IDictionary<string,string> businessRules)
         {
             foreach (var businessRule in businessRules)
             {
@@ -40,7 +44,7 @@ namespace SecondFloor.Infrastructure.Model
             sb.Append("Erros encontrados:");
             foreach (var error in this._brokenRules)
             {
-                sb.AppendLine(error.Rule + "<br/>");
+                sb.AppendLine(error.Value + "<br/>");
             }
             return sb;
         }
