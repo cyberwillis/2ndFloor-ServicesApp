@@ -1,49 +1,65 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="SecondFloor.Model.Anunciante">
-    <Position X="0.5" Y="0.5" Width="1.5" />
+    <Position X="0.5" Y="2.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAIAAAACAAAAAAAAAAAEAAEAAAAAAAAAAAAQABAAA=</HashCode>
       <FileName>Anunciante.cs</FileName>
     </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Anuncios" />
+    </ShowAsCollectionAssociation>
   </Class>
   <Class Name="SecondFloor.Model.Anuncio">
-    <Position X="2.25" Y="0.5" Width="1.5" />
+    <Position X="3.5" Y="2.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAQAAAAAAAAAAAAAAAQQAAAAAAAAAAAAACAAAAAABA=</HashCode>
       <FileName>Anuncio.cs</FileName>
     </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Ofertas" />
+    </ShowAsCollectionAssociation>
   </Class>
   <Class Name="SecondFloor.Model.Comentario">
-    <Position X="4" Y="2.5" Width="1.5" />
+    <Position X="0.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAABBAQAAAAAAAAAAAAAAABAAAAgAAAAAAAA=</HashCode>
       <FileName>Comentario.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Consumidor" />
+      <Property Name="Para" />
+    </ShowAsAssociation>
   </Class>
   <Class Name="SecondFloor.Model.Consumidor">
-    <Position X="5.75" Y="0.5" Width="1.5" />
+    <Position X="3.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAACAAAAAAAAAAAAAAQAAAAAAAAAAAAAEAAAA=</HashCode>
       <FileName>Consumidor.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="TipoAcesso" />
+    </ShowAsAssociation>
   </Class>
   <Class Name="SecondFloor.Model.Endereco">
-    <Position X="0.5" Y="3.5" Width="1.5" />
+    <Position X="3.5" Y="5.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>CAAAAAAAAABAACIAAAAAAACAAAAAAAAAAAAAAAABAAg=</HashCode>
       <FileName>Endereco.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SecondFloor.Model.Oferta">
-    <Position X="4" Y="0.5" Width="1.5" />
+    <Position X="6" Y="2.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAEAAAAEBA=</HashCode>
       <FileName>Oferta.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Endereco" />
+    </ShowAsAssociation>
   </Class>
   <Enum Name="SecondFloor.Model.TipoAcesso">
-    <Position X="5.75" Y="2.25" Width="1.5" />
+    <Position X="6.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAABAAAAAAAAAABAACAAAABAAAAAAAA=</HashCode>
       <FileName>TipoAcesso.cs</FileName>
