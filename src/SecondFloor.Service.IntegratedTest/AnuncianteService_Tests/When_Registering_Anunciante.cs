@@ -3,6 +3,7 @@ using System.Diagnostics;
 using NUnit.Framework;
 using SecondFloor.DataContracts.Messages;
 using SecondFloor.Model;
+using SecondFloor.Model.Specifications;
 using SecondFloor.RepositoryEF;
 using SecondFloor.Service.ExtensionMethods;
 
