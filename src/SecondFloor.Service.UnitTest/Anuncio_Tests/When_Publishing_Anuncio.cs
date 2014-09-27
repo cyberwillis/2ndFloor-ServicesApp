@@ -59,7 +59,7 @@ namespace SecondFloor.Service.UnitTest.Anuncio_Tests
             var mockAnuncianteRepository = MockRepository.GenerateMock<IAnuncianteRepository>();
             mockAnuncianteRepository.Stub(x => x.EncontrarAnunciantePorToken(Arg<string>.Is.Anything)).Return(new Anunciante());
 
-            var anuncioService = new AnuncioService(mockAnuncioRepository, mockAnuncianteRepository);
+            var anuncioService = new AnuncianteService(mockAnuncioRepository, mockAnuncianteRepository);
             var cadastrarAnuncioRequest = new CadastrarAnuncioRequest() { Anuncio = _anuncioDto };
 
             //Act
@@ -77,7 +77,7 @@ namespace SecondFloor.Service.UnitTest.Anuncio_Tests
             var mockAnuncianteRepository = MockRepository.GenerateMock<IAnuncianteRepository>();
             mockAnuncianteRepository.Stub(x => x.EncontrarAnunciantePorToken(Arg<string>.Is.Anything)).Return(null); //anunciante é nulo
 
-            var anuncioService = new AnuncioService(mockAnuncioRepository, mockAnuncianteRepository);
+            var anuncioService = new AnuncianteService(mockAnuncioRepository, mockAnuncianteRepository);
             var cadastrarAnuncioRequest = new CadastrarAnuncioRequest() { Anuncio = _anuncioDto };
 
             //Act
@@ -96,7 +96,7 @@ namespace SecondFloor.Service.UnitTest.Anuncio_Tests
             var mockAnuncianteRepository = MockRepository.GenerateMock<IAnuncianteRepository>();
             mockAnuncianteRepository.Stub(x => x.EncontrarAnunciantePorToken(Arg<string>.Is.Anything)).Return(new Anunciante());
             
-            var anuncioService = new AnuncioService(mockAnuncioRepository, mockAnuncianteRepository);
+            var anuncioService = new AnuncianteService(mockAnuncioRepository, mockAnuncianteRepository);
             var cadastrarAnuncioRequest = new CadastrarAnuncioRequest() { Anuncio = new AnuncioDto() }; 
 
             //Act

@@ -4,7 +4,7 @@ using SecondFloor.DataContracts.Messages;
 namespace SecondFloor.ServiceContracts
 {
     [ServiceContract]
-    public interface IAnuncioService
+    public interface IAnuncianteService
     {
         [OperationContract]
         CadastrarAnuncioResponse CadastrarAnuncio( CadastrarAnuncioRequest request );

@@ -44,7 +44,7 @@ namespace SecondFloor.Service.IntegratedTest.AnuncianteService_Tests
             request.Anunciante.Anuncios = null;
 
             //Act
-            var anuncioService = new AnuncioService(_anuncioRepository, _anuncianteRepository);
+            var anuncioService = new AnuncianteService(_anuncioRepository, _anuncianteRepository);
             var response = anuncioService.CadastrarAnunciante(request);
 
             //Assert
@@ -63,7 +63,7 @@ namespace SecondFloor.Service.IntegratedTest.AnuncianteService_Tests
             request.Anunciante.Anuncios = null;
 
             //Act
-            var anuncioService = new AnuncioService(_anuncioRepository, _anuncianteRepository);
+            var anuncioService = new AnuncianteService(_anuncioRepository, _anuncianteRepository);
             var response = anuncioService.CadastrarAnunciante(request);
 
             //Assert
