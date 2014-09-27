@@ -18,5 +18,9 @@ namespace SecondFloor.Infrastructure.Model
             else
                 _brokenRules.Add(key, message);
         }
+        public void ClearBrokenRules()
+        {
+            this._brokenRules.Clear();
+        }
     }
 }

@@ -9,5 +9,6 @@ namespace SecondFloor.Infrastructure.Model
         //IDictionary<string,string> BrokenRules { get; }
         void AddBrokenRule(string key, string message);
         StringBuilder GetErrorMessages();
+        void ClearBrokenRules();
     }
 }

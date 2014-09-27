@@ -48,5 +48,10 @@ namespace SecondFloor.Infrastructure.Model
             }
             return sb;
         }
+
+        public void ClearBrokenRules()
+        {
+            this._brokenRules.Clear();
+        }
     }
 }
