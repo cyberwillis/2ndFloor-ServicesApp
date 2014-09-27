@@ -6,6 +6,8 @@ namespace SecondFloor.Model.Specifications
     {
         public static IDictionary<string,string> GetBrokenBusinessRules(this Endereco endereco)
         {
+            endereco.ClearBrokenRules();
+
             //Logradouro
             if (string.IsNullOrEmpty(endereco.Logradouro))
             {

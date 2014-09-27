@@ -7,6 +7,8 @@ namespace SecondFloor.Model.Specifications
     {
         public static IDictionary<string,string> GetBrokenBusinessRules(this Consumidor consumidor)
         {
+            consumidor.ClearBrokenRules();
+
             //Nome
             if (string.IsNullOrEmpty(consumidor.Nome))
             {

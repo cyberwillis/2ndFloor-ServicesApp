@@ -8,6 +8,8 @@ namespace SecondFloor.Model.Specifications
     {
         public static IDictionary<string,string> GetBrokenBusinessRules(this Anuncio anuncio)
         {
+            anuncio.ClearBrokenRules();
+
             var dataHoje = DateTime.Now.Date;
 
             //Titulo

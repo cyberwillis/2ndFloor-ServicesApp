@@ -6,6 +6,8 @@ namespace SecondFloor.Model.Specifications
     {
         public static IDictionary<string,string> GetBrokenBusinessRules(this Oferta oferta)
         {
+            oferta.ClearBrokenRules();
+
             //Titulo Oferta
             if (string.IsNullOrEmpty(oferta.Titulo))
             {
