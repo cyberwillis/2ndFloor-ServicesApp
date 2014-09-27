@@ -3,6 +3,7 @@ using System.ServiceModel;
 using System.ServiceModel.Activation;
 using SecondFloor.DataContracts.Messages;
 using SecondFloor.Model;
+using SecondFloor.Model.Specifications;
 using SecondFloor.Service.ExtensionMethods;
 using SecondFloor.ServiceContracts;
 
