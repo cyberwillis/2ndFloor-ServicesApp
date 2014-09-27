@@ -23,7 +23,6 @@ namespace SecondFloor.RepositoryEF
             modelBuilder.Configurations.Add(new EnderecoConfiguration());
             modelBuilder.Configurations.Add(new AnuncianteConfiguration());
 
-            modelBuilder.Ignore<BusinessRule>();
             modelBuilder.Ignore<Consumidor>(); //Usar em outro contexto
             modelBuilder.Ignore<Comentario>(); //Usar em outro contexto
 
