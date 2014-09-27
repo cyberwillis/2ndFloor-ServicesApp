@@ -1,7 +1,7 @@
-﻿using System.Threading;
+﻿using System.Collections.Generic;
+using System.Linq;
 using NUnit.Framework;
-using SecondFloor.Infrastructure;
-using SecondFloor.Infrastructure.Model;
+using SecondFloor.Model.Specifications;
 using SecondFloor.Model.UnitTest.Anuncio_Tests;
 
 namespace SecondFloor.Model.UnitTest.Consumidor_Tests
@@ -34,11 +34,11 @@ namespace SecondFloor.Model.UnitTest.Consumidor_Tests
             _consumidor.Nome = string.Empty;
             _consumidor.Email = string.Empty;
 
-            var brNomeNull = new BusinessRule("Nome", "O nome do consumidor não foi especificado.");
-            var brEmailNUll = new BusinessRule("Email", "O email do consumidor não foi especificado.");
+            var brNomeNull = new Dictionary<string, string>() {{"Nome", "O nome do consumidor não foi especificado."}};
+            var brEmailNUll = new Dictionary<string, string>() {{"Email", "O email do consumidor não foi especificado."}};
 
-            Assert.IsTrue(_consumidor.GetBrokenBusinessRules().Contains(brNomeNull));
-            Assert.IsTrue(_consumidor.GetBrokenBusinessRules().Contains(brEmailNUll));
+            Assert.IsTrue(_consumidor.GetBrokenBusinessRules().Contains(brNomeNull.First()));
+            Assert.IsTrue(_consumidor.GetBrokenBusinessRules().Contains(brEmailNUll.First()));
         }
 
         [Test]
@@ -46,8 +46,8 @@ namespace SecondFloor.Model.UnitTest.Consumidor_Tests
         {
             _consumidor.Email = "bolinha";
 
-            var brEmail = new BusinessRule("Email", "O email do consumidor está inválido.");
-            Assert.IsTrue(_consumidor.GetBrokenBusinessRules().Contains(brEmail));
+            var brEmail = new Dictionary<string, string>() {{"Email", "O email do consumidor está inválido."}};
+            Assert.IsTrue(_consumidor.GetBrokenBusinessRules().Contains(brEmail.First()));
         }
     }
 }

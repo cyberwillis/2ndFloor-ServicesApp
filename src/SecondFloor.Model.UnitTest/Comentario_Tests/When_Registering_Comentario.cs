@@ -1,7 +1,10 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using NUnit.Framework;
-using SecondFloor.Infrastructure.Model;
+using SecondFloor.Model.Specifications;
 using SecondFloor.Model.UnitTest.Anuncio_Tests;
+using Enumerable = System.Linq.Enumerable;
 
 namespace SecondFloor.Model.UnitTest.Comentario_Tests
 {
@@ -35,17 +38,17 @@ namespace SecondFloor.Model.UnitTest.Comentario_Tests
             _comentario.Data = DateTime.Now.AddDays(-3);
             _comentario.Ponto = 0;
 
-            var brConsumidor = new BusinessRule("Cosumidor", "O consumidor não foi especificado.");
-            var brAnunciante = new BusinessRule("Para", "O anunciante não foi especificado.");
-            var brDescricao = new BusinessRule("Descricao", "A descrição deve possuir no mínimo (3) caracteres.");
-            var brData = new BusinessRule("Data", "A data esta diferente do dia atual.");
-            var brPonto = new BusinessRule("Ponto", "Pontuação deve ser no mínimo 1.");
+            var brConsumidor = new Dictionary<string, string>() {{"Cosumidor", "O consumidor não foi especificado."}};
+            var brAnunciante = new Dictionary<string, string>() {{"Para", "O anunciante não foi especificado."}};
+            var brDescricao = new Dictionary<string, string>() {{"Descricao", "A descrição deve possuir no mínimo (3) caracteres."}};
+            var brData = new Dictionary<string, string>() {{"Data", "A data esta diferente do dia atual."}};
+            var brPonto = new Dictionary<string, string>() {{"Ponto", "Pontuação deve ser no mínimo 1."}};
          
-            Assert.IsTrue(_comentario.GetBrokenBusinessRules().Contains(brConsumidor));
-            Assert.IsTrue(_comentario.GetBrokenBusinessRules().Contains(brAnunciante));
-            Assert.IsTrue(_comentario.GetBrokenBusinessRules().Contains(brDescricao));
-            Assert.IsTrue(_comentario.GetBrokenBusinessRules().Contains(brData));
-            Assert.IsTrue(_comentario.GetBrokenBusinessRules().Contains(brPonto));
+            Assert.IsTrue(_comentario.GetBrokenBusinessRules().Contains(brConsumidor.First()));
+            Assert.IsTrue(_comentario.GetBrokenBusinessRules().Contains(brAnunciante.First()));
+            Assert.IsTrue(_comentario.GetBrokenBusinessRules().Contains(brDescricao.First()));
+            Assert.IsTrue(_comentario.GetBrokenBusinessRules().Contains(brData.First()));
+            Assert.IsTrue(_comentario.GetBrokenBusinessRules().Contains(brPonto.First()));
         }
     }
 }

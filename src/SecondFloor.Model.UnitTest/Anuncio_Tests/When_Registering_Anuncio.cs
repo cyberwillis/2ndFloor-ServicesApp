@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using NUnit.Framework;
-using SecondFloor.Infrastructure.Model;
+using SecondFloor.Model.Specifications;
 
 namespace SecondFloor.Model.UnitTest.Anuncio_Tests
 {
@@ -31,9 +31,9 @@ namespace SecondFloor.Model.UnitTest.Anuncio_Tests
         {
             _anuncio.Titulo = string.Empty;
 
-            var brTitulo = new BusinessRule("Titulo", "O titulo do anúncio não foi especificado.");
+            var brTitulo = new Dictionary<string, string>() {{"Titulo", "O titulo do anúncio não foi especificado."}};
 
-            Assert.IsTrue(_anuncio.GetBrokenBusinessRules().Contains(brTitulo));
+            Assert.IsTrue(_anuncio.GetBrokenBusinessRules().Contains(brTitulo.First()));
         }
 
         [Test]
@@ -41,9 +41,9 @@ namespace SecondFloor.Model.UnitTest.Anuncio_Tests
         {
             _anuncio.DataInicio = DateTime.Now.AddDays(-1); //ontem Data da publicação
 
-            var brDataInicio = new BusinessRule("Data Inicio","Estas ofertas devem possuir uma data de inicio posterior a de hoje.");
+            var brDataInicio = new Dictionary<string, string>() {{"Data Inicio","Estas ofertas devem possuir uma data de inicio posterior a de hoje."}};
 
-            Assert.IsTrue(_anuncio.GetBrokenBusinessRules().Contains(brDataInicio));
+            Assert.IsTrue(_anuncio.GetBrokenBusinessRules().Contains(brDataInicio.First()));
         }
 
         [Test]
@@ -51,11 +51,11 @@ namespace SecondFloor.Model.UnitTest.Anuncio_Tests
         {
             _anuncio.DataFim = DateTime.Now; //hj
 
-            var brDataInicio = new BusinessRule("Data Inicio","Estas ofertas devem possuir uma data de inicio diferente da data de fim.");
-            var brDataFim = new BusinessRule("Data Fim", "Estas ofertas devem possuir uma data de fim diferente da data de inicio.");
+            var brDataInicio = new Dictionary<string, string>() {{"Data Inicio","Estas ofertas devem possuir uma data de inicio diferente da data de fim."}};
+            var brDataFim = new Dictionary<string, string>() {{"Data Fim", "Estas ofertas devem possuir uma data de fim diferente da data de inicio."}};
             
-            Assert.IsTrue(_anuncio.GetBrokenBusinessRules().Contains(brDataInicio));
-            Assert.IsTrue(_anuncio.GetBrokenBusinessRules().Contains(brDataFim));
+            Assert.IsTrue(_anuncio.GetBrokenBusinessRules().Contains(brDataInicio.First()));
+            Assert.IsTrue(_anuncio.GetBrokenBusinessRules().Contains(brDataFim.First()));
         }
 
         //Teoricamente na Specification do Anuncio a data do _anuncio deve ser superior ao dia de hoje, regra esta que invibiliza esta.
@@ -79,11 +79,11 @@ namespace SecondFloor.Model.UnitTest.Anuncio_Tests
             _anuncio.DataInicio = DateTime.Now.AddDays(3); //igual
             _anuncio.DataFim = DateTime.Now.AddDays(3); //igual
 
-            var brDataInicio = new BusinessRule("Data Inicio", "Estas ofertas devem possuir uma data de inicio diferente da data de fim.");
-            var brDataFim = new BusinessRule("Data Fim", "Estas ofertas devem possuir uma data de fim diferente da data de inicio.");
+            var brDataInicio = new Dictionary<string, string>() {{"Data Inicio", "Estas ofertas devem possuir uma data de inicio diferente da data de fim."}};
+            var brDataFim = new Dictionary<string, string>() {{"Data Fim", "Estas ofertas devem possuir uma data de fim diferente da data de inicio."}};
 
-            Assert.IsTrue(_anuncio.GetBrokenBusinessRules().Contains(brDataInicio));
-            Assert.IsTrue(_anuncio.GetBrokenBusinessRules().Contains(brDataFim));
+            Assert.IsTrue(_anuncio.GetBrokenBusinessRules().Contains(brDataInicio.First()));
+            Assert.IsTrue(_anuncio.GetBrokenBusinessRules().Contains(brDataFim.First()));
         }
 
         [Test]
@@ -92,9 +92,9 @@ namespace SecondFloor.Model.UnitTest.Anuncio_Tests
             _anuncio.DataInicio = DateTime.Now.AddDays(3); //inicio posterior ao fim
             _anuncio.DataFim = DateTime.Now.AddDays(2); //fim inferior ao inicio
 
-            var brDataFim = new BusinessRule("Data Fim", "Estas ofertas devem possuir uma data de fim posterior a de inicio.");
+            var brDataFim = new Dictionary<string, string>() {{"Data Fim", "Estas ofertas devem possuir uma data de fim posterior a de inicio."}};
             
-            Assert.IsTrue(_anuncio.GetBrokenBusinessRules().Contains(brDataFim));
+            Assert.IsTrue(_anuncio.GetBrokenBusinessRules().Contains(brDataFim.First()));
         }
 
         [Test]
@@ -102,11 +102,11 @@ namespace SecondFloor.Model.UnitTest.Anuncio_Tests
         {
             _anuncio.Ofertas = null;
 
-            var brOfertas = new BusinessRule("Oferas", "A publicação da oferta precisa conter produtos ou serviços.");
-            Assert.IsTrue(_anuncio.GetBrokenBusinessRules().Contains(brOfertas));
+            var brOfertas = new Dictionary<string, string>() {{"Oferas", "A publicação da oferta precisa conter produtos ou serviços."}};
+            Assert.IsTrue(_anuncio.GetBrokenBusinessRules().Contains(brOfertas.First()));
 
             _anuncio.Ofertas = new List<Oferta>();
-            Assert.IsTrue(_anuncio.GetBrokenBusinessRules().Contains(brOfertas));
+            Assert.IsTrue(_anuncio.GetBrokenBusinessRules().Contains(brOfertas.First()));
         }
     }
 }

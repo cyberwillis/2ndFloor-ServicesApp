@@ -3,6 +3,7 @@ using System.Linq;
 using NUnit.Framework;
 using SecondFloor.Infrastructure;
 using SecondFloor.Infrastructure.Model;
+using SecondFloor.Model.Specifications;
 using SecondFloor.Model.UnitTest.Anuncio_Tests;
 
 namespace SecondFloor.Model.UnitTest.Anunciante_Tests
@@ -27,13 +28,13 @@ namespace SecondFloor.Model.UnitTest.Anunciante_Tests
             anunciante.Cnpj = "";
             anunciante.Token = "";
 
-            var brRazaoSocial = new BusinessRule("Razao Social","A razão social não pode ser nula.");
-            var brCNPJ = new BusinessRule("Cnpj", "O Cnpj não pode ser nulo.");
-            var brToken = new BusinessRule("Token", "Erro no cadastro do Anunciante, ficará impossibilitado de publicar ofertas");
+            var brRazaoSocial = new Dictionary<string, string>() {{"Razao Social", "A razão social não pode ser nula."}};
+            var brCNPJ = new Dictionary<string, string>() {{"Cnpj", "O Cnpj não pode ser nulo."}};
+            var brToken = new Dictionary<string, string>() {{"Token", "Erro no cadastro do Anunciante, ficará impossibilitado de publicar ofertas"}};
 
-            Assert.IsTrue(anunciante.GetBrokenBusinessRules().Contains(brRazaoSocial));
-            Assert.IsTrue(anunciante.GetBrokenBusinessRules().Contains(brCNPJ));
-            Assert.IsTrue(anunciante.GetBrokenBusinessRules().Contains(brToken));
+            Assert.IsTrue(anunciante.GetBrokenBusinessRules().Contains(brRazaoSocial.First()));
+            Assert.IsTrue(anunciante.GetBrokenBusinessRules().Contains(brCNPJ.First()));
+            Assert.IsTrue(anunciante.GetBrokenBusinessRules().Contains(brToken.First()));
         }
 
         [Test]
@@ -49,8 +50,8 @@ namespace SecondFloor.Model.UnitTest.Anunciante_Tests
             //RazaoSocial Incorreto
             anunciante.RazaoSocial = "Oficina de entretenimento adulto do tio careca.";
 
-            var expected = new BusinessRule("Token", "O Token do anunciante não confere");
-            Assert.IsTrue(anunciante.GetBrokenBusinessRules().Contains(expected));
+            var expectedError = new Dictionary<string,string>(){{"Token", "O Token do anunciante não confere"}};
+            Assert.IsTrue(anunciante.GetBrokenBusinessRules().Contains(expectedError.First()));
         }
 
         [Test]
@@ -59,8 +60,8 @@ namespace SecondFloor.Model.UnitTest.Anunciante_Tests
             //Cnpj incorreto
             anunciante.Cnpj = "40.123.456.0001-20";
 
-            var expected = new BusinessRule("Cnpj", "O Cnpj está invalido");
-            Assert.IsTrue(anunciante.GetBrokenBusinessRules().Contains(expected));
+            var expected = new Dictionary<string,string>(){{"Cnpj", "O Cnpj está invalido"}};
+            Assert.IsTrue(anunciante.GetBrokenBusinessRules().Contains(expected.First()));
         }
     }
 }
