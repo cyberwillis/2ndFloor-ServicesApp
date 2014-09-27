@@ -16,7 +16,7 @@ namespace SecondFloor.Wcf.SelfHost.IoC
             //    .RegisterType<DataContext>(new HierarchicalLifetimeManager());
 
             container
-                .RegisterType<IAnuncioService, AnuncioService>()
+                .RegisterType<IAnuncioService, AnuncianteService>()
                 .RegisterType<IAnuncioRepository, AnuncioRepository>()
                 .RegisterType<IAnuncianteRepository, AnuncianteRepository>()
                 .RegisterType<AnuncioContext, AnuncioContext>(new HierarchicalLifetimeManager());

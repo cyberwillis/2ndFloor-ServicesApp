@@ -57,7 +57,7 @@ namespace SecondFloor.Service.IntegratedTest.AnuncioService_Tests
             var request = new CadastrarAnuncioRequest { Anuncio = _anuncioDto, AnuncianteToken = anunciante.Token };
 
             //Act
-            var anuncioService = new AnuncioService(_anuncioRepository, _anuncianteRepository);
+            var anuncioService = new AnuncianteService(_anuncioRepository, _anuncianteRepository);
             var response = anuncioService.CadastrarAnuncio(request);
          
             //Assert
@@ -77,7 +77,7 @@ namespace SecondFloor.Service.IntegratedTest.AnuncioService_Tests
             var request = new CadastrarAnuncioRequest { Anuncio = _anuncioDto, AnuncianteToken = anunciante.Token };
 
             //Act
-            var anuncioService = new AnuncioService(_anuncioRepository, _anuncianteRepository);
+            var anuncioService = new AnuncianteService(_anuncioRepository, _anuncianteRepository);
             var response = anuncioService.CadastrarAnuncio(request);
 
             //Assert

@@ -11,12 +11,12 @@ namespace SecondFloor.Service
 {
     [ServiceBehavior(InstanceContextMode = InstanceContextMode.PerCall)]
     [AspNetCompatibilityRequirements(RequirementsMode = AspNetCompatibilityRequirementsMode.Allowed)]
-    public class AnuncioService : IAnuncioService
+    public class AnuncianteService : IAnuncioService
     {
         private IAnuncioRepository _anuncioRepository;
         private IAnuncianteRepository _anuncianteRepository;
 
-        public AnuncioService(IAnuncioRepository anuncioRepository, IAnuncianteRepository anuncianteRepository )
+        public AnuncianteService(IAnuncioRepository anuncioRepository, IAnuncianteRepository anuncianteRepository )
         {
             _anuncianteRepository = anuncianteRepository;
             _anuncioRepository = anuncioRepository;
