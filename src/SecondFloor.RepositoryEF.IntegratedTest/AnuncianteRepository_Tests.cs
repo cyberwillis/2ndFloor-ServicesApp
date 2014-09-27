@@ -1,6 +1,5 @@
 ﻿using System;
 using NUnit.Framework;
-using SecondFloor.Infrastructure;
 using SecondFloor.Model;
 using SecondFloor.Model.Specifications;
 

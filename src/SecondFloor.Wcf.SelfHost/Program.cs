@@ -2,10 +2,7 @@
 using System.ServiceModel;
 using System.ServiceModel.Description;
 using Microsoft.Practices.Unity;
-using SecondFloor.Model;
-using SecondFloor.RepositoryEF;
 using SecondFloor.Service;
-using SecondFloor.ServiceContracts;
 using SecondFloor.Wcf.SelfHost.IoC;
 
 namespace SecondFloor.Wcf.SelfHost

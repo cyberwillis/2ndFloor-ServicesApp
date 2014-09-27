@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace SecondFloor.Infrastructure.Repository
+﻿namespace SecondFloor.Infrastructure.Repository
 {
     public interface IRepository
     {

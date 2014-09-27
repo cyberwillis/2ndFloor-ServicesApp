@@ -1,8 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using NUnit.Framework;
-using SecondFloor.Infrastructure;
-using SecondFloor.Infrastructure.Model;
 using SecondFloor.Model.Specifications;
 using SecondFloor.Model.UnitTest.Anuncio_Tests;
 

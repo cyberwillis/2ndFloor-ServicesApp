@@ -1,5 +1,4 @@
 ﻿using System.Data.Entity;
-using SecondFloor.Infrastructure.Model;
 using SecondFloor.Model;
 using SecondFloor.RepositoryEF.Mappings;
 

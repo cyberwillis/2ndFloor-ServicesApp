@@ -4,7 +4,6 @@ using System.Linq;
 using NUnit.Framework;
 using SecondFloor.Model.Specifications;
 using SecondFloor.Model.UnitTest.Anuncio_Tests;
-using Enumerable = System.Linq.Enumerable;
 
 namespace SecondFloor.Model.UnitTest.Comentario_Tests
 {

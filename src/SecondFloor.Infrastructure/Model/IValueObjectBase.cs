@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace SecondFloor.Infrastructure.Model
+﻿namespace SecondFloor.Infrastructure.Model
 {
     public interface IValueObjectBase
     {
