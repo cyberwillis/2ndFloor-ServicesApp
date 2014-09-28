@@ -66,12 +66,6 @@
     <Reference Include="Microsoft.Practices.Unity.RegistrationByConvention">
       <HintPath>..\packages\Unity.3.5.1404.0\lib\net45\Microsoft.Practices.Unity.RegistrationByConvention.dll</HintPath>
     </Reference>
-    <Reference Include="StructureMap">
-      <HintPath>..\packages\structuremap.3.1.1.134\lib\net40\StructureMap.dll</HintPath>
-    </Reference>
-    <Reference Include="StructureMap.Net4">
-      <HintPath>..\packages\structuremap.3.1.1.134\lib\net40\StructureMap.Net4.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -96,7 +90,7 @@
     <Compile Include="IoC\UnityInstanceProvider.cs" />
     <Compile Include="IoC\UnityServiceHost.cs" />
     <Compile Include="IoC\UnityServiceHostFactory.cs" />
-    <Compile Include="IoC\WcfServiceFactory.cs" />
+    <Compile Include="WcfServiceFactory.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">

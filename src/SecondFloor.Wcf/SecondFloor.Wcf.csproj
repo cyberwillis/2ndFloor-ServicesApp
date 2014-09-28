@@ -20,6 +20,8 @@
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -39,7 +41,25 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Practices.Unity">
+      <HintPath>..\packages\Unity.3.5.1404.0\lib\net45\Microsoft.Practices.Unity.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Configuration">
+      <HintPath>..\packages\Unity.3.5.1404.0\lib\net45\Microsoft.Practices.Unity.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.RegistrationByConvention">
+      <HintPath>..\packages\Unity.3.5.1404.0\lib\net45\Microsoft.Practices.Unity.RegistrationByConvention.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.ServiceModel.Activation" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -57,24 +77,59 @@
     <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Xml.Linq" />
+    <Reference Include="Unity.Wcf">
+      <HintPath>..\packages\Unity.Wcf.1.0.0\lib\Unity.Wcf.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="IoC\Unity.Wcf.README.txt" />
     <Content Include="Service.svc" />
+    <Content Include="Unity.Wcf.README.txt" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IoC\UnityContractBehaviour.cs" />
+    <Compile Include="IoC\UnityInstanceContextExtension.cs" />
+    <Compile Include="IoC\UnityInstanceContextInitializer.cs" />
+    <Compile Include="IoC\UnityInstanceProvider.cs" />
+    <Compile Include="IoC\UnityServiceHost.cs" />
+    <Compile Include="IoC\UnityServiceHostFactory.cs" />
+    <Compile Include="WcfServiceFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SecondFloor.Infrastructure\SecondFloor.Infrastructure.csproj">
+      <Project>{0B674E26-7392-4E08-B9F0-04078ECDE0BC}</Project>
+      <Name>SecondFloor.Infrastructure</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SecondFloor.Model\SecondFloor.Model.csproj">
+      <Project>{640A4CC8-F3CD-45C6-BC4B-37C2E22EB2F4}</Project>
+      <Name>SecondFloor.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SecondFloor.RepositoryEF\SecondFloor.RepositoryEF.csproj">
+      <Project>{6B967736-3832-4815-ADAA-11CCC62366D8}</Project>
+      <Name>SecondFloor.RepositoryEF</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SecondFloor.ServiceContracts\SecondFloor.ServiceContracts.csproj">
+      <Project>{7531DD5D-F281-49BD-A72E-C9B810968A0A}</Project>
+      <Name>SecondFloor.ServiceContracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SecondFloor.Service\SecondFloor.Service.csproj">
+      <Project>{E1A48511-FA19-4DA4-8826-AF46DD369BB2}</Project>
+      <Name>SecondFloor.Service</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -101,6 +156,13 @@
       </FlavorProperties>
     </VisualStudio>
   </ProjectExtensions>
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
+  </Target>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
