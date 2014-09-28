@@ -3,7 +3,7 @@ using SecondFloor.DataContracts.Messages;
 
 namespace SecondFloor.ServiceContracts
 {
-    [ServiceContract]
+    [ServiceContract(Namespace = "services.am.fiap.com.br")]
     public interface IAnuncianteService
     {
         [OperationContract]

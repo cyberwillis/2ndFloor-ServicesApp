@@ -2,7 +2,7 @@
 
 namespace SecondFloor.DataContracts
 {
-    [MessageContract]
+    [MessageContract(WrapperNamespace = "messages.am.fiap.com.br")]
     public class ResponseBase
     {
         [MessageBodyMember]

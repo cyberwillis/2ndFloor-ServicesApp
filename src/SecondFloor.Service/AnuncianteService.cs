@@ -9,7 +9,7 @@ using SecondFloor.ServiceContracts;
 
 namespace SecondFloor.Service
 {
-    [ServiceBehavior(InstanceContextMode = InstanceContextMode.PerCall)]
+    [ServiceBehavior(InstanceContextMode = InstanceContextMode.PerCall, Namespace = "services.am.fiap.com.br")]
     [AspNetCompatibilityRequirements(RequirementsMode = AspNetCompatibilityRequirementsMode.Allowed)]
     public class AnuncianteService : IAnuncianteService
     {

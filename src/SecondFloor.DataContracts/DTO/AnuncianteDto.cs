@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 
 namespace SecondFloor.DataContracts.DTO
 {
-    [DataContract(Name = "Anunciante")]
+    [DataContract(Name = "AnuncianteDTO", Namespace = "dto.am.fiap.com.br")]
     public class AnuncianteDto
     {
         [DataMember]
