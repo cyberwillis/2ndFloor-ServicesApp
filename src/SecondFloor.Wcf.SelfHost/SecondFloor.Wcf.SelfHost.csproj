@@ -128,7 +128,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="IoC\Unity.Wcf.README.txt" />
-    <Content Include="Unity.Wcf.README.txt" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.5">
