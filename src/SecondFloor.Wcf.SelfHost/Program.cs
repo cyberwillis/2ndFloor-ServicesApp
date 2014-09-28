@@ -3,6 +3,7 @@ using System.ServiceModel;
 using System.ServiceModel.Description;
 using Microsoft.Practices.Unity;
 using SecondFloor.Service;
+using SecondFloor.ServiceContracts;
 using SecondFloor.Wcf.SelfHost.IoC;
 
 namespace SecondFloor.Wcf.SelfHost
@@ -11,13 +12,12 @@ namespace SecondFloor.Wcf.SelfHost
     {
         static void Main(string[] args)
         {
-
             //IoC Unity inicialization
             //http://www.devtrends.co.uk/blog/introducing-unity.wcf-providing-easy-ioc-integration-for-your-wcf-services
-            var container = new UnityContainer();
-            var host = new UnityServiceHost(container,typeof(AnuncianteService));
-
+            //var host = new ServiceHost(container.Resolve<AnuncianteService>().GetType()); //old
             //var host = new ServiceHost(typeof(AnuncianteService)); //old
+            var host = new WcfServiceFactory().GetInstance(typeof(AnuncianteService));
+
             try
             {
                 host.Open();

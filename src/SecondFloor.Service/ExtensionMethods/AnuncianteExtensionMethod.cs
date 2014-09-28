@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using Microsoft.Practices.ObjectBuilder2;
 using SecondFloor.DataContracts.DTO;
 using SecondFloor.Model;
 
@@ -40,6 +43,13 @@ namespace SecondFloor.Service.ExtensionMethods
             anuncianteDto.Anuncios = anunciante.Anuncios.ConvertToListaAnunciosDtos();
 
             return anuncianteDto;
+        }
+
+        public static IList<AnuncianteDto> ConvertToListaAnunciantesDto(this IList<Anunciante> anunciantes)
+        {
+            var anunciantesDto = anunciantes.Select(anunciante => anunciante.ConvertToAnuncianteDto()).ToList();
+
+            return anunciantesDto;
         }
     }
 }

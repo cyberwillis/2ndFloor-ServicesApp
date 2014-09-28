@@ -3,7 +3,6 @@ using System.ServiceModel;
 using System.ServiceModel.Channels;
 using System.ServiceModel.Dispatcher;
 using Microsoft.Practices.Unity;
-using Unity.Wcf;
 
 namespace SecondFloor.Wcf.SelfHost.IoC
 {
@@ -30,15 +29,18 @@ namespace SecondFloor.Wcf.SelfHost.IoC
 
         public object GetInstance(InstanceContext instanceContext, Message message)
         {
-            var childContainer =
-              instanceContext.Extensions.Find<UnityInstanceContextExtension>().GetChildContainer(_container);
+            var childContainer = instanceContext.Extensions.Find<UnityInstanceContextExtension>().GetChildContainer(_container);
 
+            //return childContainer.Resolve(_contractType);
             return childContainer.Resolve(_contractType);
         }
 
         public object GetInstance(InstanceContext instanceContext)
         {
-            return GetInstance(instanceContext, null);
+            var childContainer = instanceContext.Extensions.Find<UnityInstanceContextExtension>().GetChildContainer(_container);
+
+            return childContainer.Resolve(_contractType);
+            //return GetInstance(instanceContext, null);
         }
 
         public void ReleaseInstance(InstanceContext instanceContext, object instance)

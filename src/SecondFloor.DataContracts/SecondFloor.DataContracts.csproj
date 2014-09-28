@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DTO\AnuncianteDto.cs" />
+    <Compile Include="Messages\EncontrarTodosAnunciantesResponse.cs" />
     <Compile Include="Messages\CadastroAnuncianteRequest.cs" />
     <Compile Include="Messages\CadastrarAnuncioRequest.cs" />
     <Compile Include="Messages\CadastrarAnuncioResponse.cs" />

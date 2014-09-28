@@ -1,3 +1,5 @@
+using System;
+using System.ServiceModel;
 using Microsoft.Practices.Unity;
 using SecondFloor.Model;
 using SecondFloor.RepositoryEF;
@@ -8,7 +10,12 @@ namespace SecondFloor.Wcf.SelfHost.IoC
 {
 	public class WcfServiceFactory : UnityServiceHostFactory
     {
-        protected override void ConfigureContainer(IUnityContainer container)
+        public ServiceHost GetInstance(Type serviceType, params Uri[] baseAddresses)
+	    {
+            return base.CreateServiceHost(serviceType, baseAddresses);
+	    }
+
+	    protected override void ConfigureContainer(IUnityContainer container)
         {
 			// register all your components with the container here
             // container
@@ -19,8 +26,15 @@ namespace SecondFloor.Wcf.SelfHost.IoC
                 .RegisterType<IAnuncianteService, AnuncianteService>()
                 .RegisterType<IAnuncioRepository, AnuncioRepository>()
                 .RegisterType<IAnuncianteRepository, AnuncianteRepository>()
-                .RegisterType<AnuncioContext, AnuncioContext>(new HierarchicalLifetimeManager());
-            
+                .RegisterType<AnuncioContext>( new HierarchicalLifetimeManager() );
+                //.RegisterInstance<IAnuncioContext>(new AnuncioContext());
+
+            /*container.RegisterInstance<TimerViewModel>(new TimerViewModel());
+            container.RegisterType<IPieceImageManager, PieceImageManager>();
+            container.RegisterType<IImageFileManager, ImageFileManager>(new InjectionConstructor("/images"));
+            container.RegisterType<IImageManager, ImageManager>();*/
         }
+
+
     }    
 }

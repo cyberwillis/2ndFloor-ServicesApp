@@ -4,7 +4,7 @@ using SecondFloor.RepositoryEF.Mappings;
 
 namespace SecondFloor.RepositoryEF
 {
-    public class AnuncioContext : DbContext
+    public class AnuncioContext : DbContext, IAnuncioContext
     {
         public DbSet<Anuncio> Anuncios { get; set; }
         public DbSet<Anunciante> Anunciantes { get; set; }

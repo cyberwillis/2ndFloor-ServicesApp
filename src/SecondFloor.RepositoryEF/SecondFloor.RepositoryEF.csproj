@@ -48,6 +48,7 @@
     <Compile Include="AnuncianteRepository.cs" />
     <Compile Include="AnuncioContext.cs" />
     <Compile Include="AnuncioRepository.cs" />
+    <Compile Include="IAnuncioContext.cs" />
     <Compile Include="Mappings\AnuncianteConfiguration.cs" />
     <Compile Include="Mappings\AnuncioConfiguration.cs" />
     <Compile Include="Mappings\EnderecoConfiguration.cs" />

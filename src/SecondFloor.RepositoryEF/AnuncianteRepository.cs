@@ -1,12 +1,11 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using SecondFloor.Model;
 
 namespace SecondFloor.RepositoryEF
 {
-
-
     public class AnuncianteRepository : IAnuncianteRepository
     {
         private AnuncioContext _context;
@@ -14,6 +13,11 @@ namespace SecondFloor.RepositoryEF
         public AnuncianteRepository(AnuncioContext context)
         {
             _context = context;
+        }
+
+        public IList<Anunciante> EncontrarTodosAnunciantes()
+        {
+            return _context.Anunciantes.ToList();
         }
 
         public Anunciante EncontrarAnunciantePorToken(string anuncianteToken)

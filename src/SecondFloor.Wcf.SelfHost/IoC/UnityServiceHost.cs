@@ -22,7 +22,7 @@ namespace SecondFloor.Wcf.SelfHost.IoC
             foreach (var contractDescription in ImplementedContracts.Values)
             {
                 var contractBehavior =
-                  new UnityContractBehavior(new UnityInstanceProvider(container, contractDescription.ContractType));
+                    new UnityContractBehavior(new UnityInstanceProvider(container, contractDescription.ContractType));
 
                 contractDescription.Behaviors.Add(contractBehavior);
             }

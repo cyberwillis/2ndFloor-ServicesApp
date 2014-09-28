@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ServiceModel;
 using System.ServiceModel.Activation;
 using SecondFloor.DataContracts.Messages;
@@ -9,7 +10,7 @@ using SecondFloor.ServiceContracts;
 
 namespace SecondFloor.Service
 {
-    [ServiceBehavior(InstanceContextMode = InstanceContextMode.PerCall, Namespace = "services.am.fiap.com.br")]
+    [ServiceBehavior(InstanceContextMode = InstanceContextMode.PerCall, Namespace = "services.am.fiap.com.br",Name = "AnuncianteServiceClient")]
     [AspNetCompatibilityRequirements(RequirementsMode = AspNetCompatibilityRequirementsMode.Allowed)]
     public class AnuncianteService : IAnuncianteService
     {
@@ -68,5 +69,27 @@ namespace SecondFloor.Service
 
             return new CadastroAnuncianteResponse() { Message = "Anuncio cadastrado com sucesso.", Success = true };
         }
+
+        public EncontrarTodosAnunciantesResponse EncontrarTodosAnunciantes()
+        {
+            IList<Anunciante> anunciantes = null;
+
+            try
+            {
+                anunciantes = _anuncianteRepository.EncontrarTodosAnunciantes();
+            }
+            catch (Exception ex)
+            {
+                return new EncontrarTodosAnunciantesResponse() { Message = "Ocorreu um erro\n" + ex.Message, Success = false };
+            }
+
+            return new EncontrarTodosAnunciantesResponse()
+            {
+                Message = string.Format("Encontrado {0} anunciantes",anunciantes.Count), 
+                Success = true,
+                Anunciantes = anunciantes.ConvertToListaAnunciantesDto()
+            };
+        }
+        
     }
 }

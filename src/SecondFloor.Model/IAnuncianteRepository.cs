@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using SecondFloor.Infrastructure.Repository;
 
 namespace SecondFloor.Model
@@ -10,5 +11,6 @@ namespace SecondFloor.Model
         void InserirAnunciante(Anunciante anunciante);
         void AtualizarAnunciante(Anunciante anunciante);
         void ExcluirAnunciante(Guid id);
+        IList<Anunciante> EncontrarTodosAnunciantes();
     }
 }
