@@ -16,8 +16,10 @@ namespace SecondFloor.Wcf.SelfHost
             //http://www.devtrends.co.uk/blog/introducing-unity.wcf-providing-easy-ioc-integration-for-your-wcf-services
             //var host = new ServiceHost(container.Resolve<AnuncianteService>().GetType()); //old
             //var host = new ServiceHost(typeof(AnuncianteService)); //old
-            var host = new WcfServiceFactory().GetInstance(typeof(AnuncianteService));
+            //var host = new WcfServiceFactory().GetInstance(typeof(AnuncianteService));
 
+            var container = new UnityContainer();
+            var host = new WcfServiceFactory().GetInstance(typeof(AnuncianteService));
             try
             {
                 host.Open();
