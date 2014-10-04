@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data.Entity;
 using NUnit.Framework;
 using SecondFloor.Infrastructure;
 using SecondFloor.Infrastructure.Repository;
@@ -20,6 +21,8 @@ namespace SecondFloor.RepositoryEF.IntegratedTest.AnuncioRepository_Test
         [SetUp]
         public void Init()
         {
+            Database.SetInitializer(new DropCreateDatabaseIfModelChanges<AnuncioContext>()); //Database Initializer
+
             _unitOfWorkAnuncio = new EFUnitOfWork<Anuncio>();
             _anuncioRepository = new AnuncioRepository(_unitOfWorkAnuncio); //contexto compartilhado
 
