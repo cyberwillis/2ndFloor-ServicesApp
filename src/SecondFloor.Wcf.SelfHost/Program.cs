@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Data.Entity;
 using System.ServiceModel;
 using System.ServiceModel.Description;
 using Microsoft.Practices.Unity;
+using SecondFloor.RepositoryEF;
 using SecondFloor.Service;
 using SecondFloor.ServiceContracts;
 using SecondFloor.Wcf.SelfHost.IoC;
@@ -18,7 +20,8 @@ namespace SecondFloor.Wcf.SelfHost
             //var host = new ServiceHost(typeof(AnuncianteService)); //old
             //var host = new WcfServiceFactory().GetInstance(typeof(AnuncianteService));
 
-            var container = new UnityContainer();
+            Database.SetInitializer(new DropCreateDatabaseAlways<AnuncioContext>());
+
             var host = new WcfServiceFactory().GetInstance(typeof(AnuncianteService));
             try
             {
