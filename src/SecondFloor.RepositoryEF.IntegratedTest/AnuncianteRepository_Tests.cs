@@ -2,28 +2,29 @@
 using NUnit.Framework;
 using SecondFloor.Model;
 using SecondFloor.Model.Specifications;
+using SecondFloor.RepositoryEF.Repositories;
 
 namespace SecondFloor.RepositoryEF.IntegratedTest.AnuncioRepository_Test
 {
     public class AnuncianteRepository_Tests
     {
-        private AnuncioContext _commonContext;
         private AnuncianteRepository _anuncianteRepository;
         private Anunciante _anunciante;
-        
+        private EFUnitOfWork<Anunciante> _unitOfworkAnunciante;
+
 
         [SetUp]
         public void Init()
         {
-             _commonContext = new AnuncioContext();
-            _anuncianteRepository = new AnuncianteRepository(_commonContext); //contexto compartilhado
+             _unitOfworkAnunciante = new EFUnitOfWork<Anunciante>();
+             _anuncianteRepository = new AnuncianteRepository(_unitOfworkAnunciante); //contexto compartilhado
         }
 
         [TearDown]
         public void Finish()
         {
-            _anuncianteRepository.Dispose();
-            _commonContext.Dispose();
+            //_anuncianteRepository.Dispose();
+            //_commonContext.Dispose();
         }
 
         [Test]

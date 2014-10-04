@@ -1,0 +1,51 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using SecondFloor.Infrastructure.Repository;
+using SecondFloor.Model;
+
+namespace SecondFloor.RepositoryEF.Repositories
+{
+    public class AnuncianteRepository : RepositoryBase<Anunciante,Guid>,IAnuncianteRepository
+    {
+        public AnuncianteRepository(IUnitOfWork unitOfWork) : base(unitOfWork)
+        {
+        }
+
+        public IList<Anunciante> EncontrarTodosAnunciantes()
+        {
+            return this.FindAll();
+        }
+
+        public Anunciante EncontrarAnunciantePorToken(string anuncianteToken)
+        {
+            var queryAnunciante = from a in AnuncioContextFactory.GetDataContext().Anunciantes
+                where a.Token == anuncianteToken
+                select a;
+
+            return queryAnunciante.SingleOrDefault();
+        }
+
+        public Anunciante EncontrarAnunciantePor(Guid id)
+        {
+            return this.FindBy(id);
+        }
+
+        public void AtualizarAnunciante(Anunciante anunciante)
+        {
+            this.Update(anunciante);
+        }
+
+        public void InserirAnunciante(Anunciante anunciante)
+        {
+            this.Insert(anunciante);
+        }
+
+        public void ExcluirAnunciante(Guid id)
+        {
+            var anunciante = EncontrarAnunciantePor(id);
+            if (anunciante != null)
+                this.Delete(anunciante);
+        }
+    }
+}

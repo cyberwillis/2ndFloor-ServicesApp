@@ -4,7 +4,7 @@ using SecondFloor.Infrastructure.Repository;
 
 namespace SecondFloor.Model
 {
-    public interface IAnuncianteRepository : IRepository, IDisposable
+    public interface IAnuncianteRepository : IRepository<Anunciante,Guid>
     {
         Anunciante EncontrarAnunciantePorToken(string anuncianteToken);
         Anunciante EncontrarAnunciantePor(Guid id);

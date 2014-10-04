@@ -7,21 +7,17 @@ namespace SecondFloor.RepositoryNH
 {
     public class NHUnitOfWork : IUnitOfWork
     {
-        public NHUnitOfWork()
-        {
-        }
-
-        public void SaveNew(IAggregateRoot entity, IUnitOfWorkRepository repository)
+        public void SaveNew(IAggregateRoot entity)
         {
             SessionProvider.GetCurrentSession().Save(entity);
         }
 
-        public void SaveAmended(IAggregateRoot entity, IUnitOfWorkRepository repository)
+        public void SaveAmended(IAggregateRoot entity)
         {
             SessionProvider.GetCurrentSession().SaveOrUpdate(entity);
         }
 
-        public void SaveRemoved(IAggregateRoot entity, IUnitOfWorkRepository repository)
+        public void SaveRemoved(IAggregateRoot entity)
         {
             SessionProvider.GetCurrentSession().Delete(entity);
         }

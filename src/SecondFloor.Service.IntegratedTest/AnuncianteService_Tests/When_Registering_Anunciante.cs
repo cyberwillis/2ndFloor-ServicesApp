@@ -2,9 +2,11 @@
 using System.Diagnostics;
 using NUnit.Framework;
 using SecondFloor.DataContracts.Messages;
+using SecondFloor.Infrastructure.Repository;
 using SecondFloor.Model;
 using SecondFloor.Model.Specifications;
 using SecondFloor.RepositoryEF;
+using SecondFloor.RepositoryEF.Repositories;
 using SecondFloor.Service.ExtensionMethods;
 
 namespace SecondFloor.Service.IntegratedTest.AnuncianteService_Tests
@@ -12,24 +14,28 @@ namespace SecondFloor.Service.IntegratedTest.AnuncianteService_Tests
     [TestFixture]
     public class When_Registering_Anunciante
     {
-        private AnuncioContext _commonContext;
         private AnuncioRepository _anuncioRepository;
         private AnuncianteRepository _anuncianteRepository;
+        private IUnitOfWork _unitOfworkAnuncio;
+        private IUnitOfWork _unitOfworkAnunciante;
+        
 
         [SetUp]
         public void Init()
         {
-            _commonContext = new AnuncioContext();
-            _anuncioRepository = new AnuncioRepository(_commonContext);
-            _anuncianteRepository = new AnuncianteRepository(_commonContext);
+            _unitOfworkAnuncio = new EFUnitOfWork<Anuncio>();
+            _anuncioRepository = new AnuncioRepository(_unitOfworkAnuncio);
+
+            _unitOfworkAnunciante = new EFUnitOfWork<Anunciante>();
+            _anuncianteRepository = new AnuncianteRepository(_unitOfworkAnunciante);
         }
 
         [TearDown]
         public void Finish()
         {
-            _anuncianteRepository.Dispose();
-            _anuncioRepository.Dispose();
-            _commonContext.Dispose();
+            //_anuncianteRepository.Dispose();
+            //_anuncioRepository.Dispose();
+            //_commonContext.Dispose();
         }
 
         [Test]

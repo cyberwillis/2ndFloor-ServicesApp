@@ -1,7 +1,9 @@
 ﻿using System;
 using NUnit.Framework;
 using SecondFloor.Infrastructure;
+using SecondFloor.Infrastructure.Repository;
 using SecondFloor.Model;
+using SecondFloor.RepositoryEF.Repositories;
 
 namespace SecondFloor.RepositoryEF.IntegratedTest.AnuncioRepository_Test
 {
@@ -11,15 +13,18 @@ namespace SecondFloor.RepositoryEF.IntegratedTest.AnuncioRepository_Test
         private AnuncioRepository _anuncioRepository;
         private AnuncianteRepository _anuncianteRepository;
         private Anunciante _anunciante;
-        private AnuncioContext _commonContext;
+        private IUnitOfWork _unitOfWorkAnuncio;
+        private IUnitOfWork _unitOfWorkAnunciante;
 
 
         [SetUp]
         public void Init()
         {
-            _commonContext = new AnuncioContext();
-            _anuncioRepository = new AnuncioRepository(_commonContext); //contexto compartilhado
-            _anuncianteRepository = new AnuncianteRepository(_commonContext); //contexto compartilhado
+            _unitOfWorkAnuncio = new EFUnitOfWork<Anuncio>();
+            _anuncioRepository = new AnuncioRepository(_unitOfWorkAnuncio); //contexto compartilhado
+
+            _unitOfWorkAnunciante = new EFUnitOfWork<Anunciante>();
+            _anuncianteRepository = new AnuncianteRepository(_unitOfWorkAnunciante); //contexto compartilhado
 
             //Anunciante
             _anunciante = new Anunciante();
@@ -40,9 +45,9 @@ namespace SecondFloor.RepositoryEF.IntegratedTest.AnuncioRepository_Test
             _anuncianteRepository.ExcluirAnunciante(_anunciante.Id);
             _anuncianteRepository.Persist();
 
-            _anuncianteRepository.Dispose();
-            _anuncioRepository.Dispose();
-            _commonContext.Dispose();
+            //_anuncianteRepository.Dispose();
+            //_anuncioRepository.Dispose();
+            //_commonContext.Dispose();
         }
 
         [Test]

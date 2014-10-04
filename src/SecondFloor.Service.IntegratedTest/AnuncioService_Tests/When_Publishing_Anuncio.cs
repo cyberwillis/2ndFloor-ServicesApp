@@ -4,8 +4,10 @@ using NUnit.Framework;
 using SecondFloor.DataContracts.DTO;
 using SecondFloor.DataContracts.Messages;
 using SecondFloor.Infrastructure;
+using SecondFloor.Infrastructure.Repository;
 using SecondFloor.Model;
 using SecondFloor.RepositoryEF;
+using SecondFloor.RepositoryEF.Repositories;
 using SecondFloor.Service.ExtensionMethods;
 
 namespace SecondFloor.Service.IntegratedTest.AnuncioService_Tests
@@ -13,18 +15,21 @@ namespace SecondFloor.Service.IntegratedTest.AnuncioService_Tests
     [TestFixture]
     public class When_Publishing_Anuncio
     {
-        private AnuncioDto _anuncioDto;
-        private AnuncioContext _commonContext;
-        private AnuncianteRepository _anuncianteRepository;
-        private AnuncioRepository _anuncioRepository;
         private string _anuncianteToken;
+        private AnuncioDto _anuncioDto;
+        private AnuncioRepository _anuncioRepository;
+        private AnuncianteRepository _anuncianteRepository;
+        private IUnitOfWork _unitOfworkAnuncio;
+        private IUnitOfWork _unitOfworkAnunciante;
 
         [SetUp]
         public void Init()
         {
-            _commonContext = new AnuncioContext();
-            _anuncioRepository = new AnuncioRepository(_commonContext);
-            _anuncianteRepository = new AnuncianteRepository(_commonContext);
+            _unitOfworkAnuncio = new EFUnitOfWork<Anuncio>();
+            _anuncioRepository = new AnuncioRepository(_unitOfworkAnuncio);
+
+            _unitOfworkAnunciante = new EFUnitOfWork<Anunciante>();
+            _anuncianteRepository = new AnuncianteRepository(_unitOfworkAnunciante);
         }
         
         [TearDown]
@@ -37,9 +42,9 @@ namespace SecondFloor.Service.IntegratedTest.AnuncioService_Tests
                 _anuncianteRepository.Persist();
             }
 
-            _anuncianteRepository.Dispose();
-            _anuncioRepository.Dispose();
-            _commonContext.Dispose();
+            //_anuncianteRepository.Dispose();
+            //_anuncioRepository.Dispose();
+            //_commonContext.Dispose();
         }
 
         [Test]

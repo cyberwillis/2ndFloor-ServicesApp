@@ -1,8 +1,10 @@
 using System;
 using System.ServiceModel;
 using Microsoft.Practices.Unity;
+using SecondFloor.Infrastructure.Repository;
 using SecondFloor.Model;
 using SecondFloor.RepositoryEF;
+using SecondFloor.RepositoryEF.Repositories;
 using SecondFloor.Service;
 using SecondFloor.ServiceContracts;
 using SecondFloor.Wcf.SelfHost.IoC;
