@@ -7,6 +7,7 @@ namespace SecondFloor.Model
     public class Anunciante : EntityBase<Guid>
     {
         public string Cnpj { get; set; }
+        public string Responsavel { get; set; }
         public string RazaoSocial { get; set; }
         public string Email { get; set; }
         public virtual IList<Anuncio> Anuncios { get; set; }

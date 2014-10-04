@@ -9,18 +9,32 @@ namespace SecondFloor.Model.Specifications
         {
             anunciante.ClearBrokenRules();
 
+            //Nome Responsavel
+            if (string.IsNullOrEmpty(anunciante.Responsavel))
+            {
+                anunciante.AddBrokenRule("Responsavel","O Responsável não pode ser nulo.");
+            }
+            else if (anunciante.Responsavel.Length < 2)
+            {
+                anunciante.AddBrokenRule("Responsavel", "O Responsável deve possuir no mínimo 2 caracteres.");
+            }
+            else if (anunciante.Responsavel.Length > 250)
+            {
+                anunciante.AddBrokenRule("Responsavel", "O Responsável deve possuir no maximo 250 caracteres.");
+            }
+
             //Razao Social
             if (string.IsNullOrEmpty(anunciante.RazaoSocial))
             {
                 anunciante.AddBrokenRule("Razao Social","A razão social não pode ser nula.");
             }
-            else if (anunciante.RazaoSocial.Length < 4)
+            else if (anunciante.RazaoSocial.Length < 10)
             {
                 anunciante.AddBrokenRule("Razao Social", "A razão social deve possuir no mínimo 4 caracteres.");
             }
-            else if (anunciante.RazaoSocial.Length > 50)
+            else if (anunciante.RazaoSocial.Length > 250)
             {
-                anunciante.AddBrokenRule("Razao Social", "A razão social deve possuir no maximo 50 caracteres.");
+                anunciante.AddBrokenRule("Razao Social", "A razão social deve possuir no maximo 250 caracteres.");
             }
 
             //Cnpj
@@ -34,14 +48,14 @@ namespace SecondFloor.Model.Specifications
             }
 
             //Email
-            /*if (string.IsNullOrEmpty(anunciante.Email))
+            if (string.IsNullOrEmpty(anunciante.Email))
             {
                 anunciante.AddBrokenRule("Email", "O Email não pode ser nulo.");
             }
             else if (!DocumentosUtil.ValidaEmail(anunciante.Email))
             {
                 anunciante.AddBrokenRule("Email", "O Email está invalido");
-            }*/
+            }
 
             //Token
             if (string.IsNullOrEmpty(anunciante.Token))

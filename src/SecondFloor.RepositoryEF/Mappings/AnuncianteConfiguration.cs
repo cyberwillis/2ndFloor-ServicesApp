@@ -10,8 +10,10 @@ namespace SecondFloor.RepositoryEF.Mappings
             ToTable("tbAnunciante");
             HasKey(a => a.Id);
             Property(a => a.Id).HasColumnName("Id");
-            Property(a => a.RazaoSocial);
-            Property(a => a.Cnpj);
+            Property(a => a.Responsavel).HasMaxLength(250);
+            Property(a => a.Email).HasMaxLength(250);
+            Property(a => a.RazaoSocial).HasMaxLength(250);
+            Property(a => a.Cnpj).HasMaxLength(20);
             Property(a => a.Pontuacao);
             Property(a => a.Token);
 

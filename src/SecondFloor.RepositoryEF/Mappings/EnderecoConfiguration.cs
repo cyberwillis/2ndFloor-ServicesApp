@@ -9,12 +9,12 @@ namespace SecondFloor.RepositoryEF.Mappings
         {
             ToTable("tbEndereco");
             HasKey(e=>e.Id);
-            Property(e => e.Logradouro).HasColumnName("Logradouro");
-            Property(e => e.Numero).HasColumnName("Numero");
-            Property(e => e.Complemento).HasColumnName("Complemento");
-            Property(e => e.Bairro).HasColumnName("Bairro");
-            Property(e => e.Cidade).HasColumnName("Cidade");
-            Property(e => e.Estado).HasColumnName("Estado");
+            Property(e => e.Logradouro).HasColumnName("Logradouro").HasMaxLength(250);
+            Property(e => e.Numero).HasColumnName("Numero").HasMaxLength(5);
+            Property(e => e.Complemento).HasColumnName("Complemento").HasMaxLength(15);
+            Property(e => e.Bairro).HasColumnName("Bairro").HasMaxLength(250);
+            Property(e => e.Cidade).HasColumnName("Cidade").HasMaxLength(50);
+            Property(e => e.Estado).HasColumnName("Estado").HasMaxLength(10);
 
             Ignore(e => e.BrokenRules);
         }
