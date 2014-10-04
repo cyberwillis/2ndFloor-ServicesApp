@@ -33,6 +33,8 @@ namespace SecondFloor.RepositoryEF.IntegratedTest.AnuncioRepository_Test
             _anunciante = new Anunciante();
             _anunciante.Id = new Guid("C0A82971-E9F0-47F1-9F90-C54F4EB51D3B"); //Guid de Teste
             _anunciante.RazaoSocial = "Oficina de entretenimento adulto do tio careca";
+            _anunciante.Responsavel = "Fulano de Tal";
+            _anunciante.Email = "careca@careca.com.br";
             _anunciante.Cnpj = "40.123.456.0001-10";
             _anunciante.Token = Sha1Util.SHA1HashStringForUTF8String(_anunciante.RazaoSocial + _anunciante.Cnpj);
 

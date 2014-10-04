@@ -37,6 +37,8 @@ namespace SecondFloor.RepositoryEF.IntegratedTest.AnuncioRepository_Test
             _anunciante = new Anunciante();
             _anunciante.Id = Guid.NewGuid(); //Guid de Teste
             _anunciante.RazaoSocial = "Oficina de entretenimento adulto do tio careca";
+            _anunciante.Responsavel = "Fulano de Tal";
+            _anunciante.Email = "careca@careca.com.br";
             _anunciante.Cnpj = "40.123.456.0001-63";
             _anunciante.Token = _anunciante.GetToken();
 
@@ -59,6 +61,8 @@ namespace SecondFloor.RepositoryEF.IntegratedTest.AnuncioRepository_Test
             _anunciante = new Anunciante();
             _anunciante.Id = Guid.NewGuid(); //Guid de Teste
             _anunciante.RazaoSocial = "Oficina de entretenimento adulto do tio careca";
+            _anunciante.Responsavel = "Fulano de Tal";
+            _anunciante.Email = "careca@careca.com.br";
             _anunciante.Cnpj = "40.123.456.0001-63";
             _anunciante.Token = _anunciante.GetToken();
 
@@ -82,6 +86,8 @@ namespace SecondFloor.RepositoryEF.IntegratedTest.AnuncioRepository_Test
             _anunciante = new Anunciante();
             _anunciante.Id = Guid.NewGuid(); //Guid de Teste
             _anunciante.RazaoSocial = "Oficina de entretenimento adulto do tio careca";
+            _anunciante.Responsavel = "Fulano de Tal";
+            _anunciante.Email = "careca@careca.com.br";
             _anunciante.Cnpj = "40.123.456.0001-63";
             _anunciante.Token = _anunciante.GetToken();
 

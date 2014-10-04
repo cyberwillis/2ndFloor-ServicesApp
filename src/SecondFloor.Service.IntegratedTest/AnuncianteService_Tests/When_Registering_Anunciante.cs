@@ -87,7 +87,9 @@ namespace SecondFloor.Service.IntegratedTest.AnuncianteService_Tests
             {
                 Id = Guid.NewGuid(),
                 RazaoSocial = "Oficina de entretenimento adulto do tio careca",
-                Cnpj = "40.123.456/0001-63"
+                Cnpj = "40.123.456/0001-63",
+                Responsavel = "Fulano de Tal",
+                Email = "careca@careca.com.br",
             };
             anunciante.Token = anunciante.GetToken();
 

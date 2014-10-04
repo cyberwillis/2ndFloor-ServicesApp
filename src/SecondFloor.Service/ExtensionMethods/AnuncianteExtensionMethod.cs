@@ -22,6 +22,7 @@ namespace SecondFloor.Service.ExtensionMethods
                 anunciante.Id = new Guid(anuncianteDto.Id);
             }
 
+            anunciante.Responsavel = anuncianteDto.Responsavel;
             anunciante.RazaoSocial = anuncianteDto.RazaoSocial;
             anunciante.Email = anuncianteDto.Email;
             anunciante.Cnpj = anuncianteDto.Cnpj;
@@ -36,6 +37,7 @@ namespace SecondFloor.Service.ExtensionMethods
             var anuncianteDto = new AnuncianteDto();
 
             anuncianteDto.Id = anunciante.Id.ToString();
+            anuncianteDto.Responsavel = anunciante.Responsavel;
             anuncianteDto.RazaoSocial = anunciante.RazaoSocial;
             anuncianteDto.Email = anunciante.Email;
             anuncianteDto.Cnpj = anunciante.Cnpj;

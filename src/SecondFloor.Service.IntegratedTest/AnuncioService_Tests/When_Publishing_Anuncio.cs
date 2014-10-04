@@ -47,6 +47,7 @@ namespace SecondFloor.Service.IntegratedTest.AnuncioService_Tests
             //_commonContext.Dispose();
         }
 
+        //TODO: validacao de CEP no teste com erro
         [Test]
         public void test_if_anuncio_was_inserted_pass()
         {
@@ -102,7 +103,8 @@ namespace SecondFloor.Service.IntegratedTest.AnuncioService_Tests
                 Numero = "1",
                 Bairro = "Cidade Dultra",
                 Cidade = "Sao Paulo",
-                Estado = "SP"
+                Estado = "SP",
+                CEP = "00000-000",
             };
 
             //Oferta
@@ -133,7 +135,9 @@ namespace SecondFloor.Service.IntegratedTest.AnuncioService_Tests
             {
                 Id = new Guid(),
                 RazaoSocial = "Oficina de entretenimento adulto do tio careca",
-                Cnpj = "40.123.456.0001-10"
+                Cnpj = "40.123.456.0001-10",
+                Responsavel = "Fulano de Tal",
+                Email = "careca@careca.com.br",
             };
             anunciante.Token = Sha1Util.SHA1HashStringForUTF8String(anunciante.RazaoSocial + anunciante.Cnpj);
             return anunciante;

@@ -19,5 +19,7 @@ namespace SecondFloor.DataContracts.DTO
         public string Cidade { get; set; }
         [DataMember]
         public string Estado { get; set; }
+        [DataMember]
+        public string Cep { get; set; }
     }
 }

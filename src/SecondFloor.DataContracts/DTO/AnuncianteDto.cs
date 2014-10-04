@@ -9,6 +9,8 @@ namespace SecondFloor.DataContracts.DTO
         [DataMember]
         public string Id { get; set; }
         [DataMember]
+        public string Responsavel { get; set; }
+        [DataMember]
         public string RazaoSocial { get; set; }
         [DataMember]
         public string Cnpj { get; set; }
