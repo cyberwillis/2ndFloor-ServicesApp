@@ -9,22 +9,22 @@ namespace SecondFloor.RepositoryNH
     {
         public void SaveNew(IAggregateRoot entity)
         {
-            SessionProvider.GetCurrentSession().Save(entity);
+            SessionFactory.GetCurrentSession().Save(entity);
         }
 
         public void SaveAmended(IAggregateRoot entity)
         {
-            SessionProvider.GetCurrentSession().SaveOrUpdate(entity);
+            SessionFactory.GetCurrentSession().SaveOrUpdate(entity);
         }
 
         public void SaveRemoved(IAggregateRoot entity)
         {
-            SessionProvider.GetCurrentSession().Delete(entity);
+            SessionFactory.GetCurrentSession().Delete(entity);
         }
 
         public void Commit()
         {
-            using (ITransaction transaction = SessionProvider.GetCurrentSession().BeginTransaction())
+            using (ITransaction transaction = SessionFactory.GetCurrentSession().BeginTransaction())
             {
                 try
                 {

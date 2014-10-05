@@ -6,7 +6,7 @@ namespace SecondFloor.Model
 {
     public interface IAnuncianteRepository : IRepository<Anunciante,Guid>
     {
-        Anunciante EncontrarAnunciantePorToken(string anuncianteToken);
+        //Anunciante EncontrarAnunciantePorToken(string anuncianteToken);
         Anunciante EncontrarAnunciantePor(Guid id);
         void InserirAnunciante(Anunciante anunciante);
         void AtualizarAnunciante(Anunciante anunciante);

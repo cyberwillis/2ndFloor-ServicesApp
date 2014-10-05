@@ -43,7 +43,8 @@ namespace SecondFloor.Service.IntegratedTest.AnuncianteService_Tests
         {
             //Arrange
             var anunciante = GerarAnunciante();
-            anunciante.Token = "0000000000";
+            anunciante.Cnpj = "00000000000000";
+            //anunciante.Token = "0000000000";
 
             var request = new CadastroAnuncianteRequest();
             request.Anunciante = anunciante.ConvertToAnuncianteDto();
@@ -91,7 +92,7 @@ namespace SecondFloor.Service.IntegratedTest.AnuncianteService_Tests
                 Responsavel = "Fulano de Tal",
                 Email = "careca@careca.com.br",
             };
-            anunciante.Token = anunciante.GetToken();
+            //anunciante.Token = anunciante.GetToken();
 
             return anunciante;
         }

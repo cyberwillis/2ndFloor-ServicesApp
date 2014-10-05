@@ -27,7 +27,8 @@ namespace SecondFloor.Service
         {
             var anuncio = request.Anuncio.ConvertToAnuncio();
             
-            var anunciante = _anuncianteRepository.EncontrarAnunciantePorToken(request.AnuncianteToken); //(Contexto Anunciante)
+            //var anunciante = _anuncianteRepository.EncontrarAnunciantePorToken(request.AnuncianteToken); //(Contexto Anunciante)
+            var anunciante = _anuncianteRepository.EncontrarAnunciantePor(Guid.Parse(request.AnuncianteId)); //(Contexto Anunciante)
             if (anunciante == null)
                 return new CadastrarAnuncioResponse(){ Message = "Anunciante não identificado.", Success = false };
 

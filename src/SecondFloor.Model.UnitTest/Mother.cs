@@ -16,7 +16,7 @@ namespace SecondFloor.Model.UnitTest.Anuncio_Tests
             var anunciante = new Anunciante();
             anunciante.RazaoSocial = "Oficina de entretenimento adulto do tio careca";
             anunciante.Cnpj = "49.107.344/0001-93";
-            anunciante.Token = "4f2b36ac358c3b311ec5168f561b1325ca1cedde";
+            //anunciante.Token = "4f2b36ac358c3b311ec5168f561b1325ca1cedde";
             anunciante.Responsavel = "Fulano de Tal";
             anunciante.Email = "careca@careca.com.br";
 

@@ -20,7 +20,7 @@ namespace SecondFloor.Wcf.SelfHost
             //var host = new ServiceHost(typeof(AnuncianteService)); //old
             //var host = new WcfServiceFactory().GetInstance(typeof(AnuncianteService));
 
-            Database.SetInitializer(new DropCreateDatabaseAlways<AnuncioContext>());
+            Database.SetInitializer(new DropCreateDatabaseAlways<AnuncianteContext>());
 
             var host = new WcfServiceFactory().GetInstance(typeof(AnuncianteService));
             try

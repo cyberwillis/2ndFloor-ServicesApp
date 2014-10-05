@@ -7,26 +7,26 @@ namespace SecondFloor.RepositoryEF.DataContextStorage
     {
         private static readonly Hashtable AnuncioDataContexts = new Hashtable();
 
-        public AnuncioContext GetDataContext()
+        public AnuncianteContext GetDataContext()
         {
-            AnuncioContext anuncioDataContext = null;
+            AnuncianteContext anuncianteDataContext = null;
 
             var threadname = GetThreadName();
 
             if (AnuncioDataContexts.Contains(GetThreadName()))
-                anuncioDataContext = (AnuncioContext)AnuncioDataContexts[threadname];
+                anuncianteDataContext = (AnuncianteContext)AnuncioDataContexts[threadname];
 
-            return anuncioDataContext;
+            return anuncianteDataContext;
         }
 
-        public void Store(AnuncioContext anuncioDataContext)
+        public void Store(AnuncianteContext anuncianteDataContext)
         {
             var threadName = GetThreadName();
 
             if (AnuncioDataContexts.Contains(threadName))
-                AnuncioDataContexts[threadName] = anuncioDataContext;
+                AnuncioDataContexts[threadName] = anuncianteDataContext;
             else
-                AnuncioDataContexts.Add(threadName, anuncioDataContext);
+                AnuncioDataContexts.Add(threadName, anuncianteDataContext);
         }
 
         private static string GetThreadName()

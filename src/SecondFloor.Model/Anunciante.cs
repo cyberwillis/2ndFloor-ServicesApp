@@ -14,7 +14,7 @@ namespace SecondFloor.Model
         //public virtual IList<Endereco> Enderecos { get; set; }
         public IList<Comentario> Comentarios { get; set; }
         public int Pontuacao { get; set; }
-        public String Token { get; set; }
+        //public String Token { get; set; }
 
         public Anunciante()
         {

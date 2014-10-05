@@ -15,7 +15,7 @@ namespace SecondFloor.RepositoryEF.Mappings
             Property(a => a.RazaoSocial).HasMaxLength(250);
             Property(a => a.Cnpj).HasMaxLength(20);
             Property(a => a.Pontuacao);
-            Property(a => a.Token);
+            //Property(a => a.Token);
 
             HasMany(a => a.Anuncios).WithRequired(a=>a.Anunciante)
                 .Map(x => x.MapKey("AnuncianteId").ToTable("tbAnuncio"));

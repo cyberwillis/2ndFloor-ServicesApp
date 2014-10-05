@@ -2,7 +2,7 @@
 {
     public interface IDataContextStorageContainer
     {
-        AnuncioContext GetDataContext();
-        void Store(AnuncioContext anuncioDataContext); 
+        AnuncianteContext GetDataContext();
+        void Store(AnuncianteContext anuncianteDataContext); 
     }
 }

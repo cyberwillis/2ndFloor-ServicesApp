@@ -4,19 +4,19 @@ namespace SecondFloor.RepositoryEF.DataContextStorage
 {
     public class DataContextStorageFactory
     {
-        private static IDataContextStorageContainer _dataContextStorageContainer;
+        private static IDataContextStorageContainer _contextStorageContainer;
 
         public static IDataContextStorageContainer CreateStorageContainer()
         {
-            if (_dataContextStorageContainer == null)
+            if (_contextStorageContainer == null)
             {
                 if (HttpContext.Current == null)
-                    _dataContextStorageContainer = new ThreadDataContextStorageContainer();
+                    _contextStorageContainer = new ThreadDataContextStorageContainer();
                 else
-                    _dataContextStorageContainer = new HttpDataContextStorageContainer();
+                    _contextStorageContainer = new HttpDataContextStorageContainer();
             }
 
-            return _dataContextStorageContainer;
+            return _contextStorageContainer;
         }
     }
 }

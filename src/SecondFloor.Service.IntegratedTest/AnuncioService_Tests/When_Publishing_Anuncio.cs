@@ -15,12 +15,13 @@ namespace SecondFloor.Service.IntegratedTest.AnuncioService_Tests
     [TestFixture]
     public class When_Publishing_Anuncio
     {
-        private string _anuncianteToken;
+        //private string _anuncianteToken;
         private AnuncioDto _anuncioDto;
         private AnuncioRepository _anuncioRepository;
         private AnuncianteRepository _anuncianteRepository;
         private IUnitOfWork _unitOfworkAnuncio;
         private IUnitOfWork _unitOfworkAnunciante;
+        private Guid _anuncianteId;
 
         [SetUp]
         public void Init()
@@ -35,7 +36,8 @@ namespace SecondFloor.Service.IntegratedTest.AnuncioService_Tests
         [TearDown]
         public void Finish()
         {
-            var anunciante = _anuncianteRepository.EncontrarAnunciantePorToken(_anuncianteToken);
+            var anunciante = _anuncianteRepository.EncontrarAnunciantePor(_anuncianteId);
+            //var anunciante = _anuncianteRepository.EncontrarAnunciantePorToken(_anuncianteToken);
             if (anunciante != null)
             {
                 _anuncianteRepository.ExcluirAnunciante(anunciante.Id);
@@ -53,14 +55,16 @@ namespace SecondFloor.Service.IntegratedTest.AnuncioService_Tests
         {
             //Arrange
             var anunciante = GerarAnunciante(); //Anunciante
-            _anuncianteToken = anunciante.Token;
+            //_anuncianteToken = anunciante.Token;
+            _anuncianteId = anunciante.Id;
             _anuncianteRepository.InserirAnunciante(anunciante);
             _anuncianteRepository.Persist();
 
             var anuncio = GerarAnuncio(anunciante); //Anuncio
             _anuncioDto = anuncio.ConvertToAnuncioDto(); //Cascade DTO Convertion
-            
-            var request = new CadastrarAnuncioRequest { Anuncio = _anuncioDto, AnuncianteToken = anunciante.Token };
+
+            var request = new CadastrarAnuncioRequest { Anuncio = _anuncioDto, AnuncianteId = anunciante.Id.ToString() };
+            //var request = new CadastrarAnuncioRequest { Anuncio = _anuncioDto, AnuncianteToken = anunciante.Token };
 
             //Act
             var anuncioService = new AnuncianteService(_anuncioRepository, _anuncianteRepository);
@@ -80,7 +84,8 @@ namespace SecondFloor.Service.IntegratedTest.AnuncioService_Tests
             var anuncio = GerarAnuncio(anunciante); //Anuncio
             _anuncioDto = anuncio.ConvertToAnuncioDto(); //Cascade DTO Convertion
 
-            var request = new CadastrarAnuncioRequest { Anuncio = _anuncioDto, AnuncianteToken = anunciante.Token };
+            var request = new CadastrarAnuncioRequest { Anuncio = _anuncioDto, AnuncianteId = anunciante.Id.ToString() };
+            //var request = new CadastrarAnuncioRequest { Anuncio = _anuncioDto, AnuncianteToken = anunciante.Token };
 
             //Act
             var anuncioService = new AnuncianteService(_anuncioRepository, _anuncianteRepository);
@@ -139,7 +144,7 @@ namespace SecondFloor.Service.IntegratedTest.AnuncioService_Tests
                 Responsavel = "Fulano de Tal",
                 Email = "careca@careca.com.br",
             };
-            anunciante.Token = Sha1Util.SHA1HashStringForUTF8String(anunciante.RazaoSocial + anunciante.Cnpj);
+            //anunciante.Token = Sha1Util.SHA1HashStringForUTF8String(anunciante.RazaoSocial + anunciante.Cnpj);
             return anunciante;
         }
 

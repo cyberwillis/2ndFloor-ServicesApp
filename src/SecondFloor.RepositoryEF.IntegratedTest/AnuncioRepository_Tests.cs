@@ -21,7 +21,7 @@ namespace SecondFloor.RepositoryEF.IntegratedTest.AnuncioRepository_Test
         [SetUp]
         public void Init()
         {
-            Database.SetInitializer(new DropCreateDatabaseIfModelChanges<AnuncioContext>()); //Database Initializer
+            Database.SetInitializer(new DropCreateDatabaseIfModelChanges<AnuncianteContext>()); //Database Initializer
 
             _unitOfWorkAnuncio = new EFUnitOfWork<Anuncio>();
             _anuncioRepository = new AnuncioRepository(_unitOfWorkAnuncio); //contexto compartilhado
@@ -36,7 +36,7 @@ namespace SecondFloor.RepositoryEF.IntegratedTest.AnuncioRepository_Test
             _anunciante.Responsavel = "Fulano de Tal";
             _anunciante.Email = "careca@careca.com.br";
             _anunciante.Cnpj = "40.123.456.0001-10";
-            _anunciante.Token = Sha1Util.SHA1HashStringForUTF8String(_anunciante.RazaoSocial + _anunciante.Cnpj);
+            //_anunciante.Token = Sha1Util.SHA1HashStringForUTF8String(_anunciante.RazaoSocial + _anunciante.Cnpj);
 
             //Persistir Anunciante
             _anuncianteRepository.InserirAnunciante(_anunciante);

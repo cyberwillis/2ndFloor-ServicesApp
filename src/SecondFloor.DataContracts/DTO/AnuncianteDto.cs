@@ -16,8 +16,10 @@ namespace SecondFloor.DataContracts.DTO
         public string Cnpj { get; set; }
         [DataMember]
         public string Email { get; set; }
-        [DataMember]
-        public string Token { get; set; }
+
+        /*[DataMember]
+        public string Token { get; set; }*/
+
         [DataMember]
         public IList<AnuncioDto> Anuncios { get; set; }
         

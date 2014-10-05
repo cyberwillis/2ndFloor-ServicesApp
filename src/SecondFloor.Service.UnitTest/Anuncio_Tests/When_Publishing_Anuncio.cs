@@ -57,7 +57,8 @@ namespace SecondFloor.Service.UnitTest.Anuncio_Tests
             mockAnuncioRepository.Stub(x => x.Persist());
             
             var mockAnuncianteRepository = MockRepository.GenerateMock<IAnuncianteRepository>();
-            mockAnuncianteRepository.Stub(x => x.EncontrarAnunciantePorToken(Arg<string>.Is.Anything)).Return(new Anunciante());
+            mockAnuncianteRepository.Stub(x => x.EncontrarAnunciantePor(Arg<Guid>.Is.Anything)).Return(new Anunciante());
+            //mockAnuncianteRepository.Stub(x => x.EncontrarAnunciantePorToken(Arg<string>.Is.Anything)).Return(new Anunciante());
 
             var anuncioService = new AnuncianteService(mockAnuncioRepository, mockAnuncianteRepository);
             var cadastrarAnuncioRequest = new CadastrarAnuncioRequest() { Anuncio = _anuncioDto };
@@ -75,7 +76,8 @@ namespace SecondFloor.Service.UnitTest.Anuncio_Tests
             //Arrange
             var mockAnuncioRepository = MockRepository.GenerateMock<IAnuncioRepository>();
             var mockAnuncianteRepository = MockRepository.GenerateMock<IAnuncianteRepository>();
-            mockAnuncianteRepository.Stub(x => x.EncontrarAnunciantePorToken(Arg<string>.Is.Anything)).Return(null); //anunciante é nulo
+            mockAnuncianteRepository.Stub(x => x.EncontrarAnunciantePor(Arg<Guid>.Is.Anything)).Return(null); //anunciante é nulo
+            //mockAnuncianteRepository.Stub(x => x.EncontrarAnunciantePorToken(Arg<string>.Is.Anything)).Return(null); //anunciante é nulo
 
             var anuncioService = new AnuncianteService(mockAnuncioRepository, mockAnuncianteRepository);
             var cadastrarAnuncioRequest = new CadastrarAnuncioRequest() { Anuncio = _anuncioDto };
@@ -94,7 +96,8 @@ namespace SecondFloor.Service.UnitTest.Anuncio_Tests
             //Arrange
             var mockAnuncioRepository = MockRepository.GenerateMock<IAnuncioRepository>();
             var mockAnuncianteRepository = MockRepository.GenerateMock<IAnuncianteRepository>();
-            mockAnuncianteRepository.Stub(x => x.EncontrarAnunciantePorToken(Arg<string>.Is.Anything)).Return(new Anunciante());
+            mockAnuncianteRepository.Stub(x => x.EncontrarAnunciantePor(Arg<Guid>.Is.Anything)).Return(new Anunciante());
+            //mockAnuncianteRepository.Stub(x => x.EncontrarAnunciantePorToken(Arg<string>.Is.Anything)).Return(new Anunciante());
             
             var anuncioService = new AnuncianteService(mockAnuncioRepository, mockAnuncianteRepository);
             var cadastrarAnuncioRequest = new CadastrarAnuncioRequest() { Anuncio = new AnuncioDto() }; 

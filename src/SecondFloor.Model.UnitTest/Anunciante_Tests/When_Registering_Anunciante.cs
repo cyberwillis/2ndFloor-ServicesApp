@@ -26,29 +26,29 @@ namespace SecondFloor.Model.UnitTest.Anunciante_Tests
             anunciante.Email = "";
             anunciante.RazaoSocial = "";
             anunciante.Cnpj = "";
-            anunciante.Token = "";
+            //anunciante.Token = "";
 
             var brResponsavel = new Dictionary<string, string>() { { "Responsavel", "O Responsável não pode ser nulo." } };
             var brEmail = new Dictionary<string, string>() { { "Email", "O Email não pode ser nulo." } };
             var brRazaoSocial = new Dictionary<string, string>() {{"Razao Social", "A razão social não pode ser nula."}};
             var brCNPJ = new Dictionary<string, string>() {{"Cnpj", "O Cnpj não pode ser nulo."}};
-            var brToken = new Dictionary<string, string>() {{"Token", "Erro no cadastro do Anunciante, ficará impossibilitado de publicar ofertas"}};
+            //var brToken = new Dictionary<string, string>() {{"Token", "Erro no cadastro do Anunciante, ficará impossibilitado de publicar ofertas"}};
 
             Assert.IsTrue(anunciante.GetBrokenBusinessRules().Contains(brResponsavel.First()));
-            //Assert.IsTrue(anunciante.GetBrokenBusinessRules().Contains(brEmail.First()));
+            Assert.IsTrue(anunciante.GetBrokenBusinessRules().Contains(brEmail.First()));
             Assert.IsTrue(anunciante.GetBrokenBusinessRules().Contains(brRazaoSocial.First()));
             Assert.IsTrue(anunciante.GetBrokenBusinessRules().Contains(brCNPJ.First()));
-            Assert.IsTrue(anunciante.GetBrokenBusinessRules().Contains(brToken.First()));
+            //Assert.IsTrue(anunciante.GetBrokenBusinessRules().Contains(brToken.First()));
         }
 
-        [Test]
+        /*[Test]
         public void test_anunciante_with_correct_token()
         {
             var esperado = anunciante.GetToken();
             Assert.AreEqual( esperado, anunciante.Token );
-        }
+        }*/
 
-        [Test]
+        /*[Test]
         public void test_anunciante_with_invalid_token()
         {
             //RazaoSocial Incorreto
@@ -56,7 +56,7 @@ namespace SecondFloor.Model.UnitTest.Anunciante_Tests
 
             var expectedError = new Dictionary<string,string>(){{"Token", "O Token do anunciante não confere"}};
             Assert.IsTrue(anunciante.GetBrokenBusinessRules().Contains(expectedError.First()));
-        }
+        }*/
 
         [Test]
         public void test_anunciante_with_invalid_cnpj()

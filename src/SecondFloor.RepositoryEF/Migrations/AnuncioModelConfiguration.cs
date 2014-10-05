@@ -2,7 +2,7 @@
 
 namespace SecondFloor.RepositoryEF.Migrations
 {
-    public class AnuncioModelConfiguration : DbMigrationsConfiguration<AnuncioContext>
+    public class AnuncioModelConfiguration : DbMigrationsConfiguration<AnuncianteContext>
     {
         public AnuncioModelConfiguration()
         {

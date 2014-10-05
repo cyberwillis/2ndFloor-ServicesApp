@@ -16,12 +16,12 @@ namespace SecondFloor.RepositoryEF.Repositories
 
         public IList<TEntity> FindAll()
         {
-            return AnuncioContextFactory.GetDataContext().Set<TEntity>().ToList();
+            return AnuncianteContextFactory.GetAnuncianteContext().Set<TEntity>().ToList();
         }
 
         public TEntity FindBy(TId id)
         {
-            return AnuncioContextFactory.GetDataContext().Set<TEntity>().Find(id);
+            return AnuncianteContextFactory.GetAnuncianteContext().Set<TEntity>().Find(id);
         }
 
         public void Insert(TEntity entity)

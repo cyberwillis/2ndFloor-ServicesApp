@@ -6,25 +6,25 @@ namespace SecondFloor.RepositoryEF.DataContextStorage
     {
         private const string DataContextKey = "DataContext";
 
-        public AnuncioContext GetDataContext()
+        public AnuncianteContext GetDataContext()
         {
-            AnuncioContext efContext = null;
+            AnuncianteContext efContext = null;
             if (HttpContext.Current.Items.Contains(DataContextKey))
             {
-                efContext = (AnuncioContext)HttpContext.Current.Items[DataContextKey];
+                efContext = (AnuncianteContext)HttpContext.Current.Items[DataContextKey];
             }
             return efContext;
         }
 
-        public void Store(AnuncioContext anuncioDataContext)
+        public void Store(AnuncianteContext anuncianteDataContext)
         {
             if (HttpContext.Current.Items.Contains(DataContextKey))
             {
-                HttpContext.Current.Items[DataContextKey] = anuncioDataContext;
+                HttpContext.Current.Items[DataContextKey] = anuncianteDataContext;
             }
             else
             {
-                HttpContext.Current.Items.Add(DataContextKey, anuncioDataContext);
+                HttpContext.Current.Items.Add(DataContextKey, anuncianteDataContext);
             }
         }
     }

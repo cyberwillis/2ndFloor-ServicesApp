@@ -17,7 +17,7 @@ namespace SecondFloor.RepositoryEF.IntegratedTest.AnuncioRepository_Test
         [SetUp]
         public void Init()
         {
-            Database.SetInitializer(new DropCreateDatabaseIfModelChanges<AnuncioContext>()); //Database Initializer
+            Database.SetInitializer(new DropCreateDatabaseIfModelChanges<AnuncianteContext>()); //Database Initializer
 
             _unitOfworkAnunciante = new EFUnitOfWork<Anunciante>();
             _anuncianteRepository = new AnuncianteRepository(_unitOfworkAnunciante); //contexto compartilhado
@@ -40,7 +40,7 @@ namespace SecondFloor.RepositoryEF.IntegratedTest.AnuncioRepository_Test
             _anunciante.Responsavel = "Fulano de Tal";
             _anunciante.Email = "careca@careca.com.br";
             _anunciante.Cnpj = "40.123.456.0001-63";
-            _anunciante.Token = _anunciante.GetToken();
+            //_anunciante.Token = _anunciante.GetToken();
 
             _anuncianteRepository.InserirAnunciante(_anunciante);
             _anuncianteRepository.Persist();
@@ -54,7 +54,7 @@ namespace SecondFloor.RepositoryEF.IntegratedTest.AnuncioRepository_Test
 
         }
 
-        [Test]
+        /*[Test]
         public void test_EncontrarAnunciantesPorToken_returns_one_element_pass()
         {
             //Anunciante
@@ -64,7 +64,7 @@ namespace SecondFloor.RepositoryEF.IntegratedTest.AnuncioRepository_Test
             _anunciante.Responsavel = "Fulano de Tal";
             _anunciante.Email = "careca@careca.com.br";
             _anunciante.Cnpj = "40.123.456.0001-63";
-            _anunciante.Token = _anunciante.GetToken();
+            //_anunciante.Token = _anunciante.GetToken();
 
             var token = _anunciante.GetToken();
 
@@ -77,7 +77,7 @@ namespace SecondFloor.RepositoryEF.IntegratedTest.AnuncioRepository_Test
 
             _anuncianteRepository.ExcluirAnunciante(_anunciante.Id);
             _anuncianteRepository.Persist();
-        }
+        }*/
 
         [Test]
         public void test_ExcluirAnunciante_returns_zero_elements_pass()
@@ -89,7 +89,7 @@ namespace SecondFloor.RepositoryEF.IntegratedTest.AnuncioRepository_Test
             _anunciante.Responsavel = "Fulano de Tal";
             _anunciante.Email = "careca@careca.com.br";
             _anunciante.Cnpj = "40.123.456.0001-63";
-            _anunciante.Token = _anunciante.GetToken();
+            //_anunciante.Token = _anunciante.GetToken();
 
             _anuncianteRepository.InserirAnunciante(_anunciante);
             _anuncianteRepository.Persist();

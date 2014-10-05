@@ -29,8 +29,8 @@ namespace SecondFloor.Wcf.SelfHost
                 .RegisterType<IAnuncianteService, AnuncianteService>()
                 .RegisterType<IAnuncioRepository, AnuncioRepository>()
                 .RegisterType<IAnuncianteRepository, AnuncianteRepository>()
-                .RegisterType<AnuncioContext>( new HierarchicalLifetimeManager() );
-                //.RegisterInstance<IAnuncioContext>(new AnuncioContext());
+                .RegisterType<AnuncianteContext>( new HierarchicalLifetimeManager() );
+                //.RegisterInstance<IAnuncioContext>(new AnuncianteContext());
 
             /*container.RegisterInstance<TimerViewModel>(new TimerViewModel());
             container.RegisterType<IPieceImageManager, PieceImageManager>();

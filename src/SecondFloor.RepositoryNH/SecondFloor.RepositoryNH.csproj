@@ -50,11 +50,11 @@
   <ItemGroup>
     <Compile Include="NHUnitOfWork.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SessionFactoryContainer\HttpSessionStorageContainer.cs" />
-    <Compile Include="SessionFactoryContainer\ISessionStorageContainer.cs" />
-    <Compile Include="SessionFactoryContainer\SessionStorageFactory.cs" />
-    <Compile Include="SessionFactoryContainer\ThreadSessionStorageContainer.cs" />
-    <Compile Include="SessionProvider.cs" />
+    <Compile Include="SessionStorage\HttpSessionStorageContainer.cs" />
+    <Compile Include="SessionStorage\ISessionStorageContainer.cs" />
+    <Compile Include="SessionStorage\SessionStorageFactory.cs" />
+    <Compile Include="SessionStorage\ThreadSessionStorageContainer.cs" />
+    <Compile Include="SessionFactory.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Mappings\" />

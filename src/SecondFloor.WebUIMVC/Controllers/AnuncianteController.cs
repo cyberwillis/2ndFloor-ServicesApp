@@ -1,18 +1,30 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
+using SecondFloor.DataContracts.Messages;
+using SecondFloor.ServiceContracts;
 using SecondFloor.WebUIMVC.Models;
+using SecondFloor.WebUIMVC.Services;
 
 namespace SecondFloor.WebUIMVC.Controllers
 {
     public class AnuncianteController : Controller
     {
+        private IAnuncianteService _anuncianteService;
+
+        public AnuncianteController(IAnuncianteService anuncianteService)
+        {
+            _anuncianteService = anuncianteService;
+        }
+
         // GET: Anunciante
         public ActionResult Index()
         {
-            var anunciante = new AnuncianteViewModels();
+            var anunciante = new AnuncianteViewModels()
+            {
+                RazaoSocial = "Oficina de entretenimento adulto do tio careca",
+                NomeResponsavel = "Fulano de Tal",
+                Email = "careca@careca.com.br",
+                Cnpj = "40.123.456.0001-63",
+            };
 
             //anunciante.Enderecos = new List<EnderecoViewModels>();
 
@@ -24,12 +36,19 @@ namespace SecondFloor.WebUIMVC.Controllers
         {
             if (! ModelState.IsValid )
             {
-                //anunciante.Enderecos = new LinkedList<EnderecoViewModels>();
-
                 return View(anunciante);
             }
 
-            return RedirectToAction("Index", "Home");
+            var request = new CadastroAnuncianteRequest(){ Anunciante = anunciante.ConvertToAnuncianteDto() };
+            var response = _anuncianteService.CadastrarAnunciante(request);
+            if (response.Success)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            else
+            {
+                return View(anunciante);
+            }
         }
     }
 }

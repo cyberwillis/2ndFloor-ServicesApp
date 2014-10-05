@@ -58,24 +58,24 @@ namespace SecondFloor.Model.Specifications
             }
 
             //Token
-            if (string.IsNullOrEmpty(anunciante.Token))
+            /*if (string.IsNullOrEmpty(anunciante.Token))
             {
                 anunciante.AddBrokenRule("Token","Erro no cadastro do Anunciante, ficará impossibilitado de publicar ofertas");
                 //cantactar Admin do portal por email
             } else if (anunciante.Token != GetToken(anunciante) )
             {
                 anunciante.AddBrokenRule("Token", "O Token do anunciante não confere");
-            }
+            }*/
 
             return anunciante.BrokenRules;
         }
 
-        public static string GetToken(this Anunciante anunciante)
+        /*public static string GetToken(this Anunciante anunciante)
         {
             string parametroChave = anunciante.Cnpj + anunciante.RazaoSocial;
 
             return Sha1Util.SHA1HashStringForUTF8String(parametroChave);
-        }
+        }*/
         
     }
 }

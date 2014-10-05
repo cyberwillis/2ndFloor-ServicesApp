@@ -8,7 +8,8 @@ namespace SecondFloor.RepositoryEF.Repositories
 {
     public class AnuncianteRepository : RepositoryBase<Anunciante,Guid>,IAnuncianteRepository
     {
-        public AnuncianteRepository(IUnitOfWork unitOfWork) : base(unitOfWork)
+        public AnuncianteRepository(IUnitOfWork unitOfWork)
+            : base(unitOfWork)
         {
         }
 
@@ -17,14 +18,14 @@ namespace SecondFloor.RepositoryEF.Repositories
             return this.FindAll();
         }
 
-        public Anunciante EncontrarAnunciantePorToken(string anuncianteToken)
+        /*public Anunciante EncontrarAnunciantePorToken(string anuncianteToken)
         {
-            var queryAnunciante = from a in AnuncioContextFactory.GetDataContext().Anunciantes
+            var queryAnunciante = from a in AnuncianteContextFactory.GetAnuncianteContext().Anunciantes
                 where a.Token == anuncianteToken
                 select a;
 
             return queryAnunciante.SingleOrDefault();
-        }
+        }*/
 
         public Anunciante EncontrarAnunciantePor(Guid id)
         {
