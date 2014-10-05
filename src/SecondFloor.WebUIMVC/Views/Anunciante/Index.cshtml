@@ -1,0 +1,19 @@
+﻿@model SecondFloor.WebUIMVC.Models.AnuncianteViewModels
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+@{ Html.RenderPartial("AnunciantePartialView", Model);}
+
+
+
+@{
+    if (Model.Enderecos != null)
+    {
+        <hr />
+        Html.RenderPartial("ListaEnderecos", Model.Enderecos);
+    }
+}
