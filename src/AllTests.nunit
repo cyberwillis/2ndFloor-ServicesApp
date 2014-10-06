@@ -1,0 +1,10 @@
+﻿<NUnitProject>
+  <Settings activeconfig="Debug" />
+  <Config name="Debug" binpathtype="Auto">
+    <assembly path="SecondFloor.Infrastructure.UnitTest\bin\Debug\SecondFloor.Infrastructure.UnitTest.dll" />
+    <assembly path="SecondFloor.Model.UnitTest\bin\Debug\SecondFloor.Model.UnitTest.dll" />
+    <assembly path="SecondFloor.RepositoryEF.IntegratedTest\bin\Debug\SecondFloor.RepositoryEF.IntegratedTest.dll" />
+    <assembly path="SecondFloor.Service.IntegratedTest\bin\Debug\SecondFloor.Service.IntegratedTest.dll" />
+  </Config>
+  <Config name="Release" binpathtype="Auto" />
+</NUnitProject>

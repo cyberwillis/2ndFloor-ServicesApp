@@ -43,6 +43,7 @@ namespace SecondFloor.Service.ExtensionMethods
             anuncianteDto.Cnpj = anunciante.Cnpj;
             //anuncianteDto.Token = anunciante.Token;
             anuncianteDto.Anuncios = anunciante.Anuncios.ConvertToListaAnunciosDtos();
+            anuncianteDto.Enderecos = anunciante.Enderecos.ConvertToListaEnderecosDto();
 
             return anuncianteDto;
         }

@@ -59,7 +59,7 @@
     <Compile Include="Mappings\AnuncioConfiguration.cs" />
     <Compile Include="Mappings\EnderecoConfiguration.cs" />
     <Compile Include="Mappings\OfertaConfiguration.cs" />
-    <Compile Include="Migrations\AnuncioModelConfiguration.cs" />
+    <Compile Include="Migrations\AnuncianteModelConfiguration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\RepositoryBase.cs" />
     <Compile Include="EFUnitOfWork.cs" />

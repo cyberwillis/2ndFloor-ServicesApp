@@ -10,5 +10,7 @@ namespace SecondFloor.DataContracts
 
         [MessageBodyMember]
         public string Message { get; set; }
+
+        public string MessageType { get; set; }
     }
 }

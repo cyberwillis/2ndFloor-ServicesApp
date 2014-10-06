@@ -11,7 +11,7 @@ namespace SecondFloor.WebUIMVC.Models
         [Required(ErrorMessage = "O campo Nome responsavel não pode ser nulo.",AllowEmptyStrings = false)]
         [MinLength(2,ErrorMessage = "O campo nome reponsavel deve ter ao menos 2 caracteres")]
         [MaxLength(250,ErrorMessage = "O campo nome responsavel nao pode possuir mais de 250 caracteres")]
-        [Display(Name = "Nome do Responsável")]
+        [Display(Name = "Responsável")]
         public string NomeResponsavel { get; set; }
 
         [Required(ErrorMessage = "Email não pode ser nulo.",AllowEmptyStrings = false)]

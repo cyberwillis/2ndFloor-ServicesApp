@@ -16,9 +16,12 @@ namespace SecondFloor.Model
         public int Pontuacao { get; set; }
         //public String Token { get; set; }
 
+        public virtual IList<Endereco> Enderecos { get; set; }
+
         public Anunciante()
         {
             Anuncios = new List<Anuncio>();
+            Enderecos = new List<Endereco>();
         }
     }
 }

@@ -27,9 +27,38 @@ namespace SecondFloor.WebUIMVC
                       "~/Content/bootstrap.css",
                       "~/Content/site.css"));
 
+            //Empresa =================================================
+            bundles.Add(new ScriptBundle("~/bundles/2ndfloor").Include(
+                    "~/Scripts/2ndfloor.js"
+                ));
+
+            //Bootstrap-datepicker =================================================
+            //https://github.com/eternicode/bootstrap-datepicker
+            bundles.Add(new ScriptBundle("~/bundles/datepicker").Include(
+                //"~/Scripts/moment.js",
+                    "~/Content/bootstrap-datepicker/js/bootstrap-datepicker.js",
+                    "~/Content/bootstrap-datepicker/js/locales/bootstrap-datepicker.pt-BR.js"
+                ));
+            bundles.Add(new StyleBundle("~/Content/datepicker").Include(
+                    "~/Content/bootstrap-datepicker/css/datepicker.css"
+                ));
+
+            //Bootstrap-select
+            //https://github.com/silviomoreto/bootstrap-select
+            bundles.Add(new ScriptBundle("~/bundles/selectjs").Include(
+                //"~/Scripts/moment.js",
+                    "~/Content/bootstrap-select/js/bootstrap-select.js"
+                ));
+
+            bundles.Add(new StyleBundle("~/Content/selectcss").Include(
+                    "~/Content/bootstrap-select/dist/css/bootstrap-select.min.css"
+                ));
+
             // Set EnableOptimizations to false for debugging. For more information,
             // visit http://go.microsoft.com/fwlink/?LinkId=301862
             BundleTable.EnableOptimizations = true;
+
+            
         }
     }
 }

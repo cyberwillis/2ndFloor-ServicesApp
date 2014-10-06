@@ -22,6 +22,9 @@ namespace SecondFloor.DataContracts.DTO
 
         [DataMember]
         public IList<AnuncioDto> Anuncios { get; set; }
+
+        [DataMember]
+        public IList<EnderecoDto> Enderecos { get; set; }
         
     }
 }

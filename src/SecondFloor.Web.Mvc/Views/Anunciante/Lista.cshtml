@@ -1,0 +1,8 @@
+﻿@model IEnumerable<SecondFloor.Web.Mvc.Models.AnuncianteViewModels>
+
+
+<h4>@ViewBag.Title</h4>
+
+<div id="conteudoAnunciante">
+    @{Html.RenderPartial("ListaAnunciantePartialView", Model);}
+</div>

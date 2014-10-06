@@ -12,8 +12,13 @@ namespace SecondFloor.ServiceContracts
         [OperationContract]
         CadastroAnuncianteResponse CadastrarAnunciante( CadastroAnuncianteRequest request );
 
+        //TODO: tornar oculto para o publico quando eu jultar que devo...
         [OperationContract]
         EncontrarTodosAnunciantesResponse EncontrarTodosAnunciantes();
+
+        //Oculto para o publico
+        EncontrarAnuncianteResponse EncontrarAnunciantePor( EncontrarAnuncianteRequest request );
+        AlterarAnuncianteResponse AlterarAnunciante(AlterarAnuncianteRequest request);
 
     }
 }

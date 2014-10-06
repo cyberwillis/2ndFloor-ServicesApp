@@ -1,4 +1,6 @@
-﻿using System.Web.Mvc;
+﻿using System;
+using System.Collections.Generic;
+using System.Web.Mvc;
 using SecondFloor.DataContracts.Messages;
 using SecondFloor.ServiceContracts;
 using SecondFloor.WebUIMVC.Models;
@@ -15,9 +17,18 @@ namespace SecondFloor.WebUIMVC.Controllers
             _anuncianteService = anuncianteService;
         }
 
-        // GET: Anunciante
+        #region Anunciante
+        [HttpGet]
         public ActionResult Index()
         {
+            return RedirectToAction("Cadastro");
+        }
+
+        [HttpGet]
+        public ActionResult Cadastro()
+        {
+            ViewBag.Title = "Cadastro Anunciante";
+
             var anunciante = new AnuncianteViewModels()
             {
                 RazaoSocial = "Oficina de entretenimento adulto do tio careca",
@@ -26,29 +37,92 @@ namespace SecondFloor.WebUIMVC.Controllers
                 Cnpj = "40.123.456.0001-63",
             };
 
-            //anunciante.Enderecos = new List<EnderecoViewModels>();
+            anunciante.Enderecos = new List<EnderecoViewModels>();
 
             return View(anunciante);
         }
 
         [HttpPost]
-        public ActionResult Index ([Bind(Exclude = "Id")] AnuncianteViewModels anunciante)
+        public PartialViewResult Cadastro([Bind(Exclude = "Id")] AnuncianteViewModels anunciante)
         {
-            if (! ModelState.IsValid )
+            return PartialView("AnunciantePartialView");
+
+            /*if (!ModelState.IsValid)
             {
-                return View(anunciante);
+                return PartialView("",anunciante);
             }
 
-            var request = new CadastroAnuncianteRequest(){ Anunciante = anunciante.ConvertToAnuncianteDto() };
+            var request = new CadastroAnuncianteRequest() { Anunciante = anunciante.ConvertToAnuncianteDto() };
             var response = _anuncianteService.CadastrarAnunciante(request);
             if (response.Success)
             {
-                return RedirectToAction("Index", "Home");
+                //TODO: Caso Anunciante (aproveitando o usuario salvo)
+                ViewBag.Title = "Detalhes";
+                //return RedirectToAction("Detalhes", new { Id = response.Id });
+
+                //TODO: Caso Administrador
+                //ViewBag.Title = "Lista de Anunciantes";
+                //return RedirectToAction("Lista");
             }
-            else
-            {
-                return View(anunciante);
-            }
+
+            return PartialView("Anunciante",anunciante);*/
         }
+
+        [HttpGet]
+        public ActionResult Detalhes(string id)
+        {
+            var request = new EncontrarAnuncianteRequest() {Id = id};
+            var response = _anuncianteService.EncontrarAnunciantePor(request);
+            if (response.Success)
+            {
+                return View(response.Anunciante.ConvertAnuncianteViewModels());
+            }
+
+            return View("Error");
+        }
+
+        [HttpGet]
+        public ActionResult AlterarCadastro(string id)
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult AlterarCadastro(AnuncianteViewModels anunciante)
+        {
+            return View();
+        }
+        #endregion
+
+
+        #region Endereco
+        [HttpGet]
+        public ActionResult NovoEndereco()
+        {
+            var endereco = new EnderecoViewModels();
+
+            return PartialView("EnderecoPartialView",endereco);
+        }
+
+        [HttpPost]
+        public ActionResult NovoEndereco(EnderecoViewModels endereco)
+        {
+            return View();
+        }
+
+        [HttpGet]
+        public ActionResult AlterarEndereco(string id)
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult AlterarEndereco(EnderecoViewModels endereco)
+        {
+            return View();
+        }
+
+        #endregion
+
     }
 }

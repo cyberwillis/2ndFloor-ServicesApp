@@ -25,6 +25,7 @@ namespace SecondFloor.WebUIMVC.Services
             anuncianteView.Email = anuncianteDto.Email;
             anuncianteView.RazaoSocial = anuncianteDto.RazaoSocial;
             anuncianteView.Cnpj = anuncianteDto.Cnpj;
+            anuncianteView.Enderecos = anuncianteDto.Enderecos.ConvertToListaEnderecosViewModel();
 
             return anuncianteView;
         }

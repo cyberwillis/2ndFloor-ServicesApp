@@ -1,0 +1,48 @@
+﻿@model SecondFloor.Web.Mvc.Models.AnuncianteViewModels
+
+<div>
+    <h4>@ViewBag.Title</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.NomeResponsavel)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NomeResponsavel)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RazaoSocial)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RazaoSocial)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cnpj)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cnpj)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    <button type="button" onclick="ajaxModalFormOpenHandler(this)" class="btn btn-sm btn-warning"
+            data-url="/Anunciante/Edit/@Html.DisplayFor(id => Model.Id)"
+            data-url-content-update="/Anunciante/Edit"
+            data-content-update-id="#conteudoAnuncianteDetalhe">
+        <i class="glyphicon glyphicon-pencil"></i>
+    </button>
+</p>

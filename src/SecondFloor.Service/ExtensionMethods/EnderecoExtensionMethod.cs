@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using Microsoft.Practices.ObjectBuilder2;
 using SecondFloor.DataContracts.DTO;
 using SecondFloor.Model;
 
@@ -47,6 +50,13 @@ namespace SecondFloor.Service.ExtensionMethods
             enderecoDto.Cep = endereco.CEP;
 
             return enderecoDto;
+        }
+
+        public static IList<EnderecoDto> ConvertToListaEnderecosDto(this IList<Endereco> enderecos)
+        {
+            var enderecosDto = enderecos.Select( x => x.ConvertToEnderecoDto() ).ToList();
+
+            return enderecosDto;
         }
     }
 }
