@@ -4,7 +4,7 @@
 <p>
     <button type="button" onclick="ajaxModalFormOpenHandler(this)" class="btn btn-sm btn-success"
             data-url="/Anunciante/Create/"
-            data-url-content-update="/Anunciante/Lista"
+            data-url-content-update="/Anunciante/List"
             data-content-update-id="#conteudoAnunciante">
         <i class="glyphicon glyphicon-plus"></i>
     </button>
@@ -49,13 +49,13 @@
                     </a>
                     <button type="button" onclick="ajaxModalFormOpenHandler(this)" class="btn btn-sm btn-warning"
                             data-url="/Anunciante/Edit/@Html.DisplayFor(id=> item.Id)"
-                            data-url-content-update="/Anunciante/Lista"
+                            data-url-content-update="/Anunciante/List"
                             data-content-update-id="#conteudoAnunciante">
                         <i class="glyphicon glyphicon-pencil"></i>
                     </button>
                     <!--<button type="button" onclick="ajaxModalFormOpenHandler(this)" class="btn btn-sm btn-danger"
                             data-url="/Anunciante/Delete/@Html.DisplayFor(id=> item.Id)"
-                            data-url-content-update="/Anunciante/Lista"
+                            data-url-content-update="/Anunciante/List"
                             data-content-update-id="#conteudoAnunciante">
                         <i class="glyphicon glyphicon-trash"></i>
                     </button>-->

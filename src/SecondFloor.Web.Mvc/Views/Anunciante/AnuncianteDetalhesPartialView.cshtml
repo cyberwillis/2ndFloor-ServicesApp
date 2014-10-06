@@ -35,13 +35,12 @@
         <dd>
             @Html.DisplayFor(model => model.Cnpj)
         </dd>
-
     </dl>
 </div>
 <p>
     <button type="button" onclick="ajaxModalFormOpenHandler(this)" class="btn btn-sm btn-warning"
             data-url="/Anunciante/Edit/@Html.DisplayFor(id => Model.Id)"
-            data-url-content-update="/Anunciante/Edit"
+            data-url-content-update="/Anunciante/Detail/@Html.DisplayFor(id => Model.Id)"
             data-content-update-id="#conteudoAnuncianteDetalhe">
         <i class="glyphicon glyphicon-pencil"></i>
     </button>

@@ -70,7 +70,7 @@ namespace SecondFloor.Web.Mvc.Controllers
         }
 
         [HttpGet]
-        public ActionResult ListaAnunciante()
+        public ActionResult Listar()
         {
             ViewBag.Title = "Lista de Anunciantes";
 
@@ -84,7 +84,22 @@ namespace SecondFloor.Web.Mvc.Controllers
         }
 
         [HttpGet]
-        public PartialViewResult Lista()
+        public PartialViewResult Detail(string id)
+        {
+            var request = new EncontrarAnuncianteRequest() { Id = id };
+            var response = _anuncianteService.EncontrarAnunciantePor(request);
+            if (response.Success)
+            {
+                ViewBag.Title = "Detalhes de Anunciante";
+
+                return PartialView("AnuncianteDetalhesPartialView", response.Anunciante.ConvertAnuncianteViewModels());
+            }
+
+            return PartialView("Error");
+        }
+
+        [HttpGet]
+        public PartialViewResult List()
         {
             ViewBag.Title = "Lista de Anunciantes";
 
@@ -108,8 +123,8 @@ namespace SecondFloor.Web.Mvc.Controllers
 
                 return View("Detalhes",response.Anunciante.ConvertAnuncianteViewModels());
             }
-            
-            return View("Error");
+
+            return PartialView("Error");
         }
 
         [HttpGet]
