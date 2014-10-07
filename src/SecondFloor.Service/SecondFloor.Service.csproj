@@ -60,6 +60,7 @@
   <ItemGroup>
     <Compile Include="AnuncianteService.cs" />
     <Compile Include="ConsumidorService.cs" />
+    <Compile Include="EnderecoService.cs" />
     <Compile Include="ExtensionMethods\AnuncianteExtensionMethod.cs" />
     <Compile Include="ExtensionMethods\AnuncioExtensionMethod.cs" />
     <Compile Include="ExtensionMethods\EnderecoExtensionMethod.cs" />
@@ -89,7 +90,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

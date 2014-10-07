@@ -9,6 +9,7 @@ namespace SecondFloor.RepositoryEF.Mappings
         {
             ToTable("tbEndereco");
             HasKey(e=>e.Id);
+            Property(e => e.Id).HasColumnName("Id");
             Property(e => e.Logradouro).HasColumnName("Logradouro").HasMaxLength(250);
             Property(e => e.Numero).HasColumnName("Numero").HasMaxLength(5);
             Property(e => e.Complemento).HasColumnName("Complemento").HasMaxLength(15);

@@ -5,6 +5,6 @@ namespace SecondFloor.DataContracts.Messages.Endereco
     [MessageContract(WrapperNamespace = "messages.am.fiap.com.br")]
     public class EncontrarTodosEnderecosRequest
     {
-         
+        public string AnuncianteId { get; set; }
     }
 }

@@ -9,6 +9,6 @@ namespace SecondFloor.Model
         public string Titulo { get; set; }
         public string Descricao { get; set; }
         public string Preco { get; set; }
-        public Endereco Endereco { get; set; }
+        //public Endereco Endereco { get; set; }
     }
 }

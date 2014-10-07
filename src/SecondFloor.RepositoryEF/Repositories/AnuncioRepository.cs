@@ -9,7 +9,7 @@ namespace SecondFloor.RepositoryEF.Repositories
 {
     public class AnuncioRepository : RepositoryBase<Anuncio,Guid>, IAnuncioRepository
     {
-        public AnuncioRepository(IUnitOfWork unitOfWork) 
+        public AnuncioRepository(EFUnitOfWork<Anuncio> unitOfWork) 
             : base(unitOfWork)
         {
         }

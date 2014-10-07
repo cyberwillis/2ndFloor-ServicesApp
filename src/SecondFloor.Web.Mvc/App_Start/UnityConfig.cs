@@ -44,9 +44,11 @@ namespace SecondFloor.Web.Mvc.App_Start
             // TODO: Register your types here
             // container.RegisterType<IProductRepository, ProductRepository>();
             container.RegisterType<IAnuncianteService, AnuncianteService>();
+            container.RegisterType<IEnderecoService, EnderecoService>();
             container.RegisterType<IAnuncianteRepository, AnuncianteRepository>();
+            container.RegisterType<IEnderecoRepository, EnderecoRepository>();
             container.RegisterType<IAnuncioRepository, AnuncioRepository>();
-            container.RegisterType<IUnitOfWork, EFUnitOfWork<Anunciante>>();
+            //container.RegisterType<IUnitOfWork, EFUnitOfWork<Anunciante>>();
         }
     }
 }

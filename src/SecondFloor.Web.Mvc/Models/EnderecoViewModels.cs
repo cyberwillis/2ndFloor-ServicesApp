@@ -13,12 +13,12 @@ namespace SecondFloor.Web.Mvc.Models
         public string Logradouro { get; set; }
 
         [Required(ErrorMessage = "O campo numero não pode ser nulo", AllowEmptyStrings = true)]
-        [MaxLength(5, ErrorMessage = "O campo numero nao pode possuir mais de 5 caracteres.")]
-        [RegularExpression(@"^\d+$", ErrorMessage = "Entre somente numeros")]
+        //[MaxLength(5, ErrorMessage = "O campo numero nao pode possuir mais de 5 caracteres.")]
+        //[RegularExpression(@"^\d+$", ErrorMessage = "Entre somente numeros")]
         [Display(Name = "Número")]
         public int Numero { get; set; }
 
-        [Required(ErrorMessage = "O complento não pode ser nulo", AllowEmptyStrings = false)]
+        //[Required(ErrorMessage = "O complento não pode ser nulo", AllowEmptyStrings = false)]
         [MaxLength(15, ErrorMessage = "O campo complento nao pode possuir mais de 15 caracteres.")]
         [Display(Name = "Complemento")]
         public string Complemento { get; set; }
@@ -44,5 +44,7 @@ namespace SecondFloor.Web.Mvc.Models
         [MaxLength(9, ErrorMessage = "O campo cep nao pode possuir mais de 9 caracteres.")]
         [Display(Name = "CEP")]
         public string Cep { get; set; }
+
+        public string AnuncianteId { get; set; }
     }
 }

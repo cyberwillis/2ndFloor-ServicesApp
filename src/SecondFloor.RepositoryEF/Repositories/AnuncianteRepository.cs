@@ -8,7 +8,7 @@ namespace SecondFloor.RepositoryEF.Repositories
 {
     public class AnuncianteRepository : RepositoryBase<Anunciante,Guid>,IAnuncianteRepository
     {
-        public AnuncianteRepository(IUnitOfWork unitOfWork)
+        public AnuncianteRepository(EFUnitOfWork<Anunciante> unitOfWork)
             : base(unitOfWork)
         {
         }

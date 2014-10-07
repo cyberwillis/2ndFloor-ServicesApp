@@ -35,14 +35,14 @@ namespace SecondFloor.Model.Specifications
             }
 
             //Endereco
-            if (oferta.Endereco == null)
+            /*if (oferta.Endereco == null)
             {
                 oferta.BrokenRules.Add("Endereco", "A oferta deve conter um endereço.");
             }
             else if (oferta.Endereco != null)
             {
                 oferta.AddRangeBrokenRules(oferta.Endereco.GetBrokenBusinessRules());
-            }
+            }*/
 
             return oferta.BrokenRules;
         }

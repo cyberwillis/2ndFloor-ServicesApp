@@ -17,8 +17,13 @@ namespace SecondFloor.RepositoryEF.Mappings
             Property(a => a.Pontuacao);
             //Property(a => a.Token);
 
-            HasMany(a => a.Anuncios).WithRequired(a=>a.Anunciante)
-                .Map(x => x.MapKey("AnuncianteId").ToTable("tbAnuncio"));
+            Ignore(a => a.BrokenRules);
+
+            HasMany(a => a.Anuncios).WithOptional(a=>a.Anunciante)
+                .Map(x => x.MapKey("AnuncianteId").ToTable("tbAnuncio")).WillCascadeOnDelete(false);
+
+            HasMany(a => a.Enderecos).WithOptional(a => a.Anunciante)
+                .Map(x => x.MapKey("AnuncianteId").ToTable("tbEndereco")).WillCascadeOnDelete(false);
         }
     }
 }

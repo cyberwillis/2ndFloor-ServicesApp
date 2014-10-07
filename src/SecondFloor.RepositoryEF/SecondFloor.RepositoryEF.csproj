@@ -61,14 +61,12 @@
     <Compile Include="Mappings\OfertaConfiguration.cs" />
     <Compile Include="Migrations\AnuncianteModelConfiguration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\EnderecoRepository.cs" />
     <Compile Include="Repositories\RepositoryBase.cs" />
     <Compile Include="EFUnitOfWork.cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <None Include="App.config">
-      <SubType>Designer</SubType>
-    </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>

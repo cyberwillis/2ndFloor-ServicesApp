@@ -10,6 +10,7 @@ namespace SecondFloor.Web.Mvc.Services
         public static EnderecoViewModels ConvertToEnderecoViewModel(this EnderecoDto enderecoDto)
         {
             var enderecoViewModel = new EnderecoViewModels();
+            enderecoViewModel.Id = enderecoDto.Id;
             enderecoViewModel.Logradouro = enderecoDto.Logradouro;
             enderecoViewModel.Numero = int.Parse(enderecoDto.Numero);
             enderecoViewModel.Complemento = enderecoDto.Complemento;
@@ -17,6 +18,7 @@ namespace SecondFloor.Web.Mvc.Services
             enderecoViewModel.Cidade = enderecoDto.Cidade;
             enderecoViewModel.Estado = enderecoDto.Estado;
             enderecoViewModel.Cep = enderecoDto.Cep;
+            enderecoViewModel.AnuncianteId = enderecoDto.AnuncianteId;
 
             return enderecoViewModel;
         }
@@ -24,6 +26,7 @@ namespace SecondFloor.Web.Mvc.Services
         public static EnderecoDto ConvertToEnderecoDto(this EnderecoViewModels enderecoViewModel)
         {
             var enderecoDto = new EnderecoDto();
+            enderecoDto.Id = enderecoViewModel.Id;
             enderecoDto.Logradouro = enderecoViewModel.Logradouro;
             enderecoDto.Numero = enderecoViewModel.Numero.ToString();
             enderecoDto.Complemento = enderecoViewModel.Complemento;

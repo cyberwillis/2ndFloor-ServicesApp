@@ -33,6 +33,7 @@ namespace SecondFloor.Service
             if (anunciante == null)
             {
                 response.Message = "Anunciante não identificado.";
+                response.MessageType = "alert-warning";
                 response.Success = false;
                 return response;
             }
@@ -42,6 +43,7 @@ namespace SecondFloor.Service
             if (anuncio.GetBrokenBusinessRules().Count != 0)
             {
                 response.Message = anuncio.GetErrorMessages().ToString();
+                response.MessageType = "alert-warning";
                 response.Success = false;
                 return response;
             }
@@ -52,11 +54,13 @@ namespace SecondFloor.Service
                 _anuncioRepository.Persist();
 
                 response.Message = "Anuncio cadastrado com sucesso.";
+                response.MessageType = "alert-info";
                 response.Success = true;
             }
             catch (Exception ex)
             {
                 response.Message = "Ocorreu um erro:\n" + ex.Message;
+                response.MessageType = "alert-danger";
                 response.Success = false;
             }
 
@@ -105,18 +109,21 @@ namespace SecondFloor.Service
                 var anunciantes = _anuncianteRepository.EncontrarTodosAnunciantes();
                 if (anunciantes == null)
                 {
-                    response.Message = "Nenhum anunciante encontrado!"; 
+                    response.Message = "Nenhum anunciante encontrado!";
+                    response.MessageType = "alert-warning";
                     response.Success = false;
                     return response;
                 }
 
                 response.Message = string.Format("Encontrado {0} anunciantes", anunciantes.Count);
+                response.MessageType = "alert-info";
                 response.Success = true;
                 response.Anunciantes = anunciantes.ConvertToListaAnunciantesDto();
             }
             catch (Exception ex)
             {
-                response.Message = "Ocorreu um erro\n" + ex.Message; 
+                response.Message = "Ocorreu um erro\n" + ex.Message;
+                response.MessageType = "alert-danger";
                 response.Success = false;
             }
 
@@ -134,17 +141,20 @@ namespace SecondFloor.Service
                 if (anunciante == null)
                 {
                     response.Message = "Anunciante não encontrado!";
+                    response.MessageType = "alert-warning";
                     response.Success = false;
                     return response;
                 }
 
                 response.Message = "Anunciante encontrado!";
+                response.MessageType = "alert-info";
                 response.Success = true;
                 response.Anunciante = anunciante.ConvertToAnuncianteDto();
             }
             catch (Exception ex)
             {
-                response.Message = "Ocorreu um erro\n" + ex.Message; 
+                response.Message = "Ocorreu um erro\n" + ex.Message;
+                response.MessageType = "alert-danger";
                 response.Success = false;
             }
 
@@ -175,6 +185,7 @@ namespace SecondFloor.Service
                 if (anunciante.GetBrokenBusinessRules().Count > 0)
                 {
                     response.Message = novoAnunciante.GetErrorMessages().ToString();
+                    response.MessageType = "alert-warning";
                     response.Success = false;
                     return response;
                 }

@@ -24,8 +24,8 @@ namespace SecondFloor.Service.ExtensionMethods
             oferta.Titulo = ofertaDto.Titulo;
             oferta.Preco = ofertaDto.Preco;
 
-            if( ofertaDto.Endereco != null )
-                oferta.Endereco = ofertaDto.Endereco.ConvertToEndereco();
+            /*if( ofertaDto.Endereco != null )
+                oferta.Endereco = ofertaDto.Endereco.ConvertToEndereco();*/
 
             oferta.Descricao = ofertaDto.Descricao;
 
@@ -40,7 +40,7 @@ namespace SecondFloor.Service.ExtensionMethods
             ofertaDto.Titulo = oferta.Titulo;
             ofertaDto.Descricao = oferta.Descricao;
             ofertaDto.Preco = oferta.Preco;
-            ofertaDto.Endereco = oferta.Endereco.ConvertToEnderecoDto();
+            //ofertaDto.Endereco = oferta.Endereco.ConvertToEnderecoDto();
 
             return ofertaDto;
         }

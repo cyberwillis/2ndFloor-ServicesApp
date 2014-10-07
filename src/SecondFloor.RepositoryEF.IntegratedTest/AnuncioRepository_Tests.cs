@@ -11,8 +11,8 @@ namespace SecondFloor.RepositoryEF.IntegratedTest.AnuncioRepository_Test
     [TestFixture]
     public class AnuncioRepository_Tests
     {
-        private AnuncioRepository _anuncioRepository;
-        private AnuncianteRepository _anuncianteRepository;
+        private IAnuncioRepository _anuncioRepository;
+        private IAnuncianteRepository _anuncianteRepository;
         private Anunciante _anunciante;
         private IUnitOfWork _unitOfWorkAnuncio;
         private IUnitOfWork _unitOfWorkAnunciante;
@@ -71,7 +71,7 @@ namespace SecondFloor.RepositoryEF.IntegratedTest.AnuncioRepository_Test
             var endereco = new Endereco { Id = Guid.NewGuid(), Logradouro = "Rua ABC", Numero = "1", Bairro = "Cidade Dultra", Cidade = "Sao Paulo", Estado = "SP" };
             
             var oferta = new Oferta { Id = Guid.NewGuid(), Titulo = "Servico 1", Descricao = "Fazemos qualquer negocia!", Preco = "100.00" };
-            oferta.Endereco = endereco;
+            //oferta.Endereco = endereco;
 
             var anuncio = new Anuncio { Id = Guid.NewGuid(), Titulo = "Anuncio Teste", DataInicio = DateTime.Now.AddDays(1), DataFim = DateTime.Now.AddDays(7), };
             anuncio.Anunciante = _anunciante;

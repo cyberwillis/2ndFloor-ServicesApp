@@ -8,8 +8,7 @@
 
 <hr />
 <div id="conteudoAnuncianteEndereco">
-    <h4>Lista de Enderecos</h4>
-
+    @{Html.RenderAction("List","Endereco",new {Id=Model.Id});}
 </div>
 
 <hr />

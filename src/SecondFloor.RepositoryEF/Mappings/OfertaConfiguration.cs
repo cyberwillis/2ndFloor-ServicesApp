@@ -16,10 +16,10 @@ namespace SecondFloor.RepositoryEF.Mappings
 
             Ignore(o => o.BrokenRules);
 
-            HasRequired(o => o.Endereco).WithRequiredPrincipal().Map(x => x
+            /*HasRequired(o => o.Endereco).WithRequiredPrincipal().Map(x => x
                 .MapKey("OfertaId")
                 .ToTable("tbEndereco")
-                ).WillCascadeOnDelete(true);
+                ).WillCascadeOnDelete(true);*/
         }
     }
 }

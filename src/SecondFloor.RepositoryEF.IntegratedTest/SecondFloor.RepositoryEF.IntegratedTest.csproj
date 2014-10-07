@@ -54,6 +54,7 @@
   <ItemGroup>
     <Compile Include="AnuncianteRepository_Tests.cs" />
     <Compile Include="AnuncioRepository_Tests.cs" />
+    <Compile Include="EnderecoRepository_Test.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
