@@ -153,6 +153,8 @@ namespace SecondFloor.Web.Mvc.Controllers
 
             ViewBag.Excluir = true;
             ViewBag.Title = "Excluir Anunciante";
+            ViewBag.Message = "Tem certeza que deseja excluit o Anunciante abaixo ?";
+            ViewBag.MessageType = "alert-danger";
 
             var anunciante = response.Anunciante.ConvertAnuncianteViewModels();
 
