@@ -1,5 +1,6 @@
 ﻿using System.ServiceModel;
 using SecondFloor.DataContracts.Messages;
+using SecondFloor.DataContracts.Messages.Anunciante;
 
 namespace SecondFloor.ServiceContracts
 {
@@ -19,6 +20,7 @@ namespace SecondFloor.ServiceContracts
         //Oculto para o publico
         EncontrarAnuncianteResponse EncontrarAnunciantePor( EncontrarAnuncianteRequest request );
         AlterarAnuncianteResponse AlterarAnunciante(AlterarAnuncianteRequest request);
+        ExcluirAnuncianteResponse ExcluirAnunciante(ExcluirAnuncianteRequest request);
 
     }
 }

@@ -5,6 +5,7 @@ using NUnit.Framework;
 using Rhino.Mocks;
 using SecondFloor.DataContracts.DTO;
 using SecondFloor.DataContracts.Messages;
+using SecondFloor.DataContracts.Messages.Anunciante;
 using SecondFloor.Model;
 using SecondFloor.Service.ExtensionMethods;
 

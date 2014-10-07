@@ -2,6 +2,7 @@
 using System.Diagnostics;
 using NUnit.Framework;
 using SecondFloor.DataContracts.Messages;
+using SecondFloor.DataContracts.Messages.Anunciante;
 using SecondFloor.Infrastructure.Repository;
 using SecondFloor.Model;
 using SecondFloor.Model.Specifications;

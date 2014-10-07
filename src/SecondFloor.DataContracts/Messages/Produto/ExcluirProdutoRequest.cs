@@ -1,9 +1,9 @@
 ﻿using System.ServiceModel;
 
-namespace SecondFloor.DataContracts.Messages
+namespace SecondFloor.DataContracts.Messages.Produto
 {
     [MessageContract(WrapperNamespace = "messages.am.fiap.com.br")]
-    public class AlterarAnuncianteResponse : ResponseBase
+    public class ExcluirProdutoRequest
     {
          
     }

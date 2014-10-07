@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ServiceModel;
 using System.ServiceModel.Activation;
 using SecondFloor.DataContracts.Messages;
+using SecondFloor.DataContracts.Messages.Anunciante;
 using SecondFloor.Model;
 using SecondFloor.Model.Specifications;
 using SecondFloor.Service.ExtensionMethods;
@@ -70,6 +71,7 @@ namespace SecondFloor.Service
             if (anunciante.GetBrokenBusinessRules().Count > 0)
             {
                 response.Message = anunciante.GetErrorMessages().ToString();
+                response.MessageType = "alert-warning";
                 response.Success = false;
                 return response;
             }
@@ -80,12 +82,14 @@ namespace SecondFloor.Service
                 _anuncianteRepository.Persist();
 
                 response.Message = "Anuncio cadastrado com sucesso.";
+                response.MessageType = "alert-info";
                 response.Success = true;
                 response.Id = anunciante.Id.ToString();
             }
             catch (Exception ex)
             {
                 response.Message = "Ocorreu um erro:\n" + ex.Message;
+                response.MessageType = "alert-danger";
                 response.Success = false;
             }
 
@@ -158,6 +162,7 @@ namespace SecondFloor.Service
                 if (anunciante == null)
                 {
                     response.Message = "Anunciante não encontrado!";
+                    response.MessageType = "alert-warning";
                     response.Success = false;
                     return response;
                 }
@@ -178,11 +183,47 @@ namespace SecondFloor.Service
                 _anuncianteRepository.Persist();
 
                 response.Message = "Anunciante atualizado com sucesso!";
+                response.MessageType = "alert-info";
                 response.Success = true;
             }
             catch (Exception ex)
             {
                 response.Message = "Ocorreu um erro\n" + ex.Message;
+                response.MessageType = "alert-danger";
+                response.Success = false;
+            }
+
+            return response;
+        }
+
+        public ExcluirAnuncianteResponse ExcluirAnunciante(ExcluirAnuncianteRequest request)
+        {
+            var response = new ExcluirAnuncianteResponse();
+
+            try
+            {
+                var id = Guid.Parse(request.Id);
+                var anunciante = _anuncianteRepository.EncontrarAnunciantePor(id);
+                if (anunciante == null)
+                {
+                    response.Message = "Anunciante não encontrado!";
+                    response.MessageType = "alert-warning";
+                    response.Success = false;
+                    return response;
+                }
+
+                _anuncianteRepository.ExcluirAnunciante(id);
+                _anuncianteRepository.Persist();
+
+                response.Message = "Anunciante excluido com sucesso!";
+                response.MessageType = "alert-info";
+                response.Success = true;
+
+            }
+            catch (Exception ex)
+            {
+                response.Message = "Ocorreu um erro\n" + ex.Message;
+                response.MessageType = "alert-danger";
                 response.Success = false;
             }
 

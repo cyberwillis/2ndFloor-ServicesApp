@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.UI.WebControls.WebParts;
 using SecondFloor.DataContracts.Messages;
+using SecondFloor.DataContracts.Messages.Anunciante;
 using SecondFloor.ServiceContracts;
 using SecondFloor.Web.Mvc.Models;
 using SecondFloor.Web.Mvc.Services;
@@ -20,90 +21,15 @@ namespace SecondFloor.Web.Mvc.Controllers
             _anuncianteService = anuncianteService;
         }
 
-        [HttpGet]
-        public ActionResult Index()
-        {
-            return RedirectToAction("Cadastro");
-        }
-
-        [HttpGet]
-        public ActionResult Cadastro()
-        {
-            ViewBag.Excluir = false;
-            ViewBag.Title = "Cadastro Anunciante";
-
-            var anunciante = new AnuncianteViewModels()
-            {
-                RazaoSocial = "Oficina de entretenimento adulto do tio careca",
-                NomeResponsavel = "Fulano de Tal",
-                Email = "careca@careca.com.br",
-                Cnpj = "40.123.456.0001-63",
-            };
-
-            //anunciante.Enderecos = new List<EnderecoViewModels>();
-
-            return View(anunciante);
-        }
-
-        [HttpPost]
-        public ActionResult Cadastro([Bind(Exclude = "Id")] AnuncianteViewModels anunciante)
-        {
-            if (!ModelState.IsValid)
-            {
-                return View("Cadastro",anunciante); //erro de cadastro
-            }
-
-            var request = new CadastroAnuncianteRequest() { Anunciante = anunciante.ConvertToAnuncianteDto() };
-            var response = _anuncianteService.CadastrarAnunciante(request);
-            if (!response.Success)
-            {
-                RedirectToAction("Erro");
-            }
-
-            //TODO: Caso Anunciante (aproveitando o usuario salvo na sessao)
-            //ViewBag.Title = "Detalhes";
-            //return RedirectToAction("Detalhes", new { Id = response.Id });
-
-            //TODO: Caso Administrador listar todos anunciantes
-            ViewBag.Title = "Lista de Anunciantes";
-            return RedirectToAction("ListaAnunciante");
-        }
-
-        [HttpGet]
-        public ActionResult Listar()
-        {
-            ViewBag.Title = "Lista de Anunciantes";
-
-            var response = _anuncianteService.EncontrarTodosAnunciantes();
-            if (response.Success)
-            {
-                return View("Lista", response.Anunciantes.ConvertToListaListaAnunciantesViewModel());
-            }
-            
-            return View("Error");
-        }
-
-        [HttpGet]
-        public PartialViewResult Detail(string id)
-        {
-            var request = new EncontrarAnuncianteRequest() { Id = id };
-            var response = _anuncianteService.EncontrarAnunciantePor(request);
-            if (response.Success)
-            {
-                ViewBag.Title = "Detalhes de Anunciante";
-
-                return PartialView("AnuncianteDetalhesPartialView", response.Anunciante.ConvertAnuncianteViewModels());
-            }
-
-            return PartialView("Error");
-        }
+        #region For Ajax Action
 
         [HttpGet]
         public PartialViewResult List()
         {
+            var response = _anuncianteService.EncontrarTodosAnunciantes();
+
             ViewBag.Title = "Lista de Anunciantes";
 
-            var response = _anuncianteService.EncontrarTodosAnunciantes();
             if (response.Success)
             {
                 return PartialView("ListaAnunciantePartialView", response.Anunciantes.ConvertToListaListaAnunciantesViewModel());
@@ -113,19 +39,65 @@ namespace SecondFloor.Web.Mvc.Controllers
         }
 
         [HttpGet]
-        public ActionResult Detalhes(string id)
+        public PartialViewResult Detail(string id)
         {
-            var request = new EncontrarAnuncianteRequest() {Id = id};
+
+            var request = new EncontrarAnuncianteRequest() { Id = id };
             var response = _anuncianteService.EncontrarAnunciantePor(request);
+
+            ViewBag.Title = "Detalhes de Anunciante";
+
             if (response.Success)
             {
-                ViewBag.Title = "Detalhes de Anunciante";
-
-                return View("Detalhes",response.Anunciante.ConvertAnuncianteViewModels());
+                return PartialView("AnuncianteDetalhesPartialView", response.Anunciante.ConvertAnuncianteViewModels());
             }
 
             return PartialView("Error");
         }
+
+        [HttpGet]
+        public PartialViewResult Create()
+        {
+            ViewBag.Excluir = false;
+            ViewBag.Title = "Cadastro Anunciante";
+
+            //TODO: remover dados default do formulario e impedir cadastro com mesmo CNPJ
+            //var anunciante = new AnuncianteViewModels();
+            var anunciante = new AnuncianteViewModels()
+            {
+                RazaoSocial = "Oficina de entretenimento adulto do tio careca",
+                NomeResponsavel = "Fulano de Tal",
+                Email = "careca@careca.com.br",
+                Cnpj = "40.123.456.0001-63",
+            };
+            //anunciante.Enderecos = new List<EnderecoViewModels>();
+
+            return PartialView("AnunciantePartialView", anunciante);
+        }
+
+        [HttpPost]
+        public PartialViewResult Create(AnuncianteViewModels anunciante)
+        {
+            if (!ModelState.IsValid)
+            {
+                return PartialView("AnunciantePartialView", anunciante); //erro de cadastro
+            }
+
+            var request = new CadastroAnuncianteRequest() { Anunciante = anunciante.ConvertToAnuncianteDto() };
+            var response = _anuncianteService.CadastrarAnunciante(request);
+
+            ViewBag.Excluir = false;
+            ViewBag.Title = "Cadastro Anunciante";
+            ViewBag.Message = response.Message;
+            ViewBag.MessageType = response.MessageType;
+
+            if (!response.Success)
+            {
+                return PartialView("Error");
+            }
+
+            return PartialView("Sucesso");
+        }     
 
         [HttpGet]
         public PartialViewResult Edit(string id)
@@ -136,7 +108,7 @@ namespace SecondFloor.Web.Mvc.Controllers
 
             if (!response.Success)
             {
-                RedirectToAction("Erro");
+                return PartialView("Error");
             }
 
             ViewBag.Excluir = false;
@@ -168,37 +140,125 @@ namespace SecondFloor.Web.Mvc.Controllers
         }
 
         [HttpGet]
-        public PartialViewResult Create()
+        public PartialViewResult Delete(string id)
         {
-            ViewBag.Excluir = false;
-            ViewBag.Title = "Cadastro Anunciante";
+            var request = new EncontrarAnuncianteRequest() { Id = id };
 
-            //TODO: remover dados default do formulario e impedir cadastro com mesmo CNPJ
-            var anunciante = new AnuncianteViewModels();
+            var response = _anuncianteService.EncontrarAnunciantePor(request);
 
-            //anunciante.Enderecos = new List<EnderecoViewModels>();
+            if (!response.Success)
+            {
+                return PartialView("Error");
+            }
+
+            ViewBag.Excluir = true;
+            ViewBag.Title = "Excluir Anunciante";
+
+            var anunciante = response.Anunciante.ConvertAnuncianteViewModels();
 
             return PartialView("AnunciantePartialView", anunciante);
         }
 
         [HttpPost]
-        public PartialViewResult Create(AnuncianteViewModels anunciante)
+        public PartialViewResult Delete(AnuncianteViewModels anunciante)
+        {
+            var request = new ExcluirAnuncianteRequest(){Id=anunciante.Id};
+
+            var response = _anuncianteService.ExcluirAnunciante(request);
+
+            ViewBag.Excluir = true;
+            ViewBag.Title = "Excluir Anunciante";
+            ViewBag.Message = response.Message;
+            ViewBag.MessageType = response.MessageType;
+
+            if (!response.Success)
+            {
+                return PartialView("Error");
+            }
+            
+            return PartialView("Sucesso");
+        }
+
+        #endregion
+        
+
+        #region Friendly Actions
+        [HttpGet]
+        public ActionResult Index()
+        {
+            return RedirectToAction("Cadastro");
+        }
+
+        [HttpGet]
+        public ActionResult Cadastro()
+        {
+            ViewBag.Excluir = false;
+            ViewBag.Title = "Cadastro Anunciante";
+
+            var anunciante = new AnuncianteViewModels()
+            {
+                RazaoSocial = "Oficina de entretenimento adulto do tio careca",
+                NomeResponsavel = "Fulano de Tal",
+                Email = "careca@careca.com.br",
+                Cnpj = "40.123.456.0001-63",
+            };
+
+            //anunciante.Enderecos = new List<EnderecoViewModels>();
+
+            return View(anunciante);
+        }
+
+        [HttpPost]
+        public ActionResult Cadastro([Bind(Exclude = "Id")] AnuncianteViewModels anunciante)
         {
             if (!ModelState.IsValid)
             {
-                ViewBag.Excluir = false;
-                ViewBag.Title = "Cadastro Anunciante";
-                return PartialView("AnunciantePartialView", anunciante); //erro de cadastro
+                return View("Cadastro", anunciante); //erro de cadastro
             }
 
             var request = new CadastroAnuncianteRequest() { Anunciante = anunciante.ConvertToAnuncianteDto() };
             var response = _anuncianteService.CadastrarAnunciante(request);
             if (!response.Success)
             {
-                RedirectToAction("Erro");
+                return RedirectToAction("Erro");
             }
 
-            return PartialView("Sucesso");
+            //TODO: Caso Anunciante (aproveitando o usuario salvo na sessao)
+            //ViewBag.Title = "Detalhes";
+            //return RedirectToAction("Detalhes", new { Id = response.Id });
+
+            //TODO: Caso Administrador listar todos anunciantes
+            ViewBag.Title = "Lista de Anunciantes";
+            return RedirectToAction("Listar");
+        }
+
+        [HttpGet]
+        public ActionResult Listar()
+        {
+            ViewBag.Title = "Lista de Anunciantes";
+
+            var response = _anuncianteService.EncontrarTodosAnunciantes();
+            if (response.Success)
+            {
+                return View("Lista", response.Anunciantes.ConvertToListaListaAnunciantesViewModel());
+            }
+
+            return View("Error");
+        }
+        
+        [HttpGet]
+        public ActionResult Detalhes(string id)
+        {
+            var request = new EncontrarAnuncianteRequest() { Id = id };
+            var response = _anuncianteService.EncontrarAnunciantePor(request);
+            if (response.Success)
+            {
+                ViewBag.Title = "Detalhes de Anunciante";
+
+                return View("Detalhes", response.Anunciante.ConvertAnuncianteViewModels());
+            }
+
+            return PartialView("Error");
         }
 
         [HttpGet]
@@ -206,5 +266,6 @@ namespace SecondFloor.Web.Mvc.Controllers
         {
             return View("Error");
         }
+        #endregion
     }
 }
