@@ -4,7 +4,7 @@ using SecondFloor.DataContracts.DTO;
 namespace SecondFloor.DataContracts.Messages.Anunciante
 {
     [MessageContract(WrapperNamespace = "messages.am.fiap.com.br")]
-    public class CadastroAnuncianteRequest
+    public class CadastrarAnuncianteRequest
     {
         [MessageBodyMember]
         public AnuncianteDto Anunciante;

@@ -9,7 +9,7 @@ namespace SecondFloor.Model
         Endereco EncontrarEnderecoPor(Guid id);
         void InserirEndereco(Endereco endereco);
         void AtualizarEndereco(Endereco endereco);
-        void ExcluirEndereco(Guid id);
+        void ExcluirEndereco(Endereco endereco);
         IList<Endereco> EncontrarTodosEnderecosPorAnunciante(Guid id);
     }
 }

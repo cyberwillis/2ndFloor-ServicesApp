@@ -23,6 +23,7 @@ namespace SecondFloor.Web.Mvc.Controllers
         public PartialViewResult List(string id)
         {
             var request = new EncontrarTodosEnderecosRequest() {AnuncianteId = id};
+
             var response = _enderecoService.EncontrarTodosEnderecos(request);
 
             ViewBag.Title = "Lista de Endereços";
@@ -40,7 +41,7 @@ namespace SecondFloor.Web.Mvc.Controllers
         public PartialViewResult Create(string id)
         {
             ViewBag.Excluir = false;
-            ViewBag.Title = "Cadastro Endereço";
+            ViewBag.Title = "Cadastro de Endereço";
 
             var endereco = new EnderecoViewModels()
             {
@@ -60,18 +61,19 @@ namespace SecondFloor.Web.Mvc.Controllers
         [HttpPost]
         public PartialViewResult Create([Bind(Exclude = "Id")]EnderecoViewModels endereco)
         {
+            var request = new CadastrarEnderecoRequest() { Endereco = endereco.ConvertToEnderecoDto(), AnuncianteId = endereco.AnuncianteId };
+
+            var response = _enderecoService.CadastroEndereco(request);
+
+            ViewBag.Excluir = false;
+            ViewBag.Title = "Cadastro de Endereço";
+            ViewBag.Message = response.Message;
+            ViewBag.MessageType = response.MessageType;
+
             if (! ModelState.IsValid)
             {
                 return PartialView("EnderecoPartialView", endereco);
             }
-
-            var request = new CadastroEnderecoRequest() {Endereco = endereco.ConvertToEnderecoDto(), AnuncianteId = endereco.AnuncianteId};
-            var response = _enderecoService.CadastroEndereco(request);
-
-            ViewBag.Excluir = false;
-            ViewBag.Title = "Cadastro Endereço";
-            ViewBag.Message = response.Message;
-            ViewBag.MessageType = response.MessageType;
 
             if (!response.Success)
             {
@@ -87,7 +89,7 @@ namespace SecondFloor.Web.Mvc.Controllers
         {
             var request = new EncontrarEnderecoRequest() {Id = id};
 
-            var response = _enderecoService.EncontrarEndereco(request);
+            var response = _enderecoService.EncontrarEnderecoPor(request);
 
             if (!response.Success)
             {
@@ -127,7 +129,7 @@ namespace SecondFloor.Web.Mvc.Controllers
         {
             var request = new EncontrarEnderecoRequest() { Id = id };
 
-            var response = _enderecoService.EncontrarEndereco(request);
+            var response = _enderecoService.EncontrarEnderecoPor(request);
 
             if (!response.Success)
             {

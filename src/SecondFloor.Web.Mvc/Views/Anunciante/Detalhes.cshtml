@@ -13,5 +13,5 @@
 
 <hr />
 <div id="conteudoAnuncianteProduto">
-    <h4>Lista de Produtos</h4>
+    @{Html.RenderAction("List", "Produto", new { Id = Model.Id });}
 </div>

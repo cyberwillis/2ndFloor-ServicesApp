@@ -21,6 +21,7 @@ namespace SecondFloor.DataContracts.DTO
         public string Estado { get; set; }
         [DataMember]
         public string Cep { get; set; }
+        [DataMember]
         public string AnuncianteId { get; set; }
 
     }

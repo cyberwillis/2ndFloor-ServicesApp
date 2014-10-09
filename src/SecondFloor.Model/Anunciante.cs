@@ -12,6 +12,7 @@ namespace SecondFloor.Model
         public string Email { get; set; }
         public virtual IList<Anuncio> Anuncios { get; set; }
         public virtual IList<Endereco> Enderecos { get; set; }
+        public virtual IList<Produto> Produtos { get; set; }
         public IList<Comentario> Comentarios { get; set; }
         public int Pontuacao { get; set; }
         //public String Token { get; set; }
@@ -20,6 +21,7 @@ namespace SecondFloor.Model
         {
             Anuncios = new List<Anuncio>();
             Enderecos = new List<Endereco>();
+            Produtos = new List<Produto>();
         }
     }
 }

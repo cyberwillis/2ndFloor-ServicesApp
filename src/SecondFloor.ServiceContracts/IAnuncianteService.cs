@@ -11,7 +11,7 @@ namespace SecondFloor.ServiceContracts
         CadastrarAnuncioResponse CadastrarAnuncio( CadastrarAnuncioRequest request );
 
         [OperationContract]
-        CadastroAnuncianteResponse CadastrarAnunciante( CadastroAnuncianteRequest request );
+        CadastrarAnuncianteResponse CadastrarAnunciante( CadastrarAnuncianteRequest request );
 
         //TODO: tornar oculto para o publico quando eu jultar que devo...
         [OperationContract]

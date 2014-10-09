@@ -9,6 +9,7 @@ namespace SecondFloor.Model
         public virtual string NomeProduto { get; set; }
         public virtual string Descricao { get; set; }
         public virtual string Fabricante { get; set; }
-        public virtual double Valor { get; set; }
+        public virtual decimal Valor { get; set; }
+        public virtual Anunciante Anunciante { get; set; }
     }
 }

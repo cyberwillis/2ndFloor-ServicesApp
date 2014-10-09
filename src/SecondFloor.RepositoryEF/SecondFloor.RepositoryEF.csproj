@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Mappings\ProdutoConfiguration.cs" />
     <Compile Include="Repositories\AnuncianteRepository.cs" />
     <Compile Include="AnuncianteContext.cs" />
     <Compile Include="AnuncianteContextFactory.cs" />
@@ -62,6 +63,7 @@
     <Compile Include="Migrations\AnuncianteModelConfiguration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\EnderecoRepository.cs" />
+    <Compile Include="Repositories\ProdutoRepository.cs" />
     <Compile Include="Repositories\RepositoryBase.cs" />
     <Compile Include="EFUnitOfWork.cs" />
   </ItemGroup>

@@ -5,10 +5,9 @@ namespace SecondFloor.ServiceContracts
     public interface IEnderecoService
     {
         EncontrarTodosEnderecosResponse EncontrarTodosEnderecos(EncontrarTodosEnderecosRequest request);
-        EncontrarEnderecoResponse EncontrarEndereco(EncontrarEnderecoRequest request);
-        CadastroEnderecoResponse CadastroEndereco(CadastroEnderecoRequest request);
+        EncontrarEnderecoResponse EncontrarEnderecoPor(EncontrarEnderecoRequest request);
+        CadastrarEnderecoResponse CadastroEndereco(CadastrarEnderecoRequest request);
         AlterarEnderecoResponse AlterarEndereco(AlterarEnderecoRequest request);
         ExcluirEnderecoResponse ExcluirEndereco(ExcluirEnderecoRequest request);
-
     }
 }

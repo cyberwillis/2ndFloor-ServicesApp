@@ -24,6 +24,9 @@ namespace SecondFloor.RepositoryEF.Mappings
 
             HasMany(a => a.Enderecos).WithOptional(a => a.Anunciante)
                 .Map(x => x.MapKey("AnuncianteId").ToTable("tbEndereco")).WillCascadeOnDelete(false);
+
+            HasMany(a=>a.Produtos).WithOptional(a=>a.Anunciante)
+                .Map(x=>x.MapKey("AnuncianteId").ToTable("tbProduto")).WillCascadeOnDelete(false);
         }
     }
 }

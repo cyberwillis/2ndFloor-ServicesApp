@@ -6,6 +6,7 @@ namespace SecondFloor.DataContracts.Messages.Endereco
     [MessageContract(WrapperNamespace = "messages.am.fiap.com.br")]
     public class AlterarEnderecoRequest
     {
+        [MessageBodyMember]
         public EnderecoDto Endereco { get; set; }
     }
 }

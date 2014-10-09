@@ -3,7 +3,7 @@
 namespace SecondFloor.DataContracts.Messages.Produto
 {
     [MessageContract(WrapperNamespace = "messages.am.fiap.com.br")]
-    public class CadastroProdutoResponse :ResponseBase
+    public class CadastrarProdutoResponse :ResponseBase
     {
          
     }

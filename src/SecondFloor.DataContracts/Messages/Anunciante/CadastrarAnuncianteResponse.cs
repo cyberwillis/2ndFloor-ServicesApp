@@ -3,7 +3,7 @@
 namespace SecondFloor.DataContracts.Messages.Anunciante
 {
     [MessageContract(WrapperNamespace = "messages.am.fiap.com.br")]
-    public class CadastroAnuncianteResponse : ResponseBase
+    public class CadastrarAnuncianteResponse : ResponseBase
     {
         [MessageBodyMember]
         public string Id { get; set; }

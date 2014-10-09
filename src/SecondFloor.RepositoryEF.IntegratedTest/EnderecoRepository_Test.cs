@@ -12,8 +12,8 @@ namespace SecondFloor.RepositoryEF.IntegratedTest.AnuncioRepository_Test
     [TestFixture]
     public class EnderecoRepository_Test
     {
-        private IUnitOfWork _unitOfWorkEndereco;
-        private IUnitOfWork _unitOfWorkAnunciante;
+        private EFUnitOfWork<Endereco> _unitOfWorkEndereco;
+        private EFUnitOfWork<Anunciante> _unitOfWorkAnunciante;
         private IEnderecoRepository _enderecoRepository;
         private IAnuncianteRepository _anuncianteRepository;
 

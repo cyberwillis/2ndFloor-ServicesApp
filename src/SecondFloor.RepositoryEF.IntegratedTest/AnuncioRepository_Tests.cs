@@ -14,8 +14,8 @@ namespace SecondFloor.RepositoryEF.IntegratedTest.AnuncioRepository_Test
         private IAnuncioRepository _anuncioRepository;
         private IAnuncianteRepository _anuncianteRepository;
         private Anunciante _anunciante;
-        private IUnitOfWork _unitOfWorkAnuncio;
-        private IUnitOfWork _unitOfWorkAnunciante;
+        private EFUnitOfWork<Anuncio> _unitOfWorkAnuncio;
+        private EFUnitOfWork<Anunciante> _unitOfWorkAnunciante;
 
 
         [SetUp]
@@ -47,7 +47,7 @@ namespace SecondFloor.RepositoryEF.IntegratedTest.AnuncioRepository_Test
         public void Finish()
         {
             //Remover Anunciante
-            _anuncianteRepository.ExcluirAnunciante(_anunciante.Id);
+            _anuncianteRepository.ExcluirAnunciante(_anunciante);
             _anuncianteRepository.Persist();
 
             //_anuncianteRepository.Dispose();

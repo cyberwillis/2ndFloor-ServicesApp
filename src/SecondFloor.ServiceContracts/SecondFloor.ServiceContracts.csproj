@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="IAnuncianteService.cs" />
     <Compile Include="IEnderecoService.cs" />
+    <Compile Include="IProdutoService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

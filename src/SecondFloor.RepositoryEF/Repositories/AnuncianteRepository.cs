@@ -42,11 +42,11 @@ namespace SecondFloor.RepositoryEF.Repositories
             this.Insert(anunciante);
         }
 
-        public void ExcluirAnunciante(Guid id)
+        public void ExcluirAnunciante(Anunciante anunciante)
         {
-            var anunciante = EncontrarAnunciantePor(id);
-            if (anunciante != null)
-                this.Delete(anunciante);
+            //var anunciante = EncontrarAnunciantePor(id);
+            //if (anunciante != null)
+            this.Delete(anunciante);
         }
     }
 }

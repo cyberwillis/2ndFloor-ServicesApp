@@ -13,7 +13,8 @@ namespace SecondFloor.Service.ExtensionMethods
         {
             var endereco = new Endereco();
 
-            if (string.IsNullOrEmpty(enderecoDto.Id) || enderecoDto.Id == "00000000-0000-0000-0000-000000000000")
+            //if (string.IsNullOrEmpty(enderecoDto.Id) || enderecoDto.Id == "00000000-0000-0000-0000-000000000000")
+            if (string.IsNullOrEmpty(enderecoDto.Id) || enderecoDto.Id == default(Guid).ToString())
             {
                 endereco.Id = Guid.NewGuid();
             }

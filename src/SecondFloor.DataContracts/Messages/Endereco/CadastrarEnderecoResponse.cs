@@ -3,7 +3,7 @@
 namespace SecondFloor.DataContracts.Messages.Endereco
 {
     [MessageContract(WrapperNamespace = "messages.am.fiap.com.br")]
-    public class CadastroEnderecoResponse : ResponseBase
+    public class CadastrarEnderecoResponse : ResponseBase
     {
          
     }

@@ -49,7 +49,7 @@ namespace SecondFloor.RepositoryEF.IntegratedTest.AnuncioRepository_Test
 
             Assert.IsTrue(anunciante != null);
 
-            _anuncianteRepository.ExcluirAnunciante(_anunciante.Id);
+            _anuncianteRepository.ExcluirAnunciante(_anunciante);
             _anuncianteRepository.Persist();
 
         }
@@ -100,7 +100,7 @@ namespace SecondFloor.RepositoryEF.IntegratedTest.AnuncioRepository_Test
 
             Assert.IsTrue(anunciante != null);
 
-            _anuncianteRepository.ExcluirAnunciante(_anunciante.Id);
+            _anuncianteRepository.ExcluirAnunciante(_anunciante);
             _anuncianteRepository.Persist();
 
             anunciante = _anuncianteRepository.EncontrarAnunciantePor(anuncianteId);

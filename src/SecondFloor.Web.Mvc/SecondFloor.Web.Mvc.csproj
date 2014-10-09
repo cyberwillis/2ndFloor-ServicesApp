@@ -206,6 +206,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\AnuncianteViewModelExtensionMethods.cs" />
     <Compile Include="Services\EnderecoViewModelExtensionMethods.cs" />
+    <Compile Include="Services\ProdutoViewModelExtensionMethod.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -439,11 +440,12 @@
     <Content Include="Views\Anunciante\AnuncianteDetalhesPartialView.cshtml" />
     <Content Include="Views\Endereco\ListaEnderecoPartialView.cshtml" />
     <Content Include="Views\Endereco\EnderecoPartialView.cshtml" />
+    <Content Include="Views\Produto\ListaProdutoPartialView.cshtml" />
+    <Content Include="Views\Produto\ProdutoPartialView.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Content\bootstrap-datepicker\build\" />
-    <Folder Include="Views\Produto\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

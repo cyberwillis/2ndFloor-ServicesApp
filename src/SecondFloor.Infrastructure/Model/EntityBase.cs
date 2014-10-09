@@ -41,7 +41,7 @@ namespace SecondFloor.Infrastructure.Model
         public StringBuilder GetErrorMessages()
         {
             var sb = new StringBuilder();
-            sb.Append("Erros encontrados:");
+            sb.Append("Erros encontrados:<br/>");
             foreach (var error in this._brokenRules)
             {
                 sb.AppendLine(error.Value + "<br/>");

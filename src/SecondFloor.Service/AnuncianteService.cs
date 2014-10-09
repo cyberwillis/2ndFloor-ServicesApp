@@ -67,9 +67,9 @@ namespace SecondFloor.Service
             return response;
         }
 
-        public CadastroAnuncianteResponse CadastrarAnunciante(CadastroAnuncianteRequest request)
+        public CadastrarAnuncianteResponse CadastrarAnunciante(CadastrarAnuncianteRequest request)
         {
-            var response = new CadastroAnuncianteResponse();
+            var response = new CadastrarAnuncianteResponse();
 
             var anunciante = request.Anunciante.ConvertToAnunciante();
             if (anunciante.GetBrokenBusinessRules().Count > 0)
@@ -184,7 +184,7 @@ namespace SecondFloor.Service
                 anunciante.Cnpj = novoAnunciante.Cnpj;
                 if (anunciante.GetBrokenBusinessRules().Count > 0)
                 {
-                    response.Message = novoAnunciante.GetErrorMessages().ToString();
+                    response.Message = anunciante.GetErrorMessages().ToString();
                     response.MessageType = "alert-warning";
                     response.Success = false;
                     return response;
@@ -223,7 +223,7 @@ namespace SecondFloor.Service
                     return response;
                 }
 
-                _anuncianteRepository.ExcluirAnunciante(id);
+                _anuncianteRepository.ExcluirAnunciante(anunciante);
                 _anuncianteRepository.Persist();
 
                 response.Message = "Anunciante excluido com sucesso!";

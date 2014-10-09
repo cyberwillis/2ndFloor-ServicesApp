@@ -47,7 +47,7 @@ namespace SecondFloor.Service.IntegratedTest.AnuncianteService_Tests
             anunciante.Cnpj = "00000000000000";
             //anunciante.Token = "0000000000";
 
-            var request = new CadastroAnuncianteRequest();
+            var request = new CadastrarAnuncianteRequest();
             request.Anunciante = anunciante.ConvertToAnuncianteDto();
             request.Anunciante.Anuncios = null;
 
@@ -66,7 +66,7 @@ namespace SecondFloor.Service.IntegratedTest.AnuncianteService_Tests
             //Arrange
             var anunciante = GerarAnunciante();
 
-            var request = new CadastroAnuncianteRequest();
+            var request = new CadastrarAnuncianteRequest();
             request.Anunciante = anunciante.ConvertToAnuncianteDto();
             request.Anunciante.Anuncios = null;
 

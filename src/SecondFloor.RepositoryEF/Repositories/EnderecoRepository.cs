@@ -6,7 +6,7 @@ using SecondFloor.Model;
 
 namespace SecondFloor.RepositoryEF.Repositories
 {
-    public class EnderecoRepository : RepositoryBase<Endereco,Guid>,IEnderecoRepository
+    public class EnderecoRepository : RepositoryBase<Endereco,Guid> , IEnderecoRepository
     {
         public EnderecoRepository(EFUnitOfWork<Endereco> unitOfWork) : base(unitOfWork)
         {
@@ -27,11 +27,11 @@ namespace SecondFloor.RepositoryEF.Repositories
             this.Update(endereco);
         }
 
-        public void ExcluirEndereco(Guid id)
+        public void ExcluirEndereco(Endereco endereco)
         {
-            var enderco = EncontrarEnderecoPor(id);
-            if(enderco != null)
-                this.Delete(enderco);
+            //var endereco = EncontrarEnderecoPor(id);
+            //if(endereco != null)
+            this.Delete(endereco);
         }
 
         public IList<Endereco> EncontrarTodosEnderecosPorAnunciante(Guid id)
@@ -41,12 +41,6 @@ namespace SecondFloor.RepositoryEF.Repositories
                 select e;
 
             return endercos.ToList();
-
-            /*var anunciante = from a in AnuncianteContextFactory.GetAnuncianteContext().Set<Anunciante>()
-                where a.Id == id
-                select a;
-
-            return anunciante.SingleOrDefault().Enderecos;*/
         }
     }
 }

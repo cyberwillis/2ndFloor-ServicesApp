@@ -1,12 +1,15 @@
 ﻿using System.ServiceModel;
 using SecondFloor.DataContracts.DTO;
 
-namespace SecondFloor.DataContracts.Messages.Endereco
+namespace SecondFloor.DataContracts.Messages.Produto
 {
     [MessageContract(WrapperNamespace = "messages.am.fiap.com.br")]
-    public class CadastroEnderecoRequest
+    public class CadastrarProdutoRequest
     {
-        public EnderecoDto Endereco { get; set; }
+        [MessageBodyMember]
+        public ProdutoDto Produto { get; set; }
+
+        [MessageBodyMember]
         public string AnuncianteId { get; set; }
     }
 }

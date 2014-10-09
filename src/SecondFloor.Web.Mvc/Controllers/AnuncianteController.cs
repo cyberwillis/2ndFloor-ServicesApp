@@ -43,6 +43,7 @@ namespace SecondFloor.Web.Mvc.Controllers
         {
 
             var request = new EncontrarAnuncianteRequest() { Id = id };
+
             var response = _anuncianteService.EncontrarAnunciantePor(request);
 
             ViewBag.Title = "Detalhes de Anunciante";
@@ -78,18 +79,19 @@ namespace SecondFloor.Web.Mvc.Controllers
         [HttpPost]
         public PartialViewResult Create(AnuncianteViewModels anunciante)
         {
-            if (!ModelState.IsValid)
-            {
-                return PartialView("AnunciantePartialView", anunciante); //erro de cadastro
-            }
+            var request = new CadastrarAnuncianteRequest() { Anunciante = anunciante.ConvertToAnuncianteDto() };
 
-            var request = new CadastroAnuncianteRequest() { Anunciante = anunciante.ConvertToAnuncianteDto() };
             var response = _anuncianteService.CadastrarAnunciante(request);
 
             ViewBag.Excluir = false;
             ViewBag.Title = "Cadastro Anunciante";
             ViewBag.Message = response.Message;
             ViewBag.MessageType = response.MessageType;
+
+            if (!ModelState.IsValid)
+            {
+                return PartialView("AnunciantePartialView", anunciante); //erro de cadastro
+            }
 
             if (!response.Success)
             {
@@ -207,18 +209,22 @@ namespace SecondFloor.Web.Mvc.Controllers
 
             //anunciante.Enderecos = new List<EnderecoViewModels>();
 
-            return View(anunciante);
+            return View("Cadastro",anunciante);
         }
 
         [HttpPost]
         public ActionResult Cadastro([Bind(Exclude = "Id")] AnuncianteViewModels anunciante)
         {
+            ViewBag.Excluir = false;
+            ViewBag.Title = "Cadastro Anunciante";
+
             if (!ModelState.IsValid)
             {
                 return View("Cadastro", anunciante); //erro de cadastro
             }
 
-            var request = new CadastroAnuncianteRequest() { Anunciante = anunciante.ConvertToAnuncianteDto() };
+            var request = new CadastrarAnuncianteRequest() { Anunciante = anunciante.ConvertToAnuncianteDto() };
+
             var response = _anuncianteService.CadastrarAnunciante(request);
             if (!response.Success)
             {
@@ -252,6 +258,7 @@ namespace SecondFloor.Web.Mvc.Controllers
         public ActionResult Detalhes(string id)
         {
             var request = new EncontrarAnuncianteRequest() { Id = id };
+
             var response = _anuncianteService.EncontrarAnunciantePor(request);
             if (response.Success)
             {

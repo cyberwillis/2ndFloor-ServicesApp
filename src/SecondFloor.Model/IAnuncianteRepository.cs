@@ -10,7 +10,7 @@ namespace SecondFloor.Model
         Anunciante EncontrarAnunciantePor(Guid id);
         void InserirAnunciante(Anunciante anunciante);
         void AtualizarAnunciante(Anunciante anunciante);
-        void ExcluirAnunciante(Guid id);
+        void ExcluirAnunciante(Anunciante anunciante);
         IList<Anunciante> EncontrarTodosAnunciantes();
     }
 }

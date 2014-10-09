@@ -42,24 +42,25 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DTO\AnuncianteDto.cs" />
+    <Compile Include="DTO\ProdutoDto.cs" />
     <Compile Include="Messages\Anunciante\AlterarAnuncianteRequest.cs" />
     <Compile Include="Messages\Anunciante\AlterarAnuncianteResponse.cs" />
     <Compile Include="Messages\Anunciante\EncontrarAnuncianteRequest.cs" />
     <Compile Include="Messages\Anunciante\EncontrarAnuncianteResponse.cs" />
     <Compile Include="Messages\Anunciante\EncontrarTodosAnunciantesResponse.cs" />
-    <Compile Include="Messages\Anunciante\CadastroAnuncianteRequest.cs" />
+    <Compile Include="Messages\Anunciante\CadastrarAnuncianteRequest.cs" />
     <Compile Include="Messages\Anunciante\CadastrarAnuncioRequest.cs" />
     <Compile Include="Messages\Anunciante\CadastrarAnuncioResponse.cs" />
     <Compile Include="DTO\AnuncioDto.cs" />
     <Compile Include="DTO\EnderecoDto.cs" />
     <Compile Include="DTO\OfertaDto.cs" />
-    <Compile Include="Messages\Anunciante\CadastroAnuncianteResponse.cs" />
+    <Compile Include="Messages\Anunciante\CadastrarAnuncianteResponse.cs" />
     <Compile Include="Messages\Anunciante\ExcluirAnuncianteRequest.cs" />
     <Compile Include="Messages\Anunciante\ExcluirAnuncianteResponse.cs" />
     <Compile Include="Messages\Endereco\AlterarEnderecoRequest.cs" />
     <Compile Include="Messages\Endereco\AlterarEnderecoResponse.cs" />
-    <Compile Include="Messages\Endereco\CadastroEnderecoRequest.cs" />
-    <Compile Include="Messages\Endereco\CadastroEnderecoResponse.cs" />
+    <Compile Include="Messages\Endereco\CadastrarEnderecoRequest.cs" />
+    <Compile Include="Messages\Endereco\CadastrarEnderecoResponse.cs" />
     <Compile Include="Messages\Endereco\EncontrarEnderecoRequest.cs" />
     <Compile Include="Messages\Endereco\EncontrarEnderecoResponse.cs" />
     <Compile Include="Messages\Endereco\EncontrarTodosEnderecosRequest.cs" />
@@ -69,8 +70,8 @@
     <Compile Include="Messages\Produto\ExcluirProdutoRequest.cs" />
     <Compile Include="Messages\Produto\AlterarProdutoRequest.cs" />
     <Compile Include="Messages\Produto\AlterarProdutoResponse.cs" />
-    <Compile Include="Messages\Produto\CadastroProdutoRequest.cs" />
-    <Compile Include="Messages\Produto\CadastroProdutoResponse.cs" />
+    <Compile Include="Messages\Produto\CadastrarProdutoRequest.cs" />
+    <Compile Include="Messages\Produto\CadastrarProdutoResponse.cs" />
     <Compile Include="Messages\Produto\EncontrarProdutoRequest.cs" />
     <Compile Include="Messages\Produto\EncontrarProdutoResponse.cs" />
     <Compile Include="Messages\Produto\EncontrarTodosProdutosRequest.cs" />
