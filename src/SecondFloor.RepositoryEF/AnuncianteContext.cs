@@ -1,10 +1,11 @@
-﻿using System.Data.Entity;
+﻿using System;
+using System.Data.Entity;
 using SecondFloor.Model;
 using SecondFloor.RepositoryEF.Mappings;
 
 namespace SecondFloor.RepositoryEF
 {
-    public class AnuncianteContext : DbContext, IAnuncioContext
+    public class AnuncianteContext : DbContext, IAnuncioContext 
     {
         public DbSet<Anuncio> Anuncios { get; set; }
         public DbSet<Anunciante> Anunciantes { get; set; }
@@ -28,6 +29,11 @@ namespace SecondFloor.RepositoryEF
             modelBuilder.Ignore<Comentario>(); //Usar em outro contexto
 
             base.OnModelCreating(modelBuilder);
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            base.Dispose(disposing);
         }
     }
 }
