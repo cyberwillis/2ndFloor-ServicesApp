@@ -13,7 +13,8 @@ namespace SecondFloor.Service.ExtensionMethods
         {
             var anunciante = new Anunciante();
 
-            if (string.IsNullOrEmpty(anuncianteDto.Id) || anuncianteDto.Id == "00000000-0000-0000-0000-000000000000")
+            //if (string.IsNullOrEmpty(anuncianteDto.Id) || anuncianteDto.Id == "00000000-0000-0000-0000-000000000000")
+            if (string.IsNullOrEmpty(anuncianteDto.Id) || anuncianteDto.Id == default(Guid).ToString())
             {
                 anunciante.Id = Guid.NewGuid();
             }

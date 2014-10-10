@@ -90,7 +90,7 @@ namespace SecondFloor.Service
             var response = new CadastrarProdutoResponse();
 
             var produto = request.Produto.ConvertToProduto();
-            if (produto.IsValid())
+            if (!produto.IsValid())
             {
                 produto.BrokenRules.ForEach(x=> response.Rules.Add(x.Key,x.Value));
 
@@ -153,7 +153,7 @@ namespace SecondFloor.Service
                 produto.Referencia = novoProduto.Referencia;
                 produto.Fabricante = novoProduto.Fabricante;
                 produto.Valor = novoProduto.Valor;
-                if (produto.IsValid())
+                if (!produto.IsValid())
                 {
                     produto.BrokenRules.ForEach(x => response.Rules.Add(x.Key, x.Value));
 

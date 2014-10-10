@@ -87,7 +87,7 @@ namespace SecondFloor.Service
             var response = new CadastrarEnderecoResponse();
 
             var endereco = request.Endereco.ConvertToEndereco();
-            if (endereco.IsValid())
+            if (!endereco.IsValid())
             {
                 endereco.BrokenRules.ForEach(x => response.Rules.Add(x.Key,x.Value));
 
@@ -153,7 +153,7 @@ namespace SecondFloor.Service
                 endereco.Cidade = novoEndereco.Cidade;
                 endereco.Estado = novoEndereco.Estado;
                 endereco.CEP = novoEndereco.CEP;
-                if (endereco.IsValid())
+                if (!endereco.IsValid())
                 {
                     endereco.BrokenRules.ForEach(x => response.Rules.Add(x.Key,x.Value));
 

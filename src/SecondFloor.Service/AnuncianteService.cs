@@ -75,7 +75,7 @@ namespace SecondFloor.Service
             var response = new CadastrarAnuncianteResponse();
 
             var anunciante = request.Anunciante.ConvertToAnunciante();
-            if (anunciante.IsValid())
+            if (!anunciante.IsValid())
             {
                 anunciante.BrokenRules.ForEach(x => response.Rules.Add(x.Key,x.Value));
 
@@ -187,7 +187,7 @@ namespace SecondFloor.Service
                 anunciante.RazaoSocial = novoAnunciante.RazaoSocial;
                 anunciante.Email = novoAnunciante.Email;
                 anunciante.Cnpj = novoAnunciante.Cnpj;
-                if (anunciante.IsValid())
+                if (!anunciante.IsValid())
                 {
                     anunciante.BrokenRules.ForEach(x => response.Rules.Add(x.Key, x.Value));
 
