@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using SecondFloor.Infrastructure;
 
-namespace SecondFloor.Model.Specifications
+namespace SecondFloor.Model.Rules.Specifications
 {
     public static class ConsumidorSpecification
     {

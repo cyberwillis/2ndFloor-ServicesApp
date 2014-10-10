@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
 
-namespace SecondFloor.Model.Specifications
+namespace SecondFloor.Model.Rules.Specifications
 {
     public static class EnderecoSpecification
     {
-        public static IDictionary<string,string> GetBrokenBusinessRules(this Endereco endereco)
+        public static IDictionary<string,string> Validate(this Endereco endereco)
         {
             endereco.ClearBrokenRules();
 

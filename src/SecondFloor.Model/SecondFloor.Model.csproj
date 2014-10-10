@@ -43,21 +43,24 @@
     <Compile Include="IEnderecoRepository.cs" />
     <Compile Include="IProdutoRepository.cs" />
     <Compile Include="Produto.cs" />
-    <Compile Include="Specifications\AnuncianteSpecification.cs" />
+    <Compile Include="Rules\AnuncianteServices.cs" />
+    <Compile Include="Rules\EnderecoServices.cs" />
+    <Compile Include="Rules\ProdutoServices.cs" />
+    <Compile Include="Rules\Specifications\AnuncianteSpecification.cs" />
     <Compile Include="Anuncio.cs" />
-    <Compile Include="Specifications\AnuncioSpecification.cs" />
+    <Compile Include="Rules\Specifications\AnuncioSpecification.cs" />
     <Compile Include="Comentario.cs" />
-    <Compile Include="Specifications\ComentarioSpecification.cs" />
+    <Compile Include="Rules\Specifications\ComentarioSpecification.cs" />
     <Compile Include="Consumidor.cs" />
-    <Compile Include="Specifications\ConsumidorSpecification.cs" />
+    <Compile Include="Rules\Specifications\ConsumidorSpecification.cs" />
     <Compile Include="Endereco.cs" />
-    <Compile Include="Specifications\EnderecoSpecification.cs" />
+    <Compile Include="Rules\Specifications\EnderecoSpecification.cs" />
     <Compile Include="IAnuncianteRepository.cs" />
     <Compile Include="IAnuncioRepository.cs" />
     <Compile Include="Oferta.cs" />
-    <Compile Include="Specifications\OfertaSpecification.cs" />
+    <Compile Include="Rules\Specifications\OfertaSpecification.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Specifications\ProdutoSpecification.cs" />
+    <Compile Include="Rules\Specifications\ProdutoSpecification.cs" />
     <Compile Include="TipoAcesso.cs" />
   </ItemGroup>
   <ItemGroup>

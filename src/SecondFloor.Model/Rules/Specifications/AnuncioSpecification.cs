@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace SecondFloor.Model.Specifications
+namespace SecondFloor.Model.Rules.Specifications
 {
     public static class AnuncioSpecification
     {

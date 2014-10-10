@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace SecondFloor.Model.Specifications
+namespace SecondFloor.Model.Rules.Specifications
 {
     public static class ComentarioSpecification
     {
@@ -26,7 +26,7 @@ namespace SecondFloor.Model.Specifications
             }
             else if (comentario.Para != null)
             {
-                comentario.AddRangeBrokenRules(comentario.Para.GetBrokenBusinessRules());
+                comentario.AddRangeBrokenRules(comentario.Para.Validate());
             }
 
             //Descricao 

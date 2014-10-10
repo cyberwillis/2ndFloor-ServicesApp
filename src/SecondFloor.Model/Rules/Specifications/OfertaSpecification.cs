@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace SecondFloor.Model.Specifications
+namespace SecondFloor.Model.Rules.Specifications
 {
     public static class OfertaSpecification
     {
@@ -41,7 +41,7 @@ namespace SecondFloor.Model.Specifications
             }
             else if (oferta.Endereco != null)
             {
-                oferta.AddRangeBrokenRules(oferta.Endereco.GetBrokenBusinessRules());
+                oferta.AddRangeBrokenRules(oferta.Endereco.Validate());
             }*/
 
             return oferta.BrokenRules;

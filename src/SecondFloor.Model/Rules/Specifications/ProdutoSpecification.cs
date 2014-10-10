@@ -1,15 +1,13 @@
 ﻿using System.Collections.Generic;
-using System.Runtime.CompilerServices;
 
-namespace SecondFloor.Model.Specifications
+namespace SecondFloor.Model.Rules.Specifications
 {
     public static class ProdutoSpecification
     {
-        public static IDictionary<string, string> GetBrokenBusinessRules(this Produto produto)
+        public static IDictionary<string, string> Validate(this Produto produto)
         {
             produto.ClearBrokenRules();
 
-            
             //NomeProduto
             if (string.IsNullOrEmpty(produto.NomeProduto))
             {

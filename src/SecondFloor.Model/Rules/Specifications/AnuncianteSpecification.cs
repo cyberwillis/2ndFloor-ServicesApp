@@ -1,11 +1,11 @@
 ﻿using System.Collections.Generic;
 using SecondFloor.Infrastructure;
 
-namespace SecondFloor.Model.Specifications
+namespace SecondFloor.Model.Rules.Specifications
 {
     public static class AnuncianteSpecification
     {
-        public static IDictionary<string,string> GetBrokenBusinessRules(this Anunciante anunciante)
+        public static IDictionary<string,string> Validate(this Anunciante anunciante)
         {
             anunciante.ClearBrokenRules();
 
