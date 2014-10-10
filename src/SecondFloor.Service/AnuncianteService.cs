@@ -1,11 +1,14 @@
 ﻿using System;
+using System.Linq;
 using System.Collections.Generic;
 using System.ServiceModel;
 using System.ServiceModel.Activation;
+using Microsoft.Practices.ObjectBuilder2;
 using SecondFloor.DataContracts.Messages;
 using SecondFloor.DataContracts.Messages.Anunciante;
 using SecondFloor.Model;
-using SecondFloor.Model.Specifications;
+using SecondFloor.Model.Rules;
+using SecondFloor.Model.Rules.Specifications;
 using SecondFloor.Service.ExtensionMethods;
 using SecondFloor.ServiceContracts;
 
@@ -72,8 +75,10 @@ namespace SecondFloor.Service
             var response = new CadastrarAnuncianteResponse();
 
             var anunciante = request.Anunciante.ConvertToAnunciante();
-            if (anunciante.GetBrokenBusinessRules().Count > 0)
+            if (anunciante.IsValid())
             {
+                anunciante.BrokenRules.ForEach(x => response.Rules.Add(x.Key,x.Value));
+
                 response.Message = anunciante.GetErrorMessages().ToString();
                 response.MessageType = "alert-warning";
                 response.Success = false;
@@ -182,8 +187,10 @@ namespace SecondFloor.Service
                 anunciante.RazaoSocial = novoAnunciante.RazaoSocial;
                 anunciante.Email = novoAnunciante.Email;
                 anunciante.Cnpj = novoAnunciante.Cnpj;
-                if (anunciante.GetBrokenBusinessRules().Count > 0)
+                if (anunciante.IsValid())
                 {
+                    anunciante.BrokenRules.ForEach(x => response.Rules.Add(x.Key, x.Value));
+
                     response.Message = anunciante.GetErrorMessages().ToString();
                     response.MessageType = "alert-warning";
                     response.Success = false;

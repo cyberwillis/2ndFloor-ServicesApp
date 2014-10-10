@@ -1,8 +1,11 @@
 ﻿using System;
+using System.Linq;
 using System.Runtime.InteropServices;
+using Microsoft.Practices.ObjectBuilder2;
 using SecondFloor.DataContracts.Messages.Produto;
 using SecondFloor.Model;
-using SecondFloor.Model.Specifications;
+using SecondFloor.Model.Rules;
+using SecondFloor.Model.Rules.Specifications;
 using SecondFloor.Service.ExtensionMethods;
 using SecondFloor.ServiceContracts;
 
@@ -87,8 +90,10 @@ namespace SecondFloor.Service
             var response = new CadastrarProdutoResponse();
 
             var produto = request.Produto.ConvertToProduto();
-            if (produto.GetBrokenBusinessRules().Count > 0)
+            if (produto.IsValid())
             {
+                produto.BrokenRules.ForEach(x=> response.Rules.Add(x.Key,x.Value));
+
                 response.Message = produto.GetErrorMessages().ToString();
                 response.MessageType = "alert-warning";
                 response.Success = false;
@@ -148,8 +153,10 @@ namespace SecondFloor.Service
                 produto.Referencia = novoProduto.Referencia;
                 produto.Fabricante = novoProduto.Fabricante;
                 produto.Valor = novoProduto.Valor;
-                if (produto.GetBrokenBusinessRules().Count > 0)
+                if (produto.IsValid())
                 {
+                    produto.BrokenRules.ForEach(x => response.Rules.Add(x.Key, x.Value));
+
                     response.Message = produto.GetErrorMessages().ToString();
                     response.MessageType = "alert-warning";
                     response.Success = false;

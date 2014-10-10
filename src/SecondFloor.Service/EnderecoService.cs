@@ -1,7 +1,9 @@
 ﻿using System;
+using Microsoft.Practices.ObjectBuilder2;
 using SecondFloor.DataContracts.Messages.Endereco;
 using SecondFloor.Model;
-using SecondFloor.Model.Specifications;
+using SecondFloor.Model.Rules;
+using SecondFloor.Model.Rules.Specifications;
 using SecondFloor.Service.ExtensionMethods;
 using SecondFloor.ServiceContracts;
 
@@ -85,8 +87,10 @@ namespace SecondFloor.Service
             var response = new CadastrarEnderecoResponse();
 
             var endereco = request.Endereco.ConvertToEndereco();
-            if (endereco.GetBrokenBusinessRules().Count > 0)
+            if (endereco.IsValid())
             {
+                endereco.BrokenRules.ForEach(x => response.Rules.Add(x.Key,x.Value));
+
                 response.Message = endereco.GetErrorMessages().ToString();
                 response.MessageType = "alert-warning";
                 response.Success = false;
@@ -149,8 +153,10 @@ namespace SecondFloor.Service
                 endereco.Cidade = novoEndereco.Cidade;
                 endereco.Estado = novoEndereco.Estado;
                 endereco.CEP = novoEndereco.CEP;
-                if (endereco.GetBrokenBusinessRules().Count > 0)
+                if (endereco.IsValid())
                 {
+                    endereco.BrokenRules.ForEach(x => response.Rules.Add(x.Key,x.Value));
+
                     response.Message = endereco.GetErrorMessages().ToString();
                     response.MessageType = "alert-warning";
                     response.Success = false;
