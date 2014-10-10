@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using NUnit.Framework;
-using SecondFloor.Model.Specifications;
+using SecondFloor.Model.Rules.Specifications;
 using SecondFloor.Model.UnitTest.Anuncio_Tests;
 
 namespace SecondFloor.Model.UnitTest.Consumidor_Tests

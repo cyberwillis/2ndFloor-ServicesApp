@@ -16,9 +16,9 @@ namespace SecondFloor.Model.UnitTest.Anuncio_Tests
             var anunciante = new Anunciante();
             anunciante.RazaoSocial = "Oficina de entretenimento adulto do tio careca";
             anunciante.Cnpj = "49.107.344/0001-93";
-            //anunciante.Token = "4f2b36ac358c3b311ec5168f561b1325ca1cedde";
             anunciante.Responsavel = "Fulano de Tal";
             anunciante.Email = "careca@careca.com.br";
+            //anunciante.Token = "4f2b36ac358c3b311ec5168f561b1325ca1cedde"; //Depricated
 
             return anunciante;
         }
@@ -36,7 +36,7 @@ namespace SecondFloor.Model.UnitTest.Anuncio_Tests
             return endereco;
         }
 
-        public List<Oferta> CreateOfertas()
+        /*public List<Oferta> CreateOfertas()
         {
             var ofertas = new List<Oferta>();
 
@@ -44,9 +44,9 @@ namespace SecondFloor.Model.UnitTest.Anuncio_Tests
 
             ofertas.Add(oferta);
             return ofertas;
-        }
+        }*/
 
-        public Oferta CreateOferta()
+        /*public Oferta CreateOferta()
         {
             var oferta = new Oferta();
             oferta.Titulo = "Um produto qualquer.";
@@ -55,10 +55,10 @@ namespace SecondFloor.Model.UnitTest.Anuncio_Tests
             oferta.Endereco = this.CreateEndereco();
 
             return oferta;
-        }
+        }*/
 
 
-        public Anuncio CreateAnuncio()
+        /*public Anuncio CreateAnuncio()
         {
             var anuncio = new Anuncio();
             anuncio.Titulo = "Ofertas Relampago";
@@ -67,7 +67,7 @@ namespace SecondFloor.Model.UnitTest.Anuncio_Tests
             anuncio.Ofertas = this.CreateOfertas();
             anuncio.Anunciante = this.CreateAnunciante();
             return anuncio;
-        }
+        }*/
 
         public Consumidor CreateConsumidor()
         {
@@ -78,7 +78,7 @@ namespace SecondFloor.Model.UnitTest.Anuncio_Tests
             return consumidor;
         }
 
-        public Comentario CreateComentario()
+        /*public Comentario CreateComentario()
         {
             var comentario = new Comentario();
             comentario.Consumidor = this.CreateConsumidor();
@@ -88,6 +88,18 @@ namespace SecondFloor.Model.UnitTest.Anuncio_Tests
             comentario.Ponto = 5;
 
             return comentario;
+        }*/
+
+        public Produto CreateProduto()
+        {
+            var produto = new Produto();
+            produto.NomeProduto = "Sabão em pó";
+            produto.Fabricante = "Omo";
+            produto.Descricao = "descricao do sabao novo";
+            produto.Referencia = "referencia???";
+            produto.Valor = decimal.Parse("30.00");
+
+            return produto;
         }
     }
 }

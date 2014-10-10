@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using NUnit.Framework;
-using SecondFloor.Model.Specifications;
+using SecondFloor.Model.Rules.Specifications;
 using SecondFloor.Model.UnitTest.Anuncio_Tests;
 
 namespace SecondFloor.Model.UnitTest.Endereco_Tests
@@ -23,7 +23,7 @@ namespace SecondFloor.Model.UnitTest.Endereco_Tests
         public void test_endereco_correct_data()
         {
             var expected = 0;
-            var actual = _endereco.GetBrokenBusinessRules().Count;
+            var actual = _endereco.Validate().Count;
 
             Assert.AreEqual(expected, actual);
         }
@@ -43,11 +43,11 @@ namespace SecondFloor.Model.UnitTest.Endereco_Tests
             var brCidade = new Dictionary<string, string>() {{"Cidade", "A cidade não foi especificada."}};
             var brEstado = new Dictionary<string, string>() {{"Estado", "O estado não foi especificado."}};
 
-            Assert.IsTrue(_endereco.GetBrokenBusinessRules().Contains(brLogradouro.First()));
-            Assert.IsTrue(_endereco.GetBrokenBusinessRules().Contains(brNumero.First()));
-            Assert.IsTrue(_endereco.GetBrokenBusinessRules().Contains(brBairro.First()));
-            Assert.IsTrue(_endereco.GetBrokenBusinessRules().Contains(brCidade.First()));
-            Assert.IsTrue(_endereco.GetBrokenBusinessRules().Contains(brEstado.First()));
+            Assert.IsTrue(_endereco.Validate().Contains(brLogradouro.First()));
+            Assert.IsTrue(_endereco.Validate().Contains(brNumero.First()));
+            Assert.IsTrue(_endereco.Validate().Contains(brBairro.First()));
+            Assert.IsTrue(_endereco.Validate().Contains(brCidade.First()));
+            Assert.IsTrue(_endereco.Validate().Contains(brEstado.First()));
         }
     }
 }
