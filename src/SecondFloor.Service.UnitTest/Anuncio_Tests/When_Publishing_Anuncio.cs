@@ -16,7 +16,7 @@ namespace SecondFloor.Service.UnitTest.Anuncio_Tests
     {
         private AnuncioDto _anuncioDto;
 
-        [SetUp]
+        /*[SetUp]
         public void Init()
         {
             var anuncio = new Anuncio()
@@ -109,6 +109,6 @@ namespace SecondFloor.Service.UnitTest.Anuncio_Tests
             //Assert
             Debug.WriteLine(response.Message);
             Assert.IsFalse(response.Success);
-        }
+        }*/
     }
 }
