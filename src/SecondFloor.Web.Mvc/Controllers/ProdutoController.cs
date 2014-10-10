@@ -7,6 +7,7 @@ using SecondFloor.DataContracts.Messages.Produto;
 using SecondFloor.ServiceContracts;
 using SecondFloor.Web.Mvc.Models;
 using SecondFloor.Web.Mvc.Services;
+using WebGrease.Css.Extensions;
 
 namespace SecondFloor.Web.Mvc.Controllers
 {
@@ -46,11 +47,11 @@ namespace SecondFloor.Web.Mvc.Controllers
             var produto = new ProdutoViewModels()
             {
                 AnuncianteId = id,
-                NomeProduto = "Produto Teste",
+                /*NomeProduto = "Produto Teste",
                 Descricao = "Descricao teste",
                 Fabricante = "Fabricante teste",
                 RefProduto = "0001",
-                Valor = decimal.Parse("10.00"),
+                Valor = decimal.Parse("10.00"),*/
             };
             //var keys = ModelState.Keys;
             //var values = ModelState.Values;
@@ -70,13 +71,16 @@ namespace SecondFloor.Web.Mvc.Controllers
             ViewBag.Message = response.Message;
             ViewBag.MessageType = response.MessageType;
 
-            if (!ModelState.IsValid)
+            /*if (!ModelState.IsValid)
             {
                 return PartialView("ProdutoPartialView", produto);
-            }
+            }*/
 
             if (!response.Success)
             {
+                //Experimental
+                response.Rules.ForEach(x=>ModelState.AddModelError(x.Key,x.Value));
+                return PartialView("ProdutoPartialView", produto);
                 return PartialView("Error");
             }
 

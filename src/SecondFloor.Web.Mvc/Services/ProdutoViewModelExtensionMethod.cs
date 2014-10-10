@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 using SecondFloor.DataContracts.DTO;
 using SecondFloor.Web.Mvc.Models;
 
@@ -16,7 +17,7 @@ namespace SecondFloor.Web.Mvc.Services
             produtoViewModel.Descricao = produtoDto.Descricao;
             produtoViewModel.RefProduto = produtoDto.Referencia;
             produtoViewModel.Fabricante = produtoDto.Fabricante;
-            produtoViewModel.Valor = decimal.Parse(produtoDto.Valor);
+            produtoViewModel.Valor = produtoDto.Valor;
             produtoViewModel.AnuncianteId = produtoDto.AnuncianteId;
 
             return produtoViewModel;
@@ -31,7 +32,7 @@ namespace SecondFloor.Web.Mvc.Services
             produtoDto.Descricao = produtoViewModel.Descricao;
             produtoDto.Referencia = produtoViewModel.RefProduto;
             produtoDto.Fabricante = produtoViewModel.Fabricante;
-            produtoDto.Valor = produtoViewModel.Valor.ToString();
+            produtoDto.Valor = produtoViewModel.Valor;
 
             return produtoDto;
         }
@@ -42,5 +43,7 @@ namespace SecondFloor.Web.Mvc.Services
 
             return produtosViewModel;
         }
+
+        
     }
 }

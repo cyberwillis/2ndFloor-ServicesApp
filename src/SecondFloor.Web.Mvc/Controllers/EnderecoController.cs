@@ -7,6 +7,7 @@ using SecondFloor.DataContracts.Messages.Endereco;
 using SecondFloor.ServiceContracts;
 using SecondFloor.Web.Mvc.Models;
 using SecondFloor.Web.Mvc.Services;
+using WebGrease.Css.Extensions;
 
 namespace SecondFloor.Web.Mvc.Controllers
 {
@@ -46,6 +47,7 @@ namespace SecondFloor.Web.Mvc.Controllers
             var endereco = new EnderecoViewModels()
             {
                 AnuncianteId = id,
+                
                 Logradouro = "Av Teste",
                 Numero = 101,
                 Complemento = "",
@@ -70,14 +72,16 @@ namespace SecondFloor.Web.Mvc.Controllers
             ViewBag.Message = response.Message;
             ViewBag.MessageType = response.MessageType;
 
-            if (! ModelState.IsValid)
+            /*if (! ModelState.IsValid)
             {
                 return PartialView("EnderecoPartialView", endereco);
-            }
+            }*/
 
             if (!response.Success)
             {
-                return PartialView("Error");
+                response.Rules.ForEach(x=>ModelState.AddModelError(x.Key,x.Value));
+                return PartialView("EnderecoPartialView", endereco);
+                //return PartialView("Error");
             }
 
             return PartialView("Sucesso");
@@ -118,6 +122,7 @@ namespace SecondFloor.Web.Mvc.Controllers
 
             if (!response.Success)
             {
+                response.Rules.ForEach(x => ModelState.AddModelError(x.Key, x.Value));
                 return PartialView("EnderecoPartialView", endereco);
             }
 

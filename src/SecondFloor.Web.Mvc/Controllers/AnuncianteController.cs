@@ -9,6 +9,7 @@ using SecondFloor.DataContracts.Messages.Anunciante;
 using SecondFloor.ServiceContracts;
 using SecondFloor.Web.Mvc.Models;
 using SecondFloor.Web.Mvc.Services;
+using WebGrease.Css.Extensions;
 
 namespace SecondFloor.Web.Mvc.Controllers
 {
@@ -80,7 +81,6 @@ namespace SecondFloor.Web.Mvc.Controllers
         public PartialViewResult Create(AnuncianteViewModels anunciante)
         {
             var request = new CadastrarAnuncianteRequest() { Anunciante = anunciante.ConvertToAnuncianteDto() };
-
             var response = _anuncianteService.CadastrarAnunciante(request);
 
             ViewBag.Excluir = false;
@@ -88,14 +88,10 @@ namespace SecondFloor.Web.Mvc.Controllers
             ViewBag.Message = response.Message;
             ViewBag.MessageType = response.MessageType;
 
-            if (!ModelState.IsValid)
-            {
-                return PartialView("AnunciantePartialView", anunciante); //erro de cadastro
-            }
-
             if (!response.Success)
             {
-                return PartialView("Error");
+                response.Rules.ForEach(x => ModelState.AddModelError(x.Key,x.Value));
+                return PartialView("AnunciantePartialView", anunciante); //erro de cadastro
             }
 
             return PartialView("Sucesso");
@@ -105,17 +101,16 @@ namespace SecondFloor.Web.Mvc.Controllers
         public PartialViewResult Edit(string id)
         {
             var request = new EncontrarAnuncianteRequest() { Id = id };
-
             var response = _anuncianteService.EncontrarAnunciantePor(request);
+
+            ViewBag.Excluir = false;
+            ViewBag.Title = "Alterar Anunciante";
 
             if (!response.Success)
             {
                 return PartialView("Error");
             }
-
-            ViewBag.Excluir = false;
-            ViewBag.Title = "Alterar Anunciante";
-
+            
             var anunciante = response.Anunciante.ConvertAnuncianteViewModels();
             
             return PartialView("AnunciantePartialView", anunciante);
@@ -125,7 +120,6 @@ namespace SecondFloor.Web.Mvc.Controllers
         public PartialViewResult Edit(AnuncianteViewModels anunciante)
         {
             var request = new AlterarAnuncianteRequest() {Anunciante = anunciante.ConvertToAnuncianteDto()};
-            
             var response = _anuncianteService.AlterarAnunciante(request);
 
             ViewBag.Excluir = false;
@@ -135,6 +129,7 @@ namespace SecondFloor.Web.Mvc.Controllers
 
             if (!response.Success)
             {
+                response.Rules.ForEach(x => ModelState.AddModelError(x.Key,x.Value));
                 return PartialView("AnunciantePartialView", anunciante);
             }
 
