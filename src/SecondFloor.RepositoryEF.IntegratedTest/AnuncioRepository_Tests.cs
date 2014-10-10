@@ -13,15 +13,15 @@ namespace SecondFloor.RepositoryEF.IntegratedTest.AnuncioRepository_Test
     {
         private IAnuncioRepository _anuncioRepository;
         private IAnuncianteRepository _anuncianteRepository;
-        private Anunciante _anunciante;
         private EFUnitOfWork<Anuncio> _unitOfWorkAnuncio;
         private EFUnitOfWork<Anunciante> _unitOfWorkAnunciante;
+        private Anunciante _anunciante;
 
 
         [SetUp]
         public void Init()
         {
-            Database.SetInitializer(new DropCreateDatabaseIfModelChanges<AnuncianteContext>()); //Database Initializer
+            Database.SetInitializer(new DropCreateDatabaseAlways<AnuncianteContext>()); //Database Initializer
 
             _unitOfWorkAnuncio = new EFUnitOfWork<Anuncio>();
             _anuncioRepository = new AnuncioRepository(_unitOfWorkAnuncio); //contexto compartilhado

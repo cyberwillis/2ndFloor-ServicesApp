@@ -2,7 +2,6 @@
 using System.Data.Entity;
 using NUnit.Framework;
 using SecondFloor.Model;
-using SecondFloor.Model.Specifications;
 using SecondFloor.RepositoryEF.Repositories;
 
 namespace SecondFloor.RepositoryEF.IntegratedTest.AnuncioRepository_Test
@@ -17,7 +16,7 @@ namespace SecondFloor.RepositoryEF.IntegratedTest.AnuncioRepository_Test
         [SetUp]
         public void Init()
         {
-            Database.SetInitializer(new DropCreateDatabaseIfModelChanges<AnuncianteContext>()); //Database Initializer
+            Database.SetInitializer(new DropCreateDatabaseAlways<AnuncianteContext>()); //Database Initializer
 
             _unitOfworkAnunciante = new EFUnitOfWork<Anunciante>();
             _anuncianteRepository = new AnuncianteRepository(_unitOfworkAnunciante); //contexto compartilhado
@@ -26,16 +25,17 @@ namespace SecondFloor.RepositoryEF.IntegratedTest.AnuncioRepository_Test
         [TearDown]
         public void Finish()
         {
-            //_anuncianteRepository.Dispose();
-            //_commonContext.Dispose();
+            //Dispose if needed
         }
 
         [Test]
         public void test_EncontrarAnunciantesPor_returns_one_element_pass()
         {
+            var id = Guid.NewGuid(); //Guid de Teste;
+
             //Anunciante
             _anunciante = new Anunciante();
-            _anunciante.Id = Guid.NewGuid(); //Guid de Teste
+            _anunciante.Id = id;
             _anunciante.RazaoSocial = "Oficina de entretenimento adulto do tio careca";
             _anunciante.Responsavel = "Fulano de Tal";
             _anunciante.Email = "careca@careca.com.br";
@@ -45,39 +45,13 @@ namespace SecondFloor.RepositoryEF.IntegratedTest.AnuncioRepository_Test
             _anuncianteRepository.InserirAnunciante(_anunciante);
             _anuncianteRepository.Persist();
 
-            var anunciante = _anuncianteRepository.EncontrarAnunciantePor(_anunciante.Id);
+            var anunciante = _anuncianteRepository.EncontrarAnunciantePor(id);
 
             Assert.IsTrue(anunciante != null);
 
             _anuncianteRepository.ExcluirAnunciante(_anunciante);
             _anuncianteRepository.Persist();
-
         }
-
-        /*[Test]
-        public void test_EncontrarAnunciantesPorToken_returns_one_element_pass()
-        {
-            //Anunciante
-            _anunciante = new Anunciante();
-            _anunciante.Id = Guid.NewGuid(); //Guid de Teste
-            _anunciante.RazaoSocial = "Oficina de entretenimento adulto do tio careca";
-            _anunciante.Responsavel = "Fulano de Tal";
-            _anunciante.Email = "careca@careca.com.br";
-            _anunciante.Cnpj = "40.123.456.0001-63";
-            //_anunciante.Token = _anunciante.GetToken();
-
-            var token = _anunciante.GetToken();
-
-            _anuncianteRepository.InserirAnunciante(_anunciante);
-            _anuncianteRepository.Persist();
-
-            var anunciante = _anuncianteRepository.EncontrarAnunciantePorToken(token);
-
-            Assert.IsTrue(anunciante != null);
-
-            _anuncianteRepository.ExcluirAnunciante(_anunciante.Id);
-            _anuncianteRepository.Persist();
-        }*/
 
         [Test]
         public void test_ExcluirAnunciante_returns_zero_elements_pass()
@@ -103,6 +77,7 @@ namespace SecondFloor.RepositoryEF.IntegratedTest.AnuncioRepository_Test
             _anuncianteRepository.ExcluirAnunciante(_anunciante);
             _anuncianteRepository.Persist();
 
+            anunciante = null;
             anunciante = _anuncianteRepository.EncontrarAnunciantePor(anuncianteId);
 
             Assert.IsNull(anunciante);

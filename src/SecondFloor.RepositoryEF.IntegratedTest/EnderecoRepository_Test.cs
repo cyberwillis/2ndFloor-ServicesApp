@@ -12,10 +12,11 @@ namespace SecondFloor.RepositoryEF.IntegratedTest.AnuncioRepository_Test
     [TestFixture]
     public class EnderecoRepository_Test
     {
-        private EFUnitOfWork<Endereco> _unitOfWorkEndereco;
-        private EFUnitOfWork<Anunciante> _unitOfWorkAnunciante;
         private IEnderecoRepository _enderecoRepository;
         private IAnuncianteRepository _anuncianteRepository;
+        private EFUnitOfWork<Endereco> _unitOfWorkEndereco;
+        private EFUnitOfWork<Anunciante> _unitOfWorkAnunciante;
+        private Endereco _endereco;
 
         [SetUp]
         public void Init()
@@ -32,23 +33,66 @@ namespace SecondFloor.RepositoryEF.IntegratedTest.AnuncioRepository_Test
         [TearDown]
         public void Finish()
         {
-            
+            //Dispose if needed
         }
 
         [Test]
-        public void Teste()
+        public void test_EncontrarEnderecoPor_returns_one_element_pass()
         {
-            IList<Anunciante> anunciantes = null;
-            try
-            {
-                anunciantes = _anuncianteRepository.FindAll();
-            }
-            catch (Exception ex)
-            {
-                Debug.WriteLine(ex.Message);
-            }
-            
+            var id = Guid.NewGuid();
 
+            //Endereco
+            _endereco = new Endereco();
+            _endereco.Id = id;
+            _endereco.Logradouro = "Rua Teste";
+            _endereco.Numero = "1250";
+            _endereco.Complemento = "Bloco A";
+            _endereco.Bairro = "Europa";
+            _endereco.Cidade = "São Paulo";
+            _endereco.Estado = "SP";
+            _endereco.CEP = "00000-000";
+
+            _enderecoRepository.InserirEndereco(_endereco);
+            _enderecoRepository.Persist();
+
+            var endereco = _enderecoRepository.EncontrarEnderecoPor(id);
+
+            Assert.IsTrue(endereco != null);
+
+            _enderecoRepository.ExcluirEndereco(_endereco);
+            _enderecoRepository.Persist();
+        }
+
+        [Test]
+        public void test_EncontrarEnderecoPor_returns_zero_elements_pass()
+        {
+            var id = Guid.NewGuid();
+
+            //Endereco
+            _endereco = new Endereco();
+            _endereco.Id = id;
+            _endereco.Logradouro = "Rua Teste";
+            _endereco.Numero = "1250";
+            _endereco.Complemento = "Bloco A";
+            _endereco.Bairro = "Europa";
+            _endereco.Cidade = "São Paulo";
+            _endereco.Estado = "SP";
+            _endereco.CEP = "00000-000";
+
+            _enderecoRepository.InserirEndereco(_endereco);
+            _enderecoRepository.Persist();
+
+            var endereco = _enderecoRepository.EncontrarEnderecoPor(id);
+
+            Assert.IsTrue(endereco != null);
+
+            _enderecoRepository.ExcluirEndereco(_endereco);
+            _enderecoRepository.Persist();
+
+            endereco = null;
+            endereco = _enderecoRepository.EncontrarEnderecoPor(id);
+
+            Assert.IsNull(endereco);
         }
     }
 }
