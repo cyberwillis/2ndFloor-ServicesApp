@@ -1,10 +1,16 @@
-﻿using System.ServiceModel;
+﻿using System.Collections.Generic;
+using System.ServiceModel;
 
 namespace SecondFloor.DataContracts
 {
     [MessageContract(WrapperNamespace = "messages.am.fiap.com.br")]
     public class ResponseBase
     {
+        public ResponseBase()
+        {
+            this.Rules = new Dictionary<string, string>();
+        }
+
         [MessageBodyMember]
         public bool Success { get; set; }
 
@@ -12,5 +18,8 @@ namespace SecondFloor.DataContracts
         public string Message { get; set; }
 
         public string MessageType { get; set; }
+
+        //Experimental
+        public IDictionary<string, string> Rules { get; set; }
     }
 }
