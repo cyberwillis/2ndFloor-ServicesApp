@@ -23,19 +23,18 @@ namespace SecondFloor.Web.Mvc.Controllers
         [HttpGet]
         public PartialViewResult List(string id)
         {
-            var request = new EncontrarTodosProdutosRequest() {AnuncianteId = id};
-
+            var request = new EncontrarTodosProdutosRequest() { AnuncianteId = id };
             var response = _produtoService.EncontrarTodosProdutos(request);
 
             ViewBag.Title = "Lista de Produtos";
             ViewBag.AnuncianteId = id;
 
-            if (response.Success)
+            if (!response.Success)
             {
-                return PartialView("ListaProdutoPartialView", response.Produtos.ConvertToListaProdutosViewModel());
+                return PartialView("ListaProdutoPartialView", new List<ProdutoViewModels>());
             }
 
-            return PartialView("ListaProdutoPartialView", new List<ProdutoViewModels>());
+            return PartialView("ListaProdutoPartialView", response.Produtos.ConvertToListaProdutosViewModel());
         }
                 
         [HttpGet]
@@ -44,27 +43,13 @@ namespace SecondFloor.Web.Mvc.Controllers
             ViewBag.Excluir = false;
             ViewBag.Title = "Cadastro de Produto";
 
-            var produto = new ProdutoViewModels()
-            {
-                AnuncianteId = id,
-                
-                NomeProduto = "Esponja de Aço",
-                Descricao = "Bom para lavar panelas - pacote com 3",
-                Fabricante = "Bom Bril",
-                RefProduto = "0001",
-                Valor = "3.40",
-            };
-            //var keys = ModelState.Keys;
-            //var values = ModelState.Values;
-
-            return PartialView("ProdutoPartialView", produto);
+            return PartialView("ProdutoPartialView", new ProdutoViewModels() { AnuncianteId = id });
         }
 
         [HttpPost]
         public PartialViewResult Create([Bind(Exclude = "Id")]ProdutoViewModels produto)
         {
             var request = new CadastrarProdutoRequest() { Produto = produto.ConvertToProdutoDto(), AnuncianteId = produto.AnuncianteId };
-
             var response = _produtoService.CadastroProduto(request);
 
             ViewBag.Excluir = false;
@@ -72,17 +57,10 @@ namespace SecondFloor.Web.Mvc.Controllers
             ViewBag.Message = response.Message;
             ViewBag.MessageType = response.MessageType;
 
-            /*if (!ModelState.IsValid)
-            {
-                return PartialView("ProdutoPartialView", produto);
-            }*/
-
             if (!response.Success)
             {
-                //Experimental
                 response.Rules.ForEach(x=>ModelState.AddModelError(x.Key,x.Value));
                 return PartialView("ProdutoPartialView", produto);
-                return PartialView("Error");
             }
 
             return PartialView("Sucesso");
@@ -93,27 +71,23 @@ namespace SecondFloor.Web.Mvc.Controllers
         public PartialViewResult Edit(string id)
         {
             var request = new EncontrarProdutoRequest() {Id = id};
-
             var response = _produtoService.EncontrarProdutoPor(request);
+
+            ViewBag.Excluir = false;
+            ViewBag.Title = "Alterar Produto";
 
             if (!response.Success)
             {
                 return PartialView("Error");
             }
 
-            ViewBag.Excluir = false;
-            ViewBag.Title = "Alterar Produto";
-
-            var produto = response.Produto.ConvertToProdutoViewModel();
-
-            return PartialView("ProdutoPartialView", produto);
+            return PartialView("ProdutoPartialView", response.Produto.ConvertToProdutoViewModel());
         }
         
         [HttpPost]
         public PartialViewResult Edit(ProdutoViewModels produto)
         {
             var request = new AlterarProdutoRequest() {Produto = produto.ConvertToProdutoDto()};
-
             var response = _produtoService.AlterarProduto(request);
 
             ViewBag.Excluir = false;
@@ -133,29 +107,25 @@ namespace SecondFloor.Web.Mvc.Controllers
         public PartialViewResult Delete(string id)
         {
             var request = new EncontrarProdutoRequest() {Id = id};
-
             var response = _produtoService.EncontrarProdutoPor(request);
-
-            if (!response.Success)
-            {
-                return PartialView("Error");
-            }
 
             ViewBag.Excluir = true;
             ViewBag.Title = "Excluir Produto";
             ViewBag.Message = "Tem certeza que deseja excluit o Endereco abaixo ?";
             ViewBag.MessageType = "alert-danger";
 
-            var produto = response.Produto.ConvertToProdutoViewModel();
-
-            return PartialView("ProdutoPartialView", produto);
+            if (!response.Success)
+            {
+                return PartialView("Error");
+            }
+            
+            return PartialView("ProdutoPartialView", response.Produto.ConvertToProdutoViewModel());
         }
 
         [HttpPost]
         public PartialViewResult Delete(ProdutoViewModels produto)
         {
             var request = new ExcluirProdutoRequest() { Id = produto.Id };
-
             var response = _produtoService.ExcluirProduto(request);
 
             ViewBag.Excluir = true;

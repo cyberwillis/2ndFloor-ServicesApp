@@ -23,19 +23,18 @@ namespace SecondFloor.Web.Mvc.Controllers
         [HttpGet]
         public PartialViewResult List(string id)
         {
-            var request = new EncontrarTodosEnderecosRequest() {AnuncianteId = id};
-
+            var request = new EncontrarTodosEnderecosRequest() { AnuncianteId = id };
             var response = _enderecoService.EncontrarTodosEnderecos(request);
 
             ViewBag.Title = "Lista de Endereços";
             ViewBag.AnuncianteId = id;
 
-            if (response.Success)
+            if (!response.Success)
             {
-                return PartialView("ListaEnderecoPartialView", response.Enderecos.ConvertToListaEnderecosViewModel());
+                return PartialView("ListaEnderecoPartialView", new List<EnderecoViewModels>());
             }
-
-            return PartialView("ListaEnderecoPartialView", new List<EnderecoViewModels>());
+            
+            return PartialView("ListaEnderecoPartialView", response.Enderecos.ConvertToListaEnderecosViewModel());
         }
         
         [HttpGet]
@@ -44,27 +43,13 @@ namespace SecondFloor.Web.Mvc.Controllers
             ViewBag.Excluir = false;
             ViewBag.Title = "Cadastro de Endereço";
 
-            var endereco = new EnderecoViewModels()
-            {
-                AnuncianteId = id,
-                
-                Logradouro = "Av Teste",
-                Numero = 101,
-                Complemento = "",
-                Bairro = "Bairro Teste",
-                Cidade = "Cidade Teste",
-                Estado = "UF Testes",
-                Cep = "00000-000"
-            };
-
-            return PartialView("EnderecoPartialView", endereco);
+            return PartialView("EnderecoPartialView", new EnderecoViewModels() { AnuncianteId = id });
         }
         
         [HttpPost]
         public PartialViewResult Create([Bind(Exclude = "Id")]EnderecoViewModels endereco)
         {
             var request = new CadastrarEnderecoRequest() { Endereco = endereco.ConvertToEnderecoDto(), AnuncianteId = endereco.AnuncianteId };
-
             var response = _enderecoService.CadastroEndereco(request);
 
             ViewBag.Excluir = false;
@@ -72,16 +57,10 @@ namespace SecondFloor.Web.Mvc.Controllers
             ViewBag.Message = response.Message;
             ViewBag.MessageType = response.MessageType;
 
-            /*if (! ModelState.IsValid)
-            {
-                return PartialView("EnderecoPartialView", endereco);
-            }*/
-
             if (!response.Success)
             {
-                response.Rules.ForEach(x=>ModelState.AddModelError(x.Key,x.Value));
+                response.Rules.ForEach(x=>ModelState.AddModelError(x.Key,x.Value)); //hidratacao de erros no ModelState
                 return PartialView("EnderecoPartialView", endereco);
-                //return PartialView("Error");
             }
 
             return PartialView("Sucesso");
@@ -92,27 +71,23 @@ namespace SecondFloor.Web.Mvc.Controllers
         public PartialViewResult Edit(string id)
         {
             var request = new EncontrarEnderecoRequest() {Id = id};
-
             var response = _enderecoService.EncontrarEnderecoPor(request);
+
+            ViewBag.Excluir = false;
+            ViewBag.Title = "Alterar Endereço";
 
             if (!response.Success)
             {
                 return PartialView("Error");
             }
 
-            ViewBag.Excluir = false;
-            ViewBag.Title = "Alterar Endereço";
-
-            var anunciante = response.Endereco.ConvertToEnderecoViewModel();
-
-            return PartialView("EnderecoPartialView", anunciante);
+            return PartialView("EnderecoPartialView", response.Endereco.ConvertToEnderecoViewModel());
         }
         
         [HttpPost]
         public PartialViewResult Edit(EnderecoViewModels endereco)
         {
-            var request = new AlterarEnderecoRequest() {Endereco = endereco.ConvertToEnderecoDto()};
-
+            var request = new AlterarEnderecoRequest() { Endereco = endereco.ConvertToEnderecoDto() };
             var response = _enderecoService.AlterarEndereco(request);
 
             ViewBag.Excluir = false;
@@ -122,7 +97,7 @@ namespace SecondFloor.Web.Mvc.Controllers
 
             if (!response.Success)
             {
-                response.Rules.ForEach(x => ModelState.AddModelError(x.Key, x.Value));
+                response.Rules.ForEach(x => ModelState.AddModelError(x.Key, x.Value)); //hidratacao de erros no ModelState
                 return PartialView("EnderecoPartialView", endereco);
             }
 
@@ -133,29 +108,25 @@ namespace SecondFloor.Web.Mvc.Controllers
         public PartialViewResult Delete(string id)
         {
             var request = new EncontrarEnderecoRequest() { Id = id };
-
             var response = _enderecoService.EncontrarEnderecoPor(request);
-
-            if (!response.Success)
-            {
-                return PartialView("Error");
-            }
 
             ViewBag.Excluir = true;
             ViewBag.Title = "Excluir Endereço";
             ViewBag.Message = "Tem certeza que deseja excluit o Endereco abaixo ?";
             ViewBag.MessageType = "alert-danger";
 
-            var endereco = response.Endereco.ConvertToEnderecoViewModel();
+            if (!response.Success)
+            {
+                return PartialView("Error");
+            }
 
-            return PartialView("EnderecoPartialView", endereco);
+            return PartialView("EnderecoPartialView", response.Endereco.ConvertToEnderecoViewModel());
         }
         
         [HttpPost]
         public PartialViewResult Delete(EnderecoViewModels endereco)
         {
-            var request = new ExcluirEnderecoRequest() {Id = endereco.Id};
-
+            var request = new ExcluirEnderecoRequest() { Id = endereco.Id };
             var response = _enderecoService.ExcluirEndereco(request);
 
             ViewBag.Excluir = true;
