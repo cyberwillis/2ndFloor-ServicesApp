@@ -6,12 +6,24 @@
     }
 </div>
 
-<hr />
-<div id="conteudoAnuncianteEndereco">
-    @{Html.RenderAction("List","Endereco",new {Id=Model.Id});}
+<ul id="myTab" class="nav nav-tabs" role="tablist">
+    <li id="tab-endereco" class="active">
+        <a href="#conteudoAnuncianteEndereco" role="tab" data-toggle="tab">Endereços:</a>
+    </li>
+    <li id="tab-produto">
+        <a href="#conteudoAnuncianteProduto" role="tab" data-toggle="tab">Produtos:</a>
+    </li>
+</ul>
+
+<div id="MyTabContent" class="tab-content">
+    <!--<hr />-->
+    <div id="conteudoAnuncianteEndereco" class="tab-pane fade in active">
+        @{Html.RenderAction("List", "Endereco", new { Id = Model.Id });}
+    </div>
+    
+    <!--<hr />-->
+    <div id="conteudoAnuncianteProduto" class="tab-pane fade">
+        @{Html.RenderAction("List", "Produto", new { Id = Model.Id });}
+    </div>
 </div>
 
-<hr />
-<div id="conteudoAnuncianteProduto">
-    @{Html.RenderAction("List", "Produto", new { Id = Model.Id });}
-</div>

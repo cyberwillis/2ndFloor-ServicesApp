@@ -5,7 +5,6 @@ using SecondFloor.DataContracts.Messages;
 using SecondFloor.DataContracts.Messages.Anunciante;
 using SecondFloor.Infrastructure.Repository;
 using SecondFloor.Model;
-using SecondFloor.Model.Specifications;
 using SecondFloor.RepositoryEF;
 using SecondFloor.RepositoryEF.Repositories;
 using SecondFloor.Service.ExtensionMethods;

@@ -47,11 +47,12 @@ namespace SecondFloor.Web.Mvc.Controllers
             var produto = new ProdutoViewModels()
             {
                 AnuncianteId = id,
-                /*NomeProduto = "Produto Teste",
-                Descricao = "Descricao teste",
-                Fabricante = "Fabricante teste",
+                
+                NomeProduto = "Esponja de Aço",
+                Descricao = "Bom para lavar panelas - pacote com 3",
+                Fabricante = "Bom Bril",
                 RefProduto = "0001",
-                Valor = decimal.Parse("10.00"),*/
+                Valor = "3.40",
             };
             //var keys = ModelState.Keys;
             //var values = ModelState.Values;

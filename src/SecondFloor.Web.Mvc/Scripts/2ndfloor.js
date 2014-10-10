@@ -71,3 +71,26 @@ function ajaxFormSubmit(targetAfterClose) {
 
     });
 };
+
+
+var navs = [];
+
+function enderecoTab(e) {
+    e.preventDefault();
+    $(this).tab('show');
+
+    $('')
+}
+
+function produtoTab(e) {
+    e.preventDefault();
+    $(this).tab('show');
+
+    $('#conteudoAnuncianteEndereco').hide()
+}
+
+$('#myTab a[href="#endereco"]').click(enderecoTab);
+$('#myTab a[href="#produto"]').click(produtoTab);
+
+//$('#myTab a[href="#endereco"]').click(function() { alert('endereços'); });
+//$('#myTab a[href="#produto"]').click(function () { alert('produtos'); });
