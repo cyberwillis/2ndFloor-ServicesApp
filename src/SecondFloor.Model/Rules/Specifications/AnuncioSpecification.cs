@@ -23,33 +23,30 @@ namespace SecondFloor.Model.Rules.Specifications
             }
 
             //Data inicio
-            if (!(anuncio.DataInicio.Date.CompareTo(dataHoje.Date) >= 0))
+            if (!(anuncio.DataInicio.Date.CompareTo(dataHoje.Date) > 0))
             {
-                anuncio.AddBrokenRule("Data Inicio","Estas ofertas devem possuir uma data de inicio posterior a de hoje.");
+                anuncio.AddBrokenRule("DataInicio","O anuncio deve possuir uma data de inicio posterior a de hoje.");
             }
 
             //Data inicio e fim
             if (anuncio.DataFim.Date == anuncio.DataInicio.Date)
             {
-                anuncio.AddBrokenRule("Data Inicio", "Estas ofertas devem possuir uma data de inicio diferente da data de fim.");
-                anuncio.AddBrokenRule("Data Fim", "Estas ofertas devem possuir uma data de fim diferente da data de inicio.");
-            }
-
-            //Data Fim 
+                anuncio.AddBrokenRule("DataInicio", "O anuncio deve possuir uma data de inicio diferente da data de fim.");
+                anuncio.AddBrokenRule("DataFim", "O anuncio deve possuir uma data de término diferente da data de inicio.");
+            } 
             else if (!(anuncio.DataFim.Date.CompareTo(dataHoje.Date) > 0))
             {
-                anuncio.AddBrokenRule("Data Fim", "Estas ofertas devem possuir uma data de fim posterior a de hoje.");
+                anuncio.AddBrokenRule("DataFim", "O anuncio deve possuir uma data de término posterior a de hoje.");
             }
-            //Data Fim 
             else if (!(anuncio.DataFim.Date.CompareTo(anuncio.DataInicio.Date) > 0))
             {
-                anuncio.AddBrokenRule("Data Fim", "Estas ofertas devem possuir uma data de fim posterior a de inicio.");
+                anuncio.AddBrokenRule("DataFim", "O anuncio deve possuir uma data de término posterior a de inicio.");
             }
 
             //Ofertas
             if (anuncio.Ofertas == null || anuncio.Ofertas.Count == 0)
             {
-                anuncio.AddBrokenRule("Oferas", "A publicação da oferta precisa conter produtos ou serviços.");
+                anuncio.AddBrokenRule("Ofertas", "O anuncio deve possuir ofertas para publicação.");
             } 
             else if ( anuncio.Ofertas.Any())
             {

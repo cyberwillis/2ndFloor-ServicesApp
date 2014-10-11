@@ -25,7 +25,7 @@ namespace SecondFloor.Web.Mvc.Services
 
             if (!string.IsNullOrEmpty(anuncioView.DataInicio))
             {
-                string[] data = anuncioView.DataFim.Split('/'); //dd/mm/yyyy
+                string[] data = anuncioView.DataInicio.Split('/'); //dd/mm/yyyy
 
                 anuncioDto.AnoInicio = int.Parse(data[2]);
                 anuncioDto.MesInicio = int.Parse(data[1]);
