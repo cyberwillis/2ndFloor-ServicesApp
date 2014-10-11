@@ -37,8 +37,22 @@
         @foreach (var item in Model)
         {
             <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Status)
+                <td class="text-center">
+                    @switch (item.Status)
+                    {
+                        case "Cadastrado":
+                            <i class="glyphicon glyphicon glyphicon-warning-sign"></i>
+                            break;
+                        case "Agendado":
+                        <i class="glyphicon glyphicon-dashboard"></i>
+                            break;
+                        case "PublicadoAlterado":
+                        <i class="glyphicon glyphicon-ok"></i><i class="glyphicon glyphicon-dashboard"></i>
+                            break;
+                        case "Publicado":
+                        <i class="glyphicon glyphicon-ok"></i>
+                            break;
+                    }
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Titulo)
@@ -55,8 +69,44 @@
                     @Html.DisplayFor(modelItem => item.Numero)
                 </td>
                 <td>Produtos listados</td>
-                <td>
-                    BOTOES...
+                <td class="text-center">
+                    @switch (item.Status)
+                    {
+                        case "Cadastrado":
+                            <button type="button" onclick="ajaxModalFormOpenHandler(this)" class="btn btn-sm btn-success disabled"
+                                    data-url="/Anuncio/Publish/@Html.DisplayFor(id=>item.Id)"
+                                    data-url-content-update="/Anuncio/List/@Html.DisplayFor(id=>item.Id)"
+                                    data-content-update-id="#conteudoAnuncianteAnuncio">
+                                Publicar
+                            </button>
+                            break;
+                        case "Agendado":
+                        <button type="button" onclick="ajaxModalFormOpenHandler(this)" class="btn btn-sm btn-warning disabled"
+                                data-url="/Anuncio/Edit/@Html.DisplayFor(id=>item.Id)"
+                                data-url-content-update="/Anuncio/List/@Html.DisplayFor(id=>item.Id)"
+                                data-content-update-id="#conteudoAnuncianteAnuncio">
+                            Alterar
+                        </button>
+                            break;
+                        case "PublicadoAlterado":
+                        <button type="button" onclick="ajaxModalFormOpenHandler(this)" class="btn btn-sm btn-warning disabled"
+                                data-url="/Anuncio/Edit/@Html.DisplayFor(id=>item.Id)"
+                                data-url-content-update="/Anuncio/List/@Html.DisplayFor(id=>item.Id)"
+                                data-content-update-id="#conteudoAnuncianteAnuncio">
+                            Alterar
+                        </button>
+                            break;
+                        case "Publicado":
+                        <button type="button" onclick="ajaxModalFormOpenHandler(this)" class="btn btn-sm btn-danger disabled"
+                                data-url="/Anuncio/Edit/@Html.DisplayFor(id=>item.Id)"
+                                data-url-content-update="/Anuncio/List/@Html.DisplayFor(id=>item.Id)"
+                                data-content-update-id="#conteudoAnuncianteAnuncio">
+                            Alterar
+                        </button>
+                            break;
+                        default:
+                            break;
+                    }
                 </td>
             </tr>
         }

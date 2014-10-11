@@ -33,9 +33,9 @@
     
     <!--<hr />-->
     <div id="conteudoAnuncianteAnuncio" class="tab-pane fade">
-        @*@{Html.RenderAction("List", "Anuncio", new { Id = Model.Id });}*@
+        @{Html.RenderAction("List", "Anuncio", new { Id = Model.Id });}
 
-        <h4>Lista de Anuncios</h4>
+        @*<h4>Lista de Anuncios</h4>
         <p>
             <button type="button" onclick="ajaxModalFormOpenHandler(this)" class="btn btn-sm btn-default disabled"
                     data-url="/Anuncio/Create/@ViewBag.AnuncianteId"
@@ -86,7 +86,7 @@
 
             </tbody>
         </table>
-        <p>Lista de Anuncios publicados ou agendados</p>
+        <p>Lista de Anuncios publicados ou agendados</p>*@
     </div>
 </div>
 

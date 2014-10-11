@@ -22,6 +22,10 @@ namespace SecondFloor.DataContracts.DTO
         public int MesFim { get; set; }
         [DataMember]
         public int AnoFim { get; set; }
+
+        [DataMember]
+        public string Status { get; set; }
+
         [DataMember]
         public string Logradouro { get; set; }
         [DataMember]

@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using SecondFloor.DataContracts.DTO;
 using SecondFloor.Web.Mvc.Models;
@@ -11,7 +12,25 @@ namespace SecondFloor.Web.Mvc.Services
         {
             var anuncioDto = new AnuncioDto();
 
-            //TODO: conversao de dados
+            anuncioDto.Titulo = anuncioView.Titulo;
+            
+            if (!string.IsNullOrEmpty(anuncioView.DataFim))
+            {
+                string[] data = anuncioView.DataFim.Split('/'); //dd/mm/yyyy
+
+                anuncioDto.AnoFim = int.Parse(data[2]);
+                anuncioDto.MesFim = int.Parse(data[1]);
+                anuncioDto.DiaFim = int.Parse(data[0]);
+            }
+
+            if (!string.IsNullOrEmpty(anuncioView.DataInicio))
+            {
+                string[] data = anuncioView.DataFim.Split('/'); //dd/mm/yyyy
+
+                anuncioDto.AnoInicio = int.Parse(data[2]);
+                anuncioDto.MesInicio = int.Parse(data[1]);
+                anuncioDto.DiaInicio = int.Parse(data[0]);
+            }
 
             return anuncioDto;
         }
@@ -21,6 +40,10 @@ namespace SecondFloor.Web.Mvc.Services
             var anuncioView = new AnuncioViewModels();
 
             //TODO: conversao de dados
+            anuncioView.Titulo = anuncioDto.Titulo;
+            anuncioView.DataFim = anuncioDto.AnoFim + "/" + anuncioDto.MesFim + "/" + anuncioDto.DiaFim;
+            anuncioView.DataInicio = anuncioDto.AnoInicio + "/" + anuncioDto.MesInicio + "/" + anuncioDto.DiaInicio;
+            anuncioView.Status = anuncioDto.Status;
 
             return anuncioView;
         }

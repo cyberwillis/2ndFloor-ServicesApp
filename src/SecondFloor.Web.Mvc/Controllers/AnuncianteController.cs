@@ -46,7 +46,7 @@ namespace SecondFloor.Web.Mvc.Controllers
             var request = new EncontrarAnuncianteRequest() { Id = id };
             var response = _anuncianteService.EncontrarAnunciantePor(request);
 
-            ViewBag.Title = "Detalhes de Anunciante";
+            ViewBag.Title = "Detalhes do Anunciante";
 
             if (!response.Success)
             {
@@ -60,7 +60,7 @@ namespace SecondFloor.Web.Mvc.Controllers
         public PartialViewResult Create()
         {
             ViewBag.Excluir = false;
-            ViewBag.Title = "Cadastro Anunciante";
+            ViewBag.Title = "Cadastro de Anunciante";
 
             //TODO: remover dados default do formulario e impedir cadastro com mesmo CNPJ
             var anunciante = new AnuncianteViewModels();
@@ -83,7 +83,7 @@ namespace SecondFloor.Web.Mvc.Controllers
             var response = _anuncianteService.CadastrarAnunciante(request);
 
             ViewBag.Excluir = false;
-            ViewBag.Title = "Cadastro Anunciante";
+            ViewBag.Title = "Cadastro de Anunciante";
             ViewBag.Message = response.Message;
             ViewBag.MessageType = response.MessageType;
 
@@ -191,7 +191,7 @@ namespace SecondFloor.Web.Mvc.Controllers
         public ActionResult Cadastro()
         {
             ViewBag.Excluir = false;
-            ViewBag.Title = "Cadastro Anunciante";
+            ViewBag.Title = "Cadastro de Anunciante";
 
             var anunciante = new AnuncianteViewModels()
             {
@@ -210,7 +210,7 @@ namespace SecondFloor.Web.Mvc.Controllers
         public ActionResult Cadastro([Bind(Exclude = "Id")] AnuncianteViewModels anunciante)
         {
             ViewBag.Excluir = false;
-            ViewBag.Title = "Cadastro Anunciante";
+            ViewBag.Title = "Cadastro de Anunciante";
 
             if (!ModelState.IsValid)
             {
@@ -256,7 +256,7 @@ namespace SecondFloor.Web.Mvc.Controllers
             var response = _anuncianteService.EncontrarAnunciantePor(request);
             if (response.Success)
             {
-                ViewBag.Title = "Detalhes de Anunciante";
+                ViewBag.Title = "Detalhes do Anunciante";
 
                 return View("Detalhes", response.Anunciante.ConvertAnuncianteViewModels());
             }

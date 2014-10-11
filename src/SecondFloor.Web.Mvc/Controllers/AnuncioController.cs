@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Web.Mvc;
+using Microsoft.Practices.ObjectBuilder2;
+using SecondFloor.DataContracts.Messages.Anunciante;
 using SecondFloor.DataContracts.Messages.Anuncio;
 using SecondFloor.ServiceContracts;
 using SecondFloor.Web.Mvc.Models;
@@ -32,5 +34,38 @@ namespace SecondFloor.Web.Mvc.Controllers
 
             return PartialView("ListaAnuncioPartialView", response.Anuncios.ConverttoListaAnunciosViewModel());
         }
+
+        [HttpGet]
+        public PartialViewResult Create(string id)
+        {
+            ViewBag.Excluir = false;
+            ViewBag.Title = "Cadastro de Anuncio";
+
+            var anuncio = new AnuncioViewModels() {AnuncianteId = id};
+
+            return PartialView("AnuncioPartialView", anuncio);
+        }
+
+        [HttpPost]
+        public PartialViewResult Create([Bind(Exclude = "Id")] AnuncioViewModels anuncio)
+        {
+            var request = new CadastrarAnuncioRequest() {Anuncio = anuncio.ConvertToAnuncioDto(), AnuncianteId = anuncio.AnuncianteId };
+            var response = _anuncioService.CadastrarAnuncio(request);
+
+            ViewBag.Excluir = false;
+            ViewBag.Title = "Cadastro de Anuncio";
+            ViewBag.Message = response.Message;
+            ViewBag.MessageType = response.MessageType;
+
+            if (!response.Success)
+            {
+                response.Rules.ForEach(x => ModelState.AddModelError(x.Key, x.Value));
+                return PartialView("AnuncioPartialView", anuncio);
+            }
+
+            return PartialView("Sucesso");
+        }
+
+
     }
 }
