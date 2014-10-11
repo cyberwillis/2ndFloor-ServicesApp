@@ -50,7 +50,7 @@ namespace SecondFloor.RepositoryEF.IntegratedTest.AnuncioRepository_Test
             _endereco.Bairro = "Europa";
             _endereco.Cidade = "São Paulo";
             _endereco.Estado = "SP";
-            _endereco.CEP = "00000-000";
+            _endereco.Cep = "00000-000";
 
             _enderecoRepository.InserirEndereco(_endereco);
             _enderecoRepository.Persist();
@@ -77,7 +77,7 @@ namespace SecondFloor.RepositoryEF.IntegratedTest.AnuncioRepository_Test
             _endereco.Bairro = "Europa";
             _endereco.Cidade = "São Paulo";
             _endereco.Estado = "SP";
-            _endereco.CEP = "00000-000";
+            _endereco.Cep = "00000-000";
 
             _enderecoRepository.InserirEndereco(_endereco);
             _enderecoRepository.Persist();
