@@ -21,7 +21,7 @@ namespace SecondFloor.Service
             _anuncioRepository = anuncioRepository;
         }
 
-        public CadastrarAnuncioResponse CadastrarAnuncio(CadastrarAnuncioRequest request )
+        /*public CadastrarAnuncioResponse CadastrarAnuncio(CadastrarAnuncioRequest request )
         {
             var response = new CadastrarAnuncioResponse();
 
@@ -62,7 +62,7 @@ namespace SecondFloor.Service
             }
 
             return response;
-        }
+        }*/
 
         public CadastrarAnuncianteResponse CadastrarAnunciante(CadastrarAnuncianteRequest request)
         {

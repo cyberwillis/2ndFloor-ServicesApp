@@ -11,5 +11,6 @@ namespace SecondFloor.Model
         public virtual string Descricao { get; set; }
         public virtual string Fabricante { get; set; }
         public virtual decimal Valor { get; set; }
+        public virtual Anuncio Anuncio { get; set; }
     }
 }

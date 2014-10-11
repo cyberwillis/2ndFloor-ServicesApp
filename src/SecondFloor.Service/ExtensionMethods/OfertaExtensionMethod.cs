@@ -8,11 +8,11 @@ namespace SecondFloor.Service.ExtensionMethods
 {
     public static class OfertaExtensionMethod
     {
-        public static Oferta ConvertToOderta(this OfertaDto ofertaDto)
+        /*public static Oferta ConvertToOderta(this OfertaDto ofertaDto)
         {
             var oferta = new Oferta();
 
-            if (string.IsNullOrEmpty(ofertaDto.Id) || ofertaDto.Id == "00000000-0000-0000-0000-000000000000")
+            if (string.IsNullOrEmpty(ofertaDto.Id) || ofertaDto.Id == default(Guid).ToString())
             {
                 oferta.Id = Guid.NewGuid();
             }
@@ -24,8 +24,8 @@ namespace SecondFloor.Service.ExtensionMethods
             oferta.Titulo = ofertaDto.Titulo;
             oferta.Preco = ofertaDto.Preco;
 
-            /*if( ofertaDto.Endereco != null )
-                oferta.Endereco = ofertaDto.Endereco.ConvertToEndereco();*/
+            //if( ofertaDto.Endereco != null )
+            //    oferta.Endereco = ofertaDto.Endereco.ConvertToEndereco();
 
             oferta.Descricao = ofertaDto.Descricao;
 
@@ -57,6 +57,6 @@ namespace SecondFloor.Service.ExtensionMethods
             var ofertasDtos = ofertas.Select(oferta => oferta.ConvertToOfertaDto()).ToList();
 
             return ofertasDtos;
-        }
+        }*/
     }
 }

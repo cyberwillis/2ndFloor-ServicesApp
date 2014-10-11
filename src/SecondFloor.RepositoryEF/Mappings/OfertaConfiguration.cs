@@ -10,9 +10,11 @@ namespace SecondFloor.RepositoryEF.Mappings
             ToTable("tbOferta");
             HasKey(o => o.Id);
             Property(o => o.Id).HasColumnName("Id");
-            Property(o => o.Titulo).HasColumnName("Titulo");
-            Property(o => o.Descricao).HasColumnName("Descricao");
-            Property(o => o.Preco).HasColumnName("Preco");
+            Property(p => p.NomeProduto).HasColumnName("NomeProduto").HasMaxLength(250);
+            Property(p => p.Descricao).HasColumnName("Descricao").HasMaxLength(1000);
+            Property(p => p.Referencia).HasColumnName("Referencia").HasMaxLength(15);
+            Property(p => p.Fabricante).HasColumnName("Fabricante").HasMaxLength(250);
+            Property(p => p.Valor).HasColumnName("Valor");
 
             Ignore(o => o.BrokenRules);
 

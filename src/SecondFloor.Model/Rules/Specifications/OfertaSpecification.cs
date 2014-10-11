@@ -8,7 +8,7 @@ namespace SecondFloor.Model.Rules.Specifications
         {
             oferta.ClearBrokenRules();
 
-            //Titulo Oferta
+            /*//Titulo Oferta
             if (string.IsNullOrEmpty(oferta.Titulo))
             {
                 oferta.BrokenRules.Add("Titulo", "A oferta não foi informada.");
@@ -32,7 +32,7 @@ namespace SecondFloor.Model.Rules.Specifications
             if (string.IsNullOrEmpty(oferta.Preco))
             {
                 oferta.BrokenRules.Add("Preco", "O preço da oferta não foi informado.");
-            }
+            }*/
 
             //Endereco
             /*if (oferta.Endereco == null)
