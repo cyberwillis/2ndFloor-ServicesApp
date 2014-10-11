@@ -31,7 +31,7 @@ namespace SecondFloor.Model.UnitTest.Anuncio_Tests
             endereco.Bairro = "De algum lugar";
             endereco.Cidade = "Tão Tão distante";
             endereco.Estado = "SP";
-            endereco.CEP = "09424-000";
+            endereco.Cep = "09424-000";
 
             return endereco;
         }
