@@ -5,7 +5,7 @@ namespace SecondFloor.ServiceContracts
 {
     public interface IAnuncioService
     {
-        EncontrarTodosAnunciosResponse EncontrarTodosAnuncios();
+        EncontrarTodosAnunciosResponse EncontrarTodosAnuncios(EncontrarTodosAnunciosRequest request);
         EncontrarAnuncioResponse EncontrarAnuncioPor(EncontrarAnuncioRequest request);
         CadastrarAnuncioResponse CadastrarAnuncio(CadastrarAnuncioRequest request);
         AlterarAnuncioResponse AlterarAnuncio(AlterarAnuncioRequest request);

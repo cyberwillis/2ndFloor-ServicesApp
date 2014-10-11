@@ -30,16 +30,16 @@ namespace SecondFloor.RepositoryEF.Repositories
             this.Insert(anuncio);
         }
 
-        public void AlterarAnuncio(Anuncio anuncio)
+        public void AtualizarAnuncio(Anuncio anuncio)
         {
             this.Update(anuncio);
         }
 
-        public void ExcluirAnuncio(Guid id)
+        public void ExcluirAnuncio(Anuncio anuncio)
         {
-            var anuncio = EncontrarAnuncioPor(id);
-            if(anuncio != null)
-                this.Delete(anuncio);
+            //var anuncio = EncontrarAnuncioPor(id);
+            //if(anuncio != null)
+            this.Delete(anuncio);
         }
     }
 }

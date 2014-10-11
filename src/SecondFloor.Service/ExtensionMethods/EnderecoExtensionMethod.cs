@@ -13,7 +13,6 @@ namespace SecondFloor.Service.ExtensionMethods
         {
             var endereco = new Endereco();
 
-            //if (string.IsNullOrEmpty(enderecoDto.Id) || enderecoDto.Id == "00000000-0000-0000-0000-000000000000")
             if (string.IsNullOrEmpty(enderecoDto.Id) || enderecoDto.Id == default(Guid).ToString())
             {
                 endereco.Id = Guid.NewGuid();
@@ -25,10 +24,7 @@ namespace SecondFloor.Service.ExtensionMethods
 
             endereco.Logradouro = enderecoDto.Logradouro;
             endereco.Numero = enderecoDto.Numero;
-            
-            //if(!string.IsNullOrEmpty(enderecoDto.Complemento)) //ja é empty
             endereco.Complemento = enderecoDto.Complemento;
-
             endereco.Bairro = enderecoDto.Bairro;
             endereco.Cidade = enderecoDto.Cidade;
             endereco.Estado = enderecoDto.Estado;
@@ -49,7 +45,7 @@ namespace SecondFloor.Service.ExtensionMethods
             enderecoDto.Cidade = endereco.Cidade;
             enderecoDto.Estado = endereco.Estado;
             enderecoDto.Cep = endereco.Cep;
-            enderecoDto.AnuncianteId = endereco.Anunciante.Id.ToString(); //AnuncianteId
+            enderecoDto.AnuncianteId = endereco.Anunciante.Id.ToString(); //facilitar a identificacao do Parent deste objeto
 
             return enderecoDto;
         }

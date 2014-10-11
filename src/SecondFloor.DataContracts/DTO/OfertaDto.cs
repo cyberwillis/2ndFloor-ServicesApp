@@ -7,13 +7,14 @@ namespace SecondFloor.DataContracts.DTO
     {
         [DataMember]
         public string Id { get; set; }
+        public string Referencia { get; set; }
         [DataMember]
-        public string Titulo { get; set; }
+        public string NomeProduto { get; set; }
         [DataMember]
         public string Descricao { get; set; }
         [DataMember]
-        public string Preco { get; set; }
+        public string Fabricante { get; set; }
         [DataMember]
-        public EnderecoDto Endereco { get; set; }
+        public string Valor { get; set; }
     }
 }

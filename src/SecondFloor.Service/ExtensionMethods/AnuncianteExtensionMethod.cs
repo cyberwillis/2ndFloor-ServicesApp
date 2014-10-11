@@ -13,7 +13,6 @@ namespace SecondFloor.Service.ExtensionMethods
         {
             var anunciante = new Anunciante();
 
-            //if (string.IsNullOrEmpty(anuncianteDto.Id) || anuncianteDto.Id == "00000000-0000-0000-0000-000000000000")
             if (string.IsNullOrEmpty(anuncianteDto.Id) || anuncianteDto.Id == default(Guid).ToString())
             {
                 anunciante.Id = Guid.NewGuid();
@@ -27,8 +26,6 @@ namespace SecondFloor.Service.ExtensionMethods
             anunciante.RazaoSocial = anuncianteDto.RazaoSocial;
             anunciante.Email = anuncianteDto.Email;
             anunciante.Cnpj = anuncianteDto.Cnpj;
-            //anunciante.Token = anuncianteDto.Token;
-            //anunciante.Anuncios = anuncianteDto.Anuncios.ConvertToListaAnuncio(); //not used from JAVA app to 
 
             return anunciante;
         }
@@ -42,9 +39,6 @@ namespace SecondFloor.Service.ExtensionMethods
             anuncianteDto.RazaoSocial = anunciante.RazaoSocial;
             anuncianteDto.Email = anunciante.Email;
             anuncianteDto.Cnpj = anunciante.Cnpj;
-            //anuncianteDto.Token = anunciante.Token;
-            //anuncianteDto.Anuncios = anunciante.Anuncios.ConvertToListaAnunciosDtos();
-            //anuncianteDto.Enderecos = anunciante.Enderecos.ConvertToListaEnderecosDto();
 
             return anuncianteDto;
         }

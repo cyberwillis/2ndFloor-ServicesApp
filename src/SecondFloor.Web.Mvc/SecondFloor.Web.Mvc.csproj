@@ -201,12 +201,15 @@
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AnuncianteViewModels.cs" />
+    <Compile Include="Models\AnuncioViewModels.cs" />
     <Compile Include="Models\EnderecoViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\OfertaViewModels.cs" />
     <Compile Include="Models\ProdutoViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\AnuncianteViewModelExtensionMethods.cs" />
+    <Compile Include="Services\AnuncioViewModelExtensionMethods.cs" />
     <Compile Include="Services\EnderecoViewModelExtensionMethods.cs" />
     <Compile Include="Services\ProdutoViewModelExtensionMethod.cs" />
     <Compile Include="Startup.cs" />
@@ -446,6 +449,7 @@
     <Content Include="Views\Endereco\EnderecoPartialView.cshtml" />
     <Content Include="Views\Produto\ListaProdutoPartialView.cshtml" />
     <Content Include="Views\Produto\ProdutoPartialView.cshtml" />
+    <Content Include="Views\Anuncio\ListaAnuncioPartialView.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

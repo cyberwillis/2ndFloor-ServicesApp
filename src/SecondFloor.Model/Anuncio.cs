@@ -6,10 +6,11 @@ namespace SecondFloor.Model
 {
     public class Anuncio : EntityBase<Guid>
     {
-        public string Titulo { get; set; }
-        public DateTime DataInicio { get; set; }
-        public DateTime DataFim { get; set; }
-        public Anunciante Anunciante { get; set; }
+        public virtual string Titulo { get; set; }
+        public virtual DateTime DataInicio { get; set; }
+        public virtual DateTime DataFim { get; set; }
+        public virtual AnuncioStatusEnum Status { get; set; }
+        public virtual Anunciante Anunciante { get; set; }
         public virtual IList<Oferta> Ofertas { get; set; }
 
         public virtual string Logradouro { get; set; }

@@ -9,7 +9,7 @@ namespace SecondFloor.Model
         IList<Anuncio> EncontrarTodosAnuncios();
         Anuncio EncontrarAnuncioPor(Guid id);
         void InserirAnuncio(Anuncio anuncio);
-        void AlterarAnuncio(Anuncio anuncio);
-        void ExcluirAnuncio(Guid id);
+        void AtualizarAnuncio(Anuncio anuncio);
+        void ExcluirAnuncio(Anuncio anuncio);
     }
 }

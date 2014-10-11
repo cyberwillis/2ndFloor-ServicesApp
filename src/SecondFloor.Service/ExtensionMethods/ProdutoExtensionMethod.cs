@@ -47,7 +47,7 @@ namespace SecondFloor.Service.ExtensionMethods
             produtoDto.Descricao = produto.Descricao;
             produtoDto.Referencia = produto.Referencia;
             produtoDto.Valor = produto.Valor.ToString("c", new CultureInfo("pt-BR"));
-            produtoDto.AnuncianteId = produto.Anunciante.Id.ToString(); //AnuncianteId
+            produtoDto.AnuncianteId = produto.Anunciante.Id.ToString(); //facilitar a identificacao do Parent deste objeto
 
             return produtoDto;
         }

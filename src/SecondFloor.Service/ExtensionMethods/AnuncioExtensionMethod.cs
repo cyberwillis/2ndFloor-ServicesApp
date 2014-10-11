@@ -8,7 +8,7 @@ namespace SecondFloor.Service.ExtensionMethods
 {
     public static class AnuncioExtensionMethod
     {
-        /*public static Anuncio ConvertToAnuncio(this AnuncioDto anuncioDto)
+        public static Anuncio ConvertToAnuncio(this AnuncioDto anuncioDto)
         {
             var anuncio = new Anuncio();
 
@@ -72,6 +72,6 @@ namespace SecondFloor.Service.ExtensionMethods
             var anunciosDtos = anuncios.Select(anuncio => anuncio.ConvertToAnuncioDto()).ToList();
 
             return anunciosDtos;
-        }*/
+        }
     }
 }

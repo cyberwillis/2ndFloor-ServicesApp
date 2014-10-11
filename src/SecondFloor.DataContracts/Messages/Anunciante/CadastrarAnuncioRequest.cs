@@ -11,8 +11,5 @@ namespace SecondFloor.DataContracts.Messages.Anunciante
 
         [MessageBodyMember] 
         public string AnuncianteId;
-        //public string AnuncianteToken;
-
-        //TODO: talvez criar um constructor para iniciar um AnuncioDTO vazio
     }
 }

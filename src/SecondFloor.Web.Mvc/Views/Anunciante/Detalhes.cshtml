@@ -33,14 +33,15 @@
     
     <!--<hr />-->
     <div id="conteudoAnuncianteAnuncio" class="tab-pane fade">
-        <h4>Lista de Anuncios</h4>
+        @{Html.RenderAction("List", "Anuncio", new { Id = Model.Id });}
+
+        @*<h4>Lista de Anuncios</h4>
         <p>
             <button type="button" onclick="ajaxModalFormOpenHandler(this)" class="btn btn-sm btn-default disabled"
                     data-url="/Anuncio/Create/@ViewBag.AnuncianteId"
                     data-url-content-update="/Anuncio/List/@ViewBag.AnuncianteId"
                     data-content-update-id="#conteudoAnuncianteAnuncio">
                 Novo Anuncio
-                <!--<i class="glyphicon glyphicon-plus"></i>-->
             </button>
         </p>
         <table class="table table-striped table-bordered table-hover table-condensed">
@@ -85,7 +86,7 @@
 
             </tbody>
         </table>
-        <p>Lista de Anuncios publicados ou agendados</p>
-</div>
+        <p>Lista de Anuncios publicados ou agendados</p>*@
+    </div>
 </div>
 

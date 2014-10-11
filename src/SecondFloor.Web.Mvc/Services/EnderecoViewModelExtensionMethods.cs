@@ -18,7 +18,7 @@ namespace SecondFloor.Web.Mvc.Services
             enderecoViewModel.Cidade = enderecoDto.Cidade;
             enderecoViewModel.Estado = enderecoDto.Estado;
             enderecoViewModel.Cep = enderecoDto.Cep;
-            enderecoViewModel.AnuncianteId = enderecoDto.AnuncianteId;
+            enderecoViewModel.AnuncianteId = enderecoDto.AnuncianteId; //facilitar a identificacao do Parent deste objeto
 
             return enderecoViewModel;
         }

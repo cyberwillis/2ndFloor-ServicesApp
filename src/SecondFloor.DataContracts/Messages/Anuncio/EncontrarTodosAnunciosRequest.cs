@@ -3,9 +3,9 @@
 namespace SecondFloor.DataContracts.Messages.Anuncio
 {
     [MessageContract(WrapperNamespace = "messages.am.fiap.com.br")]
-    public class PublicarAnuncioRequest
+    public class EncontrarTodosAnunciosRequest
     {
         [MessageBodyMember]
-        public string Id { get; set; }
+        public string AnuncianteId { get; set; }
     }
 }

@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
+using System.Text.RegularExpressions;
 using SecondFloor.DataContracts.DTO;
 using SecondFloor.Model;
 
@@ -8,7 +10,7 @@ namespace SecondFloor.Service.ExtensionMethods
 {
     public static class OfertaExtensionMethod
     {
-        /*public static Oferta ConvertToOderta(this OfertaDto ofertaDto)
+        public static Oferta ConvertToOderta(this OfertaDto ofertaDto)
         {
             var oferta = new Oferta();
 
@@ -21,14 +23,15 @@ namespace SecondFloor.Service.ExtensionMethods
                 oferta.Id = new Guid(ofertaDto.Id);
             }
 
-            oferta.Titulo = ofertaDto.Titulo;
-            oferta.Preco = ofertaDto.Preco;
-
-            //if( ofertaDto.Endereco != null )
-            //    oferta.Endereco = ofertaDto.Endereco.ConvertToEndereco();
-
+            oferta.NomeProduto = ofertaDto.NomeProduto;
             oferta.Descricao = ofertaDto.Descricao;
-
+            oferta.Fabricante = ofertaDto.Fabricante;
+            oferta.Referencia = ofertaDto.Referencia;
+            if ( !string.IsNullOrEmpty(ofertaDto.Valor) )
+                oferta.Valor = decimal.Parse( ofertaDto.ConvertToValorNormal(), new CultureInfo("pt-BR") );
+            else
+                oferta.Valor = decimal.Parse("0.00");
+            
             return oferta;
         }
 
@@ -37,10 +40,11 @@ namespace SecondFloor.Service.ExtensionMethods
             var ofertaDto = new OfertaDto();
 
             ofertaDto.Id = oferta.Id.ToString();
-            ofertaDto.Titulo = oferta.Titulo;
+            ofertaDto.NomeProduto = oferta.NomeProduto;
+            ofertaDto.Fabricante = oferta.Fabricante;
             ofertaDto.Descricao = oferta.Descricao;
-            ofertaDto.Preco = oferta.Preco;
-            //ofertaDto.Endereco = oferta.Endereco.ConvertToEnderecoDto();
+            ofertaDto.Referencia = oferta.Referencia;
+            ofertaDto.Valor = oferta.Valor.ToString("c", new CultureInfo("pt-BR"));
 
             return ofertaDto;
         }
@@ -57,6 +61,22 @@ namespace SecondFloor.Service.ExtensionMethods
             var ofertasDtos = ofertas.Select(oferta => oferta.ConvertToOfertaDto()).ToList();
 
             return ofertasDtos;
-        }*/
+        }
+
+        public static string ConvertToValorNormal(this OfertaDto ofertaDto)
+        {
+            var pattern = new Regex(@"\d+\,\d{2}"); //xxxxxx,xx ou x.xxx,xx
+            var valor = Regex.Replace(ofertaDto.Valor, @"[^0-9\,]", string.Empty);
+
+            if (pattern.IsMatch(valor))
+            {
+                ofertaDto.Valor = valor;
+            }
+            else
+            {
+                ofertaDto.Valor = "0,00"; //caso nao tenha sigo valor valido ignora e seta um valor basico
+            }
+            return ofertaDto.Valor;
+        }
     }
 }

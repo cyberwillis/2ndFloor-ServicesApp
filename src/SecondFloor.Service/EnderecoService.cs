@@ -97,21 +97,21 @@ namespace SecondFloor.Service
                 return response;
             }
 
-            var anuncianteId = Guid.Parse(request.AnuncianteId);
-            var anunciante = _anuncianteRepository.FindBy(anuncianteId);
-            if (anunciante == null)
-            {
-                response.Message = "Anunciante não encontrado para inclusão do novo Endereço";
-                response.MessageType = "alert-warning";
-                response.Success = false;
-                return response;
-            }
-
             try
             {
+                var anuncianteId = Guid.Parse(request.AnuncianteId);
+                var anunciante = _anuncianteRepository.FindBy(anuncianteId);
+                if (anunciante == null)
+                {
+                    response.Message = "Anunciante não encontrado para inclusão do novo Endereço";
+                    response.MessageType = "alert-warning";
+                    response.Success = false;
+                    return response;
+                }
                 
                 anunciante.Enderecos.Add(endereco);
                 endereco.Anunciante = anunciante;
+
                 _enderecoRepository.InserirEndereco(endereco);
                 _enderecoRepository.Persist();
 

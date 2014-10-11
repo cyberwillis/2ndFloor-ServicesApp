@@ -46,10 +46,13 @@ namespace SecondFloor.Web.Mvc.App_Start
             container.RegisterType<IAnuncianteService, AnuncianteService>();
             container.RegisterType<IEnderecoService, EnderecoService>();
             container.RegisterType<IProdutoService, ProdutoService>();
+            container.RegisterType<IAnuncioService, AnuncioService>();
+
             container.RegisterType<IAnuncianteRepository, AnuncianteRepository>();
             container.RegisterType<IEnderecoRepository, EnderecoRepository>();
             container.RegisterType<IProdutoRepository, ProdutoRepository>();
             container.RegisterType<IAnuncioRepository, AnuncioRepository>();
+
             //container.RegisterType<IUnitOfWork, EFUnitOfWork<Anunciante>>();
         }
     }

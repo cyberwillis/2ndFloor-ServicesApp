@@ -40,10 +40,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Anunciante.cs" />
+    <Compile Include="AnuncioStatusEnum.cs" />
     <Compile Include="IEnderecoRepository.cs" />
     <Compile Include="IProdutoRepository.cs" />
     <Compile Include="Produto.cs" />
     <Compile Include="Rules\AnuncianteServices.cs" />
+    <Compile Include="Rules\AnuncioServices.cs" />
     <Compile Include="Rules\EnderecoServices.cs" />
     <Compile Include="Rules\ProdutoServices.cs" />
     <Compile Include="Rules\Specifications\AnuncianteSpecification.cs" />

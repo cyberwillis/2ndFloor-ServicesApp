@@ -61,6 +61,7 @@
     <Compile Include="Messages\Anuncio\AlterarAnuncioResponse.cs" />
     <Compile Include="Messages\Anuncio\EncontrarAnuncioRequest.cs" />
     <Compile Include="Messages\Anuncio\EncontrarAnuncioResponse.cs" />
+    <Compile Include="Messages\Anuncio\EncontrarTodosAnunciosRequest.cs" />
     <Compile Include="Messages\Anuncio\EncontrarTodosAnunciosResponse.cs" />
     <Compile Include="Messages\Anuncio\ExcluirAnuncioRequest.cs" />
     <Compile Include="Messages\Anuncio\ExcluirAnuncioResponse.cs" />

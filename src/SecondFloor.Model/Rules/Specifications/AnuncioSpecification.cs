@@ -6,7 +6,7 @@ namespace SecondFloor.Model.Rules.Specifications
 {
     public static class AnuncioSpecification
     {
-        public static IDictionary<string,string> GetBrokenBusinessRules(this Anuncio anuncio)
+        public static IDictionary<string,string> Validate(this Anuncio anuncio)
         {
             anuncio.ClearBrokenRules();
 
