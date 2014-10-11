@@ -57,6 +57,15 @@
     <Compile Include="Messages\Anunciante\CadastrarAnuncianteResponse.cs" />
     <Compile Include="Messages\Anunciante\ExcluirAnuncianteRequest.cs" />
     <Compile Include="Messages\Anunciante\ExcluirAnuncianteResponse.cs" />
+    <Compile Include="Messages\Anuncio\AlterarAnuncioRequest.cs" />
+    <Compile Include="Messages\Anuncio\AlterarAnuncioResponse.cs" />
+    <Compile Include="Messages\Anuncio\EncontrarAnuncioRequest.cs" />
+    <Compile Include="Messages\Anuncio\EncontrarAnuncioResponse.cs" />
+    <Compile Include="Messages\Anuncio\EncontrarTodosAnunciosResponse.cs" />
+    <Compile Include="Messages\Anuncio\ExcluirAnuncioRequest.cs" />
+    <Compile Include="Messages\Anuncio\ExcluirAnuncioResponse.cs" />
+    <Compile Include="Messages\Anuncio\PublicarAnuncioRequest.cs" />
+    <Compile Include="Messages\Anuncio\PublicarAnuncioResponse.cs" />
     <Compile Include="Messages\Endereco\AlterarEnderecoRequest.cs" />
     <Compile Include="Messages\Endereco\AlterarEnderecoResponse.cs" />
     <Compile Include="Messages\Endereco\CadastrarEnderecoRequest.cs" />

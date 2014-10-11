@@ -22,8 +22,20 @@ namespace SecondFloor.DataContracts.DTO
         public int MesFim { get; set; }
         [DataMember]
         public int AnoFim { get; set; }
-
-        //public string AnuncianteToken { get; set; }
+        [DataMember]
+        public string Logradouro { get; set; }
+        [DataMember]
+        public string Numero { get; set; }
+        [DataMember]
+        public string Complemento { get; set; }
+        [DataMember]
+        public string Bairro { get; set; }
+        [DataMember]
+        public string Cidade { get; set; }
+        [DataMember]
+        public string Estado { get; set; }
+        [DataMember]
+        public string Cep { get; set; }
         [DataMember]
         public IEnumerable<OfertaDto> Ofertas { get; set; }
     }
