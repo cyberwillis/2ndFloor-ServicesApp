@@ -6,7 +6,7 @@ namespace SecondFloor.ServiceContracts
     {
         EncontrarTodosProdutosResponse EncontrarTodosProdutos(EncontrarTodosProdutosRequest request);
         EncontrarProdutoResponse EncontrarProdutoPor(EncontrarProdutoRequest request);
-        CadastrarProdutoResponse CadastroProduto(CadastrarProdutoRequest request);
+        CadastrarProdutoResponse CadastrarProduto(CadastrarProdutoRequest request);
         AlterarProdutoResponse AlterarProduto(AlterarProdutoRequest request);
         ExcluirProdutoResponse ExcluirProduto(ExcluirProdutoRequest request);
     }

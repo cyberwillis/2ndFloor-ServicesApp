@@ -6,7 +6,7 @@ namespace SecondFloor.ServiceContracts
     {
         EncontrarTodosEnderecosResponse EncontrarTodosEnderecos(EncontrarTodosEnderecosRequest request);
         EncontrarEnderecoResponse EncontrarEnderecoPor(EncontrarEnderecoRequest request);
-        CadastrarEnderecoResponse CadastroEndereco(CadastrarEnderecoRequest request);
+        CadastrarEnderecoResponse CadastrarEndereco(CadastrarEnderecoRequest request);
         AlterarEnderecoResponse AlterarEndereco(AlterarEnderecoRequest request);
         ExcluirEnderecoResponse ExcluirEndereco(ExcluirEnderecoRequest request);
     }
