@@ -56,11 +56,11 @@ namespace SecondFloor.Model.Rules.Specifications
                 endereco.BrokenRules.Add("Estado", "O estado deve conter no máximo (10) caracteres.");   
             }
 
-            if (string.IsNullOrEmpty(endereco.CEP))
+            if (string.IsNullOrEmpty(endereco.Cep))
             {
                 endereco.BrokenRules.Add("CEP","O Cep não foi especificado");
             } 
-            else if (endereco.CEP.Length > 9)
+            else if (endereco.Cep.Length > 9)
             {
                 endereco.BrokenRules.Add("CEP", "O Cep deve conter no máximo (9) caracters.");
             }
