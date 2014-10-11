@@ -63,8 +63,8 @@ namespace SecondFloor.Web.Mvc.Controllers
             ViewBag.Title = "Cadastro Anunciante";
 
             //TODO: remover dados default do formulario e impedir cadastro com mesmo CNPJ
-            //var anunciante = new AnuncianteViewModels();
-            var anunciante = new AnuncianteViewModels()
+            var anunciante = new AnuncianteViewModels();
+            anunciante = new AnuncianteViewModels()
             {
                 RazaoSocial = "Oficina de entretenimento adulto do tio careca",
                 NomeResponsavel = "Fulano de Tal",

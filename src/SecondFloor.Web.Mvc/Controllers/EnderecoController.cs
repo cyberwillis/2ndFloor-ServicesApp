@@ -43,14 +43,27 @@ namespace SecondFloor.Web.Mvc.Controllers
             ViewBag.Excluir = false;
             ViewBag.Title = "Cadastro de Endereço";
 
-            return PartialView("EnderecoPartialView", new EnderecoViewModels() { AnuncianteId = id });
+            var endereco = new EnderecoViewModels() {AnuncianteId = id};
+            endereco = new EnderecoViewModels()
+            {
+                AnuncianteId = id,
+                Logradouro = "Rua teste",
+                Numero = 10,
+                Complemento = "sei la",
+                Bairro = "Jardim do Paraiso",
+                Cidade = "Sao Paulo",
+                Estado = "SP",
+                Cep = "00000-000"
+            };
+
+            return PartialView("EnderecoPartialView", endereco);
         }
         
         [HttpPost]
         public PartialViewResult Create([Bind(Exclude = "Id")]EnderecoViewModels endereco)
         {
             var request = new CadastrarEnderecoRequest() { Endereco = endereco.ConvertToEnderecoDto(), AnuncianteId = endereco.AnuncianteId };
-            var response = _enderecoService.CadastroEndereco(request);
+            var response = _enderecoService.CadastrarEndereco(request);
 
             ViewBag.Excluir = false;
             ViewBag.Title = "Cadastro de Endereço";

@@ -43,14 +43,25 @@ namespace SecondFloor.Web.Mvc.Controllers
             ViewBag.Excluir = false;
             ViewBag.Title = "Cadastro de Produto";
 
-            return PartialView("ProdutoPartialView", new ProdutoViewModels() { AnuncianteId = id });
+            var produto = new ProdutoViewModels() {AnuncianteId = id};
+            produto = new ProdutoViewModels()
+            {
+                AnuncianteId = id,
+                NomeProduto = "Esponja de Aço",
+                Fabricante = "BomBrill",
+                Descricao = "Lavar panelas",
+                RefProduto = "0001",
+                Valor = "3.40"
+            };
+
+            return PartialView("ProdutoPartialView", produto);
         }
 
         [HttpPost]
         public PartialViewResult Create([Bind(Exclude = "Id")]ProdutoViewModels produto)
         {
             var request = new CadastrarProdutoRequest() { Produto = produto.ConvertToProdutoDto(), AnuncianteId = produto.AnuncianteId };
-            var response = _produtoService.CadastroProduto(request);
+            var response = _produtoService.CadastrarProduto(request);
 
             ViewBag.Excluir = false;
             ViewBag.Title = "Cadastro de Produto";

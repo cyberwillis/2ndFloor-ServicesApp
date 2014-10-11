@@ -17,6 +17,7 @@ namespace SecondFloor.Web.Mvc
         {
             //Inicializacao do Banco de dados e migração caso mudança de modelo
             Database.SetInitializer(new MigrateDatabaseToLatestVersion<AnuncianteContext, AnuncianteModelConfiguration>());
+            //Database.SetInitializer(new DropCreateDatabaseAlways<AnuncianteContext>());
 
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
