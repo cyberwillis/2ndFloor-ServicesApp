@@ -59,6 +59,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AnuncianteService.cs" />
+    <Compile Include="AnuncioService.cs" />
     <Compile Include="ConsumidorService.cs" />
     <Compile Include="EnderecoService.cs" />
     <Compile Include="ExtensionMethods\AnuncianteExtensionMethod.cs" />

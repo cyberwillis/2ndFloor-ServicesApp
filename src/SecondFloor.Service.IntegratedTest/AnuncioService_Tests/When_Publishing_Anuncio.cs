@@ -110,7 +110,7 @@ namespace SecondFloor.Service.IntegratedTest.AnuncioService_Tests
                 Bairro = "Cidade Dultra",
                 Cidade = "Sao Paulo",
                 Estado = "SP",
-                CEP = "00000-000",
+                Cep = "00000-000",
             };
 
             //Oferta

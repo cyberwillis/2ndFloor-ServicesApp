@@ -85,7 +85,7 @@ namespace SecondFloor.Service
             return response;
         }
 
-        public CadastrarProdutoResponse CadastroProduto(CadastrarProdutoRequest request)
+        public CadastrarProdutoResponse CadastrarProduto(CadastrarProdutoRequest request)
         {
             var response = new CadastrarProdutoResponse();
 

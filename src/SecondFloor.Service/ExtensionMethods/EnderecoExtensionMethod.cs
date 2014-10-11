@@ -32,7 +32,7 @@ namespace SecondFloor.Service.ExtensionMethods
             endereco.Bairro = enderecoDto.Bairro;
             endereco.Cidade = enderecoDto.Cidade;
             endereco.Estado = enderecoDto.Estado;
-            endereco.CEP = enderecoDto.Cep;
+            endereco.Cep = enderecoDto.Cep;
 
             return endereco;
         }
@@ -48,7 +48,7 @@ namespace SecondFloor.Service.ExtensionMethods
             enderecoDto.Bairro = endereco.Bairro;
             enderecoDto.Cidade = endereco.Cidade;
             enderecoDto.Estado = endereco.Estado;
-            enderecoDto.Cep = endereco.CEP;
+            enderecoDto.Cep = endereco.Cep;
             enderecoDto.AnuncianteId = endereco.Anunciante.Id.ToString(); //AnuncianteId
 
             return enderecoDto;

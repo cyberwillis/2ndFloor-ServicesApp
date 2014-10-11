@@ -1,10 +1,5 @@
 ﻿using System;
-using System.Linq;
-using System.Collections.Generic;
-using System.ServiceModel;
-using System.ServiceModel.Activation;
 using Microsoft.Practices.ObjectBuilder2;
-using SecondFloor.DataContracts.Messages;
 using SecondFloor.DataContracts.Messages.Anunciante;
 using SecondFloor.Model;
 using SecondFloor.Model.Rules;
@@ -14,8 +9,7 @@ using SecondFloor.ServiceContracts;
 
 namespace SecondFloor.Service
 {
-    [ServiceBehavior(InstanceContextMode = InstanceContextMode.PerCall, Namespace = "services.am.fiap.com.br",Name = "AnuncianteServiceClient")]
-    [AspNetCompatibilityRequirements(RequirementsMode = AspNetCompatibilityRequirementsMode.Allowed)]
+    
     public class AnuncianteService : IAnuncianteService
     {
         private IAnuncioRepository _anuncioRepository;

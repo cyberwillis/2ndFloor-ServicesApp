@@ -12,7 +12,7 @@ namespace SecondFloor.Service.ExtensionMethods
         {
             var anuncio = new Anuncio();
 
-            if (string.IsNullOrEmpty(anuncioDto.Id) || anuncioDto.Id == "00000000-0000-0000-0000-000000000000")
+            if (string.IsNullOrEmpty(anuncioDto.Id) || anuncioDto.Id == default(Guid).ToString())
             {
                 anuncio.Id = Guid.NewGuid();
             }

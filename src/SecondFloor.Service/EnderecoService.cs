@@ -82,7 +82,7 @@ namespace SecondFloor.Service
             return response;
         }
 
-        public CadastrarEnderecoResponse CadastroEndereco(CadastrarEnderecoRequest request)
+        public CadastrarEnderecoResponse CadastrarEndereco(CadastrarEnderecoRequest request)
         {
             var response = new CadastrarEnderecoResponse();
 
@@ -152,7 +152,7 @@ namespace SecondFloor.Service
                 endereco.Bairro = novoEndereco.Bairro;
                 endereco.Cidade = novoEndereco.Cidade;
                 endereco.Estado = novoEndereco.Estado;
-                endereco.CEP = novoEndereco.CEP;
+                endereco.Cep = novoEndereco.Cep;
                 if (!endereco.IsValid())
                 {
                     endereco.BrokenRules.ForEach(x => response.Rules.Add(x.Key,x.Value));
