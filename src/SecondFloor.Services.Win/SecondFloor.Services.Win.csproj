@@ -4,15 +4,16 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{640A4CC8-F3CD-45C6-BC4B-37C2E22EB2F4}</ProjectGuid>
-    <OutputType>Library</OutputType>
+    <ProjectGuid>{4A9FA868-7F4B-4912-8337-68AB488DD61D}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SecondFloor.Model</RootNamespace>
-    <AssemblyName>SecondFloor.Model</AssemblyName>
+    <RootNamespace>SecondFloor.Services.Win</RootNamespace>
+    <AssemblyName>SecondFloor.Services.Win</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -22,6 +23,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -36,45 +38,21 @@
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
+    <Reference Include="System.ServiceProcess" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Anunciante.cs" />
-    <Compile Include="AnuncioStatusEnum.cs" />
-    <Compile Include="Estado.cs" />
-    <Compile Include="IEnderecoRepository.cs" />
-    <Compile Include="IEstadoRepository.cs" />
-    <Compile Include="IProdutoRepository.cs" />
-    <Compile Include="Produto.cs" />
-    <Compile Include="Rules\AnuncianteServices.cs" />
-    <Compile Include="Rules\AnuncioServices.cs" />
-    <Compile Include="Rules\EnderecoServices.cs" />
-    <Compile Include="Rules\ProdutoServices.cs" />
-    <Compile Include="Rules\Specifications\AnuncianteSpecification.cs" />
-    <Compile Include="Anuncio.cs" />
-    <Compile Include="Rules\Specifications\AnuncioSpecification.cs" />
-    <Compile Include="Comentario.cs" />
-    <Compile Include="Rules\Specifications\ComentarioSpecification.cs" />
-    <Compile Include="Consumidor.cs" />
-    <Compile Include="Rules\Specifications\ConsumidorSpecification.cs" />
-    <Compile Include="Endereco.cs" />
-    <Compile Include="Rules\Specifications\EnderecoSpecification.cs" />
-    <Compile Include="IAnuncianteRepository.cs" />
-    <Compile Include="IAnuncioRepository.cs" />
-    <Compile Include="Oferta.cs" />
-    <Compile Include="Rules\Specifications\OfertaSpecification.cs" />
+    <Compile Include="Service1.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Service1.Designer.cs">
+      <DependentUpon>Service1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Rules\Specifications\ProdutoSpecification.cs" />
-    <Compile Include="TipoAcesso.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\SecondFloor.Infrastructure\SecondFloor.Infrastructure.csproj">
-      <Project>{0B674E26-7392-4E08-B9F0-04078ECDE0BC}</Project>
-      <Name>SecondFloor.Infrastructure</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Diagrama\ClassDiagram.cd" />
+    <None Include="App.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

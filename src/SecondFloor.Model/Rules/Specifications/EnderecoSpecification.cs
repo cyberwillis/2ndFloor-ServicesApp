@@ -48,13 +48,13 @@ namespace SecondFloor.Model.Rules.Specifications
             }
 
             //Estado
-            if (string.IsNullOrEmpty(endereco.Estado))
+            /*if (string.IsNullOrEmpty(endereco.Estado))
             {
                 endereco.BrokenRules.Add("Estado", "O estado não foi especificado.");
             } else if (endereco.Estado.Length > 10)
             {
                 endereco.BrokenRules.Add("Estado", "O estado deve conter no máximo (10) caracteres.");   
-            }
+            }*/
 
             if (string.IsNullOrEmpty(endereco.Cep))
             {

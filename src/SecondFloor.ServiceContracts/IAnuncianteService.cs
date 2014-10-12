@@ -4,7 +4,6 @@ using SecondFloor.DataContracts.Messages.Anunciante;
 
 namespace SecondFloor.ServiceContracts
 {
-    [ServiceContract(Namespace = "services.am.fiap.com.br",Name = "AnuncianteService")]
     public interface IAnuncianteService
     {
         EncontrarTodosAnunciantesResponse EncontrarTodosAnunciantes();

@@ -62,9 +62,11 @@
     <Compile Include="AnuncioService.cs" />
     <Compile Include="ConsumidorService.cs" />
     <Compile Include="EnderecoService.cs" />
+    <Compile Include="EstadoService.cs" />
     <Compile Include="ExtensionMethods\AnuncianteExtensionMethod.cs" />
     <Compile Include="ExtensionMethods\AnuncioExtensionMethod.cs" />
     <Compile Include="ExtensionMethods\EnderecoExtensionMethod.cs" />
+    <Compile Include="ExtensionMethods\EstadoExtensionMethod.cs" />
     <Compile Include="ExtensionMethods\OfertaExtensionMethod.cs" />
     <Compile Include="ExtensionMethods\ProdutoExtensionMethod.cs" />
     <Compile Include="ProdutoService.cs" />

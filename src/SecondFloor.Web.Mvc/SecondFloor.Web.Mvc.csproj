@@ -203,6 +203,7 @@
     <Compile Include="Models\AnuncianteViewModels.cs" />
     <Compile Include="Models\AnuncioViewModels.cs" />
     <Compile Include="Models\EnderecoViewModels.cs" />
+    <Compile Include="Models\EstadoViewModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\OfertaViewModels.cs" />
@@ -211,6 +212,7 @@
     <Compile Include="Services\AnuncianteViewModelExtensionMethods.cs" />
     <Compile Include="Services\AnuncioViewModelExtensionMethods.cs" />
     <Compile Include="Services\EnderecoViewModelExtensionMethods.cs" />
+    <Compile Include="Services\EstadoViewModelExtensionMethods.cs" />
     <Compile Include="Services\ProdutoViewModelExtensionMethod.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>

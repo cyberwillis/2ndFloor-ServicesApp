@@ -14,10 +14,12 @@ namespace SecondFloor.Web.Mvc.Controllers
     public class EnderecoController : Controller
     {
         private readonly IEnderecoService _enderecoService;
+        private readonly IEstadoService _estadoService;
 
-        public EnderecoController(IEnderecoService enderecoService)
+        public EnderecoController(IEnderecoService enderecoService, IEstadoService estadoService)
         {
             _enderecoService = enderecoService;
+            _estadoService = estadoService;
         }
 
         [HttpGet]
@@ -55,6 +57,7 @@ namespace SecondFloor.Web.Mvc.Controllers
                 Estado = "SP",
                 Cep = "00000-000"
             };
+            endereco.Estados = GetEstados(); //TODO: verificar caso retorne null
 
             return PartialView("EnderecoPartialView", endereco);
         }
@@ -62,7 +65,12 @@ namespace SecondFloor.Web.Mvc.Controllers
         [HttpPost]
         public PartialViewResult Create([Bind(Exclude = "Id")]EnderecoViewModels endereco)
         {
-            var request = new CadastrarEnderecoRequest() { Endereco = endereco.ConvertToEnderecoDto(), AnuncianteId = endereco.AnuncianteId };
+            var request = new CadastrarEnderecoRequest()
+            {
+                AnuncianteId = endereco.AnuncianteId,
+                Endereco = endereco.ConvertToEnderecoDto(), 
+                EstadoSigla = endereco.Estado //TODO: ficar de olho na sigla de estados passada por fora
+            };
             var response = _enderecoService.CadastrarEndereco(request);
 
             ViewBag.Excluir = false;
@@ -94,13 +102,21 @@ namespace SecondFloor.Web.Mvc.Controllers
                 return PartialView("Error");
             }
 
-            return PartialView("EnderecoPartialView", response.Endereco.ConvertToEnderecoViewModel());
+            var endereco = response.Endereco.ConvertToEnderecoViewModel();
+            endereco.Estados = GetEstados();
+
+            return PartialView("EnderecoPartialView", endereco );
         }
         
         [HttpPost]
         public PartialViewResult Edit(EnderecoViewModels endereco)
         {
-            var request = new AlterarEnderecoRequest() { Endereco = endereco.ConvertToEnderecoDto() };
+            var request = new AlterarEnderecoRequest()
+            {
+                Endereco = endereco.ConvertToEnderecoDto(),
+                EstadoSigla = endereco.Estado
+            };
+
             var response = _enderecoService.AlterarEndereco(request);
 
             ViewBag.Excluir = false;
@@ -153,6 +169,16 @@ namespace SecondFloor.Web.Mvc.Controllers
             }
 
             return PartialView("Sucesso");
+        }
+
+        private IList<EstadoViewModel> GetEstados()
+        {
+            var response = _estadoService.EncontrarTodosEstados();
+
+            if (response.Success)
+                return response.Estados.ConvertToListaDeEstadoViewModel();
+
+            return null;
         }
     }
 }

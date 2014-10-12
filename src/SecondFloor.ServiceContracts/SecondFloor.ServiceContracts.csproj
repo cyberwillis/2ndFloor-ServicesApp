@@ -42,7 +42,9 @@
   <ItemGroup>
     <Compile Include="IAnuncianteService.cs" />
     <Compile Include="IAnuncioService.cs" />
+    <Compile Include="IConsumidorService.cs" />
     <Compile Include="IEnderecoService.cs" />
+    <Compile Include="IEstadoService.cs" />
     <Compile Include="IProdutoService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -7,9 +7,12 @@ namespace SecondFloor.DataContracts.Messages.Endereco
     public class CadastrarEnderecoRequest
     {
         [MessageBodyMember]
+        public string AnuncianteId { get; set; }
+
+        [MessageBodyMember]
         public EnderecoDto Endereco { get; set; }
 
         [MessageBodyMember]
-        public string AnuncianteId { get; set; }
+        public string EstadoSigla { get; set; }
     }
 }

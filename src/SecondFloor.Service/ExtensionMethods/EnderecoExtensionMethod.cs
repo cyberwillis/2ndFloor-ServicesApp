@@ -27,7 +27,7 @@ namespace SecondFloor.Service.ExtensionMethods
             endereco.Complemento = enderecoDto.Complemento;
             endereco.Bairro = enderecoDto.Bairro;
             endereco.Cidade = enderecoDto.Cidade;
-            endereco.Estado = enderecoDto.Estado;
+            //endereco.Estado = enderecoDto.Estado; //Vindo de fora e injetado direto pelo servico de cadastro de endereco
             endereco.Cep = enderecoDto.Cep;
 
             return endereco;
@@ -43,7 +43,7 @@ namespace SecondFloor.Service.ExtensionMethods
             enderecoDto.Complemento = endereco.Complemento;
             enderecoDto.Bairro = endereco.Bairro;
             enderecoDto.Cidade = endereco.Cidade;
-            enderecoDto.Estado = endereco.Estado;
+            enderecoDto.Estado = endereco.Estado.ConvertToEstadoDto();
             enderecoDto.Cep = endereco.Cep;
             enderecoDto.AnuncianteId = endereco.Anunciante.Id.ToString(); //facilitar a identificacao do Parent deste objeto
 

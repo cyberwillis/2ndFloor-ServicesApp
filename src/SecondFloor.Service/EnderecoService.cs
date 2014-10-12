@@ -11,11 +11,13 @@ namespace SecondFloor.Service
 {
     public class EnderecoService : IEnderecoService
     {
-        private IEnderecoRepository _enderecoRepository;
+        private readonly IEstadoRepository _estadoRepository;
+        private readonly IEnderecoRepository _enderecoRepository;
         private readonly IAnuncianteRepository _anuncianteRepository;
 
-        public EnderecoService(IEnderecoRepository enderecoRepository, IAnuncianteRepository anuncianteRepository)
+        public EnderecoService(IEstadoRepository estadoRepository, IEnderecoRepository enderecoRepository, IAnuncianteRepository anuncianteRepository)
         {
+            _estadoRepository = estadoRepository;
             _enderecoRepository = enderecoRepository;
             _anuncianteRepository = anuncianteRepository;
         }
@@ -86,19 +88,29 @@ namespace SecondFloor.Service
         {
             var response = new CadastrarEnderecoResponse();
 
-            var endereco = request.Endereco.ConvertToEndereco();
-            if (!endereco.IsValid())
-            {
-                endereco.BrokenRules.ForEach(x => response.Rules.Add(x.Key,x.Value));
-
-                response.Message = endereco.GetErrorMessages().ToString();
-                response.MessageType = "alert-warning";
-                response.Success = false;
-                return response;
-            }
-
             try
             {
+                var estado = _estadoRepository.EncontrarEstadoPorSigla(request.EstadoSigla);
+                if (estado == null)
+                {
+                    response.Message = "Estado não encontrado para inclusão do novo Endereço";
+                    response.MessageType = "alert-warning";
+                    response.Success = false;
+                    return response;
+                }
+
+                var endereco = request.Endereco.ConvertToEndereco();
+                endereco.Estado = estado; //inclusao de estado que veio como sigla
+                if (!endereco.IsValid())
+                {
+                    endereco.BrokenRules.ForEach(x => response.Rules.Add(x.Key, x.Value));
+
+                    response.Message = endereco.GetErrorMessages().ToString();
+                    response.MessageType = "alert-warning";
+                    response.Success = false;
+                    return response;
+                }
+
                 var anuncianteId = Guid.Parse(request.AnuncianteId);
                 var anunciante = _anuncianteRepository.FindBy(anuncianteId);
                 if (anunciante == null)
@@ -135,6 +147,15 @@ namespace SecondFloor.Service
 
             try
             {
+                var estado = _estadoRepository.EncontrarEstadoPorSigla(request.EstadoSigla);
+                if (estado == null)
+                {
+                    response.Message = "Estado não encontrado para inclusão do novo Endereço";
+                    response.MessageType = "alert-warning";
+                    response.Success = false;
+                    return response;
+                }
+
                 var id = Guid.Parse(request.Endereco.Id);
                 var endereco = _enderecoRepository.EncontrarEnderecoPor(id);
                 if (endereco == null)
@@ -151,7 +172,7 @@ namespace SecondFloor.Service
                 endereco.Complemento = novoEndereco.Complemento;
                 endereco.Bairro = novoEndereco.Bairro;
                 endereco.Cidade = novoEndereco.Cidade;
-                endereco.Estado = novoEndereco.Estado;
+                endereco.Estado = estado; //novoEndereco.Estado;
                 endereco.Cep = novoEndereco.Cep;
                 if (!endereco.IsValid())
                 {
