@@ -2,6 +2,7 @@
 using System.Globalization;
 using System.Linq;
 using SecondFloor.DataContracts.DTO;
+using SecondFloor.Service.ExtensionMethods;
 using SecondFloor.Web.Mvc.Models;
 
 namespace SecondFloor.Web.Mvc.Services
@@ -31,6 +32,10 @@ namespace SecondFloor.Web.Mvc.Services
                 anuncioDto.MesInicio = int.Parse(data[1]);
                 anuncioDto.DiaInicio = int.Parse(data[0]);
             }
+
+            //Conversao de Ofertas para insercao e alteracao
+            if (anuncioView.Ofertas != null)
+                anuncioDto.Ofertas = anuncioView.Ofertas.ConvertToListaOfertasDto();
 
             return anuncioDto;
         }

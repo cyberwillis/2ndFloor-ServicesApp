@@ -10,7 +10,7 @@ namespace SecondFloor.Service.ExtensionMethods
 {
     public static class OfertaExtensionMethod
     {
-        public static Oferta ConvertToOderta(this OfertaDto ofertaDto)
+        public static Oferta ConvertToOferta(this OfertaDto ofertaDto)
         {
             var oferta = new Oferta();
 
@@ -51,7 +51,7 @@ namespace SecondFloor.Service.ExtensionMethods
 
         public static IEnumerable<Oferta> ConvertToListaDeOfertas(this IEnumerable<OfertaDto> ofertasDtos)
         {
-            var ofertas = ofertasDtos.Select(ofertasDto => ofertasDto.ConvertToOderta()).ToList();
+            var ofertas = ofertasDtos.Select(ofertasDto => ofertasDto.ConvertToOferta()).ToList();
 
             return ofertas;
         }

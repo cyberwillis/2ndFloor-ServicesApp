@@ -18,7 +18,7 @@ namespace SecondFloor.RepositoryEF.Mappings
             //Property(e => e.Estado).HasColumnName("Estado").HasMaxLength(10);
             
             HasRequired(f => f.Estado).WithOptional()
-                .Map(x => x.MapKey("EstadoId").ToTable("tbEndereco"));
+                .Map(x => x.MapKey("EstadoId").ToTable("tbEndereco")).WillCascadeOnDelete(false);
 
             Ignore(e => e.BrokenRules);
         }

@@ -5,8 +5,8 @@ namespace SecondFloor.Model
 {
     public class Consumidor : EntityBase<Guid>
     {
-        public string Nome { get; set; }
-        public string Email { get; set; }
-        public TipoAcesso TipoAcesso { get; set; }
+        public virtual string Nome { get; set; }
+        public virtual string Email { get; set; }
+        public virtual TipoAcesso TipoAcesso { get; set; }
     }
 }

@@ -5,10 +5,10 @@ namespace SecondFloor.Model
 {
     public class Comentario : EntityBase<Guid>
     {
-        public Consumidor Consumidor { get; set; }
-        public Anunciante Para { get; set; }
-        public string Descricao { get; set; }
-        public DateTime Data { get; set; }
-        public int Ponto { get; set; }
+        public virtual Consumidor Consumidor { get; set; }
+        public virtual Anunciante Para { get; set; }
+        public virtual string Descricao { get; set; }
+        public virtual DateTime Data { get; set; }
+        public virtual int Ponto { get; set; }
     }
 }

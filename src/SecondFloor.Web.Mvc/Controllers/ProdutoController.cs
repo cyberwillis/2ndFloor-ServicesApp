@@ -50,7 +50,7 @@ namespace SecondFloor.Web.Mvc.Controllers
                 NomeProduto = "Esponja de Aço",
                 Fabricante = "BomBrill",
                 Descricao = "Lavar panelas",
-                RefProduto = "0001",
+                Referencia = "0001",
                 Valor = "3.40"
             };
 

@@ -1,0 +1,13 @@
+﻿@model IEnumerable<SecondFloor.Web.Mvc.Models.OfertaViewModels>
+
+<table class="table">
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@Html.CheckBoxFor(modelItem => item.Checked, htmlAttributes: new {id = "Ofertas", name="Ofertas",value = item.Id })</td>
+            @*<td>@Html.CheckBox("Ofertas", new { value = item.Id })</td>*@
+            <td>@Html.DisplayFor(modelItem => item.NomeProduto)</td>
+            @*<input type="checked" name="SelectedSources" value="@item">@item*@
+        </tr>
+    }
+</table>

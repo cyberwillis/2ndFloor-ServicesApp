@@ -199,6 +199,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="HtmlHelperExtensions.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AnuncianteViewModels.cs" />
     <Compile Include="Models\AnuncioViewModels.cs" />
@@ -206,6 +207,7 @@
     <Compile Include="Models\EstadoViewModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\CheckBoxes.cs" />
     <Compile Include="Models\OfertaViewModels.cs" />
     <Compile Include="Models\ProdutoViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -213,6 +215,7 @@
     <Compile Include="Services\AnuncioViewModelExtensionMethods.cs" />
     <Compile Include="Services\EnderecoViewModelExtensionMethods.cs" />
     <Compile Include="Services\EstadoViewModelExtensionMethods.cs" />
+    <Compile Include="Services\OfertaViewModelExtensionMethods.cs" />
     <Compile Include="Services\ProdutoViewModelExtensionMethod.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -453,16 +456,23 @@
     <Content Include="Views\Produto\ProdutoPartialView.cshtml" />
     <Content Include="Views\Anuncio\ListaAnuncioPartialView.cshtml" />
     <Content Include="Views\Anuncio\AnuncioPartialView.cshtml" />
+    <Content Include="Views\Anuncio\OfertasPartialView.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Content\bootstrap-datepicker\build\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="packages.config" />
+    <Content Include="packages.config">
+      <SubType>Designer</SubType>
+    </Content>
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\..\..\OpenSource\Fabrik.Common\src\Fabrik.Common.Web\Fabrik.Common.Web.csproj">
+      <Project>{9e630ebc-9ec3-4af5-b10e-fb61ea102431}</Project>
+      <Name>Fabrik.Common.Web</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SecondFloor.DataContracts\SecondFloor.DataContracts.csproj">
       <Project>{005BD132-A35B-4F72-9840-0228FCEFAFF5}</Project>
       <Name>SecondFloor.DataContracts</Name>

@@ -23,13 +23,11 @@ namespace SecondFloor.RepositoryEF
         {
             modelBuilder.Configurations.Add(new AnuncianteConfiguration());
             modelBuilder.Configurations.Add(new EnderecoConfiguration());
+            modelBuilder.Configurations.Add(new EstadoConfiguration());
             modelBuilder.Configurations.Add(new ProdutoConfiguration());
-
             modelBuilder.Configurations.Add(new AnuncioConfiguration());
             modelBuilder.Configurations.Add(new OfertaConfiguration());
 
-            modelBuilder.Configurations.Add(new EstadoConfiguration());
-            
             modelBuilder.Ignore<Consumidor>(); //Usar em outro contexto
             modelBuilder.Ignore<Comentario>(); //Usar em outro contexto
 

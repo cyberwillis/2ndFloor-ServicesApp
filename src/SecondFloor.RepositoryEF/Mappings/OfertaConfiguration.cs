@@ -9,7 +9,7 @@ namespace SecondFloor.RepositoryEF.Mappings
         {
             ToTable("tbOferta");
             HasKey(o => o.Id);
-            Property(o => o.Id).HasColumnName("Id");
+            Property(o => o.Id).HasColumnName("Id");//.IsOptional();
             Property(p => p.NomeProduto).HasColumnName("NomeProduto").HasMaxLength(250);
             Property(p => p.Descricao).HasColumnName("Descricao").HasMaxLength(1000);
             Property(p => p.Referencia).HasColumnName("Referencia").HasMaxLength(15);
@@ -17,6 +17,7 @@ namespace SecondFloor.RepositoryEF.Mappings
             Property(p => p.Valor).HasColumnName("Valor");
 
             Ignore(o => o.BrokenRules);
+            Ignore(o => o.Anuncio);
 
             /*HasRequired(o => o.Endereco).WithRequiredPrincipal().Map(x => x
                 .MapKey("OfertaId")

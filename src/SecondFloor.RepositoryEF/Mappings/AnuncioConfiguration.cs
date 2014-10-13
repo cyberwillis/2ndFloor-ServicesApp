@@ -13,15 +13,16 @@ namespace SecondFloor.RepositoryEF.Mappings
             Property(a => a.Titulo).HasColumnName("Titulo");
             Property(a => a.DataInicio).HasColumnName("DataInicio");
             Property(a => a.DataFim).HasColumnName("DataFim");
-
+            
             Ignore(a => a.BrokenRules);
 
             //Ignore(a => a.Anunciante);
             //HasRequired(a => a.Anunciante).WithMany().Map(x=>x.MapKey("AnuncianteId").ToTable("tbAnuncio"));
             //HasRequired(a=>a.Anunciante).WithMany(a=>a.Anuncios).Map(x => x.MapKey("AnuncianteId").ToTable("tbAnuncio"));
 
-            HasMany(a => a.Ofertas).WithOptional()
+            HasMany(a => a.Ofertas).WithRequired()
                 .Map(x=>x.MapKey("AnuncioId").ToTable("tbOferta")).WillCascadeOnDelete(true);
+            
         }
     }
 }

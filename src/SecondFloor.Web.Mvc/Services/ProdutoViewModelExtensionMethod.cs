@@ -15,7 +15,7 @@ namespace SecondFloor.Web.Mvc.Services
             produtoViewModel.Id = produtoDto.Id;
             produtoViewModel.NomeProduto = produtoDto.NomeProduto;
             produtoViewModel.Descricao = produtoDto.Descricao;
-            produtoViewModel.RefProduto = produtoDto.Referencia;
+            produtoViewModel.Referencia = produtoDto.Referencia;
             produtoViewModel.Fabricante = produtoDto.Fabricante;
             produtoViewModel.Valor = produtoDto.Valor;
             produtoViewModel.AnuncianteId = produtoDto.AnuncianteId; //facilitar a identificacao do Parent deste objeto
@@ -30,7 +30,7 @@ namespace SecondFloor.Web.Mvc.Services
             produtoDto.Id = produtoViewModel.Id;
             produtoDto.NomeProduto = produtoViewModel.NomeProduto;
             produtoDto.Descricao = produtoViewModel.Descricao;
-            produtoDto.Referencia = produtoViewModel.RefProduto;
+            produtoDto.Referencia = produtoViewModel.Referencia;
             produtoDto.Fabricante = produtoViewModel.Fabricante;
             produtoDto.Valor = produtoViewModel.Valor;
 
