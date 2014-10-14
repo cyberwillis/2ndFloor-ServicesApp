@@ -81,6 +81,9 @@ namespace SecondFloor.Web.Mvc.Controllers
             if (!response.Success)
             {
                 response.Rules.ForEach(x=>ModelState.AddModelError(x.Key,x.Value)); //hidratacao de erros no ModelState
+
+                endereco.Estados = GetEstados(); 
+
                 return PartialView("EnderecoPartialView", endereco);
             }
 
@@ -127,6 +130,9 @@ namespace SecondFloor.Web.Mvc.Controllers
             if (!response.Success)
             {
                 response.Rules.ForEach(x => ModelState.AddModelError(x.Key, x.Value)); //hidratacao de erros no ModelState
+                
+                endereco.Estados = GetEstados(); 
+
                 return PartialView("EnderecoPartialView", endereco);
             }
 
