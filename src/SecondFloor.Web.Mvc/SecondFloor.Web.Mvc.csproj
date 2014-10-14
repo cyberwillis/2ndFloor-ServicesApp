@@ -469,10 +469,6 @@
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\..\OpenSource\Fabrik.Common\src\Fabrik.Common.Web\Fabrik.Common.Web.csproj">
-      <Project>{9e630ebc-9ec3-4af5-b10e-fb61ea102431}</Project>
-      <Name>Fabrik.Common.Web</Name>
-    </ProjectReference>
     <ProjectReference Include="..\SecondFloor.DataContracts\SecondFloor.DataContracts.csproj">
       <Project>{005BD132-A35B-4F72-9840-0228FCEFAFF5}</Project>
       <Name>SecondFloor.DataContracts</Name>

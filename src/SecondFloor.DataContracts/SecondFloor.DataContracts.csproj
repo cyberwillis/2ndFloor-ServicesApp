@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DTO\AnuncianteDto.cs" />
+    <Compile Include="DTO\ConsumidorOfertaDto.cs" />
     <Compile Include="DTO\EstadoDto.cs" />
     <Compile Include="DTO\ProdutoDto.cs" />
     <Compile Include="Messages\Anunciante\AlterarAnuncianteRequest.cs" />
@@ -79,6 +80,10 @@
     <Compile Include="Messages\Endereco\ExcluirEnderecoRequest.cs" />
     <Compile Include="Messages\Endereco\ExcluirEnderecoResponse.cs" />
     <Compile Include="Messages\Estado\EncontrarTodosEstadosResponse.cs" />
+    <Compile Include="Messages\ConsumidorOfertas\AtribuirRatingOfertaRequest.cs" />
+    <Compile Include="Messages\ConsumidorOfertas\AtribuirRatingOfertaResponse.cs" />
+    <Compile Include="Messages\ConsumidorOfertas\EncontrarOfertaRequest.cs" />
+    <Compile Include="Messages\ConsumidorOfertas\EncontrarOfertaResponse.cs" />
     <Compile Include="Messages\Produto\ExcluirProdutoRequest.cs" />
     <Compile Include="Messages\Produto\AlterarProdutoRequest.cs" />
     <Compile Include="Messages\Produto\AlterarProdutoResponse.cs" />

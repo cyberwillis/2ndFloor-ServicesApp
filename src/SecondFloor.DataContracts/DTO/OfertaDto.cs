@@ -7,6 +7,7 @@ namespace SecondFloor.DataContracts.DTO
     {
         [DataMember]
         public string Id { get; set; }
+        [DataMember]
         public string Referencia { get; set; }
         [DataMember]
         public string NomeProduto { get; set; }
