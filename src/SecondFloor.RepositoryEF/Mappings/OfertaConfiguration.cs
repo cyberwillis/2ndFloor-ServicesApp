@@ -16,8 +16,10 @@ namespace SecondFloor.RepositoryEF.Mappings
             Property(p => p.Fabricante).HasColumnName("Fabricante").HasMaxLength(250);
             Property(p => p.Valor).HasColumnName("Valor");
 
+            //HasOptional(p => p.Anuncio).WithMany(a=>a.Ofertas)
+
             Ignore(o => o.BrokenRules);
-            Ignore(o => o.Anuncio);
+            //Ignore(o => o.Anuncio);
 
             /*HasRequired(o => o.Endereco).WithRequiredPrincipal().Map(x => x
                 .MapKey("OfertaId")

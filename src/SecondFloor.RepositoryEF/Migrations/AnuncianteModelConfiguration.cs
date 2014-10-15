@@ -4,7 +4,7 @@ using SecondFloor.Model;
 
 namespace SecondFloor.RepositoryEF.Migrations
 {
-    public class AnuncianteModelConfiguration : CreateDatabaseIfNotExists<AnuncianteContext>
+    public class AnuncianteModelConfiguration : DropCreateDatabaseIfModelChanges<AnuncianteContext>
     {
         public AnuncianteModelConfiguration()
         {

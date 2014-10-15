@@ -2,9 +2,10 @@
 
 namespace SecondFloor.DataContracts.Messages.ConsumidorOfertas
 {
-    [MessageContract(WrapperNamespace = "messages.am.fiap.com.br")]
+    [MessageContract(WrapperNamespace = "messages.secondfloor.com")]
     public class AtribuirRatingOfertaRequest
     {
-         
+        [MessageBodyMember]
+        public string Rating { get; set; }
     }
 }

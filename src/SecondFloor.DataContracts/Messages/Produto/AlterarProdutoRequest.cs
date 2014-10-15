@@ -3,7 +3,7 @@ using SecondFloor.DataContracts.DTO;
 
 namespace SecondFloor.DataContracts.Messages.Produto
 {
-    [MessageContract(WrapperNamespace = "messages.am.fiap.com.br")]
+    [MessageContract(WrapperNamespace = "messages.secondfloor.com")]
     public class AlterarProdutoRequest
     {
         [MessageBodyMember]

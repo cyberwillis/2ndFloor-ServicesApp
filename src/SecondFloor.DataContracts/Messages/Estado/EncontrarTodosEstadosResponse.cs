@@ -4,7 +4,7 @@ using SecondFloor.DataContracts.DTO;
 
 namespace SecondFloor.DataContracts.Messages.Estado
 {
-    [MessageContract(WrapperNamespace = "messages.am.fiap.com.br")]
+    [MessageContract(WrapperNamespace = "messages.secondfloor.com")]
     public class EncontrarTodosEstadosResponse : ResponseBase
     {
         [MessageBodyMember]

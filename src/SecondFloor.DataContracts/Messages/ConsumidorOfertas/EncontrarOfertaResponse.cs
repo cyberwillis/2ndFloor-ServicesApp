@@ -4,9 +4,10 @@ using SecondFloor.DataContracts.DTO;
 
 namespace SecondFloor.DataContracts.Messages.ConsumidorOfertas
 {
-    [MessageContract(WrapperNamespace = "messages.am.fiap.com.br")]
+    [MessageContract(WrapperNamespace = "messages.secondfloor.com")]
     public class EncontrarOfertaResponse : ResponseBase
     {
+        [MessageBodyMember]
         public IList<ConsumidorOfertaDto> Ofertas { get; set; }
     }
 }

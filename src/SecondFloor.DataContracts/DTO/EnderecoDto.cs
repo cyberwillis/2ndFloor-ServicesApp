@@ -2,7 +2,7 @@
 
 namespace SecondFloor.DataContracts.DTO
 {
-    [DataContract(Name = "EnderecoDTO", Namespace = "dto.am.fiap.com.br")]
+    [DataContract(Name = "EnderecoDTO", Namespace = "dto.secondfloor.com")]
     public class EnderecoDto
     {
         [DataMember]

@@ -20,7 +20,7 @@ namespace SecondFloor.RepositoryEF.Mappings
             //HasRequired(a => a.Anunciante).WithMany().Map(x=>x.MapKey("AnuncianteId").ToTable("tbAnuncio"));
             //HasRequired(a=>a.Anunciante).WithMany(a=>a.Anuncios).Map(x => x.MapKey("AnuncianteId").ToTable("tbAnuncio"));
 
-            HasMany(a => a.Ofertas).WithRequired()
+            HasMany(a => a.Ofertas).WithRequired(o=>o.Anuncio)
                 .Map(x=>x.MapKey("AnuncioId").ToTable("tbOferta")).WillCascadeOnDelete(true);
             
         }

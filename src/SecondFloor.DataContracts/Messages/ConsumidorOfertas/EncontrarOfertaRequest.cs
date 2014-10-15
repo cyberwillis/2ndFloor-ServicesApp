@@ -3,14 +3,14 @@ using System.ServiceModel;
 
 namespace SecondFloor.DataContracts.Messages.ConsumidorOfertas
 {
-    [MessageContract(WrapperNamespace = "messages.am.fiap.com.br")]
+    [MessageContract(WrapperNamespace = "messages.secondfloor.com")]
     public class EncontrarOfertaRequest
     {
-        [DataMember]
+        [MessageBodyMember]
         public string Bairro { get; set; } //implicito
-        [DataMember]
+        [MessageBodyMember]
         public string Produto { get; set; }
-        [DataMember]
+        [MessageBodyMember]
         public string TipoProduto { get; set; }
     }
 }

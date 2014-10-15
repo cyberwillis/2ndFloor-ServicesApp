@@ -1,1 +1,1 @@
-﻿<%@ ServiceHost Language="C#" Debug="true" Factory="SecondFloor.Wcf.WcfServiceFactory" Service="SecondFloor.Service.AnuncianteService" %>
+﻿<%@ ServiceHost Language="C#" Debug="true" Factory="SecondFloor.Wcf.WcfServiceFactory" Service="SecondFloor.Service.ConsumidorService" %>

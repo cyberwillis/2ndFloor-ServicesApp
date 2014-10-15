@@ -2,7 +2,7 @@
 
 namespace SecondFloor.DataContracts.DTO
 {
-    [DataContract(Name = "OfertaDTO", Namespace = "dto.am.fiap.com.br")]
+    [DataContract(Name = "OfertaDTO", Namespace = "dto.secondfloor.com")]
     public class ConsumidorOfertaDto
     {
         [DataMember]
@@ -35,6 +35,8 @@ namespace SecondFloor.DataContracts.DTO
 
         [DataMember]
         public string AnuncianteId { get; set; }
+        [DataMember]
+        public string AnuncianteRazaoSocial { get; set; }
         [DataMember]
         public string AnunciantePontuacao { get; set; }
     }
