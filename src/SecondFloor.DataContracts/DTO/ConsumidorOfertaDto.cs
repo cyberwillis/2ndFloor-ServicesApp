@@ -5,39 +5,40 @@ namespace SecondFloor.DataContracts.DTO
     [DataContract(Name = "OfertaDTO", Namespace = "dto.secondfloor.com")]
     public class ConsumidorOfertaDto
     {
-        [DataMember]
+        [DataMember(Name = "ofertaId")]
         public string OfertaId { get; set; }
-        [DataMember]
+        [DataMember(Name = "referencia")]
         public string Referencia { get; set; }
-        [DataMember]
+        [DataMember(Name = "nomeProduto")]
         public string NomeProduto { get; set; }
-        [DataMember]
+        [DataMember(Name = "descricao")]
         public string Descricao { get; set; }
-        [DataMember]
+        [DataMember(Name = "fabricante")]
         public string Fabricante { get; set; }
-        [DataMember]
+        [DataMember(Name = "valor")]
         public string Valor { get; set; }
 
-        [DataMember]
+        [DataMember(Name = "logradouro")]
         public string Logradouro { get; set; }
-        [DataMember]
+        [DataMember(Name = "numero")]
         public string Numero { get; set; }
-        [DataMember]
+        [DataMember(Name = "complemento")]
         public string Complemento { get; set; }
-        [DataMember]
+        [DataMember(Name = "bairro")]
         public string Bairro { get; set; }
-        [DataMember]
+        [DataMember(Name = "cidade")]
         public string Cidade { get; set; }
-        [DataMember]
+        [DataMember(Name = "estado")]
         public EstadoDto Estado { get; set; }
-        [DataMember]
+        [DataMember(Name = "cep")]
         public string Cep { get; set; }
 
-        [DataMember]
+        [DataMember(Name = "anuncianteId")]
         public string AnuncianteId { get; set; }
-        [DataMember]
+        [DataMember(Name = "anuncianteRazaoSocial")]
         public string AnuncianteRazaoSocial { get; set; }
-        [DataMember]
+        [DataMember(Name = "anunciantePontuacao")]
         public string AnunciantePontuacao { get; set; }
+
     }
 }

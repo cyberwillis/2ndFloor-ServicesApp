@@ -7,7 +7,7 @@ namespace SecondFloor.DataContracts.Messages.ConsumidorOfertas
     [MessageContract(WrapperNamespace = "messages.secondfloor.com")]
     public class EncontrarOfertaResponse : ResponseBase
     {
-        [MessageBodyMember]
+        [MessageBodyMember(Name = "ofertas")]
         public IList<ConsumidorOfertaDto> Ofertas { get; set; }
     }
 }

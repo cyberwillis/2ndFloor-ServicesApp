@@ -6,11 +6,11 @@ namespace SecondFloor.DataContracts.Messages.ConsumidorOfertas
     [MessageContract(WrapperNamespace = "messages.secondfloor.com")]
     public class EncontrarOfertaRequest
     {
-        [MessageBodyMember]
+        [MessageBodyMember(Name = "bairro")]
         public string Bairro { get; set; } //implicito
-        [MessageBodyMember]
+        [MessageBodyMember(Name = "produto")]
         public string Produto { get; set; }
-        [MessageBodyMember]
+        [MessageBodyMember(Name = "tipoProduto")]
         public string TipoProduto { get; set; }
     }
 }

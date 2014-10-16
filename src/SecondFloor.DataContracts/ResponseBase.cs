@@ -11,10 +11,10 @@ namespace SecondFloor.DataContracts
             this.Rules = new Dictionary<string, string>();
         }
 
-        [MessageBodyMember]
+        [MessageBodyMember(Name = "success")]
         public bool Success { get; set; }
 
-        [MessageBodyMember]
+        [MessageBodyMember(Name = "message")]
         public string Message { get; set; }
 
         public string MessageType { get; set; }
