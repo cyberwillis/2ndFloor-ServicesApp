@@ -18,7 +18,7 @@ namespace SecondFloor.DataContracts.DTO
         [DataMember]
         public string Cidade { get; set; }
         [DataMember]
-        public EstadoDto Estado { get; set; }
+        public string Estado { get; set; }
         [DataMember]
         public string Cep { get; set; }
         [DataMember]

@@ -85,7 +85,9 @@
     <Content Include="IoC\Unity.Wcf.README.txt" />
     <Content Include="Service.svc" />
     <Content Include="Unity.Wcf.README.txt" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IoC\UnityContractBehaviour.cs" />

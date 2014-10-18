@@ -6,5 +6,6 @@ namespace SecondFloor.Model
     {
         public virtual string Nome { get; set; }
         public virtual string Sigla { get; set; }
+        //public virtual Endereco Endereco { get; set; }
     }
 }

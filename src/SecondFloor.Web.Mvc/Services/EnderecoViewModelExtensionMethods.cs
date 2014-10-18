@@ -18,7 +18,7 @@ namespace SecondFloor.Web.Mvc.Services
             enderecoViewModel.Cidade = enderecoDto.Cidade;
             enderecoViewModel.Cep = enderecoDto.Cep;
 
-            enderecoViewModel.Estado = enderecoDto.Estado.Sigla; //passa somente a sigla do estado
+            enderecoViewModel.Estado = enderecoDto.Estado; //passa somente a sigla do estado
             enderecoViewModel.AnuncianteId = enderecoDto.AnuncianteId; //facilitar a identificacao do Parent deste objeto
 
             return enderecoViewModel;
@@ -35,7 +35,7 @@ namespace SecondFloor.Web.Mvc.Services
             enderecoDto.Cidade = enderecoViewModel.Cidade;
             enderecoDto.Cep = enderecoViewModel.Cep;
 
-            //enderecoDto.Estado = enderecoViewModel.Estado; //contem somente a sigla do estado
+            enderecoDto.Estado = enderecoViewModel.Estado; //contem somente a sigla do estado
 
             return enderecoDto;
         }

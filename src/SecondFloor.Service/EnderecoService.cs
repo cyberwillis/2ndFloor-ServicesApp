@@ -100,7 +100,8 @@ namespace SecondFloor.Service
                 }
 
                 var endereco = request.Endereco.ConvertToEndereco();
-                endereco.Estado = estado; //inclusao de estado que veio como sigla
+                //endereco.Estado = estado; //inclusao de estado que veio como sigla
+                //estado.Endereco = endereco;
                 if (!endereco.IsValid())
                 {
                     endereco.BrokenRules.ForEach(x => response.Rules.Add(x.Key, x.Value));
@@ -172,7 +173,8 @@ namespace SecondFloor.Service
                 endereco.Complemento = novoEndereco.Complemento;
                 endereco.Bairro = novoEndereco.Bairro;
                 endereco.Cidade = novoEndereco.Cidade;
-                endereco.Estado = estado; //novoEndereco.Estado;
+                endereco.Estado = novoEndereco.Estado;
+                //estado.Endereco = endereco;
                 endereco.Cep = novoEndereco.Cep;
                 if (!endereco.IsValid())
                 {
