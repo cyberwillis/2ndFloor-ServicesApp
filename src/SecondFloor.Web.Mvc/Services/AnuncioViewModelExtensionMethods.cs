@@ -14,15 +14,6 @@ namespace SecondFloor.Web.Mvc.Services
             var anuncioDto = new AnuncioDto();
 
             anuncioDto.Titulo = anuncioView.Titulo;
-            
-            if (!string.IsNullOrEmpty(anuncioView.DataFim))
-            {
-                string[] data = anuncioView.DataFim.Split('/'); //dd/mm/yyyy
-
-                anuncioDto.AnoFim = int.Parse(data[2]);
-                anuncioDto.MesFim = int.Parse(data[1]);
-                anuncioDto.DiaFim = int.Parse(data[0]);
-            }
 
             if (!string.IsNullOrEmpty(anuncioView.DataInicio))
             {
@@ -32,6 +23,23 @@ namespace SecondFloor.Web.Mvc.Services
                 anuncioDto.MesInicio = int.Parse(data[1]);
                 anuncioDto.DiaInicio = int.Parse(data[0]);
             }
+
+            if (!string.IsNullOrEmpty(anuncioView.DataFim))
+            {
+                string[] data = anuncioView.DataFim.Split('/'); //dd/mm/yyyy
+
+                anuncioDto.AnoFim = int.Parse(data[2]);
+                anuncioDto.MesFim = int.Parse(data[1]);
+                anuncioDto.DiaFim = int.Parse(data[0]);
+            }
+
+            //enderecos
+            anuncioDto.Logradouro = anuncioView.Logradouro;
+            anuncioDto.Numero = anuncioView.Numero;
+            anuncioDto.Complemento = anuncioView.Complemento;
+            anuncioDto.Bairro = anuncioView.Bairro;
+            anuncioDto.Cidade = anuncioView.Cidade;
+            anuncioDto.Estado = anuncioView.Estado;
 
             //Conversao de Ofertas para insercao e alteracao
             if (anuncioView.Ofertas != null)
@@ -44,11 +52,18 @@ namespace SecondFloor.Web.Mvc.Services
         {
             var anuncioView = new AnuncioViewModels();
 
-            //TODO: conversao de dados
             anuncioView.Titulo = anuncioDto.Titulo;
             anuncioView.DataFim = anuncioDto.AnoFim + "/" + anuncioDto.MesFim + "/" + anuncioDto.DiaFim;
             anuncioView.DataInicio = anuncioDto.AnoInicio + "/" + anuncioDto.MesInicio + "/" + anuncioDto.DiaInicio;
             anuncioView.Status = anuncioDto.Status;
+
+            anuncioView.Logradouro = anuncioDto.Logradouro;
+            anuncioView.Numero = anuncioDto.Numero;
+            anuncioView.Complemento = anuncioDto.Complemento;
+            anuncioView.Bairro = anuncioDto.Bairro;
+            anuncioView.Cidade = anuncioDto.Cidade;
+            anuncioView.Estado = anuncioDto.Estado;
+            //anuncioView.Cep = anuncioDto.Cep;
 
             return anuncioView;
         }

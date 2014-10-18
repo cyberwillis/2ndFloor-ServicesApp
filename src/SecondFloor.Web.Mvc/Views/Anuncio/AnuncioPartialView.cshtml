@@ -113,6 +113,13 @@
                                 @Html.ValidationMessageFor(model => model.Estado, "", new { @class = "text-danger" })
                             </div>
                         </div>*@
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Logradouro, htmlAttributes: new { @class = "control-label col-md-3" })
+                            <div class="col-md-6">
+                                @Html.DropDownListFor(model => model.EnderecoId, Model.GetEnderecosSelectList(),  new { @class = "form-control selectpicker" })
+                                @Html.ValidationMessageFor(model => model.EnderecoId, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
                         
                         <div class="form-group">
                             @Html.LabelFor(model => model.Ofertas, htmlAttributes: new { @class = "control-label col-md-3" })

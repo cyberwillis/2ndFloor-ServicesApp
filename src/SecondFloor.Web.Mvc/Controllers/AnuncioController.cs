@@ -6,6 +6,7 @@ using Microsoft.Practices.ObjectBuilder2;
 using SecondFloor.DataContracts.DTO;
 using SecondFloor.DataContracts.Messages.Anunciante;
 using SecondFloor.DataContracts.Messages.Anuncio;
+using SecondFloor.DataContracts.Messages.Endereco;
 using SecondFloor.DataContracts.Messages.Produto;
 using SecondFloor.ServiceContracts;
 using SecondFloor.Web.Mvc.Models;
@@ -17,11 +18,13 @@ namespace SecondFloor.Web.Mvc.Controllers
     {
         private readonly IAnuncioService _anuncioService;
         private readonly IProdutoService _produtoService;
+        private readonly IEnderecoService _enderecoService;
 
-        public AnuncioController(IAnuncioService anuncioService,IProdutoService produtoService)
+        public AnuncioController(IAnuncioService anuncioService,IProdutoService produtoService, IEnderecoService enderecoService)
         {
             _anuncioService = anuncioService;
             _produtoService = produtoService;
+            _enderecoService = enderecoService;
         }
 
         [HttpGet]
@@ -47,7 +50,14 @@ namespace SecondFloor.Web.Mvc.Controllers
             ViewBag.Excluir = false;
             ViewBag.Title = "Cadastro de Anuncio";
 
-            var anuncio = new AnuncioViewModels() {AnuncianteId = id};
+            var enderecosRequest = new EncontrarTodosEnderecosRequest() { AnuncianteId = id };
+            var enderecosResponse = _enderecoService.EncontrarTodosEnderecos(enderecosRequest);
+            if (!enderecosResponse.Success)
+            {
+                //TODO: nao encontrado enderecos para o anunciante, Direcionar para cadastro de endereco ???
+            }
+
+            var anuncio = new AnuncioViewModels() {AnuncianteId = id, Enderecos = enderecosResponse.Enderecos.ConvertToListaEnderecosViewModel()};
             anuncio.Ofertas = GetProdutos(id).ConvertListaProdutosViewModelToListaOfertasViewModel();
             
             return PartialView("AnuncioPartialView", anuncio);
@@ -70,8 +80,7 @@ namespace SecondFloor.Web.Mvc.Controllers
                 }
             }*/
             anuncio.Ofertas = ofertasToPersist;
-
-            var request = new CadastrarAnuncioRequest() {Anuncio = anuncio.ConvertToAnuncioDto(), AnuncianteId = anuncio.AnuncianteId };
+            var request = new CadastrarAnuncioRequest() {Anuncio = anuncio.ConvertToAnuncioDto(), AnuncianteId = anuncio.AnuncianteId, EnderecoId = anuncio.EnderecoId};
             var response = _anuncioService.CadastrarAnuncio(request);
 
             ViewBag.Excluir = false;
@@ -81,6 +90,14 @@ namespace SecondFloor.Web.Mvc.Controllers
 
             if (!response.Success)
             {
+                var enderecosRequest = new EncontrarTodosEnderecosRequest() { AnuncianteId = anuncio.AnuncianteId };
+                var enderecosResponse = _enderecoService.EncontrarTodosEnderecos(enderecosRequest);
+                if (!enderecosResponse.Success)
+                {
+                    //TODO: nao encontrado enderecos para o anunciante, Direcionar para cadastro de endereco ???
+                }
+                anuncio.Enderecos = enderecosResponse.Enderecos.ConvertToListaEnderecosViewModel();
+
                 response.Rules.ForEach(x => ModelState.AddModelError(x.Key, x.Value));
 
                 //marcar as ofertas como checked

@@ -50,6 +50,14 @@ namespace SecondFloor.Web.Mvc.Models
             }
             return new SelectList(list, "Sigla", "Nome");
         }
+
+        private string _logradouroCompleto;
+        public string LogradouroCompleto
+        {
+            get { return Logradouro + ", nº " + Numero + " - " + Bairro; }
+            set { _logradouroCompleto = value; }
+        }
+
         #endregion
     }
 }

@@ -13,11 +13,13 @@ namespace SecondFloor.Service
     {
         private readonly IAnuncioRepository _anuncioRepository;
         private readonly IAnuncianteRepository _anuncianteRepository;
+        private readonly IEnderecoRepository _enderecoRepository;
 
-        public AnuncioService(IAnuncioRepository anuncioRepository, IAnuncianteRepository anuncianteRepository)
+        public AnuncioService(IAnuncioRepository anuncioRepository, IAnuncianteRepository anuncianteRepository, IEnderecoRepository enderecoRepository)
         {
             _anuncioRepository = anuncioRepository;
             _anuncianteRepository = anuncianteRepository;
+            _enderecoRepository = enderecoRepository;
         }
 
         public EncontrarTodosAnunciosResponse EncontrarTodosAnuncios(EncontrarTodosAnunciosRequest request)
@@ -103,12 +105,22 @@ namespace SecondFloor.Service
                 var anunciante = _anuncianteRepository.FindBy(anuncianteId);
                 if (anunciante == null)
                 {
-                    response.Message = "Anunciante não encontrado para inclusão do novo Endereço";
+                    response.Message = "Anunciante não encontrado para inclusão do novo Anuncio";
                     response.MessageType = "alert-warning";
                     response.Success = false;
                     return response;
                 }
 
+                var enderecoId = Guid.Parse(request.EnderecoId);
+                var endereco = _enderecoRepository.FindBy(enderecoId);
+                if (endereco == null)
+                {
+                    response.Message = "Endereco não encontrado para inclusão do novo Anuncio";
+                    response.MessageType = "alert-warning";
+                    response.Success = false;
+                    return response;
+                }
+                
                 anuncio.Status=AnuncioStatusEnum.Cadastrado;
                 anunciante.Anuncios.Add(anuncio);
                 anuncio.Anunciante = anunciante;

@@ -32,7 +32,15 @@ namespace SecondFloor.Service.ExtensionMethods
 
             if (anuncioDto.AnoFim > 0 && anuncioDto.MesFim > 0 && anuncioDto.DiaFim > 0)
                 anuncio.DataFim = new DateTime(anuncioDto.AnoFim, anuncioDto.MesFim, anuncioDto.DiaFim);
-            
+
+            anuncio.Logradouro = anuncioDto.Logradouro;
+            anuncio.Numero = anuncioDto.Numero;
+            anuncio.Complemento = anuncioDto.Complemento;
+            anuncio.Bairro = anuncioDto.Bairro;
+            anuncio.Cidade = anuncioDto.Cidade;
+            anuncio.Estado = anuncioDto.Estado;
+            anuncio.Cep = anuncioDto.Cep;
+
             return anuncio;
         }
 
@@ -64,22 +72,15 @@ namespace SecondFloor.Service.ExtensionMethods
             anuncioDto.MesFim = fim.Month;
             anuncioDto.DiaFim = fim.Day;
             anuncioDto.Status = anuncio.Status.ToString();
-            
-            /*switch (anuncio.Status)
-            {
-                case AnuncioStatusEnum.Cadastrado:
-                    anuncioDto.Status = "glyphicon-ok";
-                    break;
-                case AnuncioStatusEnum.Agendado:
-                    anuncioDto.Status = "glyphicon-dashboard";
-                    break;
-                case AnuncioStatusEnum.PublicadoAlterado:
-                    anuncioDto.Status = "glyphicon-dashboard";
-                    break;
-                case AnuncioStatusEnum.Publicado:
-                    anuncioDto.Status = "glyphicon-warning-sign";
-                    break;
-            }*/
+
+            //endereco
+            anuncioDto.Logradouro = anuncio.Logradouro;
+            anuncioDto.Numero = anuncio.Numero;
+            anuncioDto.Complemento = anuncio.Complemento;
+            anuncioDto.Bairro = anuncio.Bairro;
+            anuncioDto.Cidade = anuncio.Cidade;
+            anuncioDto.Estado = anuncio.Estado;
+            anuncioDto.Cep = anuncio.Cep;
 
             return anuncioDto;
         }

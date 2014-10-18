@@ -11,5 +11,8 @@ namespace SecondFloor.DataContracts.Messages.Anunciante
 
         [MessageBodyMember] 
         public string AnuncianteId;
+
+        [MessageBodyMember] 
+        public string EnderecoId;
     }
 }

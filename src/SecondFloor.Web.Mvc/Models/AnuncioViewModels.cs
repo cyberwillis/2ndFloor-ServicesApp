@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Web.Mvc;
 
 namespace SecondFloor.Web.Mvc.Models
@@ -21,7 +22,21 @@ namespace SecondFloor.Web.Mvc.Models
         public string Bairro { get; set; }
         public string Cidade { get; set; }
         public string Estado { get; set; }
+        public string EnderecoId { get; set; }
 
         public string AnuncianteId { get; set; }
+
+        public IList<EnderecoViewModels> Enderecos { get; set; }
+        public SelectList GetEnderecosSelectList()
+        {
+            var list = new List<EnderecoViewModels>();
+
+            if (Enderecos != null)
+            {
+                list.AddRange(Enderecos);
+            }
+
+            return new SelectList(list, "Id", "LogradouroCompleto");
+        }
     }
 }

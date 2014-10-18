@@ -26,7 +26,7 @@
                 @Html.DisplayNameFor(model => model.DataFim)
             </th>
 
-            <th>Produtos Listados</th>
+            <th>Produtos Ofertados</th>
             <th>
                 @Html.DisplayNameFor(model => model.Logradouro)
             </th>
@@ -63,12 +63,10 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.DataFim)
                 </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Logradouro) 
-                    , 
-                    @Html.DisplayFor(modelItem => item.Numero)
-                </td>
                 <td>Produtos listados</td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Logradouro) , nº @Html.DisplayFor(modelItem => item.Numero) - @Html.DisplayFor(modelItem => item.Bairro)
+                </td>
                 <td class="text-center">
                     @switch (item.Status)
                     {
