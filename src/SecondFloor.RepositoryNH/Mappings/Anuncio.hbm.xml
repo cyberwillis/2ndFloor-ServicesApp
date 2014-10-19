@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" assembly="SecondFloor.Model" namespace="SecondFloor.Model">
+  <class name="SecondFloor.Model.Anuncio" table="tbAnuncio" lazy="true">
+
+    <id name="Id" column="Id">
+      <generator class="guid"/>
+    </id>
+
+    <property name="Titulo" column="Titulo" type="string" length="50"/>
+    <property name="DataInicio" column="DataInicio" type="datetime" not-null="true"/>
+    <property name="DataFim" column="DataFim" type="datetime" not-null="true"/>
+    <property name="Status" column="" type="NHibernate.Type.EnumStringType`1[[SecondFloor.Model.AnuncioStatusEnum,SecondFloor.Model]],NHibernate" length="15"/>
+
+    <property name="Logradouro" column="Logradouro" type="string" length="250"/>
+    <property name="Numero" column="Numero" type="string" length="5"/>
+    <property name="Complemento" column="Complemento" type="string" length="250"/>
+    <property name="Bairro" column="Bairro" type="string" length="15"/>
+    <property name="Cidade" column="Cidade" type="string" length="50"/>
+    <property name="Cep" column="Cep" type="string" length="10"/>
+    <property name="Estado" column="Estado" type="string" length="10"/>
+
+    <bag name="Ofertas" table="tbOferta" lazy="true" cascade="all">
+      <key column="AnuncioId"/>
+      <one-to-many class="SecondFloor.Model.Anuncio"/>
+    </bag>
+    
+    <many-to-one name="Anunciante" column="AnuncianteId" lazy="proxy"/>
+
+  </class>
+</hibernate-mapping>

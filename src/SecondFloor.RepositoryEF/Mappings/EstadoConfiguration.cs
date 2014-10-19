@@ -10,8 +10,8 @@ namespace SecondFloor.RepositoryEF.Mappings
             ToTable("tbEstado");
             HasKey(e => e.Id);
             Property(e => e.Id).HasColumnName("Id");
-            Property(e => e.Nome).HasColumnName("Nome");
-            Property(e => e.Sigla).HasColumnName("Sigla");
+            Property(e => e.Nome).HasColumnName("Nome").HasMaxLength(20);
+            Property(e => e.Sigla).HasColumnName("Sigla").HasMaxLength(5);
         }
     }
 }

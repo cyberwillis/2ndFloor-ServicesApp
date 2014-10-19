@@ -24,8 +24,7 @@ namespace SecondFloor.Service.ExtensionMethods
             }
 
             if(anuncioDto.Ofertas!= null)
-                if (anuncioDto.Ofertas.Any())
-                    anuncio.Ofertas = anuncioDto.Ofertas.ConvertToListaDeOfertas().ToList();
+                    anuncio.Ofertas = anuncioDto.Ofertas.ConvertToListaDeOfertas();
 
             if (anuncioDto.AnoInicio > 0 && anuncioDto.MesInicio > 0 && anuncioDto.DiaInicio > 0)
                 anuncio.DataInicio = new DateTime(anuncioDto.AnoInicio, anuncioDto.MesInicio, anuncioDto.DiaInicio);
@@ -33,13 +32,13 @@ namespace SecondFloor.Service.ExtensionMethods
             if (anuncioDto.AnoFim > 0 && anuncioDto.MesFim > 0 && anuncioDto.DiaFim > 0)
                 anuncio.DataFim = new DateTime(anuncioDto.AnoFim, anuncioDto.MesFim, anuncioDto.DiaFim);
 
-            anuncio.Logradouro = anuncioDto.Logradouro;
-            anuncio.Numero = anuncioDto.Numero;
-            anuncio.Complemento = anuncioDto.Complemento;
-            anuncio.Bairro = anuncioDto.Bairro;
-            anuncio.Cidade = anuncioDto.Cidade;
-            anuncio.Estado = anuncioDto.Estado;
-            anuncio.Cep = anuncioDto.Cep;
+            //anuncio.Logradouro = anuncioDto.Logradouro;
+            //anuncio.Numero = anuncioDto.Numero;
+            //anuncio.Complemento = anuncioDto.Complemento;
+            //anuncio.Bairro = anuncioDto.Bairro;
+            //anuncio.Cidade = anuncioDto.Cidade;
+            //anuncio.Estado = anuncioDto.Estado;
+            //anuncio.Cep = anuncioDto.Cep;
 
             return anuncio;
         }
@@ -59,9 +58,6 @@ namespace SecondFloor.Service.ExtensionMethods
 
             anuncioDto.Titulo = anuncio.Titulo;
 
-            var ofertas = anuncio.Ofertas.Select(oferta => oferta.ConvertToOfertaDto()).ToList();
-            anuncioDto.Ofertas = ofertas;
-
             var inicio = anuncio.DataInicio;
             anuncioDto.AnoInicio = inicio.Year;
             anuncioDto.MesInicio = inicio.Month;
@@ -73,6 +69,9 @@ namespace SecondFloor.Service.ExtensionMethods
             anuncioDto.DiaFim = fim.Day;
             anuncioDto.Status = anuncio.Status.ToString();
 
+            if (anuncio.Ofertas != null)
+                anuncioDto.Ofertas = anuncio.Ofertas.Select(oferta => oferta.ConvertToOfertaDto()).ToList();
+
             //endereco
             anuncioDto.Logradouro = anuncio.Logradouro;
             anuncioDto.Numero = anuncio.Numero;
@@ -81,6 +80,8 @@ namespace SecondFloor.Service.ExtensionMethods
             anuncioDto.Cidade = anuncio.Cidade;
             anuncioDto.Estado = anuncio.Estado;
             anuncioDto.Cep = anuncio.Cep;
+
+            anuncioDto.AnuncianteId = anuncio.Anunciante.Id.ToString();
 
             return anuncioDto;
         }

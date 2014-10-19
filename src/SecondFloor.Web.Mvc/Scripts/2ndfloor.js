@@ -51,6 +51,47 @@ function ajaxModalFormOpenHandler(obj) {
         });
 }
 
+
+// Controle de PopOvers
+var popOptions = {
+    animation: true,
+    delay: 0,
+    html: true,
+    placement: 'top',
+    template: '<div class="popover" role="tooltip"><div class="arrow"></div><h3 class="popover-title"></h3><div class="popover-content"></div></div>',
+    //trigger: 'hover'
+};
+
+function popOpen(obj) {
+    var $button = obj;
+    $($button).popover(popOptions);
+    $($button).popover('toggle');
+}
+
+function popClose(obj) {
+    var $button = obj;
+    $($button).popover(popOptions);
+    $($button).popover('toggle');
+}
+
+function popClick(obj) {
+    //var $button = obj;
+    obj.preventDefault();
+}
+
+//$(document).ready(function () {
+//    var options = {
+//        animation: true,
+//        delay: 0,
+//        html: true,
+//        placement: 'top',
+//        template: '<div class="popover" role="tooltip"><div class="arrow"></div><h3 class="popover-title"></h3><div class="popover-content"></div></div>',
+//        trigger: 'hover'
+//    };
+//    $('#mypopovers').popover(options);
+//});
+
+
 /*
 Metodo responsavel por fazer o submit do formulario de inclusao ou alteracao
 */
@@ -78,8 +119,6 @@ var navs = [];
 function enderecoTab(e) {
     e.preventDefault();
     $(this).tab('show');
-
-    $('')
 }
 
 function produtoTab(e) {

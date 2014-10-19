@@ -27,9 +27,7 @@
             </th>
 
             <th>Produtos Ofertados</th>
-            <th>
-                @Html.DisplayNameFor(model => model.Logradouro)
-            </th>
+            <th>Logradouro</th>
             <th></th>
         </tr>
     </thead>
@@ -63,9 +61,9 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.DataFim)
                 </td>
-                <td>Produtos listados</td>
+                <td>@{ Html.RenderPartial("ListaOfertasPartialView", item.Ofertas); }</td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Logradouro) , nº @Html.DisplayFor(modelItem => item.Numero) - @Html.DisplayFor(modelItem => item.Bairro)
+                    @Html.DisplayFor(modelItem => item.Endereco.Logradouro) , nº @Html.DisplayFor(modelItem => item.Endereco.Numero) - @Html.DisplayFor(modelItem => item.Endereco.Bairro)
                 </td>
                 <td class="text-center">
                     @switch (item.Status)
@@ -73,15 +71,21 @@
                         case "Cadastrado":
                             <button type="button" onclick="ajaxModalFormOpenHandler(this)" class="btn btn-sm btn-success disabled"
                                     data-url="/Anuncio/Publish/@Html.DisplayFor(id=>item.Id)"
-                                    data-url-content-update="/Anuncio/List/@Html.DisplayFor(id=>item.Id)"
+                                    data-url-content-update="/Anuncio/List/@ViewBag.AnuncianteId"
                                     data-content-update-id="#conteudoAnuncianteAnuncio">
                                 Publicar
+                            </button>
+                            <button type="button" onclick="ajaxModalFormOpenHandler(this)" class="btn btn-sm btn-warning disabled"
+                                    data-url="/Anuncio/Edit/@Html.DisplayFor(id=>item.Id)"
+                                    data-url-content-update="/Anuncio/List/@ViewBag.AnuncianteId"
+                                    data-content-update-id="#conteudoAnuncianteAnuncio">
+                                Alterar
                             </button>
                             break;
                         case "Agendado":
                         <button type="button" onclick="ajaxModalFormOpenHandler(this)" class="btn btn-sm btn-warning disabled"
                                 data-url="/Anuncio/Edit/@Html.DisplayFor(id=>item.Id)"
-                                data-url-content-update="/Anuncio/List/@Html.DisplayFor(id=>item.Id)"
+                                data-url-content-update="/Anuncio/List/@ViewBag.AnuncianteId"
                                 data-content-update-id="#conteudoAnuncianteAnuncio">
                             Alterar
                         </button>
@@ -89,7 +93,7 @@
                         case "PublicadoAlterado":
                         <button type="button" onclick="ajaxModalFormOpenHandler(this)" class="btn btn-sm btn-warning disabled"
                                 data-url="/Anuncio/Edit/@Html.DisplayFor(id=>item.Id)"
-                                data-url-content-update="/Anuncio/List/@Html.DisplayFor(id=>item.Id)"
+                                data-url-content-update="/Anuncio/List/@ViewBag.AnuncianteId"
                                 data-content-update-id="#conteudoAnuncianteAnuncio">
                             Alterar
                         </button>
@@ -97,7 +101,7 @@
                         case "Publicado":
                         <button type="button" onclick="ajaxModalFormOpenHandler(this)" class="btn btn-sm btn-danger disabled"
                                 data-url="/Anuncio/Edit/@Html.DisplayFor(id=>item.Id)"
-                                data-url-content-update="/Anuncio/List/@Html.DisplayFor(id=>item.Id)"
+                                data-url-content-update="/Anuncio/List/@ViewBag.AnuncianteId"
                                 data-content-update-id="#conteudoAnuncianteAnuncio">
                             Alterar
                         </button>
@@ -110,3 +114,6 @@
         }
     </tbody>
 </table>
+
+
+

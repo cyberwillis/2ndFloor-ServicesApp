@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" assembly="SecondFloor.Model" namespace="SecondFloor.Model">
+  <class name="SecondFloor.Model.Oferta" table="tbOferta" lazy="true">
+
+    <id name="Id" column="Id">
+      <generator class="guid"/>
+    </id>
+
+    <property name="NomeProduto" column="NomeProduto" type="string" length="250"/>
+    <property name="Referencia" column="Referencia" type="string" length="15"/>
+    <property name="Descricao" column="Descricao" type="string" length="1000"/>
+    <property name="Fabricante" column="Fabricante" type="string" length="250"/>
+    <property name="Valor" column="Valor" type="decimal"/>
+
+    <many-to-one name="Anunciante" column="AnuncianteId" lazy="proxy"/>
+
+  </class>
+</hibernate-mapping>

@@ -35,9 +35,6 @@
     <Reference Include="Iesi.Collections">
       <HintPath>..\packages\Iesi.Collections.4.0.1.4000\lib\net40\Iesi.Collections.dll</HintPath>
     </Reference>
-    <Reference Include="NHibernate">
-      <HintPath>..\packages\NHibernate.4.0.1.4000\lib\net40\NHibernate.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Web" />
@@ -57,17 +54,32 @@
     <Compile Include="SessionFactory.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Mappings\" />
     <Folder Include="Repositories\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\..\..\OpenSource\nhibernate-core\src\NHibernate\NHibernate.csproj">
+      <Project>{5909bfe7-93cf-4e5f-be22-6293368af01d}</Project>
+      <Name>NHibernate</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SecondFloor.Infrastructure\SecondFloor.Infrastructure.csproj">
       <Project>{0B674E26-7392-4E08-B9F0-04078ECDE0BC}</Project>
       <Name>SecondFloor.Infrastructure</Name>
     </ProjectReference>
+    <ProjectReference Include="..\SecondFloor.Model\SecondFloor.Model.csproj">
+      <Project>{640a4cc8-f3cd-45c6-bc4b-37c2e22eb2f4}</Project>
+      <Name>SecondFloor.Model</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Mappings\Anunciante.hbm.xml" />
+    <EmbeddedResource Include="Mappings\Anuncio.hbm.xml" />
+    <EmbeddedResource Include="Mappings\Endereco.hbm.xml" />
+    <EmbeddedResource Include="Mappings\Estado.hbm.xml" />
+    <EmbeddedResource Include="Mappings\Oferta.hbm.xml" />
+    <EmbeddedResource Include="Mappings\Produto.hbm.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />

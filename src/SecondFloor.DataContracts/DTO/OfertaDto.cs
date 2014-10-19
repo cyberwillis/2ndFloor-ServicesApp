@@ -17,5 +17,12 @@ namespace SecondFloor.DataContracts.DTO
         public string Fabricante { get; set; }
         [DataMember]
         public string Valor { get; set; }
+        [DataMember]
+        public EnderecoDto Endereco { get; set; }
+
+        public OfertaDto()
+        {
+            Endereco = new EnderecoDto();
+        }
     }
 }

@@ -1,0 +1,34 @@
+﻿@model IEnumerable<SecondFloor.Web.Mvc.Models.OfertaViewModels>
+<style id="jsbin-css">
+
+    .button {
+        display: inline-block;
+    }
+</style>
+@*<script>
+    $(function () {$(".tooltip-options a").tooltip({ html: true });});
+</script>*@
+<div id="mypopovers">
+    @foreach (var item in Model)
+    {
+        @*<a class="tooltip-show" href="#" data-toggle="tooltip" title="show">Tooltip on method show</a>.*@
+        <a class="btn btn-xs btn-default"
+                data-toggle="popover"
+                title="oferta: @Html.DisplayFor(m => item.NomeProduto)"
+                data-content="valor ofertado: @Html.DisplayFor(m => item.Valor)"
+                trigger="hover"
+                onmouseover="popOpen(this);"
+                onmouseout="popClose(this);" 
+                onclick=""
+            >
+        @Html.DisplayFor(m => item.NomeProduto)
+    </a>
+
+    }
+</div>
+<script>
+
+</script>
+
+
+

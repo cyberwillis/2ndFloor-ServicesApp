@@ -43,26 +43,51 @@ namespace SecondFloor.Web.Mvc.Services
 
         //===========================================================================================
 
-        public static OfertaDto ConvertTOofertaDto(this OfertaViewModels ofertaView)
+        public static OfertaDto ConvertToOfertaDto(this OfertaViewModels ofertaView)
         {
-            var ofertaDto = new OfertaDto()
-            {
-                Id = new Guid().ToString(),//ofertaView.Id, //Novo Id
-                Descricao = ofertaView.Descricao,
-                Fabricante = ofertaView.Fabricante,
-                Referencia = ofertaView.Referencia,
-                NomeProduto = ofertaView.NomeProduto,
-                Valor = ofertaView.Valor
-            };
+            var ofertaDto = new OfertaDto();
+            //ofertaDto.Id = new Guid().ToString();
+            ofertaDto.Id = ofertaView.Id;
+            ofertaDto.Descricao = ofertaView.Descricao;
+            ofertaDto.Fabricante = ofertaView.Fabricante;
+            ofertaDto.Referencia = ofertaView.Referencia;
+            ofertaDto.NomeProduto = ofertaView.NomeProduto;
+            ofertaDto.Valor = ofertaView.Valor;
+
+            if (ofertaView.Endereco != null)
+                ofertaDto.Endereco = ofertaView.Endereco.ConvertToEnderecoDto();
 
             return ofertaDto;
         }
 
         public static IList<OfertaDto> ConvertToListaOfertasDto(this IList<OfertaViewModels> ofertasView)
         {
-            var ofertasDto = ofertasView.Select(x=>x.ConvertTOofertaDto()).ToList();
+            var ofertasDto = ofertasView.Select(x=>x.ConvertToOfertaDto()).ToList();
 
             return ofertasDto;
+        }
+
+        public static OfertaViewModels ConvertToOfertasViewModel(this OfertaDto ofertaDto)
+        {
+            var ofertasViewModel = new OfertaViewModels();
+            ofertasViewModel.Id = ofertaDto.Id;
+            ofertasViewModel.Descricao = ofertaDto.Descricao;
+            ofertasViewModel.Fabricante = ofertaDto.Fabricante;
+            ofertasViewModel.Referencia = ofertaDto.Referencia;
+            ofertasViewModel.NomeProduto = ofertaDto.NomeProduto;
+            ofertasViewModel.Valor = ofertaDto.Valor;
+
+            if (ofertaDto.Endereco != null)
+                ofertaDto.Endereco.ConvertToEnderecoViewModel();
+
+            return ofertasViewModel;
+        }
+
+        public static IList<OfertaViewModels> ConvertToListaOfertasViewModel(this IList<OfertaDto> ofertasDto)
+        {
+            var ofertasViewModel = ofertasDto.Select(oferta => oferta.ConvertToOfertasViewModel()).ToList();
+
+            return ofertasViewModel;
         }
     }
 }

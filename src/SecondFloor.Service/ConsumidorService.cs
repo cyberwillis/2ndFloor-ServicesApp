@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ServiceModel;
 using System.ServiceModel.Activation;
+using SecondFloor.DataContracts.Messages.Consumidor;
 using SecondFloor.DataContracts.Messages.ConsumidorOfertas;
 using SecondFloor.Model;
 using SecondFloor.Service.ExtensionMethods;
@@ -50,13 +51,27 @@ namespace SecondFloor.Service
 
         public AtribuirRatingOfertaResponse AtribuirRatingPara(AtribuirRatingOfertaRequest request)
         {
-            var response = new AtribuirRatingOfertaResponse();
+            var response = new AtribuirRatingOfertaResponse() {Success = true, Message = "Rating enviado com sucesso"};
 
-            //TODO: implementacao da pontuacao
-            //TODO: pensar com calma
-            response.Message = string.Format("FAKE: Rating Enviado com sucesso!");
-            response.MessageType = "alert-info";
-            response.Success = true;
+            //TODO: registrar no banco
+
+            return response;
+        }
+
+        public CadastrarConsumidorResponse CadastrarConsumidor(CadastrarConsumidorRequest request)
+        {
+            var response = new CadastrarConsumidorResponse(){Success = true, Message = "Cadastrado com sucesso", Token = new Guid().ToString()};
+
+            //TODO: registrar no banco
+
+            return response;
+        }
+
+        public LogonConsumidorResponse LogonConsumidor(LogonConsumidorRequest request)
+        {
+            var response = new LogonConsumidorResponse(){Success = true, Message = "Logado com sucesso", Token = new Guid().ToString()};
+
+            //TODO: buscar no banco
 
             return response;
         }

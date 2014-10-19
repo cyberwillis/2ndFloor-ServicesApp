@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data.Entity.Validation;
 using Microsoft.Practices.ObjectBuilder2;
 using SecondFloor.DataContracts.Messages.Endereco;
 using SecondFloor.Model;
@@ -123,7 +124,7 @@ namespace SecondFloor.Service
                 }
                 
                 anunciante.Enderecos.Add(endereco);
-                endereco.Anunciante = anunciante;
+                //endereco.Anunciante = anunciante;
 
                 _enderecoRepository.InserirEndereco(endereco);
                 _enderecoRepository.Persist();
@@ -132,12 +133,32 @@ namespace SecondFloor.Service
                 response.MessageType = "alert-info";
                 response.Success = true;
             }
+            catch (DbEntityValidationException ex)
+            {
+                response.Message = "Ocorreu um erro:\n" + ex.Message;
+                
+                foreach (var eve in ex.EntityValidationErrors)
+                {
+                    response.Message += string.Format("Entity of type \"{0}\" in state \"{1}\" has the following validation errors:",
+                        eve.Entry.Entity.GetType().Name, eve.Entry.State);
+                    foreach (var ve in eve.ValidationErrors)
+                    {
+                        response.Message += string.Format("- Property: \"{0}\", Value: \"{1}\", Error: \"{2}\"",
+                            ve.PropertyName,
+                            eve.Entry.CurrentValues.GetValue<object>(ve.PropertyName),
+                            ve.ErrorMessage);
+                    }
+                }
+                response.MessageType = "alert-danger";
+                response.Success = false;
+            }
             catch (Exception ex)
             {
                 response.Message = "Ocorreu um erro:\n" + ex.Message;
                 response.MessageType = "alert-danger";
                 response.Success = false;
             }
+            
 
             return response;
         }

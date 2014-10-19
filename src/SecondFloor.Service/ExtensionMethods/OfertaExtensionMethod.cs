@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Text.RegularExpressions;
-using Microsoft.Practices.ObjectBuilder2;
 using SecondFloor.DataContracts.DTO;
 using SecondFloor.Model;
 
@@ -28,11 +27,23 @@ namespace SecondFloor.Service.ExtensionMethods
             oferta.Descricao = ofertaDto.Descricao;
             oferta.Fabricante = ofertaDto.Fabricante;
             oferta.Referencia = ofertaDto.Referencia;
+            
             if ( !string.IsNullOrEmpty(ofertaDto.Valor) )
                 oferta.Valor = decimal.Parse( ofertaDto.ConvertToValorNormal(), new CultureInfo("pt-BR") );
             else
                 oferta.Valor = decimal.Parse("0.00");
-            
+
+            if (ofertaDto.Endereco != null)
+            {
+                oferta.Logradouro = ofertaDto.Endereco.Logradouro;
+                oferta.Numero = ofertaDto.Endereco.Numero;
+                oferta.Complemento = ofertaDto.Endereco.Complemento;
+                oferta.Bairro = ofertaDto.Endereco.Bairro;
+                oferta.Cidade = ofertaDto.Endereco.Cidade;
+                oferta.Cep = ofertaDto.Endereco.Cep;
+                oferta.Estado = ofertaDto.Endereco.Estado;
+            }
+
             return oferta;
         }
 
@@ -47,17 +58,25 @@ namespace SecondFloor.Service.ExtensionMethods
             ofertaDto.Referencia = oferta.Referencia;
             ofertaDto.Valor = oferta.Valor.ToString("c", new CultureInfo("pt-BR"));
 
+            ofertaDto.Endereco.Logradouro = oferta.Logradouro;
+            ofertaDto.Endereco.Numero = oferta.Numero;
+            ofertaDto.Endereco.Complemento = oferta.Complemento;
+            ofertaDto.Endereco.Bairro = oferta.Bairro;
+            ofertaDto.Endereco.Cidade = oferta.Cidade;
+            ofertaDto.Endereco.Estado = oferta.Estado;
+            ofertaDto.Endereco.Cep = oferta.Cep;
+
             return ofertaDto;
         }
 
-        public static IEnumerable<Oferta> ConvertToListaDeOfertas(this IEnumerable<OfertaDto> ofertasDtos)
+        public static IList<Oferta> ConvertToListaDeOfertas(this IList<OfertaDto> ofertasDtos)
         {
             var ofertas = ofertasDtos.Select(ofertasDto => ofertasDto.ConvertToOferta()).ToList();
 
             return ofertas;
         }
 
-        public static IEnumerable<OfertaDto> ConvertToListaOfertasDto(this IEnumerable<Oferta> ofertas)
+        public static IList<OfertaDto> ConvertToListaOfertasDto(this IList<Oferta> ofertas)
         {
             var ofertasDtos = ofertas.Select(oferta => oferta.ConvertToOfertaDto()).ToList();
 
@@ -89,37 +108,13 @@ namespace SecondFloor.Service.ExtensionMethods
             consumidorOferta.NomeProduto = oferta.NomeProduto;
             consumidorOferta.Descricao = oferta.Descricao;
             consumidorOferta.Valor = oferta.Valor.ToString();
-            consumidorOferta.Logradouro = oferta.Anuncio.Logradouro;
+            /*consumidorOferta.Logradouro = oferta.Anuncio.Logradouro;
             consumidorOferta.Numero = oferta.Anuncio.Numero;
             consumidorOferta.Complemento = oferta.Anuncio.Complemento;
             consumidorOferta.Bairro = oferta.Anuncio.Bairro;
             consumidorOferta.AnuncianteId = oferta.Anuncio.Anunciante.Id.ToString();
             consumidorOferta.AnuncianteRazaoSocial = oferta.Anuncio.Anunciante.RazaoSocial;
-            consumidorOferta.AnunciantePontuacao = oferta.Anuncio.Anunciante.Pontuacao.ToString();
-            //consumidorOferta = new ConsumidorOfertaDto()
-            //{
-            //    //Dados Oferta
-            //    OfertaId = oferta.Id.ToString(),
-            //    Fabricante = oferta.Fabricante,
-            //    Referencia = oferta.Referencia,
-            //    NomeProduto = oferta.NomeProduto,
-            //    Descricao = oferta.Descricao,
-            //    Valor = oferta.Valor.ToString(),
-
-            //    //Dados Endereco
-            //    Logradouro = oferta.Anuncio.Logradouro,
-            //    Numero = oferta.Anuncio.Numero,
-            //    Complemento = oferta.Anuncio.Complemento,
-            //    Bairro = oferta.Anuncio.Bairro,
-            //    //Cidade = oferta.Anuncio.Cidade,
-            //    //Bairro Dto from String inpossivel
-
-            //    //Dados do Anunciante
-            //    AnuncianteId = oferta.Anuncio.Anunciante.Id.ToString(),
-            //    AnuncianteRazaoSocial = oferta.Anuncio.Anunciante.RazaoSocial,
-            //    //AnuncianteTelefone = oferta.Anuncio.Anunciante.Telefone,
-            //    AnunciantePontuacao = oferta.Anuncio.Anunciante.Pontuacao.ToString(),
-            //};
+            consumidorOferta.AnunciantePontuacao = oferta.Anuncio.Anunciante.Pontuacao.ToString();*/
 
             return consumidorOferta;
         }

@@ -40,7 +40,14 @@ namespace SecondFloor.DataContracts.DTO
         public string Estado { get; set; }
         [DataMember]
         public string Cep { get; set; }
+
         [DataMember]
-        public IEnumerable<OfertaDto> Ofertas { get; set; }
+        public EnderecoDto Endereco { get; set; }
+
+        [DataMember]
+        public IList<OfertaDto> Ofertas { get; set; }
+
+        [DataMember]
+        public string AnuncianteId { get; set; }
     }
 }

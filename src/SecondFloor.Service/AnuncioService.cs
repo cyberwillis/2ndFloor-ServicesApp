@@ -111,7 +111,7 @@ namespace SecondFloor.Service
                     return response;
                 }
 
-                var enderecoId = Guid.Parse(request.EnderecoId);
+                /*var enderecoId = Guid.Parse(request.EnderecoId);
                 var endereco = _enderecoRepository.FindBy(enderecoId);
                 if (endereco == null)
                 {
@@ -119,11 +119,12 @@ namespace SecondFloor.Service
                     response.MessageType = "alert-warning";
                     response.Success = false;
                     return response;
-                }
+                }*/
                 
                 anuncio.Status=AnuncioStatusEnum.Cadastrado;
                 anunciante.Anuncios.Add(anuncio);
-                anuncio.Anunciante = anunciante;
+                
+                //anuncio.Anunciante = anunciante;
 
                 _anuncioRepository.InserirAnuncio(anuncio);
                 _anuncioRepository.Persist();

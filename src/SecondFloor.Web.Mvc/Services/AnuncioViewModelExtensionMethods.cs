@@ -9,6 +9,36 @@ namespace SecondFloor.Web.Mvc.Services
 {
     public static class AnuncioViewModelExtensionMethods
     {
+        public static AnuncioViewModels ConvertToAnuncioViewModels(this AnuncioDto anuncioDto)
+        {
+            var anuncioView = new AnuncioViewModels();
+
+            anuncioView.Id = anuncioDto.Id;
+            anuncioView.Titulo = anuncioDto.Titulo;
+            anuncioView.DataFim = anuncioDto.AnoFim + "/" + anuncioDto.MesFim + "/" + anuncioDto.DiaFim;
+            anuncioView.DataInicio = anuncioDto.AnoInicio + "/" + anuncioDto.MesInicio + "/" + anuncioDto.DiaInicio;
+            anuncioView.Status = anuncioDto.Status;
+
+            if (anuncioDto.Ofertas != null)
+            {
+                anuncioView.Ofertas = anuncioDto.Ofertas.ConvertToListaOfertasViewModel();
+
+                if (anuncioDto.Ofertas.Any())
+                {
+                    anuncioView.Endereco.Logradouro = anuncioDto.Ofertas[0].Endereco.Logradouro;
+                    anuncioView.Endereco.Numero = int.Parse(anuncioDto.Ofertas[0].Endereco.Numero);
+                    anuncioView.Endereco.Complemento = anuncioDto.Ofertas[0].Endereco.Complemento;
+                    anuncioView.Endereco.Bairro = anuncioDto.Ofertas[0].Endereco.Bairro;
+                    anuncioView.Endereco.Cidade = anuncioDto.Ofertas[0].Endereco.Cidade;
+                    anuncioView.Endereco.Estado = anuncioDto.Ofertas[0].Endereco.Estado;
+                    anuncioView.Endereco.Cep = anuncioDto.Ofertas[0].Endereco.Cep;
+                }
+            }
+
+            anuncioView.AnuncianteId = anuncioDto.AnuncianteId;
+            return anuncioView;
+        }
+
         public static AnuncioDto ConvertToAnuncioDto(this AnuncioViewModels anuncioView)
         {
             var anuncioDto = new AnuncioDto();
@@ -33,14 +63,6 @@ namespace SecondFloor.Web.Mvc.Services
                 anuncioDto.DiaFim = int.Parse(data[0]);
             }
 
-            //enderecos
-            anuncioDto.Logradouro = anuncioView.Logradouro;
-            anuncioDto.Numero = anuncioView.Numero;
-            anuncioDto.Complemento = anuncioView.Complemento;
-            anuncioDto.Bairro = anuncioView.Bairro;
-            anuncioDto.Cidade = anuncioView.Cidade;
-            anuncioDto.Estado = anuncioView.Estado;
-
             //Conversao de Ofertas para insercao e alteracao
             if (anuncioView.Ofertas != null)
                 anuncioDto.Ofertas = anuncioView.Ofertas.ConvertToListaOfertasDto();
@@ -48,25 +70,7 @@ namespace SecondFloor.Web.Mvc.Services
             return anuncioDto;
         }
 
-        public static AnuncioViewModels ConvertToAnuncioViewModels(this AnuncioDto anuncioDto)
-        {
-            var anuncioView = new AnuncioViewModels();
 
-            anuncioView.Titulo = anuncioDto.Titulo;
-            anuncioView.DataFim = anuncioDto.AnoFim + "/" + anuncioDto.MesFim + "/" + anuncioDto.DiaFim;
-            anuncioView.DataInicio = anuncioDto.AnoInicio + "/" + anuncioDto.MesInicio + "/" + anuncioDto.DiaInicio;
-            anuncioView.Status = anuncioDto.Status;
-
-            anuncioView.Logradouro = anuncioDto.Logradouro;
-            anuncioView.Numero = anuncioDto.Numero;
-            anuncioView.Complemento = anuncioDto.Complemento;
-            anuncioView.Bairro = anuncioDto.Bairro;
-            anuncioView.Cidade = anuncioDto.Cidade;
-            anuncioView.Estado = anuncioDto.Estado;
-            //anuncioView.Cep = anuncioDto.Cep;
-
-            return anuncioView;
-        }
 
         public static IList<AnuncioViewModels> ConverttoListaAnunciosViewModel(this IList<AnuncioDto> anunciosDto)
         {

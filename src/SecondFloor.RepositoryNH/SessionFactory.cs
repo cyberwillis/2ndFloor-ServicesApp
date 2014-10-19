@@ -20,7 +20,7 @@ namespace SecondFloor.RepositoryNH
                 x.LogFormattedSql = true;
                 x.LogSqlInConsole = true;
                 x.ConnectionProvider<DriverConnectionProvider>();
-                x.ConnectionString = "Data Source=192.168.1.65;Initial Catalog=Generic.NH;UID=generic;PWD=generic";
+                x.ConnectionString = "Data Source=192.168.1.65;Initial Catalog=2ndFloor;UID=generic;PWD=generic";
                 x.Driver<SqlClientDriver>();
                 x.Dialect<MsSql2012Dialect>();
             });

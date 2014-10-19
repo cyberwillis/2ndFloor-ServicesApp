@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Data.Linq.SqlClient;
 using System.Linq;
 using System.Runtime.Remoting.Contexts;
@@ -32,11 +33,11 @@ namespace SecondFloor.RepositoryEF.Repositories
 
         public IList<Oferta> EncontrarOdertasPorAnuncio(Guid id)
         {
-            var ofertas = from o in AnuncianteContextFactory.GetAnuncianteContext().Ofertas
-                where o.Anuncio.Id == id
-                select o;
-
-            return ofertas.ToList();
+            var anuncio = (from a in AnuncianteContextFactory.GetAnuncianteContext().Anuncios
+                where a.Id == id
+                select a).First();
+            
+            return anuncio.Ofertas;
         }
     }
 }

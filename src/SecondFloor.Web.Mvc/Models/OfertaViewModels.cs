@@ -21,6 +21,8 @@ namespace SecondFloor.Web.Mvc.Models
         [Display(Name = "Valor")]
         public string Valor { get; set; }
 
+        public EnderecoViewModels Endereco { get; set; }
+
         public bool Checked { get; set; }
     }
 }

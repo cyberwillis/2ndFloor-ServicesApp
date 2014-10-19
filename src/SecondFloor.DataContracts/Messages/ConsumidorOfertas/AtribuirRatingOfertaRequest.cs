@@ -7,5 +7,12 @@ namespace SecondFloor.DataContracts.Messages.ConsumidorOfertas
     {
         [MessageBodyMember(Name = "rating")]
         public string Rating { get; set; }
+
+        //TODO: remover?
+        [MessageBodyMember(Name = "consumidorId")] 
+        public string Consumidor { get; set; }
+
+        [MessageBodyMember(Name = "produtoId")]
+        public string Produto { get; set; }
     }
 }

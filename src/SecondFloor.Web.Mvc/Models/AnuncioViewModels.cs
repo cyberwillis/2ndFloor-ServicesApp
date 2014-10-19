@@ -12,21 +12,18 @@ namespace SecondFloor.Web.Mvc.Models
 
         public string DataInicio { get; set; }
         public string DataFim { get; set; }
-        public IList<OfertaViewModels> Ofertas { get; set; }
-
         public string Status { get; set; }
 
-        public string Logradouro { get; set; }
-        public string Numero { get; set; }
-        public string Complemento { get; set; }
-        public string Bairro { get; set; }
-        public string Cidade { get; set; }
-        public string Estado { get; set; }
         public string EnderecoId { get; set; }
 
-        public string AnuncianteId { get; set; }
+        public EnderecoViewModels Endereco { get; set; }
 
         public IList<EnderecoViewModels> Enderecos { get; set; }
+
+        public IList<OfertaViewModels> Ofertas { get; set; }
+
+        public string AnuncianteId { get; set; }
+        
         public SelectList GetEnderecosSelectList()
         {
             var list = new List<EnderecoViewModels>();
@@ -37,6 +34,11 @@ namespace SecondFloor.Web.Mvc.Models
             }
 
             return new SelectList(list, "Id", "LogradouroCompleto");
+        }
+
+        public AnuncioViewModels()
+        {
+            Endereco = new EnderecoViewModels();
         }
     }
 }

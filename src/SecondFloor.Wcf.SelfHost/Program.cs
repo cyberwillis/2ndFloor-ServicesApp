@@ -22,6 +22,7 @@ namespace SecondFloor.Wcf.SelfHost
             //var host = new WcfServiceFactory().GetInstance(typeof(AnuncianteService));
 
             Database.SetInitializer(new AnuncianteModelConfiguration());
+            //Database.SetInitializer(new MigrateDatabaseToLatestVersion<AnuncianteContext, AnuncianteModelConfiguration>());
 
             var host = new WcfServiceFactory().GetInstance(typeof(ConsumidorService));
             try

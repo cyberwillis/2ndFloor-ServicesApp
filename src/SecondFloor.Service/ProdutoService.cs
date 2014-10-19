@@ -114,7 +114,7 @@ namespace SecondFloor.Service
 
 
                 anunciante.Produtos.Add(produto);
-                produto.Anunciante = anunciante;
+                //produto.Anunciante = anunciante;
 
                 _produtoRepository.InserirProduto(produto);
                 _produtoRepository.Persist();

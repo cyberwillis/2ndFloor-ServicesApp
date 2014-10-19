@@ -26,7 +26,7 @@ namespace SecondFloor.Model.Rules.Specifications
             //Complemento (Opcional)
             if (!string.IsNullOrEmpty(endereco.Complemento))
             {
-                if (endereco.Complemento.Length > 15)
+                if (endereco.Complemento.Length > 250)
                 {
                     endereco.BrokenRules.Add("Complemento", "O Complemento deve conter no máximo (15) caracteres");
                 }
@@ -45,6 +45,10 @@ namespace SecondFloor.Model.Rules.Specifications
             if (string.IsNullOrEmpty(endereco.Cidade))
             {
                 endereco.BrokenRules.Add("Cidade", "A cidade não foi especificada.");
+            }
+            else if (endereco.Bairro.Length > 50)
+            {
+                endereco.BrokenRules.Add("Cidade", "A cidade deve conter no máximo (50) caracteres.");
             }
 
             //Estado

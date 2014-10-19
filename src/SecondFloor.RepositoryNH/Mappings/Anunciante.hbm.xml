@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" assembly="SecondFloor.Model" namespace="SecondFloor.Model">
+  <class name="SecondFloor.Model.Anunciante" table="tbAnunciante" lazy="true">
+
+    <id name="Id" column="Id">
+      <generator class="guid"/>
+    </id>
+
+    <property name="RazaoSocial" column="RazaoSocial" type="string" length="250"/>
+    <property name="Cnpj" column="Cnpj" type="string" length="20"/>
+    <property name="Email" column="Email" type="string" length="250"/>
+    <property name="Responsavel" column="Responsavel" type="string" length="250"/>
+    <property name="Pontuacao" column="Pontuacao" type="decimal"/>
+
+    <bag name="Anuncios" table="tbAnuncio" lazy="true" cascade="all">
+      <key column="AnuncianteId"/>
+      <one-to-many class="SecondFloor.Model.Anuncio"/>
+    </bag>
+
+    <bag name="Enderecos" table="tbEndereco" lazy="true" cascade="all">
+      <key column="AnuncianteId"/>
+      <one-to-many class="SecondFloor.Model.Endereco"/>
+    </bag>
+
+    <bag name="Produtos" table="tbProduto" lazy="true" cascade="all">
+      <key column="AnuncianteId"/>
+      <one-to-many class="SecondFloor.Model.Produto"/>
+    </bag>
+    
+  </class>
+</hibernate-mapping>

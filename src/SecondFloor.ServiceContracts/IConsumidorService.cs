@@ -2,6 +2,7 @@
 using System.ServiceModel;
 using System.ServiceModel.Web;
 using SecondFloor.DataContracts.DTO;
+using SecondFloor.DataContracts.Messages.Consumidor;
 using SecondFloor.DataContracts.Messages.ConsumidorOfertas;
 
 namespace SecondFloor.ServiceContracts
@@ -16,5 +17,13 @@ namespace SecondFloor.ServiceContracts
         [OperationContract]
         [WebInvoke(Method = "POST", ResponseFormat = WebMessageFormat.Json, RequestFormat = WebMessageFormat.Json)]
         AtribuirRatingOfertaResponse AtribuirRatingPara(AtribuirRatingOfertaRequest request);
+
+        [OperationContract]
+        [WebInvoke(Method = "POST", ResponseFormat = WebMessageFormat.Json, RequestFormat = WebMessageFormat.Json)]
+        CadastrarConsumidorResponse CadastrarConsumidor(CadastrarConsumidorRequest request);
+
+        [OperationContract]
+        [WebInvoke(Method = "POST", ResponseFormat = WebMessageFormat.Json, RequestFormat = WebMessageFormat.Json)]
+        LogonConsumidorResponse LogonConsumidor(LogonConsumidorRequest request);
     }
 }

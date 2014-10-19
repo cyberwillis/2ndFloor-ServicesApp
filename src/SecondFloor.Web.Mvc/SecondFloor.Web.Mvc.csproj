@@ -457,6 +457,8 @@
     <Content Include="Views\Anuncio\ListaAnuncioPartialView.cshtml" />
     <Content Include="Views\Anuncio\AnuncioPartialView.cshtml" />
     <Content Include="Views\Anuncio\OfertasPartialView.cshtml" />
+    <Content Include="Views\Anuncio\ListaOfertasPartialView.cshtml" />
+    <Content Include="Views\Anuncio\AnuncioAlterarPartialView.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
