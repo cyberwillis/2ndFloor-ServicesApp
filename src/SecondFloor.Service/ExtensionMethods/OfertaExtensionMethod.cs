@@ -108,13 +108,13 @@ namespace SecondFloor.Service.ExtensionMethods
             consumidorOferta.NomeProduto = oferta.NomeProduto;
             consumidorOferta.Descricao = oferta.Descricao;
             consumidorOferta.Valor = oferta.Valor.ToString();
-            /*consumidorOferta.Logradouro = oferta.Anuncio.Logradouro;
-            consumidorOferta.Numero = oferta.Anuncio.Numero;
-            consumidorOferta.Complemento = oferta.Anuncio.Complemento;
-            consumidorOferta.Bairro = oferta.Anuncio.Bairro;
+            consumidorOferta.Logradouro = oferta.Logradouro;
+            consumidorOferta.Numero = oferta.Numero;
+            consumidorOferta.Complemento = oferta.Complemento;
+            consumidorOferta.Bairro = oferta.Bairro;
             consumidorOferta.AnuncianteId = oferta.Anuncio.Anunciante.Id.ToString();
             consumidorOferta.AnuncianteRazaoSocial = oferta.Anuncio.Anunciante.RazaoSocial;
-            consumidorOferta.AnunciantePontuacao = oferta.Anuncio.Anunciante.Pontuacao.ToString();*/
+            consumidorOferta.AnunciantePontuacao = oferta.Anuncio.Anunciante.Pontuacao.ToString();
 
             return consumidorOferta;
         }

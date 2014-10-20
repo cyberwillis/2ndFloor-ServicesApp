@@ -121,11 +121,10 @@ namespace SecondFloor.Service
                     return response;
                 }*/
                 
-                anuncio.Status=AnuncioStatusEnum.Cadastrado;
+                anuncio.Status=AnuncioStatusEnum.Publicado;
                 anunciante.Anuncios.Add(anuncio);
                 
                 //anuncio.Anunciante = anunciante;
-
                 _anuncioRepository.InserirAnuncio(anuncio);
                 _anuncioRepository.Persist();
 

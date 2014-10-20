@@ -47,7 +47,6 @@ namespace SecondFloor.Service
                 response.MessageType = "alert-danger";
                 response.Success = false;
             }
-
             return response;
         }
 

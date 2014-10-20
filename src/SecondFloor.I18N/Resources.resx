@@ -396,6 +396,45 @@
   <data name="AnuncianteServices_EncontrarTodosAnunciantes_Success" xml:space="preserve">
     <value>Found {0} sellers</value>
   </data>
+  <data name="EnderecoServices_AlterarEndereco_Error" xml:space="preserve">
+    <value>Errors occurred:</value>
+  </data>
+  <data name="EnderecoServices_AlterarEndereco_NotFound" xml:space="preserve">
+    <value>Address not found!</value>
+  </data>
+  <data name="EnderecoServices_AlterarEndereco_Success" xml:space="preserve">
+    <value>Address updated successfully!</value>
+  </data>
+  <data name="EnderecoServices_CadastrarEndereco_AnuncianteNotFound" xml:space="preserve">
+    <value>Seller not Found</value>
+  </data>
+  <data name="EnderecoServices_CadastrarEndereco_Error" xml:space="preserve">
+    <value>Errors occurred:</value>
+  </data>
+  <data name="EnderecoServices_CadastrarEndereco_EstadoNotFound" xml:space="preserve">
+    <value>State not found!</value>
+  </data>
+  <data name="EnderecoServices_CadastrarEndereco_Success" xml:space="preserve">
+    <value>Address registred successfully!</value>
+  </data>
+  <data name="EnderecoServices_EncontrarEnderecoPor_Error" xml:space="preserve">
+    <value>Errors occurred:</value>
+  </data>
+  <data name="EnderecoServices_EncontrarEnderecoPor_NotFound" xml:space="preserve">
+    <value>Address not found!</value>
+  </data>
+  <data name="EnderecoServices_EncontrarEnderecoPor_Success" xml:space="preserve">
+    <value>Address Found!</value>
+  </data>
+  <data name="EnderecoServices_EncontratTodosEnderecos_Error" xml:space="preserve">
+    <value>Errors occurred:</value>
+  </data>
+  <data name="EnderecoServices_EncontratTodosEnderecos_NotFound" xml:space="preserve">
+    <value>Seller information not found!</value>
+  </data>
+  <data name="EnderecoServices_EncontratTodosEnderecos_Success" xml:space="preserve">
+    <value>Found {0} sellers</value>
+  </data>
   <data name="Infrastructure_Model_EntityBase_GetErrorMessages" xml:space="preserve">
     <value>Errors Found:</value>
   </data>
@@ -412,21 +451,51 @@
     <value>The Email cannot be null.</value>
   </data>
   <data name="Model_Rules_Specification_Anunciante_NomeResponsavel_Long" xml:space="preserve">
-    <value>The Contact must have at most 250 characters.</value>
+    <value>The Contact must have at most (250) characters.</value>
   </data>
   <data name="Model_Rules_Specification_Anunciante_NomeResponsavel_NotNull" xml:space="preserve">
     <value>The Contact Information cannot be null.</value>
   </data>
   <data name="Model_Rules_Specification_Anunciante_NomeResponsavel_Short" xml:space="preserve">
-    <value>The Contact must have at least  2 characters.</value>
+    <value>The Contact must have at least  (2) characters.</value>
   </data>
   <data name="Model_Rules_Specification_Anunciante_RazaoSocial_Long" xml:space="preserve">
-    <value>The Company Name myst have at most 250 characters.</value>
+    <value>The Company Name myst have at most (250) characters.</value>
   </data>
   <data name="Model_Rules_Specification_Anunciante_RazaoSocial_NotNull" xml:space="preserve">
     <value>The Company Name cannot be null.</value>
   </data>
   <data name="Model_Rules_Specification_Anunciante_RazaoSocial_Short" xml:space="preserve">
-    <value>The Company Name myst have at least 4 characters.</value>
+    <value>The Company Name myst have at least (4) characters.</value>
+  </data>
+  <data name="Model_Rules_Specification_Endereco_Bairro_Long" xml:space="preserve">
+    <value>The village must have at most (50) characters.</value>
+  </data>
+  <data name="Model_Rules_Specification_Endereco_Bairro_NotNull" xml:space="preserve">
+    <value>The village must be specified.</value>
+  </data>
+  <data name="Model_Rules_Specification_Endereco_Cep_Long" xml:space="preserve">
+    <value>The ZIP must have at most (9) characters.</value>
+  </data>
+  <data name="Model_Rules_Specification_Endereco_Cep_NotNull" xml:space="preserve">
+    <value>The ZIP must be specified.</value>
+  </data>
+  <data name="Model_Rules_Specification_Endereco_Cidade_Long" xml:space="preserve">
+    <value>The city must have at most (50) characters.</value>
+  </data>
+  <data name="Model_Rules_Specification_Endereco_Cidade_NotNull" xml:space="preserve">
+    <value>The city must be specified.</value>
+  </data>
+  <data name="Model_Rules_Specification_Endereco_Complemento_Long" xml:space="preserve">
+    <value>The street address complement must have at most (250) characters.</value>
+  </data>
+  <data name="Model_Rules_Specification_Endereco_Logradouro_Long" xml:space="preserve">
+    <value>Street address must have at most (250) characters.</value>
+  </data>
+  <data name="Model_Rules_Specification_Endereco_Logradouro_NotNull" xml:space="preserve">
+    <value>Street address cannot be null.</value>
+  </data>
+  <data name="Model_Rules_Specification_Endereco_Numero_NotNull" xml:space="preserve">
+    <value>Street address number must be declared.</value>
   </data>
 </root>

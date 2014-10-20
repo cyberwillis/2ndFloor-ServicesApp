@@ -396,6 +396,45 @@
   <data name="AnuncianteServices_EncontrarTodosAnunciantes_Success" xml:space="preserve">
     <value>Encontrado {0} anunciantes</value>
   </data>
+  <data name="EnderecoServices_AlterarEndereco_Error" xml:space="preserve">
+    <value>Ocorreu um erro:</value>
+  </data>
+  <data name="EnderecoServices_AlterarEndereco_NotFound" xml:space="preserve">
+    <value>Endereço não encontrado</value>
+  </data>
+  <data name="EnderecoServices_AlterarEndereco_Success" xml:space="preserve">
+    <value>Endereço atualizado com sucesso!</value>
+  </data>
+  <data name="EnderecoServices_CadastrarEndereco_AnuncianteNotFound" xml:space="preserve">
+    <value>Anunciante não encontrado para inclusão do novo Endereço</value>
+  </data>
+  <data name="EnderecoServices_CadastrarEndereco_Error" xml:space="preserve">
+    <value>Ocorreu um erro:</value>
+  </data>
+  <data name="EnderecoServices_CadastrarEndereco_EstadoNotFound" xml:space="preserve">
+    <value>Estado não encontrado para inclusão do novo Endereço</value>
+  </data>
+  <data name="EnderecoServices_CadastrarEndereco_Success" xml:space="preserve">
+    <value>Endereco cadastrado com sucesso.</value>
+  </data>
+  <data name="EnderecoServices_EncontrarEnderecoPor_Error" xml:space="preserve">
+    <value>Ocorreu um erro:</value>
+  </data>
+  <data name="EnderecoServices_EncontrarEnderecoPor_NotFound" xml:space="preserve">
+    <value>Endereço não encontrado!</value>
+  </data>
+  <data name="EnderecoServices_EncontrarEnderecoPor_Success" xml:space="preserve">
+    <value>Endereço encontrado!</value>
+  </data>
+  <data name="EnderecoServices_EncontratTodosEnderecos_Error" xml:space="preserve">
+    <value>Ocorreu um erro:</value>
+  </data>
+  <data name="EnderecoServices_EncontratTodosEnderecos_NotFound" xml:space="preserve">
+    <value>O dados do Anunciante não foram encontrados.</value>
+  </data>
+  <data name="EnderecoServices_EncontratTodosEnderecos_Success" xml:space="preserve">
+    <value>Encontrado {0} anunciantes</value>
+  </data>
   <data name="Infrastructure_Model_EntityBase_GetErrorMessages" xml:space="preserve">
     <value>Erros encontrados:</value>
   </data>
@@ -412,21 +451,51 @@
     <value>O Email não pode ser nulo.</value>
   </data>
   <data name="Model_Rules_Specification_Anunciante_NomeResponsavel_Long" xml:space="preserve">
-    <value>O Responsável deve possuir no maximo 250 caracteres.</value>
+    <value>O Responsável deve possuir no maximo (250) caracteres.</value>
   </data>
   <data name="Model_Rules_Specification_Anunciante_NomeResponsavel_NotNull" xml:space="preserve">
     <value>O Responsável não pode ser nulo.</value>
   </data>
   <data name="Model_Rules_Specification_Anunciante_NomeResponsavel_Short" xml:space="preserve">
-    <value>O Responsável deve possuir no mínimo 2 caracteres.</value>
+    <value>O Responsável deve possuir no mínimo (2) caracteres.</value>
   </data>
   <data name="Model_Rules_Specification_Anunciante_RazaoSocial_Long" xml:space="preserve">
-    <value>A razão social deve possuir no maximo 250 caracteres.</value>
+    <value>A razão social deve possuir no maximo (250) caracteres.</value>
   </data>
   <data name="Model_Rules_Specification_Anunciante_RazaoSocial_NotNull" xml:space="preserve">
     <value>A Razão Social não pode ser nula.</value>
   </data>
   <data name="Model_Rules_Specification_Anunciante_RazaoSocial_Short" xml:space="preserve">
-    <value>A razão social deve possuir no mínimo 4 caracteres.</value>
+    <value>A razão social deve possuir no mínimo (4) caracteres.</value>
+  </data>
+  <data name="Model_Rules_Specification_Endereco_Bairro_Long" xml:space="preserve">
+    <value>O bairro deve conter no máximo (50) caracteres.</value>
+  </data>
+  <data name="Model_Rules_Specification_Endereco_Bairro_NotNull" xml:space="preserve">
+    <value>O bairro não foi especificado.</value>
+  </data>
+  <data name="Model_Rules_Specification_Endereco_Cep_Long" xml:space="preserve">
+    <value>O Cep deve conter no máximo (9) caracters.</value>
+  </data>
+  <data name="Model_Rules_Specification_Endereco_Cep_NotNull" xml:space="preserve">
+    <value>O Cep não foi especificado.</value>
+  </data>
+  <data name="Model_Rules_Specification_Endereco_Cidade_Long" xml:space="preserve">
+    <value>A cidade deve conter no máximo (50) caracteres.</value>
+  </data>
+  <data name="Model_Rules_Specification_Endereco_Cidade_NotNull" xml:space="preserve">
+    <value>A cidade não foi especificada.</value>
+  </data>
+  <data name="Model_Rules_Specification_Endereco_Complemento_Long" xml:space="preserve">
+    <value>O Complemento deve conter no máximo (15) caracteres</value>
+  </data>
+  <data name="Model_Rules_Specification_Endereco_Logradouro_Long" xml:space="preserve">
+    <value>O logradouro deve conter no máximo (250) caracteres.</value>
+  </data>
+  <data name="Model_Rules_Specification_Endereco_Logradouro_NotNull" xml:space="preserve">
+    <value>O logradouro não foi especificado.</value>
+  </data>
+  <data name="Model_Rules_Specification_Endereco_Numero_NotNull" xml:space="preserve">
+    <value>O número do logradouro não foi especificado.</value>
   </data>
 </root>

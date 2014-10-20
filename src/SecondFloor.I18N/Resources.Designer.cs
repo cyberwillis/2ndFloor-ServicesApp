@@ -475,6 +475,150 @@ namespace SecondFloor.I18N {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Errors occurred:.
+        /// </summary>
+        public static string EnderecoServices_AlterarEndereco_Error {
+            get {
+                return ResourceManager.GetString("EnderecoServices_AlterarEndereco_Error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Address not found!.
+        /// </summary>
+        public static string EnderecoServices_AlterarEndereco_NotFound {
+            get {
+                return ResourceManager.GetString("EnderecoServices_AlterarEndereco_NotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Address updated successfully!.
+        /// </summary>
+        public static string EnderecoServices_AlterarEndereco_Success {
+            get {
+                return ResourceManager.GetString("EnderecoServices_AlterarEndereco_Success", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Seller not Found.
+        /// </summary>
+        public static string EnderecoServices_CadastrarEndereco_AnuncianteNotFound {
+            get {
+                return ResourceManager.GetString("EnderecoServices_CadastrarEndereco_AnuncianteNotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Errors occurred:.
+        /// </summary>
+        public static string EnderecoServices_CadastrarEndereco_Error {
+            get {
+                return ResourceManager.GetString("EnderecoServices_CadastrarEndereco_Error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to State not found!.
+        /// </summary>
+        public static string EnderecoServices_CadastrarEndereco_EstadoNotFound {
+            get {
+                return ResourceManager.GetString("EnderecoServices_CadastrarEndereco_EstadoNotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Address registred successfully!.
+        /// </summary>
+        public static string EnderecoServices_CadastrarEndereco_Success {
+            get {
+                return ResourceManager.GetString("EnderecoServices_CadastrarEndereco_Success", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Errors occurred:.
+        /// </summary>
+        public static string EnderecoServices_EncontrarEnderecoPor_Error {
+            get {
+                return ResourceManager.GetString("EnderecoServices_EncontrarEnderecoPor_Error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Address not found!.
+        /// </summary>
+        public static string EnderecoServices_EncontrarEnderecoPor_NotFound {
+            get {
+                return ResourceManager.GetString("EnderecoServices_EncontrarEnderecoPor_NotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Address Found!.
+        /// </summary>
+        public static string EnderecoServices_EncontrarEnderecoPor_Success {
+            get {
+                return ResourceManager.GetString("EnderecoServices_EncontrarEnderecoPor_Success", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Errors occurred:.
+        /// </summary>
+        public static string EnderecoServices_EncontratTodosEnderecos_Error {
+            get {
+                return ResourceManager.GetString("EnderecoServices_EncontratTodosEnderecos_Error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Seller information not found!.
+        /// </summary>
+        public static string EnderecoServices_EncontratTodosEnderecos_NotFound {
+            get {
+                return ResourceManager.GetString("EnderecoServices_EncontratTodosEnderecos_NotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Found {0} sellers.
+        /// </summary>
+        public static string EnderecoServices_EncontratTodosEnderecos_Success {
+            get {
+                return ResourceManager.GetString("EnderecoServices_EncontratTodosEnderecos_Success", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Errors occurred:.
+        /// </summary>
+        public static string EnderecoServices_ExcluirEndereco_Error {
+            get {
+                return ResourceManager.GetString("EnderecoServices_ExcluirEndereco_Error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Address not found!.
+        /// </summary>
+        public static string EnderecoServices_ExcluirEndereco_NotFound {
+            get {
+                return ResourceManager.GetString("EnderecoServices_ExcluirEndereco_NotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Address deleted successfully!.
+        /// </summary>
+        public static string EnderecoServices_ExcluirEndereco_Success {
+            get {
+                return ResourceManager.GetString("EnderecoServices_ExcluirEndereco_Success", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Village.
         /// </summary>
         public static string EnderecoViewModels_AttributeName_Bairro {
@@ -592,7 +736,7 @@ namespace SecondFloor.I18N {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The Contact must have at most 250 characters..
+        ///   Looks up a localized string similar to The Contact must have at most (250) characters..
         /// </summary>
         public static string Model_Rules_Specification_Anunciante_NomeResponsavel_Long {
             get {
@@ -610,7 +754,7 @@ namespace SecondFloor.I18N {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The Contact must have at least  2 characters..
+        ///   Looks up a localized string similar to The Contact must have at least  (2) characters..
         /// </summary>
         public static string Model_Rules_Specification_Anunciante_NomeResponsavel_Short {
             get {
@@ -619,7 +763,7 @@ namespace SecondFloor.I18N {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The Company Name myst have at most 250 characters..
+        ///   Looks up a localized string similar to The Company Name myst have at most (250) characters..
         /// </summary>
         public static string Model_Rules_Specification_Anunciante_RazaoSocial_Long {
             get {
@@ -637,11 +781,101 @@ namespace SecondFloor.I18N {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The Company Name myst have at least 4 characters..
+        ///   Looks up a localized string similar to The Company Name myst have at least (4) characters..
         /// </summary>
         public static string Model_Rules_Specification_Anunciante_RazaoSocial_Short {
             get {
                 return ResourceManager.GetString("Model_Rules_Specification_Anunciante_RazaoSocial_Short", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The village must have at most (50) characters..
+        /// </summary>
+        public static string Model_Rules_Specification_Endereco_Bairro_Long {
+            get {
+                return ResourceManager.GetString("Model_Rules_Specification_Endereco_Bairro_Long", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The village must be specified..
+        /// </summary>
+        public static string Model_Rules_Specification_Endereco_Bairro_NotNull {
+            get {
+                return ResourceManager.GetString("Model_Rules_Specification_Endereco_Bairro_NotNull", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The ZIP must have at most (9) characters..
+        /// </summary>
+        public static string Model_Rules_Specification_Endereco_Cep_Long {
+            get {
+                return ResourceManager.GetString("Model_Rules_Specification_Endereco_Cep_Long", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The ZIP must be specified..
+        /// </summary>
+        public static string Model_Rules_Specification_Endereco_Cep_NotNull {
+            get {
+                return ResourceManager.GetString("Model_Rules_Specification_Endereco_Cep_NotNull", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The city must have at most (50) characters..
+        /// </summary>
+        public static string Model_Rules_Specification_Endereco_Cidade_Long {
+            get {
+                return ResourceManager.GetString("Model_Rules_Specification_Endereco_Cidade_Long", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The city must be specified..
+        /// </summary>
+        public static string Model_Rules_Specification_Endereco_Cidade_NotNull {
+            get {
+                return ResourceManager.GetString("Model_Rules_Specification_Endereco_Cidade_NotNull", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The street address complement must have at most (250) characters..
+        /// </summary>
+        public static string Model_Rules_Specification_Endereco_Complemento_Long {
+            get {
+                return ResourceManager.GetString("Model_Rules_Specification_Endereco_Complemento_Long", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Street address must have at most (250) characters..
+        /// </summary>
+        public static string Model_Rules_Specification_Endereco_Logradouro_Long {
+            get {
+                return ResourceManager.GetString("Model_Rules_Specification_Endereco_Logradouro_Long", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Street address cannot be null..
+        /// </summary>
+        public static string Model_Rules_Specification_Endereco_Logradouro_NotNull {
+            get {
+                return ResourceManager.GetString("Model_Rules_Specification_Endereco_Logradouro_NotNull", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Street address number must be declared..
+        /// </summary>
+        public static string Model_Rules_Specification_Endereco_Numero_NotNull {
+            get {
+                return ResourceManager.GetString("Model_Rules_Specification_Endereco_Numero_NotNull", resourceCulture);
             }
         }
         

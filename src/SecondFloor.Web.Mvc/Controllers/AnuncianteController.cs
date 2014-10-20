@@ -212,7 +212,7 @@ namespace SecondFloor.Web.Mvc.Controllers
         {
             ViewBag.Excluir = false;
             ViewBag.Title = Resources.AnuncianteController_HttpPost_Cadastro_Action_ViewBagTitle;
-
+            
             if (!ModelState.IsValid)
             {
                 return View("Cadastro", anunciante); //erro de cadastro
@@ -223,7 +223,10 @@ namespace SecondFloor.Web.Mvc.Controllers
             var response = _anuncianteService.CadastrarAnunciante(request);
             if (!response.Success)
             {
-                return RedirectToAction("Erro");
+                ViewBag.Message = response.Message;
+                ViewBag.MessageType = response.MessageType;
+
+                return View("Cadastro", anunciante);
             }
 
             //TODO: Caso Anunciante (aproveitando o usuario salvo na sessao)

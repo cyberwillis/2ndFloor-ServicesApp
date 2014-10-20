@@ -25,12 +25,13 @@ namespace SecondFloor.RepositoryEF.Mappings
 
             Ignore(a => a.BrokenRules);
 
-            HasMany(a => a.Ofertas);
+            HasMany(a => a.Ofertas).WithRequired(o=>o.Anuncio)
+                .Map(x=>x.MapKey("AnuncioId").ToTable("tbOferta"));
 
-            HasMany(o => o.Ofertas).WithMany().Map(x => x
+            /*HasMany(o => o.Ofertas).WithMany().Map(x => x
                     .MapLeftKey("AnuncioId")
                     .ToTable("tbAnuncio_tbOferta")
-                    .MapRightKey("OfertaId"));
+                    .MapRightKey("OfertaId"));*/
             
         }
     }

@@ -2,6 +2,7 @@
 using System.Data.Entity.Validation;
 using Microsoft.Practices.ObjectBuilder2;
 using SecondFloor.DataContracts.Messages.Endereco;
+using SecondFloor.I18N;
 using SecondFloor.Model;
 using SecondFloor.Model.Rules;
 using SecondFloor.Model.Rules.Specifications;
@@ -33,20 +34,20 @@ namespace SecondFloor.Service
                 var anunciante = _anuncianteRepository.EncontrarAnunciantePor(id);
                 if (anunciante == null)
                 {
-                    response.Message = "Os dados deste Anunciante não foram encontrados";
+                    response.Message = Resources.EnderecoServices_EncontratTodosEnderecos_NotFound;
                     response.MessageType = "alert-warning";
                     response.Success = false;
                     return response;
                 }
 
-                response.Message = string.Format("Encontrado {0} anunciantes", anunciante.Enderecos.Count);
+                response.Message = string.Format(Resources.EnderecoServices_EncontratTodosEnderecos_Success, anunciante.Enderecos.Count);
                 response.MessageType = "alert-info";
                 response.Success = true;
                 response.Enderecos = anunciante.Enderecos.ConvertToListaEnderecosDto();
             }
             catch (Exception ex)
             {
-                response.Message = "Ocorreu um erro\n" + ex.Message;
+                response.Message = Resources.EnderecoServices_EncontratTodosEnderecos_Error  + "\n" + ex.Message;
                 response.MessageType = "alert-danger";
                 response.Success = false;
             }
@@ -64,20 +65,20 @@ namespace SecondFloor.Service
                 var endereco = _enderecoRepository.EncontrarEnderecoPor(id);
                 if (endereco == null)
                 {
-                    response.Message = "Endereço não encontrado!";
+                    response.Message = Resources.EnderecoServices_EncontrarEnderecoPor_NotFound;
                     response.MessageType = "alert-warning";
                     response.Success = false;
                     return response;
                 }
 
-                response.Message = "Endereço encontrado!";
+                response.Message = Resources.EnderecoServices_EncontrarEnderecoPor_Success;
                 response.MessageType = "alert-info";
                 response.Success = true;
                 response.Endereco = endereco.ConvertToEnderecoDto();
             }
             catch (Exception ex)
             {
-                response.Message = "Ocorreu um erro\n" + ex.Message;
+                response.Message = Resources.EnderecoServices_EncontrarEnderecoPor_Error + "\n" + ex.Message;
                 response.MessageType = "alert-danger";
                 response.Success = false;
             }
@@ -94,7 +95,7 @@ namespace SecondFloor.Service
                 var estado = _estadoRepository.EncontrarEstadoPorSigla(request.EstadoSigla);
                 if (estado == null)
                 {
-                    response.Message = "Estado não encontrado para inclusão do novo Endereço";
+                    response.Message = Resources.EnderecoServices_CadastrarEndereco_EstadoNotFound;
                     response.MessageType = "alert-warning";
                     response.Success = false;
                     return response;
@@ -117,7 +118,7 @@ namespace SecondFloor.Service
                 var anunciante = _anuncianteRepository.FindBy(anuncianteId);
                 if (anunciante == null)
                 {
-                    response.Message = "Anunciante não encontrado para inclusão do novo Endereço";
+                    response.Message = "";
                     response.MessageType = "alert-warning";
                     response.Success = false;
                     return response;
@@ -129,13 +130,13 @@ namespace SecondFloor.Service
                 _enderecoRepository.InserirEndereco(endereco);
                 _enderecoRepository.Persist();
 
-                response.Message = "Anuncio cadastrado com sucesso.";
+                response.Message = Resources.EnderecoServices_CadastrarEndereco_Success;
                 response.MessageType = "alert-info";
                 response.Success = true;
             }
             catch (DbEntityValidationException ex)
             {
-                response.Message = "Ocorreu um erro:\n" + ex.Message;
+                response.Message = Resources.EnderecoServices_CadastrarEndereco_Error + "\n" + ex.Message;
                 
                 foreach (var eve in ex.EntityValidationErrors)
                 {
@@ -154,7 +155,7 @@ namespace SecondFloor.Service
             }
             catch (Exception ex)
             {
-                response.Message = "Ocorreu um erro:\n" + ex.Message;
+                response.Message = Resources.EnderecoServices_CadastrarEndereco_Error + "\n" + ex.Message;
                 response.MessageType = "alert-danger";
                 response.Success = false;
             }
@@ -172,7 +173,7 @@ namespace SecondFloor.Service
                 var estado = _estadoRepository.EncontrarEstadoPorSigla(request.EstadoSigla);
                 if (estado == null)
                 {
-                    response.Message = "Estado não encontrado para inclusão do novo Endereço";
+                    response.Message = Resources.EnderecoServices_CadastrarEndereco_EstadoNotFound;
                     response.MessageType = "alert-warning";
                     response.Success = false;
                     return response;
@@ -182,7 +183,7 @@ namespace SecondFloor.Service
                 var endereco = _enderecoRepository.EncontrarEnderecoPor(id);
                 if (endereco == null)
                 {
-                    response.Message = "Endereço não encontrado!";
+                    response.Message = Resources.EnderecoServices_AlterarEndereco_NotFound;
                     response.MessageType = "alert-warning";
                     response.Success = false;
                     return response;
@@ -210,13 +211,13 @@ namespace SecondFloor.Service
                 _enderecoRepository.AtualizarEndereco(endereco);
                 _enderecoRepository.Persist();
 
-                response.Message = "Endereço atualizado com sucesso!";
+                response.Message = Resources.EnderecoServices_AlterarEndereco_Success;
                 response.MessageType = "alert-info";
                 response.Success = true;
             }
             catch (Exception ex)
             {
-                response.Message = "Ocorreu um erro\r" + ex.Message;
+                response.Message = Resources.EnderecoServices_AlterarEndereco_Error + "\r" + ex.Message;
                 response.MessageType = "alert-danger";
                 response.Success = false;
             }
@@ -234,7 +235,7 @@ namespace SecondFloor.Service
                 var endereco = _enderecoRepository.EncontrarEnderecoPor(id);
                 if (endereco == null)
                 {
-                    response.Message = "Endereço não encontrado!";
+                    response.Message = Resources.EnderecoServices_ExcluirEndereco_NotFound;
                     response.MessageType = "alert-warning";
                     response.Success = false;
                     return response;
@@ -243,13 +244,13 @@ namespace SecondFloor.Service
                 _enderecoRepository.ExcluirEndereco(endereco);
                 _enderecoRepository.Persist();
 
-                response.Message = "Endereço excluido com sucesso!";
+                response.Message = Resources.EnderecoServices_ExcluirEndereco_Success;
                 response.MessageType = "alert-info";
                 response.Success = true;
             }
             catch (Exception ex)
             {
-                response.Message = "Ocorreu um erro\n" + ex.Message;
+                response.Message = Resources.EnderecoServices_ExcluirEndereco_Error + "\n" + ex.Message;
                 response.MessageType = "alert-danger";
                 response.Success = false;
             }
