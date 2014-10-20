@@ -435,6 +435,15 @@
   <data name="EnderecoServices_EncontratTodosEnderecos_Success" xml:space="preserve">
     <value>Found {0} sellers</value>
   </data>
+  <data name="EnderecoServices_ExcluirEndereco_Error" xml:space="preserve">
+    <value>Errors occurred:</value>
+  </data>
+  <data name="EnderecoServices_ExcluirEndereco_NotFound" xml:space="preserve">
+    <value>Address not found!</value>
+  </data>
+  <data name="EnderecoServices_ExcluirEndereco_Success" xml:space="preserve">
+    <value>Address deleted successfully!</value>
+  </data>
   <data name="Infrastructure_Model_EntityBase_GetErrorMessages" xml:space="preserve">
     <value>Errors Found:</value>
   </data>
