@@ -77,6 +77,10 @@
       <Project>{005BD132-A35B-4F72-9840-0228FCEFAFF5}</Project>
       <Name>SecondFloor.DataContracts</Name>
     </ProjectReference>
+    <ProjectReference Include="..\SecondFloor.I18N\SecondFloor.I18N.csproj">
+      <Project>{081B4D0E-A964-4084-B2FE-1EF30CDE6B0F}</Project>
+      <Name>SecondFloor.I18N</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SecondFloor.Infrastructure\SecondFloor.Infrastructure.csproj">
       <Project>{0b674e26-7392-4e08-b9f0-04078ecde0bc}</Project>
       <Name>SecondFloor.Infrastructure</Name>

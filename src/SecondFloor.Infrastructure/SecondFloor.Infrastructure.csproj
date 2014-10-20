@@ -52,6 +52,12 @@
     <Compile Include="Repository\IUnitOfWorkRepository.cs" />
     <Compile Include="Sha1Util.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SecondFloor.I18N\SecondFloor.I18N.csproj">
+      <Project>{081B4D0E-A964-4084-B2FE-1EF30CDE6B0F}</Project>
+      <Name>SecondFloor.I18N</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

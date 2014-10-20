@@ -187,6 +187,105 @@ namespace SecondFloor.I18N {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Errors occurred:.
+        /// </summary>
+        public static string AnuncianteServices_AlterarAnunciante_Error {
+            get {
+                return ResourceManager.GetString("AnuncianteServices_AlterarAnunciante_Error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Seller not found!.
+        /// </summary>
+        public static string AnuncianteServices_AlterarAnunciante_NotFound {
+            get {
+                return ResourceManager.GetString("AnuncianteServices_AlterarAnunciante_NotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Seller updated successfully!.
+        /// </summary>
+        public static string AnuncianteServices_AlterarAnunciante_Success {
+            get {
+                return ResourceManager.GetString("AnuncianteServices_AlterarAnunciante_Success", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Errors occurred:.
+        /// </summary>
+        public static string AnuncianteServices_CadastrarAnunciante_Error {
+            get {
+                return ResourceManager.GetString("AnuncianteServices_CadastrarAnunciante_Error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Seller registred successfully!.
+        /// </summary>
+        public static string AnuncianteServices_CadastrarAnunciante_Success {
+            get {
+                return ResourceManager.GetString("AnuncianteServices_CadastrarAnunciante_Success", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Errors occurred:.
+        /// </summary>
+        public static string AnuncianteServices_EncontrarAnunciantePor_Error {
+            get {
+                return ResourceManager.GetString("AnuncianteServices_EncontrarAnunciantePor_Error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Seller not found!.
+        /// </summary>
+        public static string AnuncianteServices_EncontrarAnunciantePor_NotFound {
+            get {
+                return ResourceManager.GetString("AnuncianteServices_EncontrarAnunciantePor_NotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Seller Found!.
+        /// </summary>
+        public static string AnuncianteServices_EncontrarAnunciantePor_Scuccess {
+            get {
+                return ResourceManager.GetString("AnuncianteServices_EncontrarAnunciantePor_Scuccess", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Errors occurred:.
+        /// </summary>
+        public static string AnuncianteServices_EncontrarTodosAnunciantes_Error {
+            get {
+                return ResourceManager.GetString("AnuncianteServices_EncontrarTodosAnunciantes_Error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Seller not found!.
+        /// </summary>
+        public static string AnuncianteServices_EncontrarTodosAnunciantes_NotFound {
+            get {
+                return ResourceManager.GetString("AnuncianteServices_EncontrarTodosAnunciantes_NotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Found {0} sellers.
+        /// </summary>
+        public static string AnuncianteServices_EncontrarTodosAnunciantes_Success {
+            get {
+                return ResourceManager.GetString("AnuncianteServices_EncontrarTodosAnunciantes_Success", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Cnpj.
         /// </summary>
         public static string AnuncianteViewModels_AttributeName_CNPJ {
@@ -444,6 +543,105 @@ namespace SecondFloor.I18N {
         public static string HomeTitle {
             get {
                 return ResourceManager.GetString("HomeTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Errors Found:.
+        /// </summary>
+        public static string Infrastructure_Model_EntityBase_GetErrorMessages {
+            get {
+                return ResourceManager.GetString("Infrastructure_Model_EntityBase_GetErrorMessages", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The CNPJis invalid..
+        /// </summary>
+        public static string Model_Rules_Specification_Anunciante_Cnpj_Invalid {
+            get {
+                return ResourceManager.GetString("Model_Rules_Specification_Anunciante_Cnpj_Invalid", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The CNPJ cannot be null..
+        /// </summary>
+        public static string Model_Rules_Specification_Anunciante_Cnpj_NotNull {
+            get {
+                return ResourceManager.GetString("Model_Rules_Specification_Anunciante_Cnpj_NotNull", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The Email is invalid..
+        /// </summary>
+        public static string Model_Rules_Specification_Anunciante_Email_Invalid {
+            get {
+                return ResourceManager.GetString("Model_Rules_Specification_Anunciante_Email_Invalid", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The Email cannot be null..
+        /// </summary>
+        public static string Model_Rules_Specification_Anunciante_Email_NotNull {
+            get {
+                return ResourceManager.GetString("Model_Rules_Specification_Anunciante_Email_NotNull", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The Contact must have at most 250 characters..
+        /// </summary>
+        public static string Model_Rules_Specification_Anunciante_NomeResponsavel_Long {
+            get {
+                return ResourceManager.GetString("Model_Rules_Specification_Anunciante_NomeResponsavel_Long", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The Contact Information cannot be null..
+        /// </summary>
+        public static string Model_Rules_Specification_Anunciante_NomeResponsavel_NotNull {
+            get {
+                return ResourceManager.GetString("Model_Rules_Specification_Anunciante_NomeResponsavel_NotNull", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The Contact must have at least  2 characters..
+        /// </summary>
+        public static string Model_Rules_Specification_Anunciante_NomeResponsavel_Short {
+            get {
+                return ResourceManager.GetString("Model_Rules_Specification_Anunciante_NomeResponsavel_Short", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The Company Name myst have at most 250 characters..
+        /// </summary>
+        public static string Model_Rules_Specification_Anunciante_RazaoSocial_Long {
+            get {
+                return ResourceManager.GetString("Model_Rules_Specification_Anunciante_RazaoSocial_Long", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The Company Name cannot be null..
+        /// </summary>
+        public static string Model_Rules_Specification_Anunciante_RazaoSocial_NotNull {
+            get {
+                return ResourceManager.GetString("Model_Rules_Specification_Anunciante_RazaoSocial_NotNull", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The Company Name myst have at least 4 characters..
+        /// </summary>
+        public static string Model_Rules_Specification_Anunciante_RazaoSocial_Short {
+            get {
+                return ResourceManager.GetString("Model_Rules_Specification_Anunciante_RazaoSocial_Short", resourceCulture);
             }
         }
         
@@ -723,6 +921,51 @@ namespace SecondFloor.I18N {
         public static string View_Endereco_ListaEnderecoPartialView_Botao_NovoEndereco {
             get {
                 return ResourceManager.GetString("View_Endereco_ListaEnderecoPartialView_Botao_NovoEndereco", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sign In.
+        /// </summary>
+        public static string View_LayoutNav_Cadastro {
+            get {
+                return ResourceManager.GetString("View_LayoutNav_Cadastro", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Contact.
+        /// </summary>
+        public static string View_LayoutNav_Contato {
+            get {
+                return ResourceManager.GetString("View_LayoutNav_Contato", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Home.
+        /// </summary>
+        public static string View_LayoutNav_Home {
+            get {
+                return ResourceManager.GetString("View_LayoutNav_Home", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Manager .
+        /// </summary>
+        public static string View_LayoutNav_Painel {
+            get {
+                return ResourceManager.GetString("View_LayoutNav_Painel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to About.
+        /// </summary>
+        public static string View_LayoutNav_Sobre {
+            get {
+                return ResourceManager.GetString("View_LayoutNav_Sobre", resourceCulture);
             }
         }
         

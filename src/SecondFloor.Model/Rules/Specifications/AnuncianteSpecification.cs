@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using SecondFloor.I18N;
 using SecondFloor.Infrastructure;
 
 namespace SecondFloor.Model.Rules.Specifications
@@ -12,49 +13,49 @@ namespace SecondFloor.Model.Rules.Specifications
             //Nome Responsavel
             if (string.IsNullOrEmpty(anunciante.Responsavel))
             {
-                anunciante.AddBrokenRule("Responsavel","O Responsável não pode ser nulo.");
+                anunciante.AddBrokenRule("NomeResponsavel", Resources.Model_Rules_Specification_Anunciante_NomeResponsavel_NotNull);
             }
             else if (anunciante.Responsavel.Length < 2)
             {
-                anunciante.AddBrokenRule("Responsavel", "O Responsável deve possuir no mínimo 2 caracteres.");
+                anunciante.AddBrokenRule("NomeResponsavel", Resources.Model_Rules_Specification_Anunciante_NomeResponsavel_Short);
             }
             else if (anunciante.Responsavel.Length > 250)
             {
-                anunciante.AddBrokenRule("Responsavel", "O Responsável deve possuir no maximo 250 caracteres.");
+                anunciante.AddBrokenRule("NomeResponsavel", Resources.Model_Rules_Specification_Anunciante_NomeResponsavel_Long);
             }
 
             //Razao Social
             if (string.IsNullOrEmpty(anunciante.RazaoSocial))
             {
-                anunciante.AddBrokenRule("Razao Social","A razão social não pode ser nula.");
+                anunciante.AddBrokenRule("RazaoSocial", Resources.Model_Rules_Specification_Anunciante_RazaoSocial_NotNull);
             }
             else if (anunciante.RazaoSocial.Length < 10)
             {
-                anunciante.AddBrokenRule("Razao Social", "A razão social deve possuir no mínimo 4 caracteres.");
+                anunciante.AddBrokenRule("RazaoSocial", Resources.Model_Rules_Specification_Anunciante_RazaoSocial_Short);
             }
             else if (anunciante.RazaoSocial.Length > 250)
             {
-                anunciante.AddBrokenRule("Razao Social", "A razão social deve possuir no maximo 250 caracteres.");
+                anunciante.AddBrokenRule("RazaoSocial", Resources.Model_Rules_Specification_Anunciante_RazaoSocial_Long);
             }
 
             //Cnpj
             if (string.IsNullOrEmpty(anunciante.Cnpj))
             {
-                anunciante.AddBrokenRule("Cnpj", "O Cnpj não pode ser nulo.");
+                anunciante.AddBrokenRule("Cnpj", Resources.Model_Rules_Specification_Anunciante_Cnpj_NotNull);
             }
             else if (!DocumentosUtil.ValidaCnpj(anunciante.Cnpj))
             {
-                anunciante.AddBrokenRule("Cnpj", "O Cnpj está invalido");
+                anunciante.AddBrokenRule("Cnpj", Resources.Model_Rules_Specification_Anunciante_Cnpj_Invalid);
             }
 
             //Email
             if (string.IsNullOrEmpty(anunciante.Email))
             {
-                anunciante.AddBrokenRule("Email", "O Email não pode ser nulo.");
+                anunciante.AddBrokenRule("Email", Resources.Model_Rules_Specification_Anunciante_Email_NotNull);
             }
             else if (!DocumentosUtil.ValidaEmail(anunciante.Email))
             {
-                anunciante.AddBrokenRule("Email", "O Email está invalido");
+                anunciante.AddBrokenRule("Email", Resources.Model_Rules_Specification_Anunciante_Email_Invalid);
             }
 
             //Token

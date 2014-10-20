@@ -348,4 +348,85 @@
   <data name="View_Anuncio_ListaAnuncioPartialView_Botao_Publicar" xml:space="preserve">
     <value>Publicar</value>
   </data>
+  <data name="View_LayoutNav_Cadastro" xml:space="preserve">
+    <value>Cadastro</value>
+  </data>
+  <data name="View_LayoutNav_Contato" xml:space="preserve">
+    <value>Contato</value>
+  </data>
+  <data name="View_LayoutNav_Home" xml:space="preserve">
+    <value>Principal</value>
+  </data>
+  <data name="View_LayoutNav_Painel" xml:space="preserve">
+    <value>Administração</value>
+  </data>
+  <data name="View_LayoutNav_Sobre" xml:space="preserve">
+    <value>Sobre</value>
+  </data>
+  <data name="AnuncianteServices_AlterarAnunciante_Error" xml:space="preserve">
+    <value>Ocorreu um erro:</value>
+  </data>
+  <data name="AnuncianteServices_AlterarAnunciante_NotFound" xml:space="preserve">
+    <value>Anunciante não encontrado!</value>
+  </data>
+  <data name="AnuncianteServices_AlterarAnunciante_Success" xml:space="preserve">
+    <value>Anunciante atualizado com sucesso!</value>
+  </data>
+  <data name="AnuncianteServices_CadastrarAnunciante_Error" xml:space="preserve">
+    <value>Ocorreu um erro:</value>
+  </data>
+  <data name="AnuncianteServices_CadastrarAnunciante_Success" xml:space="preserve">
+    <value>Anunciante cadastrado com sucesso.</value>
+  </data>
+  <data name="AnuncianteServices_EncontrarAnunciantePor_Error" xml:space="preserve">
+    <value>Ocorreu um erro:</value>
+  </data>
+  <data name="AnuncianteServices_EncontrarAnunciantePor_NotFound" xml:space="preserve">
+    <value>Anunciante não encontrado!</value>
+  </data>
+  <data name="AnuncianteServices_EncontrarAnunciantePor_Scuccess" xml:space="preserve">
+    <value>Anunciante encontrado!</value>
+  </data>
+  <data name="AnuncianteServices_EncontrarTodosAnunciantes_Error" xml:space="preserve">
+    <value>Ocorreu um erro:</value>
+  </data>
+  <data name="AnuncianteServices_EncontrarTodosAnunciantes_NotFound" xml:space="preserve">
+    <value>Nenhum anunciante encontrado!</value>
+  </data>
+  <data name="AnuncianteServices_EncontrarTodosAnunciantes_Success" xml:space="preserve">
+    <value>Encontrado {0} anunciantes</value>
+  </data>
+  <data name="Infrastructure_Model_EntityBase_GetErrorMessages" xml:space="preserve">
+    <value>Erros encontrados:</value>
+  </data>
+  <data name="Model_Rules_Specification_Anunciante_Cnpj_Invalid" xml:space="preserve">
+    <value>O Cnpj está invalido.</value>
+  </data>
+  <data name="Model_Rules_Specification_Anunciante_Cnpj_NotNull" xml:space="preserve">
+    <value>O Cnpj não pode ser nulo.</value>
+  </data>
+  <data name="Model_Rules_Specification_Anunciante_Email_Invalid" xml:space="preserve">
+    <value>O Email está invalido.</value>
+  </data>
+  <data name="Model_Rules_Specification_Anunciante_Email_NotNull" xml:space="preserve">
+    <value>O Email não pode ser nulo.</value>
+  </data>
+  <data name="Model_Rules_Specification_Anunciante_NomeResponsavel_Long" xml:space="preserve">
+    <value>O Responsável deve possuir no maximo 250 caracteres.</value>
+  </data>
+  <data name="Model_Rules_Specification_Anunciante_NomeResponsavel_NotNull" xml:space="preserve">
+    <value>O Responsável não pode ser nulo.</value>
+  </data>
+  <data name="Model_Rules_Specification_Anunciante_NomeResponsavel_Short" xml:space="preserve">
+    <value>O Responsável deve possuir no mínimo 2 caracteres.</value>
+  </data>
+  <data name="Model_Rules_Specification_Anunciante_RazaoSocial_Long" xml:space="preserve">
+    <value>A razão social deve possuir no maximo 250 caracteres.</value>
+  </data>
+  <data name="Model_Rules_Specification_Anunciante_RazaoSocial_NotNull" xml:space="preserve">
+    <value>A Razão Social não pode ser nula.</value>
+  </data>
+  <data name="Model_Rules_Specification_Anunciante_RazaoSocial_Short" xml:space="preserve">
+    <value>A razão social deve possuir no mínimo 4 caracteres.</value>
+  </data>
 </root>

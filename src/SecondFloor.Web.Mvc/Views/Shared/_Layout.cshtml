@@ -36,14 +36,12 @@
             <div class="navbar-collapse collapse">
                 
                     <ul class="nav navbar-nav">
-                        <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                        <li>@Html.ActionLink("Sobre", "About", "Home")</li>
-                        <li>@Html.ActionLink("Contato", "Contact", "Home")</li>
-                        <li>@Html.ActionLink("Cadastro", "Index", "Anunciante")</li>
-                        <li>@Html.ActionLink("Painel Adm", "Listar", "Anunciante")</li>
-                        
+                        <li>@Html.ActionLink(Resources.View_LayoutNav_Home, "Index", "Home")</li>
+                        <li>@Html.ActionLink(Resources.View_LayoutNav_Sobre, "About", "Home")</li>
+                        <li>@Html.ActionLink(Resources.View_LayoutNav_Contato, "Contact", "Home")</li>
+                        <li>@Html.ActionLink(Resources.View_LayoutNav_Cadastro, "Index", "Anunciante")</li>
+                        <li>@Html.ActionLink(Resources.View_LayoutNav_Painel, "Listar", "Anunciante")</li>
                     </ul>
-                
 
                 @Html.Partial("_LoginPartial")
             </div>

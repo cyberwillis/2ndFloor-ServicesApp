@@ -348,4 +348,85 @@
   <data name="View_Anuncio_ListaAnuncioPartialView_Botao_Publicar" xml:space="preserve">
     <value>Publish</value>
   </data>
+  <data name="View_LayoutNav_Cadastro" xml:space="preserve">
+    <value>Sign In</value>
+  </data>
+  <data name="View_LayoutNav_Contato" xml:space="preserve">
+    <value>Contact</value>
+  </data>
+  <data name="View_LayoutNav_Home" xml:space="preserve">
+    <value>Home</value>
+  </data>
+  <data name="View_LayoutNav_Painel" xml:space="preserve">
+    <value>Manager </value>
+  </data>
+  <data name="View_LayoutNav_Sobre" xml:space="preserve">
+    <value>About</value>
+  </data>
+  <data name="AnuncianteServices_AlterarAnunciante_Error" xml:space="preserve">
+    <value>Errors occurred:</value>
+  </data>
+  <data name="AnuncianteServices_AlterarAnunciante_NotFound" xml:space="preserve">
+    <value>Seller not found!</value>
+  </data>
+  <data name="AnuncianteServices_AlterarAnunciante_Success" xml:space="preserve">
+    <value>Seller updated successfully!</value>
+  </data>
+  <data name="AnuncianteServices_CadastrarAnunciante_Error" xml:space="preserve">
+    <value>Errors occurred:</value>
+  </data>
+  <data name="AnuncianteServices_CadastrarAnunciante_Success" xml:space="preserve">
+    <value>Seller registred successfully!</value>
+  </data>
+  <data name="AnuncianteServices_EncontrarAnunciantePor_Error" xml:space="preserve">
+    <value>Errors occurred:</value>
+  </data>
+  <data name="AnuncianteServices_EncontrarAnunciantePor_NotFound" xml:space="preserve">
+    <value>Seller not found!</value>
+  </data>
+  <data name="AnuncianteServices_EncontrarAnunciantePor_Scuccess" xml:space="preserve">
+    <value>Seller Found!</value>
+  </data>
+  <data name="AnuncianteServices_EncontrarTodosAnunciantes_Error" xml:space="preserve">
+    <value>Errors occurred:</value>
+  </data>
+  <data name="AnuncianteServices_EncontrarTodosAnunciantes_NotFound" xml:space="preserve">
+    <value>Seller not found!</value>
+  </data>
+  <data name="AnuncianteServices_EncontrarTodosAnunciantes_Success" xml:space="preserve">
+    <value>Found {0} sellers</value>
+  </data>
+  <data name="Infrastructure_Model_EntityBase_GetErrorMessages" xml:space="preserve">
+    <value>Errors Found:</value>
+  </data>
+  <data name="Model_Rules_Specification_Anunciante_Cnpj_Invalid" xml:space="preserve">
+    <value>The CNPJis invalid.</value>
+  </data>
+  <data name="Model_Rules_Specification_Anunciante_Cnpj_NotNull" xml:space="preserve">
+    <value>The CNPJ cannot be null.</value>
+  </data>
+  <data name="Model_Rules_Specification_Anunciante_Email_Invalid" xml:space="preserve">
+    <value>The Email is invalid.</value>
+  </data>
+  <data name="Model_Rules_Specification_Anunciante_Email_NotNull" xml:space="preserve">
+    <value>The Email cannot be null.</value>
+  </data>
+  <data name="Model_Rules_Specification_Anunciante_NomeResponsavel_Long" xml:space="preserve">
+    <value>The Contact must have at most 250 characters.</value>
+  </data>
+  <data name="Model_Rules_Specification_Anunciante_NomeResponsavel_NotNull" xml:space="preserve">
+    <value>The Contact Information cannot be null.</value>
+  </data>
+  <data name="Model_Rules_Specification_Anunciante_NomeResponsavel_Short" xml:space="preserve">
+    <value>The Contact must have at least  2 characters.</value>
+  </data>
+  <data name="Model_Rules_Specification_Anunciante_RazaoSocial_Long" xml:space="preserve">
+    <value>The Company Name myst have at most 250 characters.</value>
+  </data>
+  <data name="Model_Rules_Specification_Anunciante_RazaoSocial_NotNull" xml:space="preserve">
+    <value>The Company Name cannot be null.</value>
+  </data>
+  <data name="Model_Rules_Specification_Anunciante_RazaoSocial_Short" xml:space="preserve">
+    <value>The Company Name myst have at least 4 characters.</value>
+  </data>
 </root>

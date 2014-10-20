@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Text;
+using SecondFloor.I18N;
 
 namespace SecondFloor.Infrastructure.Model
 {
@@ -41,10 +42,11 @@ namespace SecondFloor.Infrastructure.Model
         public StringBuilder GetErrorMessages()
         {
             var sb = new StringBuilder();
-            sb.Append("Erros encontrados:<br/>");
+            sb.Append(Resources.Infrastructure_Model_EntityBase_GetErrorMessages);
             foreach (var error in this._brokenRules)
             {
-                sb.AppendLine(error.Value + "<br/>");
+                sb.Append("<br/>");
+                sb.AppendLine(error.Value);
             }
             return sb;
         }

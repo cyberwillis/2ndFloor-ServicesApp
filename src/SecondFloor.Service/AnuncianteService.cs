@@ -1,6 +1,7 @@
 ﻿using System;
 using Microsoft.Practices.ObjectBuilder2;
 using SecondFloor.DataContracts.Messages.Anunciante;
+using SecondFloor.I18N;
 using SecondFloor.Model;
 using SecondFloor.Model.Rules;
 using SecondFloor.Model.Rules.Specifications;
@@ -84,14 +85,14 @@ namespace SecondFloor.Service
                 _anuncianteRepository.InserirAnunciante(anunciante);
                 _anuncianteRepository.Persist();
 
-                response.Message = "Anuncio cadastrado com sucesso.";
+                response.Message = Resources.AnuncianteServices_CadastrarAnunciante_Success;
                 response.MessageType = "alert-info";
                 response.Success = true;
                 response.Id = anunciante.Id.ToString();
             }
             catch (Exception ex)
             {
-                response.Message = "Ocorreu um erro:\n" + ex.Message;
+                response.Message = Resources.AnuncianteServices_CadastrarAnunciante_Error + "\n" + ex.Message;
                 response.MessageType = "alert-danger";
                 response.Success = false;
             }
@@ -108,20 +109,20 @@ namespace SecondFloor.Service
                 var anunciantes = _anuncianteRepository.EncontrarTodosAnunciantes();
                 if (anunciantes == null)
                 {
-                    response.Message = "Nenhum anunciante encontrado!";
+                    response.Message = Resources.AnuncianteServices_EncontrarTodosAnunciantes_NotFound;
                     response.MessageType = "alert-warning";
                     response.Success = false;
                     return response;
                 }
 
-                response.Message = string.Format("Encontrado {0} anunciantes", anunciantes.Count);
+                response.Message = string.Format(Resources.AnuncianteServices_EncontrarTodosAnunciantes_Success, anunciantes.Count);
                 response.MessageType = "alert-info";
                 response.Success = true;
                 response.Anunciantes = anunciantes.ConvertToListaAnunciantesDto();
             }
             catch (Exception ex)
             {
-                response.Message = "Ocorreu um erro\n" + ex.Message;
+                response.Message = Resources.AnuncianteServices_EncontrarTodosAnunciantes_Error + "\n" + ex.Message;
                 response.MessageType = "alert-danger";
                 response.Success = false;
             }
@@ -139,20 +140,20 @@ namespace SecondFloor.Service
                 var anunciante = _anuncianteRepository.EncontrarAnunciantePor(id);
                 if (anunciante == null)
                 {
-                    response.Message = "Anunciante não encontrado!";
+                    response.Message = Resources.AnuncianteServices_EncontrarAnunciantePor_NotFound;
                     response.MessageType = "alert-warning";
                     response.Success = false;
                     return response;
                 }
 
-                response.Message = "Anunciante encontrado!";
+                response.Message = Resources.AnuncianteServices_EncontrarAnunciantePor_Scuccess;
                 response.MessageType = "alert-info";
                 response.Success = true;
                 response.Anunciante = anunciante.ConvertToAnuncianteDto();
             }
             catch (Exception ex)
             {
-                response.Message = "Ocorreu um erro\n" + ex.Message;
+                response.Message = Resources.AnuncianteServices_EncontrarAnunciantePor_Error + "\n" + ex.Message;
                 response.MessageType = "alert-danger";
                 response.Success = false;
             }
@@ -170,7 +171,7 @@ namespace SecondFloor.Service
                 var anunciante = _anuncianteRepository.EncontrarAnunciantePor(id);
                 if (anunciante == null)
                 {
-                    response.Message = "Anunciante não encontrado!";
+                    response.Message = Resources.AnuncianteServices_AlterarAnunciante_NotFound;
                     response.MessageType = "alert-warning";
                     response.Success = false;
                     return response;
@@ -194,13 +195,13 @@ namespace SecondFloor.Service
                 _anuncianteRepository.AtualizarAnunciante(anunciante);
                 _anuncianteRepository.Persist();
 
-                response.Message = "Anunciante atualizado com sucesso!";
+                response.Message = Resources.AnuncianteServices_AlterarAnunciante_Success;
                 response.MessageType = "alert-info";
                 response.Success = true;
             }
             catch (Exception ex)
             {
-                response.Message = "Ocorreu um erro\n" + ex.Message;
+                response.Message = Resources.AnuncianteServices_AlterarAnunciante_Error + "\n" + ex.Message;
                 response.MessageType = "alert-danger";
                 response.Success = false;
             }

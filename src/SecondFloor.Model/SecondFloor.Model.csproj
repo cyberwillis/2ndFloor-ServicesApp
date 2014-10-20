@@ -71,6 +71,10 @@
     <Compile Include="TipoAcesso.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\SecondFloor.I18N\SecondFloor.I18N.csproj">
+      <Project>{081B4D0E-A964-4084-B2FE-1EF30CDE6B0F}</Project>
+      <Name>SecondFloor.I18N</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SecondFloor.Infrastructure\SecondFloor.Infrastructure.csproj">
       <Project>{0B674E26-7392-4E08-B9F0-04078ECDE0BC}</Project>
       <Name>SecondFloor.Infrastructure</Name>
