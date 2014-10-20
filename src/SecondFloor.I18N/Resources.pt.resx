@@ -171,6 +171,51 @@
   <data name="AnuncianteViewModels_AttributeName_Responsavel" xml:space="preserve">
     <value>Responsável</value>
   </data>
+  <data name="EnderecoController_HttpGet_Create_Action_ViewBagTitle" xml:space="preserve">
+    <value>Cadastro de Endereço</value>
+  </data>
+  <data name="EnderecoController_HttpGet_Delete_Action_ViewBagMessage" xml:space="preserve">
+    <value>Tem certeza que deseja excluit o Endereço abaixo?</value>
+  </data>
+  <data name="EnderecoController_HttpGet_Delete_Action_ViewBagTitle" xml:space="preserve">
+    <value>Excluir Endereço</value>
+  </data>
+  <data name="EnderecoController_HttpGet_Edit_Action_ViewBagTitle" xml:space="preserve">
+    <value>Alterar Endereço</value>
+  </data>
+  <data name="EnderecoController_HttpGet_List_Action_ViewBagTitle" xml:space="preserve">
+    <value>Lista de Endereços</value>
+  </data>
+  <data name="EnderecoController_HttpPost_Create_Action_ViewBagTitle" xml:space="preserve">
+    <value>Cadastro de Endereço</value>
+  </data>
+  <data name="EnderecoController_HttpPost_Delete_Action_ViewBagTitle" xml:space="preserve">
+    <value>Excluir Endereço</value>
+  </data>
+  <data name="EnderecoController_HttpPost_Edit_Action_ViewBagTitle" xml:space="preserve">
+    <value>Alterar Endereço</value>
+  </data>
+  <data name="EnderecoViewModels_AttributeName_Bairro" xml:space="preserve">
+    <value>Bairro</value>
+  </data>
+  <data name="EnderecoViewModels_AttributeName_CEP" xml:space="preserve">
+    <value>Cep</value>
+  </data>
+  <data name="EnderecoViewModels_AttributeName_Cidade" xml:space="preserve">
+    <value>Cidade</value>
+  </data>
+  <data name="EnderecoViewModels_AttributeName_Complemento" xml:space="preserve">
+    <value>Complemento</value>
+  </data>
+  <data name="EnderecoViewModels_AttributeName_Estado" xml:space="preserve">
+    <value>Estado</value>
+  </data>
+  <data name="EnderecoViewModels_AttributeName_Logradouro" xml:space="preserve">
+    <value>Logradouro</value>
+  </data>
+  <data name="EnderecoViewModels_AttributeName_Numero" xml:space="preserve">
+    <value>Número</value>
+  </data>
   <data name="HomeTitle" xml:space="preserve">
     <value>Pagina Principal</value>
   </data>
@@ -188,5 +233,14 @@
   </data>
   <data name="View_Anunciante_ListaAnunciantePartialView_Botao_NovoAnunciante" xml:space="preserve">
     <value>Novo Anunciante</value>
+  </data>
+  <data name="View_Endereco_EnderecoPartialView_Botao_Cancelar" xml:space="preserve">
+    <value>Cancelar</value>
+  </data>
+  <data name="View_Endereco_EnderecoPartialView_Botao_Salvar" xml:space="preserve">
+    <value>Salvar</value>
+  </data>
+  <data name="View_Endereco_ListaEnderecoPartialView_Botao_NovoEndereco" xml:space="preserve">
+    <value>Novo Endereço</value>
   </data>
 </root>

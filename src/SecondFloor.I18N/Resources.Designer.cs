@@ -79,7 +79,7 @@ namespace SecondFloor.I18N {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Are you sure to delete the following Seller?.
+        ///   Looks up a localized string similar to Do you want to delete the following Seller? Are you sure?.
         /// </summary>
         public static string AnuncianteController_HttpGet_Delete_Action_ViewBagMessage {
             get {
@@ -223,6 +223,141 @@ namespace SecondFloor.I18N {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Add Address.
+        /// </summary>
+        public static string EnderecoController_HttpGet_Create_Action_ViewBagTitle {
+            get {
+                return ResourceManager.GetString("EnderecoController_HttpGet_Create_Action_ViewBagTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Do you want to delete the following Address? Are you sure?.
+        /// </summary>
+        public static string EnderecoController_HttpGet_Delete_Action_ViewBagMessage {
+            get {
+                return ResourceManager.GetString("EnderecoController_HttpGet_Delete_Action_ViewBagMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Delete Address.
+        /// </summary>
+        public static string EnderecoController_HttpGet_Delete_Action_ViewBagTitle {
+            get {
+                return ResourceManager.GetString("EnderecoController_HttpGet_Delete_Action_ViewBagTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Edit Address.
+        /// </summary>
+        public static string EnderecoController_HttpGet_Edit_Action_ViewBagTitle {
+            get {
+                return ResourceManager.GetString("EnderecoController_HttpGet_Edit_Action_ViewBagTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Address List.
+        /// </summary>
+        public static string EnderecoController_HttpGet_List_Action_ViewBagTitle {
+            get {
+                return ResourceManager.GetString("EnderecoController_HttpGet_List_Action_ViewBagTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add Address.
+        /// </summary>
+        public static string EnderecoController_HttpPost_Create_Action_ViewBagTitle {
+            get {
+                return ResourceManager.GetString("EnderecoController_HttpPost_Create_Action_ViewBagTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Delete Address.
+        /// </summary>
+        public static string EnderecoController_HttpPost_Delete_Action_ViewBagTitle {
+            get {
+                return ResourceManager.GetString("EnderecoController_HttpPost_Delete_Action_ViewBagTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Edit Address.
+        /// </summary>
+        public static string EnderecoController_HttpPost_Edit_Action_ViewBagTitle {
+            get {
+                return ResourceManager.GetString("EnderecoController_HttpPost_Edit_Action_ViewBagTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Village.
+        /// </summary>
+        public static string EnderecoViewModels_AttributeName_Bairro {
+            get {
+                return ResourceManager.GetString("EnderecoViewModels_AttributeName_Bairro", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Zip.
+        /// </summary>
+        public static string EnderecoViewModels_AttributeName_Cep {
+            get {
+                return ResourceManager.GetString("EnderecoViewModels_AttributeName_Cep", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to City.
+        /// </summary>
+        public static string EnderecoViewModels_AttributeName_Cidade {
+            get {
+                return ResourceManager.GetString("EnderecoViewModels_AttributeName_Cidade", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Complement.
+        /// </summary>
+        public static string EnderecoViewModels_AttributeName_Complemento {
+            get {
+                return ResourceManager.GetString("EnderecoViewModels_AttributeName_Complemento", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to State.
+        /// </summary>
+        public static string EnderecoViewModels_AttributeName_Estado {
+            get {
+                return ResourceManager.GetString("EnderecoViewModels_AttributeName_Estado", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Street Address.
+        /// </summary>
+        public static string EnderecoViewModels_AttributeName_Logradouro {
+            get {
+                return ResourceManager.GetString("EnderecoViewModels_AttributeName_Logradouro", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Number.
+        /// </summary>
+        public static string EnderecoViewModels_AttributeName_Numero {
+            get {
+                return ResourceManager.GetString("EnderecoViewModels_AttributeName_Numero", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Home Page.
         /// </summary>
         public static string HomeTitle {
@@ -273,6 +408,33 @@ namespace SecondFloor.I18N {
         public static string View_Anunciante_ListaAnunciantePartialView_Botao_NovoAnunciante {
             get {
                 return ResourceManager.GetString("View_Anunciante_ListaAnunciantePartialView_Botao_NovoAnunciante", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cancel.
+        /// </summary>
+        public static string View_Endereco_EnderecoPartialView_Botao_Cancelar {
+            get {
+                return ResourceManager.GetString("View_Endereco_EnderecoPartialView_Botao_Cancelar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Save.
+        /// </summary>
+        public static string View_Endereco_EnderecoPartialView_Botao_Salvar {
+            get {
+                return ResourceManager.GetString("View_Endereco_EnderecoPartialView_Botao_Salvar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add Address.
+        /// </summary>
+        public static string View_Endereco_ListaEnderecoPartialView_Botao_NovoEndereco {
+            get {
+                return ResourceManager.GetString("View_Endereco_ListaEnderecoPartialView_Botao_NovoEndereco", resourceCulture);
             }
         }
     }

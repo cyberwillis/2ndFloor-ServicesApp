@@ -124,7 +124,7 @@
     <value>Seller Registration</value>
   </data>
   <data name="AnuncianteController_HttpGet_Delete_Action_ViewBagMessage" xml:space="preserve">
-    <value>Are you sure to delete the following Seller?</value>
+    <value>Do you want to delete the following Seller? Are you sure?</value>
   </data>
   <data name="AnuncianteController_HttpGet_Delete_Action_ViewBagTitle" xml:space="preserve">
     <value>Delete Seller</value>
@@ -171,6 +171,51 @@
   <data name="AnuncianteViewModels_AttributeName_Responsavel" xml:space="preserve">
     <value>Contact</value>
   </data>
+  <data name="EnderecoController_HttpGet_Create_Action_ViewBagTitle" xml:space="preserve">
+    <value>Add Address</value>
+  </data>
+  <data name="EnderecoController_HttpGet_Delete_Action_ViewBagMessage" xml:space="preserve">
+    <value>Do you want to delete the following Address? Are you sure?</value>
+  </data>
+  <data name="EnderecoController_HttpGet_Delete_Action_ViewBagTitle" xml:space="preserve">
+    <value>Delete Address</value>
+  </data>
+  <data name="EnderecoController_HttpGet_Edit_Action_ViewBagTitle" xml:space="preserve">
+    <value>Edit Address</value>
+  </data>
+  <data name="EnderecoController_HttpGet_List_Action_ViewBagTitle" xml:space="preserve">
+    <value>Address List</value>
+  </data>
+  <data name="EnderecoController_HttpPost_Create_Action_ViewBagTitle" xml:space="preserve">
+    <value>Add Address</value>
+  </data>
+  <data name="EnderecoController_HttpPost_Delete_Action_ViewBagTitle" xml:space="preserve">
+    <value>Delete Address</value>
+  </data>
+  <data name="EnderecoController_HttpPost_Edit_Action_ViewBagTitle" xml:space="preserve">
+    <value>Edit Address</value>
+  </data>
+  <data name="EnderecoViewModels_AttributeName_Bairro" xml:space="preserve">
+    <value>Village</value>
+  </data>
+  <data name="EnderecoViewModels_AttributeName_Cep" xml:space="preserve">
+    <value>Zip</value>
+  </data>
+  <data name="EnderecoViewModels_AttributeName_Cidade" xml:space="preserve">
+    <value>City</value>
+  </data>
+  <data name="EnderecoViewModels_AttributeName_Complemento" xml:space="preserve">
+    <value>Complement</value>
+  </data>
+  <data name="EnderecoViewModels_AttributeName_Estado" xml:space="preserve">
+    <value>State</value>
+  </data>
+  <data name="EnderecoViewModels_AttributeName_Logradouro" xml:space="preserve">
+    <value>Street Address</value>
+  </data>
+  <data name="EnderecoViewModels_AttributeName_Numero" xml:space="preserve">
+    <value>Number</value>
+  </data>
   <data name="HomeTitle" xml:space="preserve">
     <value>Home Page</value>
   </data>
@@ -188,5 +233,14 @@
   </data>
   <data name="View_Anunciante_ListaAnunciantePartialView_Botao_NovoAnunciante" xml:space="preserve">
     <value>Add Seller</value>
+  </data>
+  <data name="View_Endereco_EnderecoPartialView_Botao_Cancelar" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="View_Endereco_EnderecoPartialView_Botao_Salvar" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="View_Endereco_ListaEnderecoPartialView_Botao_NovoEndereco" xml:space="preserve">
+    <value>Add Address</value>
   </data>
 </root>

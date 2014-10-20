@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using SecondFloor.DataContracts.Messages.Endereco;
+using SecondFloor.I18N;
 using SecondFloor.ServiceContracts;
 using SecondFloor.Web.Mvc.Models;
 using SecondFloor.Web.Mvc.Services;
@@ -28,7 +29,7 @@ namespace SecondFloor.Web.Mvc.Controllers
             var request = new EncontrarTodosEnderecosRequest() { AnuncianteId = id };
             var response = _enderecoService.EncontrarTodosEnderecos(request);
 
-            ViewBag.Title = "Lista de Endereços";
+            ViewBag.Title = Resources.EnderecoController_HttpGet_List_Action_ViewBagTitle;
             ViewBag.AnuncianteId = id;
 
             if (!response.Success)
@@ -43,7 +44,7 @@ namespace SecondFloor.Web.Mvc.Controllers
         public PartialViewResult Create(string id)
         {
             ViewBag.Excluir = false;
-            ViewBag.Title = "Cadastro de Endereço";
+            ViewBag.Title = Resources.EnderecoController_HttpGet_Create_Action_ViewBagTitle;
 
             var endereco = new EnderecoViewModels() {AnuncianteId = id};
             endereco = new EnderecoViewModels()
@@ -74,7 +75,7 @@ namespace SecondFloor.Web.Mvc.Controllers
             var response = _enderecoService.CadastrarEndereco(request);
 
             ViewBag.Excluir = false;
-            ViewBag.Title = "Cadastro de Endereço";
+            ViewBag.Title = Resources.EnderecoController_HttpPost_Create_Action_ViewBagTitle;
             ViewBag.Message = response.Message;
             ViewBag.MessageType = response.MessageType;
 
@@ -97,7 +98,7 @@ namespace SecondFloor.Web.Mvc.Controllers
             var response = _enderecoService.EncontrarEnderecoPor(request);
 
             ViewBag.Excluir = false;
-            ViewBag.Title = "Alterar Endereço";
+            ViewBag.Title = Resources.EnderecoController_HttpGet_Edit_Action_ViewBagTitle;
 
             if (!response.Success)
             {
@@ -122,7 +123,7 @@ namespace SecondFloor.Web.Mvc.Controllers
             var response = _enderecoService.AlterarEndereco(request);
 
             ViewBag.Excluir = false;
-            ViewBag.Title = "Alterar Endereço";
+            ViewBag.Title = Resources.EnderecoController_HttpPost_Edit_Action_ViewBagTitle;
             ViewBag.Message = response.Message;
             ViewBag.MessageType = response.MessageType;
 
@@ -145,8 +146,8 @@ namespace SecondFloor.Web.Mvc.Controllers
             var response = _enderecoService.EncontrarEnderecoPor(request);
 
             ViewBag.Excluir = true;
-            ViewBag.Title = "Excluir Endereço";
-            ViewBag.Message = "Tem certeza que deseja excluit o Endereco abaixo ?";
+            ViewBag.Title = Resources.EnderecoController_HttpGet_Delete_Action_ViewBagTitle;
+            ViewBag.Message = Resources.EnderecoController_HttpGet_Delete_Action_ViewBagMessage;
             ViewBag.MessageType = "alert-danger";
 
             if (!response.Success)
@@ -164,7 +165,7 @@ namespace SecondFloor.Web.Mvc.Controllers
             var response = _enderecoService.ExcluirEndereco(request);
 
             ViewBag.Excluir = true;
-            ViewBag.Title = "Excluir Endereço";
+            ViewBag.Title = Resources.EnderecoController_HttpPost_Delete_Action_ViewBagTitle;
             ViewBag.Message = response.Message;
             ViewBag.MessageType = response.MessageType;
 

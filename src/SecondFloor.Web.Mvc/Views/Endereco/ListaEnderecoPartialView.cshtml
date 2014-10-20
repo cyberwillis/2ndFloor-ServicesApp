@@ -1,11 +1,12 @@
-﻿@model IEnumerable<SecondFloor.Web.Mvc.Models.EnderecoViewModels>
+﻿@using SecondFloor.I18N
+@model IEnumerable<SecondFloor.Web.Mvc.Models.EnderecoViewModels>
 <h4>@ViewBag.Title</h4>
 <p>
     <button type="button" onclick="ajaxModalFormOpenHandler(this)" class="btn btn-sm btn-default"
             data-url="/Endereco/Create/@ViewBag.AnuncianteId"
             data-url-content-update="/Endereco/List/@ViewBag.AnuncianteId"
             data-content-update-id="#conteudoAnuncianteEndereco">
-        Novo Endereço
+        @Resources.View_Endereco_ListaEnderecoPartialView_Botao_NovoEndereco
         <!--<i class="glyphicon glyphicon-plus"></i>-->
     </button>
 </p>
