@@ -16,6 +16,7 @@ namespace SecondFloor.Service.IntegratedTest.AnuncioService_Tests
     [TestFixture]
     public class When_Publishing_Anuncio
     {
+        /*
         //private string _anuncianteToken;
         private AnuncioDto _anuncioDto;
         private AnuncioRepository _anuncioRepository;
@@ -148,7 +149,10 @@ namespace SecondFloor.Service.IntegratedTest.AnuncioService_Tests
             //anunciante.Token = Sha1Util.SHA1HashStringForUTF8String(anunciante.RazaoSocial + anunciante.Cnpj);
             return anunciante;
         }
-
+        
         #endregion
+
+
+        */
     }
 }

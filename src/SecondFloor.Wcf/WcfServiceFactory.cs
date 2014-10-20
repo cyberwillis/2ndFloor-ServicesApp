@@ -27,6 +27,7 @@ namespace SecondFloor.Wcf
             container
                 .RegisterType<IConsumidorService, ConsumidorService>()
                 .RegisterType<IOfertaRepository, OfertaRepository>()
+                .RegisterType<IFeedbackRepository, FeedbackRepository>()
                 .RegisterType<IAnuncioContext, AnuncianteContext>(new HierarchicalLifetimeManager());
                 //.RegisterType<IAnuncianteService, AnuncianteService>()
                 //.RegisterType<IAnuncioRepository, AnuncioRepository>()

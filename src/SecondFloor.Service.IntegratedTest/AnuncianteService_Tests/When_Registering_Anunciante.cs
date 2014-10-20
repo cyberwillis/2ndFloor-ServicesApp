@@ -14,6 +14,7 @@ namespace SecondFloor.Service.IntegratedTest.AnuncianteService_Tests
     [TestFixture]
     public class When_Registering_Anunciante
     {
+        /*
         private AnuncioRepository _anuncioRepository;
         private AnuncianteRepository _anuncianteRepository;
         private IUnitOfWork _unitOfworkAnuncio;
@@ -96,5 +97,7 @@ namespace SecondFloor.Service.IntegratedTest.AnuncianteService_Tests
 
             return anunciante;
         }
+
+        */
     }
 }

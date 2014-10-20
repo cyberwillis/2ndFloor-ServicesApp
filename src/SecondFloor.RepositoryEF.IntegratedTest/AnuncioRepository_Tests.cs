@@ -11,6 +11,7 @@ namespace SecondFloor.RepositoryEF.IntegratedTest.AnuncioRepository_Test
     [TestFixture]
     public class AnuncioRepository_Tests
     {
+        /*
         private IAnuncioRepository _anuncioRepository;
         private IAnuncianteRepository _anuncianteRepository;
         private EFUnitOfWork<Anuncio> _unitOfWorkAnuncio;
@@ -90,5 +91,7 @@ namespace SecondFloor.RepositoryEF.IntegratedTest.AnuncioRepository_Test
 
             Assert.GreaterOrEqual(anunciante.Anuncios.Count, 0);
         }
+
+        */
     }
 }

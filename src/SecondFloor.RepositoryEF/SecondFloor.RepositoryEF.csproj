@@ -48,6 +48,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Mappings\EstadoConfiguration.cs" />
+    <Compile Include="Mappings\FeedbackConfiguration.cs" />
     <Compile Include="Mappings\ProdutoConfiguration.cs" />
     <Compile Include="Repositories\AnuncianteRepository.cs" />
     <Compile Include="AnuncianteContext.cs" />
@@ -67,6 +68,7 @@
     <Compile Include="Repositories\ConsumidorRepository.cs" />
     <Compile Include="Repositories\EnderecoRepository.cs" />
     <Compile Include="Repositories\EstadoRepository.cs" />
+    <Compile Include="Repositories\FeedbackRepository.cs" />
     <Compile Include="Repositories\OfertaRepository.cs" />
     <Compile Include="Repositories\ProdutoRepository.cs" />
     <Compile Include="Repositories\RepositoryBase.cs" />

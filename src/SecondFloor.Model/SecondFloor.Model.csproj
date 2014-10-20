@@ -42,8 +42,10 @@
     <Compile Include="Anunciante.cs" />
     <Compile Include="AnuncioStatusEnum.cs" />
     <Compile Include="Estado.cs" />
+    <Compile Include="Feedback.cs" />
     <Compile Include="IEnderecoRepository.cs" />
     <Compile Include="IEstadoRepository.cs" />
+    <Compile Include="IFeedbackRepository.cs" />
     <Compile Include="IOfertaRepository.cs" />
     <Compile Include="IProdutoRepository.cs" />
     <Compile Include="Produto.cs" />

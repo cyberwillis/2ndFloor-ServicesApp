@@ -25,8 +25,7 @@ namespace SecondFloor.RepositoryEF.Mappings
 
             Ignore(a => a.BrokenRules);
 
-            HasMany(a => a.Ofertas);//.WithRequired(o=>o.Anuncio);
-                //.Map(x=>x.MapKey("AnuncioId").ToTable("tbOferta")).WillCascadeOnDelete(true);
+            HasMany(a => a.Ofertas);
 
             HasMany(o => o.Ofertas).WithMany().Map(x => x
                     .MapLeftKey("AnuncioId")

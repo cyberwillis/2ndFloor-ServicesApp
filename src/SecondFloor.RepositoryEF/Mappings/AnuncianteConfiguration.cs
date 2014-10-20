@@ -26,6 +26,9 @@ namespace SecondFloor.RepositoryEF.Mappings
 
             HasMany(a=>a.Produtos).WithRequired(a=>a.Anunciante)
                 .Map(x=>x.MapKey("AnuncianteId").ToTable("tbProduto")).WillCascadeOnDelete(false);
+
+            //HasMany(a => a.Feedbacks).WithRequired(a=>a.Anunciante)
+            //    .Map(x => x.MapKey("AnuncianteId").ToTable("tbFeedback")).WillCascadeOnDelete(false);
         }
     }
 }

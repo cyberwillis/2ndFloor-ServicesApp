@@ -14,10 +14,12 @@ namespace SecondFloor.Service
     public class ConsumidorService : IConsumidorService
     {
         private readonly IOfertaRepository _ofertaRepository;
+        private readonly IFeedbackRepository _feedbackRepository;
 
-        public ConsumidorService( IOfertaRepository ofertaRepository )
+        public ConsumidorService( IOfertaRepository ofertaRepository, IFeedbackRepository feedbackRepository )
         {
             _ofertaRepository = ofertaRepository;
+            _feedbackRepository = feedbackRepository;
         }
 
         public EncontrarOfertaResponse EncontrarOfertaPor(EncontrarOfertaRequest request)
@@ -53,7 +55,38 @@ namespace SecondFloor.Service
         {
             var response = new AtribuirRatingOfertaResponse() {Success = true, Message = "Rating enviado com sucesso"};
 
-            //TODO: registrar no banco
+            try
+            {
+                var ofertaId = new Guid(request.Produto);
+                var oferta = _ofertaRepository.EncontrarOfertaPor(ofertaId);
+                if (oferta == null)
+                {
+                    response.Message = "Oferta não encontrada para atribuição de feedback";
+                    response.MessageType = "alert-warning";
+                    response.Success = true;
+                }
+
+                var feedback = new Feedback()
+                {
+                    Id = Guid.NewGuid(),
+                    Nota = decimal.Parse(request.Rating),
+                    Consumidor = request.Consumidor,
+                    Produto = request.Produto,
+                };
+
+                _feedbackRepository.InserirFeedback(feedback);
+                _feedbackRepository.Persist();
+
+                response.Message = "Rating atribuido com sucesso";
+                response.MessageType = "alert-info";
+                response.Success = true;
+            }
+            catch (Exception ex)
+            {
+                response.Message = "Ocorreu um erro\n" + ex.Message;
+                response.MessageType = "alert-danger";
+                response.Success = false;
+            }
 
             return response;
         }
