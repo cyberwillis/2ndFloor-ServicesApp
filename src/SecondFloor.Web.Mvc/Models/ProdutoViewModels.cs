@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using SecondFloor.I18N;
 
 namespace SecondFloor.Web.Mvc.Models
 {
@@ -6,19 +7,19 @@ namespace SecondFloor.Web.Mvc.Models
     {
         public string Id { get; set; }
 
-        [Display(Name = "Produto / Serviço")]
+        [Display(Name = "ProdutoViewModels_AttributeName_NomeProduto", ResourceType = typeof(Resources))]
         public string NomeProduto { get; set; }
 
-        [Display(Name = "Descrição")]
+        [Display(Name = "ProdutoViewModels_AttributeName_Descricao", ResourceType = typeof(Resources))]
         public string Descricao { get; set; }
 
-        [Display(Name = "Referência")]
+        [Display(Name = "ProdutoViewModels_AttributeName_Referencia", ResourceType = typeof(Resources))]
         public string Referencia { get; set; }
 
-        [Display(Name = "Fabricante")]
+        [Display(Name = "ProdutoViewModels_AttributeName_Fabricante", ResourceType = typeof(Resources))]
         public string Fabricante { get; set; }
-        
-        [Display(Name = "Valor")]
+
+        [Display(Name = "ProdutoViewModels_AttributeName_Valor", ResourceType = typeof(Resources))]
         public string Valor { get; set; }
 
         public string AnuncianteId { get; set; }

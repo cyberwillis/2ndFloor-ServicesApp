@@ -367,6 +367,123 @@ namespace SecondFloor.I18N {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Add Product.
+        /// </summary>
+        public static string ProdutoController_HttpGet_Create_Action_ViewBagTitle {
+            get {
+                return ResourceManager.GetString("ProdutoController_HttpGet_Create_Action_ViewBagTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Do you want to delete the following Product? Are you sure?.
+        /// </summary>
+        public static string ProdutoController_HttpGet_Delete_Action_ViewBagMessage {
+            get {
+                return ResourceManager.GetString("ProdutoController_HttpGet_Delete_Action_ViewBagMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Delete Product.
+        /// </summary>
+        public static string ProdutoController_HttpGet_Delete_Action_ViewBagTitle {
+            get {
+                return ResourceManager.GetString("ProdutoController_HttpGet_Delete_Action_ViewBagTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Edit Product.
+        /// </summary>
+        public static string ProdutoController_HttpGet_Edit_Action_ViewBagTitle {
+            get {
+                return ResourceManager.GetString("ProdutoController_HttpGet_Edit_Action_ViewBagTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Product List.
+        /// </summary>
+        public static string ProdutoController_HttpGet_List_Action_ViewBagTitle {
+            get {
+                return ResourceManager.GetString("ProdutoController_HttpGet_List_Action_ViewBagTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add Product.
+        /// </summary>
+        public static string ProdutoController_HttpPost_Create_Action_ViewBagTitle {
+            get {
+                return ResourceManager.GetString("ProdutoController_HttpPost_Create_Action_ViewBagTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Delete Product.
+        /// </summary>
+        public static string ProdutoController_HttpPost_Delete_Action_ViewBagTitle {
+            get {
+                return ResourceManager.GetString("ProdutoController_HttpPost_Delete_Action_ViewBagTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Edit Product.
+        /// </summary>
+        public static string ProdutoController_HttpPost_Edit_Action_ViewBagTitle {
+            get {
+                return ResourceManager.GetString("ProdutoController_HttpPost_Edit_Action_ViewBagTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Description.
+        /// </summary>
+        public static string ProdutoViewModels_AttributeName_Descricao {
+            get {
+                return ResourceManager.GetString("ProdutoViewModels_AttributeName_Descricao", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Manufacture.
+        /// </summary>
+        public static string ProdutoViewModels_AttributeName_Fabricante {
+            get {
+                return ResourceManager.GetString("ProdutoViewModels_AttributeName_Fabricante", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Product / Services.
+        /// </summary>
+        public static string ProdutoViewModels_AttributeName_NomeProduto {
+            get {
+                return ResourceManager.GetString("ProdutoViewModels_AttributeName_NomeProduto", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Reference.
+        /// </summary>
+        public static string ProdutoViewModels_AttributeName_Referencia {
+            get {
+                return ResourceManager.GetString("ProdutoViewModels_AttributeName_Referencia", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Price.
+        /// </summary>
+        public static string ProdutoViewModels_AttributeName_Valor {
+            get {
+                return ResourceManager.GetString("ProdutoViewModels_AttributeName_Valor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Select your language:.
         /// </summary>
         public static string SelectLanguage {
@@ -435,6 +552,33 @@ namespace SecondFloor.I18N {
         public static string View_Endereco_ListaEnderecoPartialView_Botao_NovoEndereco {
             get {
                 return ResourceManager.GetString("View_Endereco_ListaEnderecoPartialView_Botao_NovoEndereco", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add Product.
+        /// </summary>
+        public static string View_Produto_ListaProdutoPartialView_Botao_NovoProduto {
+            get {
+                return ResourceManager.GetString("View_Produto_ListaProdutoPartialView_Botao_NovoProduto", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cancel.
+        /// </summary>
+        public static string View_Produto_ProdutoPartialView_Botao_Cancelar {
+            get {
+                return ResourceManager.GetString("View_Produto_ProdutoPartialView_Botao_Cancelar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Save.
+        /// </summary>
+        public static string View_Produto_ProdutoPartialView_Botao_Salvar {
+            get {
+                return ResourceManager.GetString("View_Produto_ProdutoPartialView_Botao_Salvar", resourceCulture);
             }
         }
     }

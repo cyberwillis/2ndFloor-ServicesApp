@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using SecondFloor.DataContracts.Messages.Produto;
+using SecondFloor.I18N;
 using SecondFloor.ServiceContracts;
 using SecondFloor.Web.Mvc.Models;
 using SecondFloor.Web.Mvc.Services;
@@ -26,7 +27,7 @@ namespace SecondFloor.Web.Mvc.Controllers
             var request = new EncontrarTodosProdutosRequest() { AnuncianteId = id };
             var response = _produtoService.EncontrarTodosProdutos(request);
 
-            ViewBag.Title = "Lista de Produtos";
+            ViewBag.Title = Resources.ProdutoController_HttpGet_List_Action_ViewBagTitle;
             ViewBag.AnuncianteId = id;
 
             if (!response.Success)
@@ -41,7 +42,7 @@ namespace SecondFloor.Web.Mvc.Controllers
         public PartialViewResult Create(string id)
         {
             ViewBag.Excluir = false;
-            ViewBag.Title = "Cadastro de Produto";
+            ViewBag.Title = Resources.ProdutoController_HttpGet_Create_Action_ViewBagTitle;
 
             var produto = new ProdutoViewModels() {AnuncianteId = id};
             produto = new ProdutoViewModels()
@@ -64,7 +65,7 @@ namespace SecondFloor.Web.Mvc.Controllers
             var response = _produtoService.CadastrarProduto(request);
 
             ViewBag.Excluir = false;
-            ViewBag.Title = "Cadastro de Produto";
+            ViewBag.Title = Resources.ProdutoController_HttpPost_Create_Action_ViewBagTitle;
             ViewBag.Message = response.Message;
             ViewBag.MessageType = response.MessageType;
 
@@ -85,7 +86,7 @@ namespace SecondFloor.Web.Mvc.Controllers
             var response = _produtoService.EncontrarProdutoPor(request);
 
             ViewBag.Excluir = false;
-            ViewBag.Title = "Alterar Produto";
+            ViewBag.Title = Resources.ProdutoController_HttpGet_Edit_Action_ViewBagTitle;
 
             if (!response.Success)
             {
@@ -102,7 +103,7 @@ namespace SecondFloor.Web.Mvc.Controllers
             var response = _produtoService.AlterarProduto(request);
 
             ViewBag.Excluir = false;
-            ViewBag.Title = "Alterar Produto";
+            ViewBag.Title = Resources.ProdutoController_HttpPost_Edit_Action_ViewBagTitle;
             ViewBag.Message = response.Message;
             ViewBag.MessageType = response.MessageType;
 
@@ -121,8 +122,8 @@ namespace SecondFloor.Web.Mvc.Controllers
             var response = _produtoService.EncontrarProdutoPor(request);
 
             ViewBag.Excluir = true;
-            ViewBag.Title = "Excluir Produto";
-            ViewBag.Message = "Tem certeza que deseja excluit o Endereco abaixo ?";
+            ViewBag.Title = Resources.ProdutoController_HttpGet_Delete_Action_ViewBagTitle;
+            ViewBag.Message = Resources.ProdutoController_HttpGet_Delete_Action_ViewBagMessage;
             ViewBag.MessageType = "alert-danger";
 
             if (!response.Success)
@@ -140,7 +141,7 @@ namespace SecondFloor.Web.Mvc.Controllers
             var response = _produtoService.ExcluirProduto(request);
 
             ViewBag.Excluir = true;
-            ViewBag.Title = "Excluir Produto";
+            ViewBag.Title = Resources.ProdutoController_HttpPost_Delete_Action_ViewBagTitle;
             ViewBag.Message = response.Message;
             ViewBag.MessageType = response.MessageType;
 

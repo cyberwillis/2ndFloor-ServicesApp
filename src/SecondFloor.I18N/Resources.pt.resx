@@ -219,6 +219,45 @@
   <data name="HomeTitle" xml:space="preserve">
     <value>Pagina Principal</value>
   </data>
+  <data name="ProdutoController_HttpGet_Create_Action_ViewBagTitle" xml:space="preserve">
+    <value>Cadastro de Produto</value>
+  </data>
+  <data name="ProdutoController_HttpGet_Delete_Action_ViewBagMessage" xml:space="preserve">
+    <value>Tem certeza que deseja excluit o Endereco abaixo?</value>
+  </data>
+  <data name="ProdutoController_HttpGet_Delete_Action_ViewBagTitle" xml:space="preserve">
+    <value>Excluir Produto</value>
+  </data>
+  <data name="ProdutoController_HttpGet_Edit_Action_ViewBagTitle" xml:space="preserve">
+    <value>Alterar Produto</value>
+  </data>
+  <data name="ProdutoController_HttpGet_List_Action_ViewBagTitle" xml:space="preserve">
+    <value>Lista de Produtos</value>
+  </data>
+  <data name="ProdutoController_HttpPost_Create_Action_ViewBagTitle" xml:space="preserve">
+    <value>Cadastro de Produto</value>
+  </data>
+  <data name="ProdutoController_HttpPost_Delete_Action_ViewBagTitle" xml:space="preserve">
+    <value>Excluir Produto</value>
+  </data>
+  <data name="ProdutoController_HttpPost_Edit_Action_ViewBagTitle" xml:space="preserve">
+    <value>Alterar Produto</value>
+  </data>
+  <data name="ProdutoViewModels_AttributeName_Descricao" xml:space="preserve">
+    <value>Descrição</value>
+  </data>
+  <data name="ProdutoViewModels_AttributeName_Fabricante" xml:space="preserve">
+    <value>Fabricante</value>
+  </data>
+  <data name="ProdutoViewModels_AttributeName_NomeProduto" xml:space="preserve">
+    <value>Produto /Serviço</value>
+  </data>
+  <data name="ProdutoViewModels_AttributeName_Referencia" xml:space="preserve">
+    <value>Referência</value>
+  </data>
+  <data name="ProdutoViewModels_AttributeName_Valor" xml:space="preserve">
+    <value>Preço</value>
+  </data>
   <data name="SelectLanguage" xml:space="preserve">
     <value>Selecione sua linguagem:</value>
   </data>
@@ -242,5 +281,14 @@
   </data>
   <data name="View_Endereco_ListaEnderecoPartialView_Botao_NovoEndereco" xml:space="preserve">
     <value>Novo Endereço</value>
+  </data>
+  <data name="View_Produto_ListaProdutoPartialView_Botao_NovoProduto" xml:space="preserve">
+    <value>Novo Produto</value>
+  </data>
+  <data name="View_Produto_ProdutoPartialView_Botao_Cancelar" xml:space="preserve">
+    <value>Cancelar</value>
+  </data>
+  <data name="View_Produto_ProdutoPartialView_Botao_Salvar" xml:space="preserve">
+    <value>Salvar</value>
   </data>
 </root>
