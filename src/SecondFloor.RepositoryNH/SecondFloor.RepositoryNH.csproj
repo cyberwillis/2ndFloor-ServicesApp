@@ -35,6 +35,9 @@
     <Reference Include="Iesi.Collections">
       <HintPath>..\packages\Iesi.Collections.4.0.1.4000\lib\net40\Iesi.Collections.dll</HintPath>
     </Reference>
+    <Reference Include="NHibernate">
+      <HintPath>..\packages\NHibernate.4.0.1.4000\lib\net40\NHibernate.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Web" />
@@ -60,10 +63,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\..\OpenSource\nhibernate-core\src\NHibernate\NHibernate.csproj">
-      <Project>{5909bfe7-93cf-4e5f-be22-6293368af01d}</Project>
-      <Name>NHibernate</Name>
-    </ProjectReference>
     <ProjectReference Include="..\SecondFloor.Infrastructure\SecondFloor.Infrastructure.csproj">
       <Project>{0B674E26-7392-4E08-B9F0-04078ECDE0BC}</Project>
       <Name>SecondFloor.Infrastructure</Name>

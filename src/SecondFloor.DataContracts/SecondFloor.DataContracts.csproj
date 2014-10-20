@@ -69,6 +69,10 @@
     <Compile Include="Messages\Anuncio\ExcluirAnuncioResponse.cs" />
     <Compile Include="Messages\Anuncio\PublicarAnuncioRequest.cs" />
     <Compile Include="Messages\Anuncio\PublicarAnuncioResponse.cs" />
+    <Compile Include="Messages\Consumidor\CadastrarConsumidorRequest.cs" />
+    <Compile Include="Messages\Consumidor\CadastrarConsumidorResponse.cs" />
+    <Compile Include="Messages\Consumidor\LogonConsumidorRequest.cs" />
+    <Compile Include="Messages\Consumidor\LogonConsumidorResponse.cs" />
     <Compile Include="Messages\Endereco\AlterarEnderecoRequest.cs" />
     <Compile Include="Messages\Endereco\AlterarEnderecoResponse.cs" />
     <Compile Include="Messages\Endereco\CadastrarEnderecoRequest.cs" />
