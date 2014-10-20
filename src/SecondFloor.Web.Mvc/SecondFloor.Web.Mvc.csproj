@@ -191,6 +191,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AnuncianteController.cs" />
     <Compile Include="Controllers\AnuncioController.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\EnderecoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -473,6 +474,10 @@
     <ProjectReference Include="..\SecondFloor.DataContracts\SecondFloor.DataContracts.csproj">
       <Project>{005BD132-A35B-4F72-9840-0228FCEFAFF5}</Project>
       <Name>SecondFloor.DataContracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SecondFloor.I18N\SecondFloor.I18N.csproj">
+      <Project>{081b4d0e-a964-4084-b2fe-1ef30cde6b0f}</Project>
+      <Name>SecondFloor.I18N</Name>
     </ProjectReference>
     <ProjectReference Include="..\SecondFloor.Infrastructure\SecondFloor.Infrastructure.csproj">
       <Project>{0B674E26-7392-4E08-B9F0-04078ECDE0BC}</Project>

@@ -52,7 +52,9 @@ function ajaxModalFormOpenHandler(obj) {
 }
 
 
-// Controle de PopOvers
+/*
+Script para abrir popups acima das ofertas listadas
+*/
 var popOptions = {
     animation: true,
     delay: 0,
@@ -79,18 +81,6 @@ function popClick(obj) {
     obj.preventDefault();
 }
 
-//$(document).ready(function () {
-//    var options = {
-//        animation: true,
-//        delay: 0,
-//        html: true,
-//        placement: 'top',
-//        template: '<div class="popover" role="tooltip"><div class="arrow"></div><h3 class="popover-title"></h3><div class="popover-content"></div></div>',
-//        trigger: 'hover'
-//    };
-//    $('#mypopovers').popover(options);
-//});
-
 
 /*
 Metodo responsavel por fazer o submit do formulario de inclusao ou alteracao
@@ -113,23 +103,32 @@ function ajaxFormSubmit(targetAfterClose) {
     });
 };
 
+/*
+Script para acesso a troca de linguagem 
+*/
+$(document).ready(function () {
+    $("input[type = 'radio']").click(function () {
+        $(this).parents("form").submit(); // post form
+
+    });
+});
+
+
 
 var navs = [];
-
 function enderecoTab(e) {
     e.preventDefault();
     $(this).tab('show');
 }
-
 function produtoTab(e) {
     e.preventDefault();
     $(this).tab('show');
 
-    $('#conteudoAnuncianteEndereco').hide()
+    $('#conteudoAnuncianteEndereco').hide();
 }
-
 $('#myTab a[href="#endereco"]').click(enderecoTab);
 $('#myTab a[href="#produto"]').click(produtoTab);
 
 //$('#myTab a[href="#endereco"]').click(function() { alert('endereços'); });
 //$('#myTab a[href="#produto"]').click(function () { alert('produtos'); });
+

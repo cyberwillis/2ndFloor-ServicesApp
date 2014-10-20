@@ -11,7 +11,7 @@ using WebGrease.Css.Extensions;
 
 namespace SecondFloor.Web.Mvc.Controllers
 {
-    public class EnderecoController : Controller
+    public class EnderecoController : BaseController
     {
         private readonly IEnderecoService _enderecoService;
         private readonly IEstadoService _estadoService;

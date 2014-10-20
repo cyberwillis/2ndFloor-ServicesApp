@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using System.Web.UI.WebControls.WebParts;
 using SecondFloor.DataContracts.Messages;
 using SecondFloor.DataContracts.Messages.Anunciante;
+using SecondFloor.I18N;
 using SecondFloor.ServiceContracts;
 using SecondFloor.Web.Mvc.Models;
 using SecondFloor.Web.Mvc.Services;
@@ -13,7 +14,7 @@ using WebGrease.Css.Extensions;
 
 namespace SecondFloor.Web.Mvc.Controllers
 {
-    public class AnuncianteController : Controller
+    public class AnuncianteController : BaseController
     {
         private readonly IAnuncianteService _anuncianteService;
 
@@ -29,7 +30,7 @@ namespace SecondFloor.Web.Mvc.Controllers
         {
             var response = _anuncianteService.EncontrarTodosAnunciantes();
 
-            ViewBag.Title = "Lista de Anunciantes";
+            ViewBag.Title = Resources.AnuncianteController_HttpGet_List_Action_ViewBagTitle;
 
             if (!response.Success)
             {
@@ -46,7 +47,7 @@ namespace SecondFloor.Web.Mvc.Controllers
             var request = new EncontrarAnuncianteRequest() { Id = id };
             var response = _anuncianteService.EncontrarAnunciantePor(request);
 
-            ViewBag.Title = "Detalhes do Anunciante";
+            ViewBag.Title = Resources.AnuncianteController_HttpGet_Detail_Action_ViewBagTitle;
 
             if (!response.Success)
             {
@@ -60,7 +61,7 @@ namespace SecondFloor.Web.Mvc.Controllers
         public PartialViewResult Create()
         {
             ViewBag.Excluir = false;
-            ViewBag.Title = "Cadastro de Anunciante";
+            ViewBag.Title = Resources.AnuncianteController_HttpGet_Create_Action_ViewBagTitle;
 
             //TODO: remover dados default do formulario e impedir cadastro com mesmo CNPJ
             var anunciante = new AnuncianteViewModels();
@@ -83,7 +84,7 @@ namespace SecondFloor.Web.Mvc.Controllers
             var response = _anuncianteService.CadastrarAnunciante(request);
 
             ViewBag.Excluir = false;
-            ViewBag.Title = "Cadastro de Anunciante";
+            ViewBag.Title = Resources.AnuncianteController_HttpPost_Create_Action_ViewBagTitle;
             ViewBag.Message = response.Message;
             ViewBag.MessageType = response.MessageType;
 
@@ -103,7 +104,7 @@ namespace SecondFloor.Web.Mvc.Controllers
             var response = _anuncianteService.EncontrarAnunciantePor(request);
 
             ViewBag.Excluir = false;
-            ViewBag.Title = "Alterar Anunciante";
+            ViewBag.Title = Resources.AnuncianteController_HttpGet_Edit_Action_ViewBagTitle;
 
             if (!response.Success)
             {
@@ -122,7 +123,7 @@ namespace SecondFloor.Web.Mvc.Controllers
             var response = _anuncianteService.AlterarAnunciante(request);
 
             ViewBag.Excluir = false;
-            ViewBag.Title = "Alterar Anunciante";
+            ViewBag.Title = Resources.AnuncianteController_HttpPost_Edit_Action_ViewBagTitle;
             ViewBag.Message = response.Message;
             ViewBag.MessageType = response.MessageType;
 
@@ -148,8 +149,8 @@ namespace SecondFloor.Web.Mvc.Controllers
             }
 
             ViewBag.Excluir = true;
-            ViewBag.Title = "Excluir Anunciante";
-            ViewBag.Message = "Tem certeza que deseja excluit o Anunciante abaixo ?";
+            ViewBag.Title = Resources.AnuncianteController_HttpGet_Delete_Action_ViewBagTitle;
+            ViewBag.Message = Resources.AnuncianteController_HttpGet_Delete_Action_ViewBagMessage;
             ViewBag.MessageType = "alert-danger";
 
             var anunciante = response.Anunciante.ConvertAnuncianteViewModels();
@@ -165,7 +166,7 @@ namespace SecondFloor.Web.Mvc.Controllers
             var response = _anuncianteService.ExcluirAnunciante(request);
 
             ViewBag.Excluir = true;
-            ViewBag.Title = "Excluir Anunciante";
+            ViewBag.Title = Resources.AnuncianteController_HttpPost_Delete_Action_ViewBagTitle;
             ViewBag.Message = response.Message;
             ViewBag.MessageType = response.MessageType;
 
@@ -191,7 +192,7 @@ namespace SecondFloor.Web.Mvc.Controllers
         public ActionResult Cadastro()
         {
             ViewBag.Excluir = false;
-            ViewBag.Title = "Cadastro de Anunciante";
+            ViewBag.Title = Resources.AnuncianteController_HttpGet_Cadastro_Action_ViewBagTitle;
 
             var anunciante = new AnuncianteViewModels()
             {
@@ -210,7 +211,7 @@ namespace SecondFloor.Web.Mvc.Controllers
         public ActionResult Cadastro([Bind(Exclude = "Id")] AnuncianteViewModels anunciante)
         {
             ViewBag.Excluir = false;
-            ViewBag.Title = "Cadastro de Anunciante";
+            ViewBag.Title = Resources.AnuncianteController_HttpPost_Cadastro_Action_ViewBagTitle;
 
             if (!ModelState.IsValid)
             {
@@ -230,14 +231,14 @@ namespace SecondFloor.Web.Mvc.Controllers
             //return RedirectToAction("Detalhes", new { Id = response.Id });
 
             //TODO: Caso Administrador listar todos anunciantes
-            ViewBag.Title = "Lista de Anunciantes";
+            ViewBag.Title = Resources.AnuncianteController_HttpPost_Cadastro_Action_ViewBagTitle_Adm;
             return RedirectToAction("Listar");
         }
 
         [HttpGet]
         public ActionResult Listar()
         {
-            ViewBag.Title = "Lista de Anunciantes";
+            ViewBag.Title = Resources.AnuncianteController_HttpGet_Listar_Action_ViewBagTitle;
 
             var response = _anuncianteService.EncontrarTodosAnunciantes();
             if (response.Success)
@@ -256,7 +257,7 @@ namespace SecondFloor.Web.Mvc.Controllers
             var response = _anuncianteService.EncontrarAnunciantePor(request);
             if (response.Success)
             {
-                ViewBag.Title = "Detalhes do Anunciante";
+                ViewBag.Title = Resources.AnuncianteController_HttpGet_Detalhes_Action_ViewBagTitle;
 
                 return View("Detalhes", response.Anunciante.ConvertAnuncianteViewModels());
             }

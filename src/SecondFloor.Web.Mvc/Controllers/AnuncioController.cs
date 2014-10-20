@@ -14,7 +14,7 @@ using SecondFloor.Web.Mvc.Services;
 
 namespace SecondFloor.Web.Mvc.Controllers
 {
-    public class AnuncioController : Controller
+    public class AnuncioController : BaseController
     {
         private readonly IAnuncioService _anuncioService;
         private readonly IProdutoService _produtoService;

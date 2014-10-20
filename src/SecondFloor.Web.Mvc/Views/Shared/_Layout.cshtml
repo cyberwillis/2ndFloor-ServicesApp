@@ -1,4 +1,16 @@
-﻿<!DOCTYPE html>
+﻿@using SecondFloor.I18N
+@{
+    var culture = System.Threading.Thread.CurrentThread.CurrentUICulture.Name.ToLower();
+}
+
+@helper selected(string c, string culture)
+{
+    if (c == culture)
+    {
+        @:checked = "checked";
+    }
+}
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -22,13 +34,17 @@
                 @Html.ActionLink("Ofertame", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("Sobre", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contato", "Contact", "Home")</li>
-                    <li>@Html.ActionLink("Cadastro", "Index", "Anunciante")</li>
-                    <li>@Html.ActionLink("Painel Adm", "Listar", "Anunciante")</li>
-                </ul>
+                
+                    <ul class="nav navbar-nav">
+                        <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                        <li>@Html.ActionLink("Sobre", "About", "Home")</li>
+                        <li>@Html.ActionLink("Contato", "Contact", "Home")</li>
+                        <li>@Html.ActionLink("Cadastro", "Index", "Anunciante")</li>
+                        <li>@Html.ActionLink("Painel Adm", "Listar", "Anunciante")</li>
+                        
+                    </ul>
+                
+
                 @Html.Partial("_LoginPartial")
             </div>
         </div>
@@ -37,45 +53,58 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy;2ndFloor - @DateTime.Now.Year</p>
+            
+            @using (Html.BeginForm("SetCulture", "Home"))
+            {
+                <ul class="list-inline text-center">
+                    <li>&copy;2ndFloor - @DateTime.Now.Year</li>
+                    <li>&nbsp;</li>
+                    <li>[</li>
+                    <li>@Resources.SelectLanguage</li>
+                    <li><label for="en-us"><input name="culture" id="en-us" value="en-us" type="radio" @selected("en-us", culture) /> English</label></li>
+                    <li><label for="pt-br"><input name="culture" id="pt-br" value="pt-br" type="radio" @selected("pt-br", culture) /> Português</label></li>
+                    <li>]</li>
+                </ul>
+            }
+            
         </footer>
     </div>
-
-
-            <!--- Modal para formularios --->
-            <div id="myModal" class="modal fade">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                            <h4 id="myModalLabel" class="modal-title">&nbsp;</h4>
-                        </div>
-                        <div id="myModalBody" class="modal-body">
-                            <div id="conteudo-modal"></div>
-                            <div id="barra" class="progress progress-striped active">
-                                <div class="progress-bar" style="width: 100%;"></div>
-                            </div>
-                        </div>
-                        <div class="modal-footer form-horizontal">
-                            <button type="button" class="btn btn-default btn-sm" data-dismiss="modal" aria-hidden="true">Cancelar</button>
-                        </div>
-                    </div><!-- /.modal-content -->
-                </div><!-- /.modal-dialog -->
-            </div><!-- /.modal -->
-            <style>
-                /*fix do modal e datepicker para firefox*/
-                .modal {
-                    overflow: visible;
-                }
-            </style>
-            <!--<div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-            </div>-->
-            <!--- Modal para formularios --->
-            @Scripts.Render("~/bundles/jquery")
-            @Scripts.Render("~/bundles/bootstrap")
-            @Scripts.Render("~/bundles/datepicker")<!--bootstrap-datepicker-->
-            @Scripts.Render("~/bundles/selectjs") <!--bootstrap-select-->
-            @Scripts.Render("~/bundles/2ndFloor") <!--custom ajax-->
-            @RenderSection("scripts", required: false)
+    
+    <!--- Modal para formularios --->
+    <div id="myModal" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <h4 id="myModalLabel" class="modal-title">&nbsp;</h4>
+                </div>
+                <div id="myModalBody" class="modal-body">
+                    <div id="conteudo-modal"></div>
+                    <div id="barra" class="progress progress-striped active">
+                        <div class="progress-bar" style="width: 100%;"></div>
+                    </div>
+                </div>
+                <div class="modal-footer form-horizontal">
+                    <button type="button" class="btn btn-default btn-sm" data-dismiss="modal" aria-hidden="true">Cancelar</button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+    <style>
+        /*fix do modal e datepicker para firefox*/
+        .modal {
+            overflow: visible;
+        }
+    </style>
+    <!--<div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    </div>-->
+    <!--- Modal para formularios --->
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/datepicker")<!--bootstrap-datepicker-->
+    @Scripts.Render("~/bundles/selectjs") <!--bootstrap-select-->
+    @Scripts.Render("~/bundles/2ndFloor") <!--custom ajax-->
+    @RenderSection("scripts", required: false)
 </body>
 </html>

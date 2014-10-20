@@ -1,11 +1,12 @@
-﻿@model IEnumerable<SecondFloor.Web.Mvc.Models.AnuncianteViewModels>
+﻿@using SecondFloor.I18N
+@model IEnumerable<SecondFloor.Web.Mvc.Models.AnuncianteViewModels>
 
 <br/>
 <p>
     <button type="button" onclick="ajaxModalFormOpenHandler(this)" class="btn btn-sm btn-default"
             data-url="/Anunciante/Create/"
             data-url-content-update="/Anunciante/List"
-            data-content-update-id="#conteudoAnunciante">Novo Anunciante
+            data-content-update-id="#conteudoAnunciante">@Resources.View_Anunciante_ListaAnunciantePartialView_Botao_NovoAnunciante
         <!--<i class="glyphicon glyphicon-plus"></i>-->
     </button>
 </p>

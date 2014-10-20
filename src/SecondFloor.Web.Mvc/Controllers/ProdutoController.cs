@@ -11,7 +11,7 @@ using WebGrease.Css.Extensions;
 
 namespace SecondFloor.Web.Mvc.Controllers
 {
-    public class ProdutoController : Controller
+    public class ProdutoController : BaseController
     {
         private readonly IProdutoService _produtoService;
 
