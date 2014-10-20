@@ -700,6 +700,42 @@ namespace SecondFloor.I18N {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Product Description must have at most (1000) characters..
+        /// </summary>
+        public static string Model_Rules_Produto_Specification_Descricao_Long {
+            get {
+                return ResourceManager.GetString("Model_Rules_Produto_Specification_Descricao_Long", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Product Description must be specified.
+        /// </summary>
+        public static string Model_Rules_Produto_Specification_Descricao_NotNull {
+            get {
+                return ResourceManager.GetString("Model_Rules_Produto_Specification_Descricao_NotNull", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Product Name must have at most (150) characters..
+        /// </summary>
+        public static string Model_Rules_Produto_Specification_NomeProduto_Long {
+            get {
+                return ResourceManager.GetString("Model_Rules_Produto_Specification_NomeProduto_Long", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Product Name must be specified.
+        /// </summary>
+        public static string Model_Rules_Produto_Specification_NomeProduto_NotNull {
+            get {
+                return ResourceManager.GetString("Model_Rules_Produto_Specification_NomeProduto_NotNull", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The CNPJis invalid..
         /// </summary>
         public static string Model_Rules_Specification_Anunciante_Cnpj_Invalid {

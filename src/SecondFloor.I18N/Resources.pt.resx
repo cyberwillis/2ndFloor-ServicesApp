@@ -447,6 +447,18 @@
   <data name="Infrastructure_Model_EntityBase_GetErrorMessages" xml:space="preserve">
     <value>Erros encontrados:</value>
   </data>
+  <data name="Model_Rules_Produto_Specification_Descricao_Long" xml:space="preserve">
+    <value>A descrição do produto deve conter no máximo(1000) caracteres.</value>
+  </data>
+  <data name="Model_Rules_Produto_Specification_Descricao_NotNull" xml:space="preserve">
+    <value>A descrição do produto não foi especificada.</value>
+  </data>
+  <data name="Model_Rules_Produto_Specification_NomeProduto_Long" xml:space="preserve">
+    <value>O prodtuo deve conter no máximo(150) caracteres.</value>
+  </data>
+  <data name="Model_Rules_Produto_Specification_NomeProduto_NotNull" xml:space="preserve">
+    <value>O nome do produto não foi especificado.</value>
+  </data>
   <data name="Model_Rules_Specification_Anunciante_Cnpj_Invalid" xml:space="preserve">
     <value>O Cnpj está invalido.</value>
   </data>

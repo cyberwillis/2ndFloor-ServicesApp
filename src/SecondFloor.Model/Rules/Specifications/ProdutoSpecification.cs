@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using SecondFloor.I18N;
 
 namespace SecondFloor.Model.Rules.Specifications
 {
@@ -11,20 +12,20 @@ namespace SecondFloor.Model.Rules.Specifications
             //NomeProduto
             if (string.IsNullOrEmpty(produto.NomeProduto))
             {
-                produto.BrokenRules.Add("NomeProduto","O nome do produto não foi especificado.");
+                produto.BrokenRules.Add("NomeProduto", Resources.Model_Rules_Produto_Specification_NomeProduto_NotNull);
             } else if (produto.NomeProduto.Length > 150)
             {
-                produto.BrokenRules.Add("NomeProduto","O prodtuo deve conter no máximo(150) caracteres.");
+                produto.BrokenRules.Add("NomeProduto", Resources.Model_Rules_Produto_Specification_NomeProduto_Long);
             }
             
             //Descricao
             if (string.IsNullOrEmpty(produto.Descricao))
             {
-                produto.BrokenRules.Add("Descricao", "A descrição do produto não foi especificada.");
+                produto.BrokenRules.Add("Descricao", Resources.Model_Rules_Produto_Specification_Descricao_NotNull);
             }
             else if (produto.Descricao.Length > 1000)
             {
-                produto.BrokenRules.Add("Descricao", "A descrição do produto deve conter no máximo(1000) caracteres.");
+                produto.BrokenRules.Add("Descricao", Resources.Model_Rules_Produto_Specification_Descricao_Long);
             }
 
             //Referencia (opcional)
