@@ -988,6 +988,141 @@ namespace SecondFloor.I18N {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Errors occurred:.
+        /// </summary>
+        public static string ProdutoServices_AlterarProduto_Error {
+            get {
+                return ResourceManager.GetString("ProdutoServices_AlterarProduto_Error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Product not found!.
+        /// </summary>
+        public static string ProdutoServices_AlterarProduto_NotFound {
+            get {
+                return ResourceManager.GetString("ProdutoServices_AlterarProduto_NotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Product updated successfully.
+        /// </summary>
+        public static string ProdutoServices_AlterarProduto_Success {
+            get {
+                return ResourceManager.GetString("ProdutoServices_AlterarProduto_Success", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Seller not found!.
+        /// </summary>
+        public static string ProdutoServices_CadastrarProduto_Anunciante_NotFound {
+            get {
+                return ResourceManager.GetString("ProdutoServices_CadastrarProduto_Anunciante_NotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Errors occurred:.
+        /// </summary>
+        public static string ProdutoServices_CadastrarProduto_Error {
+            get {
+                return ResourceManager.GetString("ProdutoServices_CadastrarProduto_Error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Product registred Successfully .
+        /// </summary>
+        public static string ProdutoServices_CadastrarProduto_Success {
+            get {
+                return ResourceManager.GetString("ProdutoServices_CadastrarProduto_Success", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Errors occurred:.
+        /// </summary>
+        public static string ProdutoServices_EncontrarProdutoPor_Error {
+            get {
+                return ResourceManager.GetString("ProdutoServices_EncontrarProdutoPor_Error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Product not found!.
+        /// </summary>
+        public static string ProdutoServices_EncontrarProdutoPor_NotFound {
+            get {
+                return ResourceManager.GetString("ProdutoServices_EncontrarProdutoPor_NotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Produt found!.
+        /// </summary>
+        public static string ProdutoServices_EncontrarProdutoPor_Success {
+            get {
+                return ResourceManager.GetString("ProdutoServices_EncontrarProdutoPor_Success", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Errors occurred:.
+        /// </summary>
+        public static string ProdutoServices_EncontrarTodosProdutos_Error {
+            get {
+                return ResourceManager.GetString("ProdutoServices_EncontrarTodosProdutos_Error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Seller not found!.
+        /// </summary>
+        public static string ProdutoServices_EncontrarTodosProdutos_NotFound {
+            get {
+                return ResourceManager.GetString("ProdutoServices_EncontrarTodosProdutos_NotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Found {0} Products!.
+        /// </summary>
+        public static string ProdutoServices_EncontrarTodosProdutos_Success {
+            get {
+                return ResourceManager.GetString("ProdutoServices_EncontrarTodosProdutos_Success", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Errors occurred:.
+        /// </summary>
+        public static string ProdutoServices_ExcluirProduto_Error {
+            get {
+                return ResourceManager.GetString("ProdutoServices_ExcluirProduto_Error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Product not found!.
+        /// </summary>
+        public static string ProdutoServices_ExcluirProduto_NotFound {
+            get {
+                return ResourceManager.GetString("ProdutoServices_ExcluirProduto_NotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Product deleted successfully.
+        /// </summary>
+        public static string ProdutoServices_ExcluirProduto_Success {
+            get {
+                return ResourceManager.GetString("ProdutoServices_ExcluirProduto_Success", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Description.
         /// </summary>
         public static string ProdutoViewModels_AttributeName_Descricao {

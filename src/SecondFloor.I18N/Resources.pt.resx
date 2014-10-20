@@ -519,4 +519,49 @@
   <data name="Model_Rules_Specification_Endereco_Numero_NotNull" xml:space="preserve">
     <value>O número do logradouro não foi especificado.</value>
   </data>
+  <data name="ProdutoServices_AlterarProduto_Error" xml:space="preserve">
+    <value>Ocorreu um erro:</value>
+  </data>
+  <data name="ProdutoServices_AlterarProduto_NotFound" xml:space="preserve">
+    <value>Produto nao encontrado!</value>
+  </data>
+  <data name="ProdutoServices_AlterarProduto_Success" xml:space="preserve">
+    <value>Produto atualizado com sucesso!</value>
+  </data>
+  <data name="ProdutoServices_CadastrarProduto_Anunciante_NotFound" xml:space="preserve">
+    <value>Anunciante não encontrado</value>
+  </data>
+  <data name="ProdutoServices_CadastrarProduto_Error" xml:space="preserve">
+    <value>Ocorreu um erro:</value>
+  </data>
+  <data name="ProdutoServices_CadastrarProduto_Success" xml:space="preserve">
+    <value>Produto cadastrado com sucesso.</value>
+  </data>
+  <data name="ProdutoServices_EncontrarProdutoPor_Error" xml:space="preserve">
+    <value>Ocorreu um erro:</value>
+  </data>
+  <data name="ProdutoServices_EncontrarProdutoPor_NotFound" xml:space="preserve">
+    <value>Produto nao encontrado!</value>
+  </data>
+  <data name="ProdutoServices_EncontrarProdutoPor_Success" xml:space="preserve">
+    <value>Produto Encontrado!</value>
+  </data>
+  <data name="ProdutoServices_EncontrarTodosProdutos_Error" xml:space="preserve">
+    <value>Ocorreu um erro:</value>
+  </data>
+  <data name="ProdutoServices_EncontrarTodosProdutos_NotFound" xml:space="preserve">
+    <value>Os dados deste Anunciante não foram encontrados</value>
+  </data>
+  <data name="ProdutoServices_EncontrarTodosProdutos_Success" xml:space="preserve">
+    <value>Encontrado {0} produtos</value>
+  </data>
+  <data name="ProdutoServices_ExcluirProduto_Error" xml:space="preserve">
+    <value>Ocorreu um erro:</value>
+  </data>
+  <data name="ProdutoServices_ExcluirProduto_NotFound" xml:space="preserve">
+    <value>Produto nao encontrado!</value>
+  </data>
+  <data name="ProdutoServices_ExcluirProduto_Success" xml:space="preserve">
+    <value>Produto excluido com sucesso!</value>
+  </data>
 </root>

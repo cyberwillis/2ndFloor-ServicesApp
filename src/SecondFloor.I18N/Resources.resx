@@ -519,4 +519,49 @@
   <data name="Model_Rules_Specification_Endereco_Numero_NotNull" xml:space="preserve">
     <value>Street address number must be declared.</value>
   </data>
+  <data name="ProdutoServices_AlterarProduto_Error" xml:space="preserve">
+    <value>Errors occurred:</value>
+  </data>
+  <data name="ProdutoServices_AlterarProduto_NotFound" xml:space="preserve">
+    <value>Product not found!</value>
+  </data>
+  <data name="ProdutoServices_AlterarProduto_Success" xml:space="preserve">
+    <value>Product updated successfully</value>
+  </data>
+  <data name="ProdutoServices_CadastrarProduto_Anunciante_NotFound" xml:space="preserve">
+    <value>Seller not found!</value>
+  </data>
+  <data name="ProdutoServices_CadastrarProduto_Error" xml:space="preserve">
+    <value>Errors occurred:</value>
+  </data>
+  <data name="ProdutoServices_CadastrarProduto_Success" xml:space="preserve">
+    <value>Product registred Successfully </value>
+  </data>
+  <data name="ProdutoServices_EncontrarProdutoPor_Error" xml:space="preserve">
+    <value>Errors occurred:</value>
+  </data>
+  <data name="ProdutoServices_EncontrarProdutoPor_NotFound" xml:space="preserve">
+    <value>Product not found!</value>
+  </data>
+  <data name="ProdutoServices_EncontrarProdutoPor_Success" xml:space="preserve">
+    <value>Produt found!</value>
+  </data>
+  <data name="ProdutoServices_EncontrarTodosProdutos_Error" xml:space="preserve">
+    <value>Errors occurred:</value>
+  </data>
+  <data name="ProdutoServices_EncontrarTodosProdutos_NotFound" xml:space="preserve">
+    <value>Seller not found!</value>
+  </data>
+  <data name="ProdutoServices_EncontrarTodosProdutos_Success" xml:space="preserve">
+    <value>Found {0} Products!</value>
+  </data>
+  <data name="ProdutoServices_ExcluirProduto_Error" xml:space="preserve">
+    <value>Errors occurred:</value>
+  </data>
+  <data name="ProdutoServices_ExcluirProduto_NotFound" xml:space="preserve">
+    <value>Product not found!</value>
+  </data>
+  <data name="ProdutoServices_ExcluirProduto_Success" xml:space="preserve">
+    <value>Product deleted successfully</value>
+  </data>
 </root>
