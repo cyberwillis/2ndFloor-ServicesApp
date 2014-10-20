@@ -1,4 +1,5 @@
-﻿@model SecondFloor.Web.Mvc.Models.AnuncianteViewModels
+﻿@using SecondFloor.I18N
+@model SecondFloor.Web.Mvc.Models.AnuncianteViewModels
 
 <div id="conteudoAnuncianteDetalhe">
     @{
@@ -10,13 +11,13 @@
 
 <ul id="myTab" class="nav nav-tabs" role="tablist">
     <li id="tab-endereco" class="active">
-        <a href="#conteudoAnuncianteEndereco" role="tab" data-toggle="tab">Endereços</a>
+        <a href="#conteudoAnuncianteEndereco" role="tab" data-toggle="tab">@Resources.View_Anunciante_Detalhes_Tab_Endereco</a>
     </li>
     <li id="tab-produto">
-        <a href="#conteudoAnuncianteProduto" role="tab" data-toggle="tab">Produtos</a>
+        <a href="#conteudoAnuncianteProduto" role="tab" data-toggle="tab">@Resources.View_Anunciante_Detalhes_Tab_Produto</a>
     </li>
     <li id="tab-anuncio">
-        <a href="#conteudoAnuncianteAnuncio" role="tab" data-toggle="tab">Anuncios em espera</a>
+        <a href="#conteudoAnuncianteAnuncio" role="tab" data-toggle="tab">@Resources.View_Anunciante_Detalhes_Tab_Anuncio</a>
     </li>
 </ul>
 

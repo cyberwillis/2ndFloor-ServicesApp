@@ -7,6 +7,7 @@ using SecondFloor.DataContracts.Messages.Anunciante;
 using SecondFloor.DataContracts.Messages.Anuncio;
 using SecondFloor.DataContracts.Messages.Endereco;
 using SecondFloor.DataContracts.Messages.Produto;
+using SecondFloor.I18N;
 using SecondFloor.Model;
 using SecondFloor.ServiceContracts;
 using SecondFloor.Web.Mvc.Models;
@@ -33,7 +34,7 @@ namespace SecondFloor.Web.Mvc.Controllers
             var request = new EncontrarTodosAnunciosRequest() {AnuncianteId = id};
             var response = _anuncioService.EncontrarTodosAnuncios(request);
 
-            ViewBag.Title = "Lista de Anuncios";
+            ViewBag.Title = Resources.AnuncioController_HttpGet_List_Action_ViewBagTitle;
             ViewBag.AnuncianteId = id;
 
             if (!response.Success)
@@ -48,7 +49,7 @@ namespace SecondFloor.Web.Mvc.Controllers
         public PartialViewResult Create(string id)
         {
             ViewBag.Excluir = false;
-            ViewBag.Title = "Cadastro de Anuncio";
+            ViewBag.Title = Resources.AnuncioController_HttpGet_Create_Action_ViewBagTitle;
 
             var enderecos = GetEnderecosPorAnunciante(id);
             var ofertas = GetProdutosPorAnunciante(id);
@@ -88,7 +89,7 @@ namespace SecondFloor.Web.Mvc.Controllers
             var response = _anuncioService.CadastrarAnuncio(request);
 
             ViewBag.Excluir = false;
-            ViewBag.Title = "Cadastro de Anuncio";
+            ViewBag.Title = Resources.AnuncioController_HttpPost_Create_Action_ViewBagTitle;
             ViewBag.Message = response.Message;
             ViewBag.MessageType = response.MessageType;
 

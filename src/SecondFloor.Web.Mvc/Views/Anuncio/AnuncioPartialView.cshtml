@@ -1,4 +1,5 @@
-﻿@model SecondFloor.Web.Mvc.Models.AnuncioViewModels
+﻿@using SecondFloor.I18N
+@model SecondFloor.Web.Mvc.Models.AnuncioViewModels
 
 
 <div class="modal-dialog">
@@ -152,8 +153,8 @@
             </div>
         </div>
         <div class="modal-footer form-horizontal">
-            <button type="button" class="btn btn-default btn-sm" data-dismiss="modal" aria-hidden="true">Cancelar</button>
-            <a id="criarEndereco" onclick="ajaxFormSubmit(this)" href="#" role="button" class="btn btn-sm btn-danger">Salvar</a>
+            <button type="button" class="btn btn-default btn-sm" data-dismiss="modal" aria-hidden="true">@Resources.View_Anuncio_AnuncioAlterarPartialView_Botao_Cancelar</button>
+            <a id="criarEndereco" onclick="ajaxFormSubmit(this)" href="#" role="button" class="btn btn-sm btn-danger">@Resources.View_Anuncio_AnuncioAlterarPartialView_Botao_Salvar</a>
         </div>
     </div><!-- /.modal-content -->
 </div><!-- /.modal-dialog -->
@@ -165,7 +166,7 @@
             format: "dd/mm/yyyy",
             startView: 0,
             //todayBtn: "linked",
-            language: "pt-BR",
+            language: "@Resources.View_Anuncio_AnuncioAlterarPartialView_Calendario_DtFim" ,//"pt-BR",
             autoclose: true,
             todayHighlight: true
         });
@@ -178,7 +179,7 @@
             format: "dd/mm/yyyy",
             startView: 0,
             //todayBtn: "linked",
-            language: "pt-BR",
+            language: "@Resources.View_Anuncio_AnuncioAlterarPartialView_Calendario_DtInicio" ,//"pt-BR",
             autoclose: true,
             todayHighlight: true
         });

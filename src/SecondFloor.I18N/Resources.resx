@@ -291,4 +291,61 @@
   <data name="View_Produto_ProdutoPartialView_Botao_Salvar" xml:space="preserve">
     <value>Save</value>
   </data>
+  <data name="AnuncioController_HttpGet_Create_Action_ViewBagTitle" xml:space="preserve">
+    <value>Add Advertising</value>
+  </data>
+  <data name="AnuncioController_HttpGet_List_Action_ViewBagTitle" xml:space="preserve">
+    <value>Advertising List</value>
+  </data>
+  <data name="AnuncioController_HttpPost_Create_Action_ViewBagTitle" xml:space="preserve">
+    <value>Add Advertising</value>
+  </data>
+  <data name="AnuncioViewModel_AttributeName_DataFim" xml:space="preserve">
+    <value>End Date</value>
+  </data>
+  <data name="AnuncioViewModel_AttributeName_DataInicio" xml:space="preserve">
+    <value>Start Date</value>
+  </data>
+  <data name="AnuncioViewModel_AttributeName_Enderecos" xml:space="preserve">
+    <value>Addresses</value>
+  </data>
+  <data name="AnuncioViewModel_AttributeName_Ofertas" xml:space="preserve">
+    <value>Offers</value>
+  </data>
+  <data name="AnuncioViewModel_AttributeName_Status" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="AnuncioViewModel_AttributeName_Titulo" xml:space="preserve">
+    <value>Title</value>
+  </data>
+  <data name="View_Anunciante_Detalhes_Tab_Anuncio" xml:space="preserve">
+    <value>Advertising</value>
+  </data>
+  <data name="View_Anunciante_Detalhes_Tab_Endereco" xml:space="preserve">
+    <value>Addresses</value>
+  </data>
+  <data name="View_Anunciante_Detalhes_Tab_Produto" xml:space="preserve">
+    <value>Products</value>
+  </data>
+  <data name="View_Anuncio_AnuncioAlterarPartialView_Botao_Cancelar" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="View_Anuncio_AnuncioAlterarPartialView_Botao_Salvar" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="View_Anuncio_AnuncioAlterarPartialView_Calendario_DtFim" xml:space="preserve">
+    <value>en</value>
+  </data>
+  <data name="View_Anuncio_AnuncioAlterarPartialView_Calendario_DtInicio" xml:space="preserve">
+    <value>en</value>
+  </data>
+  <data name="View_Anuncio_ListaAnuncioPartialView_Botao_Alterar" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="View_Anuncio_ListaAnuncioPartialView_Botao_NovoAnuncio" xml:space="preserve">
+    <value>Add Advertising</value>
+  </data>
+  <data name="View_Anuncio_ListaAnuncioPartialView_Botao_Publicar" xml:space="preserve">
+    <value>Publish</value>
+  </data>
 </root>

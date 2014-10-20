@@ -1,4 +1,5 @@
-﻿@model IEnumerable<SecondFloor.Web.Mvc.Models.AnuncioViewModels>
+﻿@using SecondFloor.I18N
+@model IEnumerable<SecondFloor.Web.Mvc.Models.AnuncioViewModels>
 
 <h4>@ViewBag.Title</h4>
 <p>
@@ -6,7 +7,7 @@
             data-url="/Anuncio/Create/@ViewBag.AnuncianteId"
             data-url-content-update="/Anuncio/List/@ViewBag.AnuncianteId"
             data-content-update-id="#conteudoAnuncianteAnuncio">
-        Novo Anuncio
+        @Resources.View_Anuncio_ListaAnuncioPartialView_Botao_NovoAnuncio
         <!--<i class="glyphicon glyphicon-plus"></i>-->
     </button>
 </p>
@@ -25,9 +26,12 @@
             <th>
                 @Html.DisplayNameFor(model => model.DataFim)
             </th>
-
-            <th>Produtos Ofertados</th>
-            <th>Logradouro</th>
+            <th>
+                @Html.DisplayNameFor(model => model.Ofertas)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Endereco)
+            </th>
             <th></th>
         </tr>
     </thead>
@@ -73,13 +77,13 @@
                                     data-url="/Anuncio/Publish/@Html.DisplayFor(id=>item.Id)"
                                     data-url-content-update="/Anuncio/List/@ViewBag.AnuncianteId"
                                     data-content-update-id="#conteudoAnuncianteAnuncio">
-                                Publicar
+                                @Resources.View_Anuncio_ListaAnuncioPartialView_Botao_Publicar
                             </button>
                             <button type="button" onclick="ajaxModalFormOpenHandler(this)" class="btn btn-sm btn-warning disabled"
                                     data-url="/Anuncio/Edit/@Html.DisplayFor(id=>item.Id)"
                                     data-url-content-update="/Anuncio/List/@ViewBag.AnuncianteId"
                                     data-content-update-id="#conteudoAnuncianteAnuncio">
-                                Alterar
+                                @Resources.View_Anuncio_ListaAnuncioPartialView_Botao_Alterar
                             </button>
                             break;
                         case "Agendado":
@@ -87,7 +91,7 @@
                                 data-url="/Anuncio/Edit/@Html.DisplayFor(id=>item.Id)"
                                 data-url-content-update="/Anuncio/List/@ViewBag.AnuncianteId"
                                 data-content-update-id="#conteudoAnuncianteAnuncio">
-                            Alterar
+                            @Resources.View_Anuncio_ListaAnuncioPartialView_Botao_Alterar
                         </button>
                             break;
                         case "PublicadoAlterado":
@@ -95,7 +99,7 @@
                                 data-url="/Anuncio/Edit/@Html.DisplayFor(id=>item.Id)"
                                 data-url-content-update="/Anuncio/List/@ViewBag.AnuncianteId"
                                 data-content-update-id="#conteudoAnuncianteAnuncio">
-                            Alterar
+                            @Resources.View_Anuncio_ListaAnuncioPartialView_Botao_Alterar
                         </button>
                             break;
                         case "Publicado":
@@ -103,7 +107,7 @@
                                 data-url="/Anuncio/Edit/@Html.DisplayFor(id=>item.Id)"
                                 data-url-content-update="/Anuncio/List/@ViewBag.AnuncianteId"
                                 data-content-update-id="#conteudoAnuncianteAnuncio">
-                            Alterar
+                            @Resources.View_Anuncio_ListaAnuncioPartialView_Botao_Alterar
                         </button>
                             break;
                         default:

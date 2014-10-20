@@ -291,4 +291,61 @@
   <data name="View_Produto_ProdutoPartialView_Botao_Salvar" xml:space="preserve">
     <value>Salvar</value>
   </data>
+  <data name="AnuncioController_HttpGet_Create_Action_ViewBagTitle" xml:space="preserve">
+    <value>Cadastro de Anuncio</value>
+  </data>
+  <data name="AnuncioController_HttpGet_List_Action_ViewBagTitle" xml:space="preserve">
+    <value>Lista de Anuncios</value>
+  </data>
+  <data name="AnuncioController_HttpPost_Create_Action_ViewBagTitle" xml:space="preserve">
+    <value>Cadastro de Anuncio</value>
+  </data>
+  <data name="AnuncioViewModel_AttributeName_DataFim" xml:space="preserve">
+    <value>Data Fim</value>
+  </data>
+  <data name="AnuncioViewModel_AttributeName_DataInicio" xml:space="preserve">
+    <value>Data Inicio</value>
+  </data>
+  <data name="AnuncioViewModel_AttributeName_Enderecos" xml:space="preserve">
+    <value>Endereços</value>
+  </data>
+  <data name="AnuncioViewModel_AttributeName_Ofertas" xml:space="preserve">
+    <value>Ofertas</value>
+  </data>
+  <data name="AnuncioViewModel_AttributeName_Status" xml:space="preserve">
+    <value>Condição</value>
+  </data>
+  <data name="AnuncioViewModel_AttributeName_Titulo" xml:space="preserve">
+    <value>Titulo</value>
+  </data>
+  <data name="View_Anunciante_Detalhes_Tab_Anuncio" xml:space="preserve">
+    <value>Anuncios</value>
+  </data>
+  <data name="View_Anunciante_Detalhes_Tab_Endereco" xml:space="preserve">
+    <value>Endereços</value>
+  </data>
+  <data name="View_Anunciante_Detalhes_Tab_Produto" xml:space="preserve">
+    <value>Produtos</value>
+  </data>
+  <data name="View_Anuncio_AnuncioAlterarPartialView_Botao_Cancelar" xml:space="preserve">
+    <value>Cancelar</value>
+  </data>
+  <data name="View_Anuncio_AnuncioAlterarPartialView_Botao_Salvar" xml:space="preserve">
+    <value>Salvar</value>
+  </data>
+  <data name="View_Anuncio_AnuncioAlterarPartialView_Calendario_DtFim" xml:space="preserve">
+    <value>pt-BR</value>
+  </data>
+  <data name="View_Anuncio_AnuncioAlterarPartialView_Calendario_DtInicio" xml:space="preserve">
+    <value>pt-BR</value>
+  </data>
+  <data name="View_Anuncio_ListaAnuncioPartialView_Botao_Alterar" xml:space="preserve">
+    <value>Alterar</value>
+  </data>
+  <data name="View_Anuncio_ListaAnuncioPartialView_Botao_NovoAnuncio" xml:space="preserve">
+    <value>Novo Anuncio</value>
+  </data>
+  <data name="View_Anuncio_ListaAnuncioPartialView_Botao_Publicar" xml:space="preserve">
+    <value>Publicar</value>
+  </data>
 </root>

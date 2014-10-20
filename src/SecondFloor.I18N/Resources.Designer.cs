@@ -223,6 +223,87 @@ namespace SecondFloor.I18N {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Add Advertising.
+        /// </summary>
+        public static string AnuncioController_HttpGet_Create_Action_ViewBagTitle {
+            get {
+                return ResourceManager.GetString("AnuncioController_HttpGet_Create_Action_ViewBagTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Advertising List.
+        /// </summary>
+        public static string AnuncioController_HttpGet_List_Action_ViewBagTitle {
+            get {
+                return ResourceManager.GetString("AnuncioController_HttpGet_List_Action_ViewBagTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add Advertising.
+        /// </summary>
+        public static string AnuncioController_HttpPost_Create_Action_ViewBagTitle {
+            get {
+                return ResourceManager.GetString("AnuncioController_HttpPost_Create_Action_ViewBagTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to End Date.
+        /// </summary>
+        public static string AnuncioViewModel_AttributeName_DataFim {
+            get {
+                return ResourceManager.GetString("AnuncioViewModel_AttributeName_DataFim", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Start Date.
+        /// </summary>
+        public static string AnuncioViewModel_AttributeName_DataInicio {
+            get {
+                return ResourceManager.GetString("AnuncioViewModel_AttributeName_DataInicio", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Addresses.
+        /// </summary>
+        public static string AnuncioViewModel_AttributeName_Enderecos {
+            get {
+                return ResourceManager.GetString("AnuncioViewModel_AttributeName_Enderecos", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Offers.
+        /// </summary>
+        public static string AnuncioViewModel_AttributeName_Ofertas {
+            get {
+                return ResourceManager.GetString("AnuncioViewModel_AttributeName_Ofertas", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Status.
+        /// </summary>
+        public static string AnuncioViewModel_AttributeName_Status {
+            get {
+                return ResourceManager.GetString("AnuncioViewModel_AttributeName_Status", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Title.
+        /// </summary>
+        public static string AnuncioViewModel_AttributeName_Titulo {
+            get {
+                return ResourceManager.GetString("AnuncioViewModel_AttributeName_Titulo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Add Address.
         /// </summary>
         public static string EnderecoController_HttpGet_Create_Action_ViewBagTitle {
@@ -520,11 +601,101 @@ namespace SecondFloor.I18N {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Advertising.
+        /// </summary>
+        public static string View_Anunciante_Detalhes_Tab_Anuncio {
+            get {
+                return ResourceManager.GetString("View_Anunciante_Detalhes_Tab_Anuncio", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Addresses.
+        /// </summary>
+        public static string View_Anunciante_Detalhes_Tab_Endereco {
+            get {
+                return ResourceManager.GetString("View_Anunciante_Detalhes_Tab_Endereco", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Products.
+        /// </summary>
+        public static string View_Anunciante_Detalhes_Tab_Produto {
+            get {
+                return ResourceManager.GetString("View_Anunciante_Detalhes_Tab_Produto", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Add Seller.
         /// </summary>
         public static string View_Anunciante_ListaAnunciantePartialView_Botao_NovoAnunciante {
             get {
                 return ResourceManager.GetString("View_Anunciante_ListaAnunciantePartialView_Botao_NovoAnunciante", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cancel.
+        /// </summary>
+        public static string View_Anuncio_AnuncioAlterarPartialView_Botao_Cancelar {
+            get {
+                return ResourceManager.GetString("View_Anuncio_AnuncioAlterarPartialView_Botao_Cancelar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Save.
+        /// </summary>
+        public static string View_Anuncio_AnuncioAlterarPartialView_Botao_Salvar {
+            get {
+                return ResourceManager.GetString("View_Anuncio_AnuncioAlterarPartialView_Botao_Salvar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to en.
+        /// </summary>
+        public static string View_Anuncio_AnuncioAlterarPartialView_Calendario_DtFim {
+            get {
+                return ResourceManager.GetString("View_Anuncio_AnuncioAlterarPartialView_Calendario_DtFim", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to en.
+        /// </summary>
+        public static string View_Anuncio_AnuncioAlterarPartialView_Calendario_DtInicio {
+            get {
+                return ResourceManager.GetString("View_Anuncio_AnuncioAlterarPartialView_Calendario_DtInicio", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Edit.
+        /// </summary>
+        public static string View_Anuncio_ListaAnuncioPartialView_Botao_Alterar {
+            get {
+                return ResourceManager.GetString("View_Anuncio_ListaAnuncioPartialView_Botao_Alterar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add Advertising.
+        /// </summary>
+        public static string View_Anuncio_ListaAnuncioPartialView_Botao_NovoAnuncio {
+            get {
+                return ResourceManager.GetString("View_Anuncio_ListaAnuncioPartialView_Botao_NovoAnuncio", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Publish.
+        /// </summary>
+        public static string View_Anuncio_ListaAnuncioPartialView_Botao_Publicar {
+            get {
+                return ResourceManager.GetString("View_Anuncio_ListaAnuncioPartialView_Botao_Publicar", resourceCulture);
             }
         }
         
