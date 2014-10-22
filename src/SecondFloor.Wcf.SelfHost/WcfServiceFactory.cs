@@ -29,7 +29,7 @@ namespace SecondFloor.Wcf.SelfHost
                 .RegisterType<IOfertaRepository, OfertaRepository>()
                 .RegisterType<IFeedbackRepository, FeedbackRepository>()
                 .RegisterType<IConsumidorRepository, ConsumidorRepository>()
-                //.RegisterType<IConsumidorService, ConsumidorService>()
+                .RegisterType<IConsumidorService, ConsumidorService>()
                 .RegisterType<IAnuncioContext, AnuncianteContext>( new HierarchicalLifetimeManager() );
 
             /*container.RegisterInstance<TimerViewModel>(new TimerViewModel());
