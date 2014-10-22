@@ -23,7 +23,7 @@ namespace SecondFloor.Model.UnitTest.Consumidor_Tests
         public void test_consumidor_correct_data()
         {
             var expected = 0;
-            var actual = _consumidor.GetBrokenBusinessRules().Count;
+            var actual = _consumidor.Validate().Count;
 
             Assert.AreEqual(expected, actual);
         }
@@ -37,8 +37,8 @@ namespace SecondFloor.Model.UnitTest.Consumidor_Tests
             var brNomeNull = new Dictionary<string, string>() {{"Nome", "O nome do consumidor não foi especificado."}};
             var brEmailNUll = new Dictionary<string, string>() {{"Email", "O email do consumidor não foi especificado."}};
 
-            Assert.IsTrue(_consumidor.GetBrokenBusinessRules().Contains(brNomeNull.First()));
-            Assert.IsTrue(_consumidor.GetBrokenBusinessRules().Contains(brEmailNUll.First()));
+            Assert.IsTrue(_consumidor.Validate().Contains(brNomeNull.First()));
+            Assert.IsTrue(_consumidor.Validate().Contains(brEmailNUll.First()));
         }
 
         [Test]
@@ -47,7 +47,7 @@ namespace SecondFloor.Model.UnitTest.Consumidor_Tests
             _consumidor.Email = "bolinha";
 
             var brEmail = new Dictionary<string, string>() {{"Email", "O email do consumidor está inválido."}};
-            Assert.IsTrue(_consumidor.GetBrokenBusinessRules().Contains(brEmail.First()));
+            Assert.IsTrue(_consumidor.Validate().Contains(brEmail.First()));
         }
     }
 }

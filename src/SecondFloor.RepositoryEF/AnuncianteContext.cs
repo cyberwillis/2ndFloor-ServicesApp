@@ -14,6 +14,7 @@ namespace SecondFloor.RepositoryEF
         public DbSet<Oferta> Ofertas { get; set; }
         public DbSet<Estado> Estados { get; set; }
         public DbSet<Feedback> Feedbacks { get; set; }
+        public DbSet<Consumidor> Consumidors { get; set; }
 
         public AnuncianteContext() : base("DefaultConnection")
         {
@@ -27,10 +28,10 @@ namespace SecondFloor.RepositoryEF
             modelBuilder.Configurations.Add(new ProdutoConfiguration());
             modelBuilder.Configurations.Add(new AnuncioConfiguration());
             modelBuilder.Configurations.Add(new OfertaConfiguration());
+            modelBuilder.Configurations.Add(new ConsumidorConfiguration());
 
             modelBuilder.Configurations.Add(new FeedbackConfiguration());
 
-            modelBuilder.Ignore<Consumidor>(); //Usar em outro contexto
             modelBuilder.Ignore<Comentario>(); //Usar em outro contexto
 
             base.OnModelCreating(modelBuilder);

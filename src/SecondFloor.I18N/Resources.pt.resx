@@ -564,4 +564,49 @@
   <data name="ProdutoServices_ExcluirProduto_Success" xml:space="preserve">
     <value>Produto excluido com sucesso!</value>
   </data>
+  <data name="ConsumidorServices_AtribuirRatingPara_Error" xml:space="preserve">
+    <value>Ocorreu um erro:</value>
+  </data>
+  <data name="ConsumidorServices_AtribuirRatingPara_NotFound" xml:space="preserve">
+    <value>Nenhuma oferta encontrada!</value>
+  </data>
+  <data name="ConsumidorServices_AtribuirRatingPara_Success" xml:space="preserve">
+    <value>Rating atribuido com sucesso</value>
+  </data>
+  <data name="ConsumidorServices_CadastrarConsumidor_Error" xml:space="preserve">
+    <value>Ocorreu um erro:</value>
+  </data>
+  <data name="ConsumidorServices_CadastrarConsumidor_Success" xml:space="preserve">
+    <value>Consumidor cadastrado com sucesso</value>
+  </data>
+  <data name="ConsumidorServices_EncontrarOfertaPor_Error" xml:space="preserve">
+    <value>Ocorreu um erro:</value>
+  </data>
+  <data name="ConsumidorServices_EncontrarOfertaPor_NotFound" xml:space="preserve">
+    <value>Nenhuma oferta encontrada!</value>
+  </data>
+  <data name="ConsumidorServices_EncontrarOfertaPor_Success" xml:space="preserve">
+    <value>Encontrado {0} ofertas!</value>
+  </data>
+  <data name="Model_Rules_Specification_Anunciante_Email_Long" xml:space="preserve">
+    <value>O email do anunciante deve conter no máximo (250) caracteres.</value>
+  </data>
+  <data name="Model_Rules_Specification_Consumidor_Email_Invalid" xml:space="preserve">
+    <value>O email do consumidor está inválido.</value>
+  </data>
+  <data name="Model_Rules_Specification_Consumidor_Email_Long" xml:space="preserve">
+    <value>O email do consumidor deve conter no máximo (250) caracteres.</value>
+  </data>
+  <data name="Model_Rules_Specification_Consumidor_Email_NotNull" xml:space="preserve">
+    <value>O email do consumidor não foi especificado.</value>
+  </data>
+  <data name="Model_Rules_Specification_Consumidor_Nome_Long" xml:space="preserve">
+    <value>O nome do consumidor deve conter no máximo (50) caracteres.</value>
+  </data>
+  <data name="Model_Rules_Specification_Consumidor_Nome_NotNull" xml:space="preserve">
+    <value>O nome do consumidor não foi especificado.</value>
+  </data>
+  <data name="Model_Rules_Specification_Consumidor_Nome_Short" xml:space="preserve">
+    <value>O nome do consumidor deve possuir no mínimo (4) caracteres.</value>
+  </data>
 </root>

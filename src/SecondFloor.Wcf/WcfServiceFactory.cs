@@ -25,15 +25,11 @@ namespace SecondFloor.Wcf
             //    .RegisterType<DataContext>(new HierarchicalLifetimeManager());
 
             container
-                .RegisterType<IConsumidorService, ConsumidorService>()
                 .RegisterType<IOfertaRepository, OfertaRepository>()
                 .RegisterType<IFeedbackRepository, FeedbackRepository>()
+                .RegisterType<IConsumidorRepository, ConsumidorRepository>()
+                .RegisterType<IConsumidorService, ConsumidorService>()
                 .RegisterType<IAnuncioContext, AnuncianteContext>(new HierarchicalLifetimeManager());
-                //.RegisterType<IAnuncianteService, AnuncianteService>()
-                //.RegisterType<IAnuncioRepository, AnuncioRepository>()
-                //.RegisterType<IAnuncianteRepository, AnuncianteRepository>()
-                //.RegisterType<AnuncianteContext>( new HierarchicalLifetimeManager() );
-                
 
             /*container.RegisterInstance<TimerViewModel>(new TimerViewModel());
             container.RegisterType<IPieceImageManager, PieceImageManager>();

@@ -57,6 +57,10 @@ namespace SecondFloor.Model.Rules.Specifications
             {
                 anunciante.AddBrokenRule("Email", Resources.Model_Rules_Specification_Anunciante_Email_Invalid);
             }
+            else if (anunciante.Email.Length > 250)
+            {
+                anunciante.AddBrokenRule("Email", Resources.Model_Rules_Specification_Anunciante_Email_Long);
+            }
 
             //Token
             /*if (string.IsNullOrEmpty(anunciante.Token))

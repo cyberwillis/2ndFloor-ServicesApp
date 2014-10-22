@@ -1,39 +1,46 @@
 ﻿using System.Collections.Generic;
+using SecondFloor.I18N;
 using SecondFloor.Infrastructure;
 
 namespace SecondFloor.Model.Rules.Specifications
 {
     public static class ConsumidorSpecification
     {
-        public static IDictionary<string,string> GetBrokenBusinessRules(this Consumidor consumidor)
+        public static IDictionary<string,string> Validate(this Consumidor consumidor)
         {
             consumidor.ClearBrokenRules();
 
             //Nome
             if (string.IsNullOrEmpty(consumidor.Nome))
             {
-                consumidor.AddBrokenRule("Nome", "O nome do consumidor não foi especificado.");
+                consumidor.AddBrokenRule("Nome", Resources.Model_Rules_Specification_Consumidor_Nome_NotNull);
             }
             else if (consumidor.Nome.Length < 4)
             {
-                consumidor.AddBrokenRule("Nome", "O nome do consumidor deve possuir no mínimo (4) caracteres.");
+                consumidor.AddBrokenRule("Nome", Resources.Model_Rules_Specification_Consumidor_Nome_Short);
             }
             else if (consumidor.Nome.Length > 50)
             {
-                consumidor.AddBrokenRule("Nome", "O nome do consumidor deve conter no máximo (50) caracteres.");
+                consumidor.AddBrokenRule("Nome", Resources.Model_Rules_Specification_Consumidor_Nome_Long);
             }
 
             //Email
             if (string.IsNullOrEmpty(consumidor.Email))
             {
-                consumidor.AddBrokenRule("Email", "O email do consumidor não foi especificado.");
+                consumidor.AddBrokenRule("Email", Resources.Model_Rules_Specification_Consumidor_Email_NotNull);
             }
             else if (!DocumentosUtil.ValidaEmail(consumidor.Email))
             {
-                consumidor.AddBrokenRule("Email", "O email do consumidor está inválido.");
+                consumidor.AddBrokenRule("Email", Resources.Model_Rules_Specification_Consumidor_Email_Invalid);
+            }
+            else if (consumidor.Email.Length > 250)
+            {
+                consumidor.AddBrokenRule("Email", Resources.Model_Rules_Specification_Consumidor_Email_Long);
             }
 
-            //Email é enum
+            //TipoAcesso
+            
+            //Token
 
             return consumidor.BrokenRules;
         }

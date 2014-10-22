@@ -3,7 +3,9 @@ using System.ServiceModel;
 using System.ServiceModel.Activation;
 using SecondFloor.DataContracts.Messages.Consumidor;
 using SecondFloor.DataContracts.Messages.ConsumidorOfertas;
+using SecondFloor.I18N;
 using SecondFloor.Model;
+using SecondFloor.Model.Rules;
 using SecondFloor.Service.ExtensionMethods;
 using SecondFloor.ServiceContracts;
 
@@ -15,11 +17,13 @@ namespace SecondFloor.Service
     {
         private readonly IOfertaRepository _ofertaRepository;
         private readonly IFeedbackRepository _feedbackRepository;
+        private readonly IConsumidorRepository _consumidorRepository;
 
-        public ConsumidorService( IOfertaRepository ofertaRepository, IFeedbackRepository feedbackRepository )
+        public ConsumidorService( IOfertaRepository ofertaRepository, IFeedbackRepository feedbackRepository, IConsumidorRepository consumidorRepository )
         {
             _ofertaRepository = ofertaRepository;
             _feedbackRepository = feedbackRepository;
+            _consumidorRepository = consumidorRepository;
         }
 
         public EncontrarOfertaResponse EncontrarOfertaPor(EncontrarOfertaRequest request)
@@ -30,20 +34,20 @@ namespace SecondFloor.Service
                 var ofertas = _ofertaRepository.EncontrarOfertasPorProduto(request.Produto);
                 if (ofertas == null)
                 {
-                    response.Message = "Nenhuma oferta encontrada";
+                    response.Message = Resources.ConsumidorServices_EncontrarOfertaPor_NotFound;
                     response.MessageType = "alert-warning";
                     response.Success = false;
                     return response;
                 }
 
-                response.Message = string.Format("Encontrado {0} ofertas", ofertas.Count);
+                response.Message = string.Format(Resources.ConsumidorServices_EncontrarOfertaPor_Success, ofertas.Count);
                 response.MessageType = "alert-info";
                 response.Success = true;
                 response.Ofertas = ofertas.ConvertToListaConsumidorOfertasDto();
             }
             catch (Exception ex)
             {
-                response.Message = "Ocorreu um erro\n" + ex.Message;
+                response.Message = Resources.ConsumidorServices_EncontrarOfertaPor_Error + "\n" + ex.Message;
                 response.MessageType = "alert-danger";
                 response.Success = false;
             }
@@ -52,7 +56,7 @@ namespace SecondFloor.Service
 
         public AtribuirRatingOfertaResponse AtribuirRatingPara(AtribuirRatingOfertaRequest request)
         {
-            var response = new AtribuirRatingOfertaResponse() {Success = true, Message = "Rating enviado com sucesso"};
+            var response = new AtribuirRatingOfertaResponse();
 
             try
             {
@@ -60,7 +64,7 @@ namespace SecondFloor.Service
                 var oferta = _ofertaRepository.EncontrarOfertaPor(ofertaId);
                 if (oferta == null)
                 {
-                    response.Message = "Oferta não encontrada para atribuição de feedback";
+                    response.Message = Resources.ConsumidorServices_AtribuirRatingPara_NotFound;
                     response.MessageType = "alert-warning";
                     response.Success = true;
                 }
@@ -76,13 +80,13 @@ namespace SecondFloor.Service
                 _feedbackRepository.InserirFeedback(feedback);
                 _feedbackRepository.Persist();
 
-                response.Message = "Rating atribuido com sucesso";
+                response.Message = Resources.ConsumidorServices_AtribuirRatingPara_Success;
                 response.MessageType = "alert-info";
                 response.Success = true;
             }
             catch (Exception ex)
             {
-                response.Message = "Ocorreu um erro\n" + ex.Message;
+                response.Message = Resources.ConsumidorServices_AtribuirRatingPara_Error + "\n" + ex.Message;
                 response.MessageType = "alert-danger";
                 response.Success = false;
             }
@@ -94,17 +98,32 @@ namespace SecondFloor.Service
         {
             var response = new CadastrarConsumidorResponse(){Success = true, Message = "Cadastrado com sucesso", Token = new Guid().ToString()};
 
-            //TODO: registrar no banco
+            var consumidor = new Consumidor() {Id = Guid.NewGuid(), Nome = request.Nome, Email = request.Email};
+            if (!consumidor.IsValid())
+            {
+                response.Message = consumidor.GetErrorMessages().ToString();
+                response.MessageType = "alert-warning";
+                response.Success = false;
+                return response;
+            }
 
-            return response;
-        }
+            try
+            {
+                _consumidorRepository.InserirConsumidor(consumidor);
+                _consumidorRepository.Persist();
 
-        public LogonConsumidorResponse LogonConsumidor(LogonConsumidorRequest request)
-        {
-            var response = new LogonConsumidorResponse(){Success = true, Message = "Logado com sucesso", Token = new Guid().ToString()};
-
-            //TODO: buscar no banco
-
+                response.Message = Resources.ConsumidorServices_CadastrarConsumidor_Success;
+                response.MessageType = "alert-info";
+                response.Success = true;
+                response.Token = consumidor.Id.ToString();
+            }
+            catch (Exception ex)
+            {
+                response.Message = Resources.ConsumidorServices_CadastrarConsumidor_Error + "\n" + ex.Message;
+                response.MessageType = "alert-danger";
+                response.Success = false;
+            }
+            
             return response;
         }
     }

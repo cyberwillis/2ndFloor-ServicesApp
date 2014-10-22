@@ -47,6 +47,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Mappings\ConsumidorConfiguration.cs" />
     <Compile Include="Mappings\EstadoConfiguration.cs" />
     <Compile Include="Mappings\FeedbackConfiguration.cs" />
     <Compile Include="Mappings\ProdutoConfiguration.cs" />

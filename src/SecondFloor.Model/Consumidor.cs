@@ -8,5 +8,6 @@ namespace SecondFloor.Model
         public virtual string Nome { get; set; }
         public virtual string Email { get; set; }
         public virtual TipoAcesso TipoAcesso { get; set; }
+        public virtual string Token { get; set; }
     }
 }

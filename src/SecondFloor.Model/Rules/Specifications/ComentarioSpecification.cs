@@ -16,7 +16,7 @@ namespace SecondFloor.Model.Rules.Specifications
             }
             else if (comentario.Consumidor != null)
             {
-                comentario.AddRangeBrokenRules(comentario.Consumidor.GetBrokenBusinessRules());
+                comentario.AddRangeBrokenRules(comentario.Consumidor.Validate());
             }
 
             //Anunciante

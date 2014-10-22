@@ -22,8 +22,8 @@ namespace SecondFloor.ServiceContracts
         [WebInvoke(Method = "POST", ResponseFormat = WebMessageFormat.Json, RequestFormat = WebMessageFormat.Json)]
         CadastrarConsumidorResponse CadastrarConsumidor(CadastrarConsumidorRequest request);
 
-        [OperationContract]
+        /*[OperationContract]
         [WebInvoke(Method = "POST", ResponseFormat = WebMessageFormat.Json, RequestFormat = WebMessageFormat.Json)]
-        LogonConsumidorResponse LogonConsumidor(LogonConsumidorRequest request);
+        LogonConsumidorResponse LogonConsumidor(LogonConsumidorRequest request);*/
     }
 }

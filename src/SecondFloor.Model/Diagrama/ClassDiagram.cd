@@ -1,68 +1,143 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="SecondFloor.Model.Anunciante">
-    <Position X="0.5" Y="2.75" Width="1.5" />
+    <Position X="3.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAIAAAACAAAAAAAAAAAEAAEAAAAAAAAAAAAQABAAA=</HashCode>
+      <HashCode>AAAIIAAAACAAAAAAAAAAAEAAEAgAAAAAAAAAAQAAEAA=</HashCode>
       <FileName>Anunciante.cs</FileName>
     </TypeIdentifier>
     <ShowAsCollectionAssociation>
       <Property Name="Anuncios" />
+      <Property Name="Produtos" />
+      <Property Name="Enderecos" />
     </ShowAsCollectionAssociation>
   </Class>
-  <Class Name="SecondFloor.Model.Anuncio">
-    <Position X="3.5" Y="2.75" Width="1.5" />
+  <Class Name="SecondFloor.Model.Anuncio" Collapsed="true">
+    <Position X="6" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAQAAAAAAAAAAAAAAAQQAAAAAAAAAAAAACAAAAAABA=</HashCode>
+      <HashCode>CAAQAAAEAAAAACIEAAAQQACAAAAAAAAAAACAAAABABg=</HashCode>
       <FileName>Anuncio.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Status" />
+    </ShowAsAssociation>
     <ShowAsCollectionAssociation>
       <Property Name="Ofertas" />
     </ShowAsCollectionAssociation>
   </Class>
-  <Class Name="SecondFloor.Model.Comentario">
-    <Position X="0.5" Y="0.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAABBAQAAAAAAAAAAAAAAABAAAAgAAAAAAAA=</HashCode>
-      <FileName>Comentario.cs</FileName>
-    </TypeIdentifier>
-    <ShowAsAssociation>
-      <Property Name="Consumidor" />
-      <Property Name="Para" />
-    </ShowAsAssociation>
-  </Class>
   <Class Name="SecondFloor.Model.Consumidor">
-    <Position X="3.5" Y="0.5" Width="1.5" />
+    <Position X="3.25" Y="5.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAACAAAAAAAAAAAAAAQAAAAAAAAAAAAAEAAAA=</HashCode>
+      <HashCode>AAAAAAAAACAAAAAAAAAAAAAAQAAAAAAAAAAAAAEBAAA=</HashCode>
       <FileName>Consumidor.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
       <Property Name="TipoAcesso" />
     </ShowAsAssociation>
   </Class>
-  <Class Name="SecondFloor.Model.Endereco">
-    <Position X="3.5" Y="5.5" Width="1.5" />
+  <Class Name="SecondFloor.Model.Endereco" Collapsed="true">
+    <Position X="0.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>CAAAAAAAAABAACIAAAAAAACAAAAAAAAAAAAAAAABAAg=</HashCode>
+      <HashCode>CAAQAAAAAAAAACIEAAAAAACAAAAAAAAAAAAAAAABAAg=</HashCode>
       <FileName>Endereco.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="SecondFloor.Model.Oferta">
-    <Position X="6" Y="2.75" Width="1.5" />
+  <Class Name="SecondFloor.Model.Oferta" Collapsed="true">
+    <Position X="8.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAEAAAAEBA=</HashCode>
+      <HashCode>CAAAAAAAAAABBCIEAAAAAACkAAAQAAQAAAAAAAABAAg=</HashCode>
       <FileName>Oferta.cs</FileName>
     </TypeIdentifier>
-    <ShowAsAssociation>
-      <Property Name="Endereco" />
-    </ShowAsAssociation>
   </Class>
+  <Class Name="SecondFloor.Model.Estado" Collapsed="true">
+    <Position X="0.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAEAAAA=</HashCode>
+      <FileName>Estado.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SecondFloor.Model.Feedback">
+    <Position X="8.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAEAAAAAE=</HashCode>
+      <FileName>Feedback.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SecondFloor.Model.Produto" Collapsed="true">
+    <Position X="3.25" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAAAABBAAAAAAAAAAEAAAQAAQAAAAAAAAAAAA=</HashCode>
+      <FileName>Produto.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="SecondFloor.Model.IAnuncianteRepository">
+    <Position X="10.5" Y="0.5" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAgAAAAAACAAAAACABAgAAAAAAAAAAAAAA=</HashCode>
+      <FileName>IAnuncianteRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="SecondFloor.Model.IAnuncioRepository">
+    <Position X="13.75" Y="0.5" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAABAAAAAQAAAAQAAQAAAAAAAAAAAAEAA=</HashCode>
+      <FileName>IAnuncioRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="SecondFloor.Model.IConsumidorRepository">
+    <Position X="10.5" Y="5.5" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAA=</HashCode>
+      <FileName>IConsumidorRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="SecondFloor.Model.IEnderecoRepository">
+    <Position X="13.75" Y="3" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AACAAAAAQAAABAACAAAAAAAAABAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>IEnderecoRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="SecondFloor.Model.IEstadoRepository">
+    <Position X="17" Y="3" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAQAAAAAAAAQAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>IEstadoRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="SecondFloor.Model.IFeedbackRepository">
+    <Position X="13.75" Y="5.5" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>IFeedbackRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="SecondFloor.Model.IOfertaRepository">
+    <Position X="17" Y="0.5" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAgAAAAAAAAAAAAAAAAAAACAAAAAAAgAAAAAAAAAAAA=</HashCode>
+      <FileName>IOfertaRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="SecondFloor.Model.IProdutoRepository">
+    <Position X="10.5" Y="3" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAgAAAAAAAAAAAAAAAAAABAAAAAAAAAQACAAAAAAQAA=</HashCode>
+      <FileName>IProdutoRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
   <Enum Name="SecondFloor.Model.TipoAcesso">
-    <Position X="6.25" Y="0.5" Width="1.5" />
+    <Position X="6" Y="5.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAABAAAAAAAAAABAACAAAABAAAAAAAA=</HashCode>
       <FileName>TipoAcesso.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="SecondFloor.Model.AnuncioStatusEnum">
+    <Position X="6" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAIAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAEAA=</HashCode>
+      <FileName>AnuncioStatusEnum.cs</FileName>
     </TypeIdentifier>
   </Enum>
   <Font Name="Segoe UI" Size="9" />

@@ -403,6 +403,78 @@ namespace SecondFloor.I18N {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Errors occurred:.
+        /// </summary>
+        public static string ConsumidorServices_AtribuirRatingPara_Error {
+            get {
+                return ResourceManager.GetString("ConsumidorServices_AtribuirRatingPara_Error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Offer not found!.
+        /// </summary>
+        public static string ConsumidorServices_AtribuirRatingPara_NotFound {
+            get {
+                return ResourceManager.GetString("ConsumidorServices_AtribuirRatingPara_NotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Rating assigned successfully!.
+        /// </summary>
+        public static string ConsumidorServices_AtribuirRatingPara_Success {
+            get {
+                return ResourceManager.GetString("ConsumidorServices_AtribuirRatingPara_Success", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Errors occurred:.
+        /// </summary>
+        public static string ConsumidorServices_CadastrarConsumidor_Error {
+            get {
+                return ResourceManager.GetString("ConsumidorServices_CadastrarConsumidor_Error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Customer registred successfully.
+        /// </summary>
+        public static string ConsumidorServices_CadastrarConsumidor_Success {
+            get {
+                return ResourceManager.GetString("ConsumidorServices_CadastrarConsumidor_Success", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Errors occurred:.
+        /// </summary>
+        public static string ConsumidorServices_EncontrarOfertaPor_Error {
+            get {
+                return ResourceManager.GetString("ConsumidorServices_EncontrarOfertaPor_Error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Offer not found!.
+        /// </summary>
+        public static string ConsumidorServices_EncontrarOfertaPor_NotFound {
+            get {
+                return ResourceManager.GetString("ConsumidorServices_EncontrarOfertaPor_NotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Found {0} offers!.
+        /// </summary>
+        public static string ConsumidorServices_EncontrarOfertaPor_Success {
+            get {
+                return ResourceManager.GetString("ConsumidorServices_EncontrarOfertaPor_Success", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Add Address.
         /// </summary>
         public static string EnderecoController_HttpGet_Create_Action_ViewBagTitle {
@@ -763,6 +835,15 @@ namespace SecondFloor.I18N {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The Email of seller must have at most (250) characters..
+        /// </summary>
+        public static string Model_Rules_Specification_Anunciante_Email_Long {
+            get {
+                return ResourceManager.GetString("Model_Rules_Specification_Anunciante_Email_Long", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The Email cannot be null..
         /// </summary>
         public static string Model_Rules_Specification_Anunciante_Email_NotNull {
@@ -822,6 +903,60 @@ namespace SecondFloor.I18N {
         public static string Model_Rules_Specification_Anunciante_RazaoSocial_Short {
             get {
                 return ResourceManager.GetString("Model_Rules_Specification_Anunciante_RazaoSocial_Short", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The Email of Customer is invalid..
+        /// </summary>
+        public static string Model_Rules_Specification_Consumidor_Email_Invalid {
+            get {
+                return ResourceManager.GetString("Model_Rules_Specification_Consumidor_Email_Invalid", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The Email of customer must have at most (250) characters..
+        /// </summary>
+        public static string Model_Rules_Specification_Consumidor_Email_Long {
+            get {
+                return ResourceManager.GetString("Model_Rules_Specification_Consumidor_Email_Long", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The Email of Customer cannot be null..
+        /// </summary>
+        public static string Model_Rules_Specification_Consumidor_Email_NotNull {
+            get {
+                return ResourceManager.GetString("Model_Rules_Specification_Consumidor_Email_NotNull", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The Name of customer must have at most (50) characters..
+        /// </summary>
+        public static string Model_Rules_Specification_Consumidor_Nome_Long {
+            get {
+                return ResourceManager.GetString("Model_Rules_Specification_Consumidor_Nome_Long", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The Name of customer cannot be null.
+        /// </summary>
+        public static string Model_Rules_Specification_Consumidor_Nome_NotNull {
+            get {
+                return ResourceManager.GetString("Model_Rules_Specification_Consumidor_Nome_NotNull", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The Name of customer must have at least (4) characters..
+        /// </summary>
+        public static string Model_Rules_Specification_Consumidor_Nome_Short {
+            get {
+                return ResourceManager.GetString("Model_Rules_Specification_Consumidor_Nome_Short", resourceCulture);
             }
         }
         

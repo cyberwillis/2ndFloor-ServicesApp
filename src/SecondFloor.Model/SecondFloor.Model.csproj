@@ -43,6 +43,7 @@
     <Compile Include="AnuncioStatusEnum.cs" />
     <Compile Include="Estado.cs" />
     <Compile Include="Feedback.cs" />
+    <Compile Include="IConsumidorRepository.cs" />
     <Compile Include="IEnderecoRepository.cs" />
     <Compile Include="IEstadoRepository.cs" />
     <Compile Include="IFeedbackRepository.cs" />
@@ -51,6 +52,7 @@
     <Compile Include="Produto.cs" />
     <Compile Include="Rules\AnuncianteServices.cs" />
     <Compile Include="Rules\AnuncioServices.cs" />
+    <Compile Include="Rules\ConsumidorServices.cs" />
     <Compile Include="Rules\EnderecoServices.cs" />
     <Compile Include="Rules\ProdutoServices.cs" />
     <Compile Include="Rules\Specifications\AnuncianteSpecification.cs" />

@@ -26,11 +26,11 @@ namespace SecondFloor.Wcf.SelfHost
             //    .RegisterType<DataContext>(new HierarchicalLifetimeManager());
 
             container
-                .RegisterType<IConsumidorService, ConsumidorService>()
                 .RegisterType<IOfertaRepository, OfertaRepository>()
                 .RegisterType<IFeedbackRepository, FeedbackRepository>()
+                .RegisterType<IConsumidorRepository, ConsumidorRepository>()
+                //.RegisterType<IConsumidorService, ConsumidorService>()
                 .RegisterType<IAnuncioContext, AnuncianteContext>( new HierarchicalLifetimeManager() );
-                //.RegisterInstance<IAnuncioContext>(new AnuncianteContext());
 
             /*container.RegisterInstance<TimerViewModel>(new TimerViewModel());
             container.RegisterType<IPieceImageManager, PieceImageManager>();
