@@ -40,5 +40,9 @@ namespace SecondFloor.DataContracts.DTO
         [DataMember(Name = "anunciantePontuacao")]
         public string AnunciantePontuacao { get; set; }
 
+        [DataMember(Name = "dataInicio")]
+        public string DataInicio { get; set; }
+        [DataMember(Name = "dataFim")]
+        public string DataFim { get; set; }
     }
 }

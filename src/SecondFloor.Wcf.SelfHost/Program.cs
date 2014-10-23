@@ -8,6 +8,7 @@ using SecondFloor.RepositoryEF.Migrations;
 using SecondFloor.Service;
 using SecondFloor.ServiceContracts;
 using SecondFloor.Wcf.SelfHost.IoC;
+using SecondFloor.Wcf.SelfHost.Jobs;
 
 namespace SecondFloor.Wcf.SelfHost
 {
@@ -24,7 +25,10 @@ namespace SecondFloor.Wcf.SelfHost
             Database.SetInitializer(new AnuncianteModelConfiguration());
             //Database.SetInitializer(new MigrateDatabaseToLatestVersion<AnuncianteContext, AnuncianteModelConfiguration>());
 
+            var scheduler = new QuartzScheduler();
+
             var host = new WcfServiceFactory().GetInstance(typeof(ConsumidorService));
+
             try
             {
                 host.Open();
@@ -38,8 +42,12 @@ namespace SecondFloor.Wcf.SelfHost
                     Console.WriteLine(serviceEndpoint.Address);
                 }
 
+                scheduler.StartUp();
+
                 Console.WriteLine("Type <ENTER> to close");
                 Console.ReadLine();
+
+                scheduler.ShutDown();
 
                 host.Close();
             }

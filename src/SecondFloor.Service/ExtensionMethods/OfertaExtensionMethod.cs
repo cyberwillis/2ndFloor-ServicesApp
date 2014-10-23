@@ -115,6 +115,8 @@ namespace SecondFloor.Service.ExtensionMethods
             consumidorOferta.AnuncianteId = oferta.Anuncio.Anunciante.Id.ToString();
             consumidorOferta.AnuncianteRazaoSocial = oferta.Anuncio.Anunciante.RazaoSocial;
             consumidorOferta.AnunciantePontuacao = oferta.Anuncio.Anunciante.Pontuacao.ToString();
+            consumidorOferta.DataInicio = oferta.Anuncio.DataInicio.ToShortDateString();
+            consumidorOferta.DataFim = oferta.Anuncio.DataFim.ToShortDateString();
 
             return consumidorOferta;
         }
