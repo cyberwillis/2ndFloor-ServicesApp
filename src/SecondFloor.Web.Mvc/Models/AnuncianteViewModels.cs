@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using SecondFloor.I18N;
+using SecondFloor.I18n;
 
 namespace SecondFloor.Web.Mvc.Models
 {

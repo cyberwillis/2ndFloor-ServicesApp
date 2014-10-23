@@ -60,7 +60,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SecondFloor.Web.Mvc", "Seco
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SecondFloor.Services.Win", "SecondFloor.Services.Win\SecondFloor.Services.Win.csproj", "{4A9FA868-7F4B-4912-8337-68AB488DD61D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SecondFloor.I18N", "SecondFloor.I18N\SecondFloor.I18N.csproj", "{081B4D0E-A964-4084-B2FE-1EF30CDE6B0F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SecondFloor.I18n", "SecondFloor.I18n\SecondFloor.I18n.csproj", "{081B4D0E-A964-4084-B2FE-1EF30CDE6B0F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

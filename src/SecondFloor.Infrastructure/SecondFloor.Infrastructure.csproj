@@ -53,9 +53,9 @@
     <Compile Include="Sha1Util.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\SecondFloor.I18N\SecondFloor.I18N.csproj">
+    <ProjectReference Include="..\SecondFloor.I18n\SecondFloor.I18n.csproj">
       <Project>{081B4D0E-A964-4084-B2FE-1EF30CDE6B0F}</Project>
-      <Name>SecondFloor.I18N</Name>
+      <Name>SecondFloor.I18n</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

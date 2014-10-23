@@ -475,9 +475,9 @@
       <Project>{005BD132-A35B-4F72-9840-0228FCEFAFF5}</Project>
       <Name>SecondFloor.DataContracts</Name>
     </ProjectReference>
-    <ProjectReference Include="..\SecondFloor.I18N\SecondFloor.I18N.csproj">
+    <ProjectReference Include="..\SecondFloor.I18n\SecondFloor.I18n.csproj">
       <Project>{081b4d0e-a964-4084-b2fe-1ef30cde6b0f}</Project>
-      <Name>SecondFloor.I18N</Name>
+      <Name>SecondFloor.I18n</Name>
     </ProjectReference>
     <ProjectReference Include="..\SecondFloor.Infrastructure\SecondFloor.Infrastructure.csproj">
       <Project>{0B674E26-7392-4E08-B9F0-04078ECDE0BC}</Project>

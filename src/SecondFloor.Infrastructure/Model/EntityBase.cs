@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Text;
-using SecondFloor.I18N;
+using SecondFloor.I18n;
 
 namespace SecondFloor.Infrastructure.Model
 {

@@ -3,7 +3,7 @@ using System.ServiceModel;
 using System.ServiceModel.Activation;
 using SecondFloor.DataContracts.Messages.Consumidor;
 using SecondFloor.DataContracts.Messages.ConsumidorOfertas;
-using SecondFloor.I18N;
+using SecondFloor.I18n;
 using SecondFloor.Model;
 using SecondFloor.Model.Rules;
 using SecondFloor.Service.ExtensionMethods;

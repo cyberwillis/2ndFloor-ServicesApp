@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using SecondFloor.I18N;
+using SecondFloor.I18n;
 
 namespace SecondFloor.Model.Rules.Specifications
 {

@@ -1,12 +1,9 @@
 ﻿using System;
-using System.Linq;
-using System.Runtime.InteropServices;
 using Microsoft.Practices.ObjectBuilder2;
 using SecondFloor.DataContracts.Messages.Produto;
-using SecondFloor.I18N;
+using SecondFloor.I18n;
 using SecondFloor.Model;
 using SecondFloor.Model.Rules;
-using SecondFloor.Model.Rules.Specifications;
 using SecondFloor.Service.ExtensionMethods;
 using SecondFloor.ServiceContracts;
 

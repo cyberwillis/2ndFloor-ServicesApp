@@ -7,8 +7,8 @@
     <ProjectGuid>{081B4D0E-A964-4084-B2FE-1EF30CDE6B0F}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SecondFloor.I18N</RootNamespace>
-    <AssemblyName>SecondFloor.I18N</AssemblyName>
+    <RootNamespace>SecondFloor.I18n</RootNamespace>
+    <AssemblyName>SecondFloor.I18n</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
