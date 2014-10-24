@@ -7,8 +7,12 @@
             data-url="/Anunciante/Create/"
             data-url-content-update="/Anunciante/List"
             data-content-update-id="#conteudoAnunciante">@Resources.View_Anunciante_ListaAnunciantePartialView_Botao_NovoAnunciante
-        <!--<i class="glyphicon glyphicon-plus"></i>-->
     </button>
+    <button type="button" onclick="ajaxUpdateContent(this)" class="btn btn-sm btn-default"
+            data-url-content-update="/Anunciante/List"
+            data-content-update-id="#conteudoAnunciante">
+            <i class="glyphicon glyphicon-refresh"></i>
+        </button>
 </p>
 <table class="table table-striped table-bordered table-hover table-condensed">
     <thead>

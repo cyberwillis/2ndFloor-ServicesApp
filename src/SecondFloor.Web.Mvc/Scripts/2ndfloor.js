@@ -52,6 +52,23 @@ function ajaxModalFormOpenHandler(obj) {
 }
 
 
+function ajaxUpdateContent(obj) {
+
+    var $button = obj;
+
+    var $urlAfter = $button.getAttribute('data-url-content-update') + '?t=' + gettick();
+    var $updateContentNext = $($button.getAttribute('data-content-update-id'));
+
+    var options = {
+        url: $urlAfter,
+        type: "get"
+    };
+
+    $.ajax(options).done(function (data) {
+        $updateContentNext.html(data);
+    });
+}
+
 /*
 Script para abrir popups acima das ofertas listadas
 */

@@ -10,14 +10,23 @@
 <hr/>
 
 <ul id="myTab" class="nav nav-tabs" role="tablist">
-    <li id="tab-endereco" class="active">
-        <a href="#conteudoAnuncianteEndereco" role="tab" data-toggle="tab">@Resources.View_Anunciante_Detalhes_Tab_Endereco</a>
+    <li id="tab-endereco" class="active" >
+        <a href="#conteudoAnuncianteEndereco" role="tab" data-toggle="tab"
+           data-url-content-update="/Endereco/List/@Html.DisplayFor(m=>m.Id)"
+           data-content-update-id="#conteudoAnuncianteEndereco"
+           onclick="ajaxUpdateContent(this)">@Resources.View_Anunciante_Detalhes_Tab_Endereco</a>
     </li>
     <li id="tab-produto">
-        <a href="#conteudoAnuncianteProduto" role="tab" data-toggle="tab">@Resources.View_Anunciante_Detalhes_Tab_Produto</a>
+        <a href="#conteudoAnuncianteProduto" role="tab" data-toggle="tab"
+           data-url-content-update="/Produto/List/@Html.DisplayFor(m=>m.Id)"
+           data-content-update-id="#conteudoAnuncianteProduto"
+           onclick="ajaxUpdateContent(this)">@Resources.View_Anunciante_Detalhes_Tab_Produto</a>
     </li>
     <li id="tab-anuncio">
-        <a href="#conteudoAnuncianteAnuncio" role="tab" data-toggle="tab">@Resources.View_Anunciante_Detalhes_Tab_Anuncio</a>
+        <a href="#conteudoAnuncianteAnuncio" role="tab" data-toggle="tab"
+           data-url-content-update="/Anuncio/List/@Html.DisplayFor(m=>m.Id)"
+           data-content-update-id="#conteudoAnuncianteAnuncio"
+           onclick="ajaxUpdateContent(this)">@Resources.View_Anunciante_Detalhes_Tab_Anuncio</a>
     </li>
 </ul>
 
