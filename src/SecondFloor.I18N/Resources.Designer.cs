@@ -349,6 +349,195 @@ namespace SecondFloor.I18n {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Errors occurred:.
+        /// </summary>
+        public static string AnuncioService_AlterarAnuncio_Error {
+            get {
+                return ResourceManager.GetString("AnuncioService_AlterarAnuncio_Error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Advertising not found!.
+        /// </summary>
+        public static string AnuncioService_AlterarAnuncio_NotFound {
+            get {
+                return ResourceManager.GetString("AnuncioService_AlterarAnuncio_NotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Advertising updated successfully!.
+        /// </summary>
+        public static string AnuncioService_AlterarAnuncio_Success {
+            get {
+                return ResourceManager.GetString("AnuncioService_AlterarAnuncio_Success", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Errors occurred:.
+        /// </summary>
+        public static string AnuncioService_CadastrarAnuncio_Error {
+            get {
+                return ResourceManager.GetString("AnuncioService_CadastrarAnuncio_Error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Seller not found!.
+        /// </summary>
+        public static string AnuncioService_CadastrarAnuncio_NotFound {
+            get {
+                return ResourceManager.GetString("AnuncioService_CadastrarAnuncio_NotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Advertising registred successfully..
+        /// </summary>
+        public static string AnuncioService_CadastrarAnuncio_Success {
+            get {
+                return ResourceManager.GetString("AnuncioService_CadastrarAnuncio_Success", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Errors occurred:.
+        /// </summary>
+        public static string AnuncioService_EncontrarAnuncioPor_Error {
+            get {
+                return ResourceManager.GetString("AnuncioService_EncontrarAnuncioPor_Error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Advertising not found!.
+        /// </summary>
+        public static string AnuncioService_EncontrarAnuncioPor_NotFound {
+            get {
+                return ResourceManager.GetString("AnuncioService_EncontrarAnuncioPor_NotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Advertising found!.
+        /// </summary>
+        public static string AnuncioService_EncontrarAnuncioPor_Success {
+            get {
+                return ResourceManager.GetString("AnuncioService_EncontrarAnuncioPor_Success", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Errors occurred:.
+        /// </summary>
+        public static string AnuncioService_EncontrarTodosAnuncios_Error {
+            get {
+                return ResourceManager.GetString("AnuncioService_EncontrarTodosAnuncios_Error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Seller information not found!.
+        /// </summary>
+        public static string AnuncioService_EncontrarTodosAnuncios_NotFound {
+            get {
+                return ResourceManager.GetString("AnuncioService_EncontrarTodosAnuncios_NotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Found {0} seller(s)..
+        /// </summary>
+        public static string AnuncioService_EncontrarTodosAnuncios_Success {
+            get {
+                return ResourceManager.GetString("AnuncioService_EncontrarTodosAnuncios_Success", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Errors occurred:.
+        /// </summary>
+        public static string AnuncioService_EnviarAnuncioParaPublicacao_Error {
+            get {
+                return ResourceManager.GetString("AnuncioService_EnviarAnuncioParaPublicacao_Error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No listing found!.
+        /// </summary>
+        public static string AnuncioService_EnviarAnuncioParaPublicacao_NotFound {
+            get {
+                return ResourceManager.GetString("AnuncioService_EnviarAnuncioParaPublicacao_NotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Advertising sent for publishing successfully.
+        /// </summary>
+        public static string AnuncioService_EnviarAnuncioParaPublicacao_Success {
+            get {
+                return ResourceManager.GetString("AnuncioService_EnviarAnuncioParaPublicacao_Success", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Errors occurred:.
+        /// </summary>
+        public static string AnuncioService_ExcluirAnuncio_Error {
+            get {
+                return ResourceManager.GetString("AnuncioService_ExcluirAnuncio_Error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Advertising not found!.
+        /// </summary>
+        public static string AnuncioService_ExcluirAnuncio_NotFound {
+            get {
+                return ResourceManager.GetString("AnuncioService_ExcluirAnuncio_NotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Advertising deleted successfully.
+        /// </summary>
+        public static string AnuncioService_ExcluirAnuncio_Success {
+            get {
+                return ResourceManager.GetString("AnuncioService_ExcluirAnuncio_Success", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Errors occurred:.
+        /// </summary>
+        public static string AnuncioService_PublicarAnuncio_Error {
+            get {
+                return ResourceManager.GetString("AnuncioService_PublicarAnuncio_Error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No listing found!.
+        /// </summary>
+        public static string AnuncioService_PublicarAnuncio_NotFound {
+            get {
+                return ResourceManager.GetString("AnuncioService_PublicarAnuncio_NotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Advertising published successfully.
+        /// </summary>
+        public static string AnuncioService_PublicarAnuncio_Success {
+            get {
+                return ResourceManager.GetString("AnuncioService_PublicarAnuncio_Success", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to End Date.
         /// </summary>
         public static string AnuncioViewModel_AttributeName_DataFim {
@@ -1051,6 +1240,33 @@ namespace SecondFloor.I18n {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Invalid User!.
+        /// </summary>
+        public static string Model_Rules_Specification_Usuario_Id_Invalid {
+            get {
+                return ResourceManager.GetString("Model_Rules_Specification_Usuario_Id_Invalid", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to User Login cannot be null.
+        /// </summary>
+        public static string Model_Rules_Specification_Usuario_Login_NotNull {
+            get {
+                return ResourceManager.GetString("Model_Rules_Specification_Usuario_Login_NotNull", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to User password cannot be null.
+        /// </summary>
+        public static string Model_Rules_Specification_Usuario_Password_NotNoll {
+            get {
+                return ResourceManager.GetString("Model_Rules_Specification_Usuario_Password_NotNoll", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Add Product.
         /// </summary>
         public static string ProdutoController_HttpGet_Create_Action_ViewBagTitle {
@@ -1249,7 +1465,7 @@ namespace SecondFloor.I18n {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Product deleted successfully.
+        ///   Looks up a localized string similar to Product deleted successfully!.
         /// </summary>
         public static string ProdutoServices_ExcluirProduto_Success {
             get {
@@ -1308,6 +1524,78 @@ namespace SecondFloor.I18n {
         public static string SelectLanguage {
             get {
                 return ResourceManager.GetString("SelectLanguage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Errors occurred:.
+        /// </summary>
+        public static string UsuarioService_CadastrarUsuario_Error {
+            get {
+                return ResourceManager.GetString("UsuarioService_CadastrarUsuario_Error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to User Registred successfully!.
+        /// </summary>
+        public static string UsuarioService_CadastrarUsuario_Success {
+            get {
+                return ResourceManager.GetString("UsuarioService_CadastrarUsuario_Success", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Errors occurred:.
+        /// </summary>
+        public static string UsuarioService_GerarNovaSenha_Error {
+            get {
+                return ResourceManager.GetString("UsuarioService_GerarNovaSenha_Error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to User not found!.
+        /// </summary>
+        public static string UsuarioService_GerarNovaSenha_NotFound {
+            get {
+                return ResourceManager.GetString("UsuarioService_GerarNovaSenha_NotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to New Password generated successfully!.
+        /// </summary>
+        public static string UsuarioService_GerarNovaSenha_Success {
+            get {
+                return ResourceManager.GetString("UsuarioService_GerarNovaSenha_Success", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Errors occurred:.
+        /// </summary>
+        public static string UsuarioServices_EncontrarUsuarioPor_Error {
+            get {
+                return ResourceManager.GetString("UsuarioServices_EncontrarUsuarioPor_Error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to User not found!.
+        /// </summary>
+        public static string UsuarioServices_EncontrarUsuarioPor_NotFound {
+            get {
+                return ResourceManager.GetString("UsuarioServices_EncontrarUsuarioPor_NotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to User found!.
+        /// </summary>
+        public static string UsuarioServices_EncontrarUsuarioPor_Success {
+            get {
+                return ResourceManager.GetString("UsuarioServices_EncontrarUsuarioPor_Success", resourceCulture);
             }
         }
         
@@ -1461,6 +1749,24 @@ namespace SecondFloor.I18n {
         public static string View_Endereco_ListaEnderecoPartialView_Botao_NovoEndereco {
             get {
                 return ResourceManager.GetString("View_Endereco_ListaEnderecoPartialView_Botao_NovoEndereco", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to English.
+        /// </summary>
+        public static string View_Layout_Cultura_Ingles {
+            get {
+                return ResourceManager.GetString("View_Layout_Cultura_Ingles", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Portuguese.
+        /// </summary>
+        public static string View_Layout_Cultura_Portugues {
+            get {
+                return ResourceManager.GetString("View_Layout_Cultura_Portugues", resourceCulture);
             }
         }
         

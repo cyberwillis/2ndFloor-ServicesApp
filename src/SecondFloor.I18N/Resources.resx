@@ -562,7 +562,7 @@
     <value>Product not found!</value>
   </data>
   <data name="ProdutoServices_ExcluirProduto_Success" xml:space="preserve">
-    <value>Product deleted successfully</value>
+    <value>Product deleted successfully!</value>
   </data>
   <data name="ConsumidorServices_AtribuirRatingPara_Error" xml:space="preserve">
     <value>Errors occurred:</value>
@@ -608,5 +608,107 @@
   </data>
   <data name="Model_Rules_Specification_Consumidor_Email_Long" xml:space="preserve">
     <value>The Email of customer must have at most (250) characters.</value>
+  </data>
+  <data name="Model_Rules_Specification_Usuario_Id_Invalid" xml:space="preserve">
+    <value>Invalid User!</value>
+  </data>
+  <data name="Model_Rules_Specification_Usuario_Login_NotNull" xml:space="preserve">
+    <value>User Login cannot be null</value>
+  </data>
+  <data name="Model_Rules_Specification_Usuario_Password_NotNoll" xml:space="preserve">
+    <value>User password cannot be null</value>
+  </data>
+  <data name="UsuarioServices_EncontrarUsuarioPor_Error" xml:space="preserve">
+    <value>Errors occurred:</value>
+  </data>
+  <data name="UsuarioServices_EncontrarUsuarioPor_NotFound" xml:space="preserve">
+    <value>User not found!</value>
+  </data>
+  <data name="UsuarioServices_EncontrarUsuarioPor_Success" xml:space="preserve">
+    <value>User found!</value>
+  </data>
+  <data name="UsuarioService_CadastrarUsuario_Error" xml:space="preserve">
+    <value>Errors occurred:</value>
+  </data>
+  <data name="UsuarioService_CadastrarUsuario_Success" xml:space="preserve">
+    <value>User Registred successfully!</value>
+  </data>
+  <data name="UsuarioService_GerarNovaSenha_Error" xml:space="preserve">
+    <value>Errors occurred:</value>
+  </data>
+  <data name="UsuarioService_GerarNovaSenha_NotFound" xml:space="preserve">
+    <value>User not found!</value>
+  </data>
+  <data name="UsuarioService_GerarNovaSenha_Success" xml:space="preserve">
+    <value>New Password generated successfully!</value>
+  </data>
+  <data name="AnuncioService_EncontrarAnuncioPor_Error" xml:space="preserve">
+    <value>Errors occurred:</value>
+  </data>
+  <data name="AnuncioService_EncontrarAnuncioPor_NotFound" xml:space="preserve">
+    <value>Advertising not found!</value>
+  </data>
+  <data name="AnuncioService_EncontrarAnuncioPor_Success" xml:space="preserve">
+    <value>Advertising found!</value>
+  </data>
+  <data name="AnuncioService_EncontrarTodosAnuncios_Error" xml:space="preserve">
+    <value>Errors occurred:</value>
+  </data>
+  <data name="AnuncioService_EncontrarTodosAnuncios_NotFound" xml:space="preserve">
+    <value>Seller information not found!</value>
+  </data>
+  <data name="AnuncioService_EncontrarTodosAnuncios_Success" xml:space="preserve">
+    <value>Found {0} seller(s).</value>
+  </data>
+  <data name="AnuncioService_AlterarAnuncio_Error" xml:space="preserve">
+    <value>Errors occurred:</value>
+  </data>
+  <data name="AnuncioService_AlterarAnuncio_NotFound" xml:space="preserve">
+    <value>Advertising not found!</value>
+  </data>
+  <data name="AnuncioService_AlterarAnuncio_Success" xml:space="preserve">
+    <value>Advertising updated successfully!</value>
+  </data>
+  <data name="AnuncioService_CadastrarAnuncio_Error" xml:space="preserve">
+    <value>Errors occurred:</value>
+  </data>
+  <data name="AnuncioService_CadastrarAnuncio_NotFound" xml:space="preserve">
+    <value>Seller not found!</value>
+  </data>
+  <data name="AnuncioService_CadastrarAnuncio_Success" xml:space="preserve">
+    <value>Advertising registred successfully.</value>
+  </data>
+  <data name="AnuncioService_EnviarAnuncioParaPublicacao_Error" xml:space="preserve">
+    <value>Errors occurred:</value>
+  </data>
+  <data name="AnuncioService_EnviarAnuncioParaPublicacao_NotFound" xml:space="preserve">
+    <value>No listing found!</value>
+  </data>
+  <data name="AnuncioService_EnviarAnuncioParaPublicacao_Success" xml:space="preserve">
+    <value>Advertising sent for publishing successfully</value>
+  </data>
+  <data name="AnuncioService_ExcluirAnuncio_Error" xml:space="preserve">
+    <value>Errors occurred:</value>
+  </data>
+  <data name="AnuncioService_ExcluirAnuncio_NotFound" xml:space="preserve">
+    <value>Advertising not found!</value>
+  </data>
+  <data name="AnuncioService_ExcluirAnuncio_Success" xml:space="preserve">
+    <value>Advertising deleted successfully</value>
+  </data>
+  <data name="AnuncioService_PublicarAnuncio_Error" xml:space="preserve">
+    <value>Errors occurred:</value>
+  </data>
+  <data name="AnuncioService_PublicarAnuncio_NotFound" xml:space="preserve">
+    <value>No listing found!</value>
+  </data>
+  <data name="AnuncioService_PublicarAnuncio_Success" xml:space="preserve">
+    <value>Advertising published successfully</value>
+  </data>
+  <data name="View_Layout_Cultura_Ingles" xml:space="preserve">
+    <value>English</value>
+  </data>
+  <data name="View_Layout_Cultura_Portugues" xml:space="preserve">
+    <value>Portuguese</value>
   </data>
 </root>

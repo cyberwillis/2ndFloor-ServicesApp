@@ -41,6 +41,7 @@
   <ItemGroup>
     <Compile Include="CultureHelper.cs" />
     <Compile Include="DocumentosUtil.cs" />
+    <Compile Include="PasswordGenerator.cs" />
     <Compile Include="Repository\IUnitOfWork.cs" />
     <Compile Include="Model\EntityBase.cs" />
     <Compile Include="Model\IAggregateRoot.cs" />
