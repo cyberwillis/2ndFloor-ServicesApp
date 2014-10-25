@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IdentityModel.Services;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
@@ -11,6 +13,7 @@ using SecondFloor.DataContracts.Messages.Usuario;
 using SecondFloor.Infrastructure;
 using SecondFloor.ServiceContracts;
 using SecondFloor.Web.Mvc.Models;
+using SecondFloor.Web.Mvc.Security;
 using SecondFloor.Web.Mvc.Services;
 
 namespace SecondFloor.Web.Mvc.Controllers
@@ -54,8 +57,17 @@ namespace SecondFloor.Web.Mvc.Controllers
                 return View("UsuarioLogin");
             }
 
-            //seta o Cookie
-            FormsAuthentication.SetAuthCookie(usuario.Email, usuario.RememberMe);
+            //Forms Authentication
+            //FormsAuthentication.SetAuthCookie(usuario.Email, usuario.RememberMe);
+
+            //Claims Authentication
+            var claims = new List<Claim>();
+            claims.Add(new Claim(ClaimTypes.Name, usuario.Email));
+            claims.Add(new Claim(ClaimTypes.Role, response.Usuario.Id));
+
+            var principal = new ClaimsPrincipal(new ClaimsIdentity(claims, "CustomAuthentication"));
+
+            FederatedAuthentication.FederationConfiguration.IdentityConfiguration.ClaimsAuthenticationManager.Authenticate(string.Empty, principal);
 
             return RedirectToLocal(returnUrl);
         }
@@ -73,7 +85,11 @@ namespace SecondFloor.Web.Mvc.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult LogOff()
         {
-            FormsAuthentication.SignOut();
+            //Forms Authentication
+            //FormsAuthentication.SignOut();
+
+            var manager = FederatedAuthentication.FederationConfiguration.IdentityConfiguration.ClaimsAuthenticationManager as ClaimsTransformer;
+            manager.Logout();
             return RedirectToAction("Index", "Home");
         }
     }
