@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IdentityModel.Services;
 using System.Linq;
 using System.Security.Claims;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
@@ -63,11 +64,14 @@ namespace SecondFloor.Web.Mvc.Controllers
             //Claims Authentication
             var claims = new List<Claim>();
             claims.Add(new Claim(ClaimTypes.Name, usuario.Email));
-            claims.Add(new Claim(ClaimTypes.Role, response.Usuario.Id));
+            claims.Add(new Claim(ClaimTypes.GroupSid, response.Usuario.Id));
 
             var principal = new ClaimsPrincipal(new ClaimsIdentity(claims, "CustomAuthentication"));
 
-            FederatedAuthentication.FederationConfiguration.IdentityConfiguration.ClaimsAuthenticationManager.Authenticate(string.Empty, principal);
+            principal = FederatedAuthentication.FederationConfiguration.IdentityConfiguration.ClaimsAuthenticationManager.Authenticate(string.Empty, principal);
+
+            Thread.CurrentPrincipal = principal;
+            HttpContext.User = principal;
 
             return RedirectToLocal(returnUrl);
         }
@@ -88,7 +92,7 @@ namespace SecondFloor.Web.Mvc.Controllers
             //Forms Authentication
             //FormsAuthentication.SignOut();
 
-            var manager = FederatedAuthentication.FederationConfiguration.IdentityConfiguration.ClaimsAuthenticationManager as ClaimsTransformer;
+            var manager = FederatedAuthentication.FederationConfiguration.IdentityConfiguration.ClaimsAuthenticationManager as CustomClaimsAuthentication;
             manager.Logout();
             return RedirectToAction("Index", "Home");
         }

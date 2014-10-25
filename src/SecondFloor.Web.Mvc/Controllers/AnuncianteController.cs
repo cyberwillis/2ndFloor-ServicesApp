@@ -1,4 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
@@ -13,12 +16,12 @@ using SecondFloor.Infrastructure;
 using SecondFloor.Service.ExtensionMethods;
 using SecondFloor.ServiceContracts;
 using SecondFloor.Web.Mvc.Models;
+using SecondFloor.Web.Mvc.Security;
 using SecondFloor.Web.Mvc.Services;
 using WebGrease.Css.Extensions;
 
 namespace SecondFloor.Web.Mvc.Controllers
 {
-    [Authorize]
     
     public class AnuncianteController : BaseController
     {
@@ -34,6 +37,7 @@ namespace SecondFloor.Web.Mvc.Controllers
         #region For Ajax Action
 
         [HttpGet]
+        [CustomAuthorize("Anunciante", "List")]
         public PartialViewResult List()
         {
             var response = _anuncianteService.EncontrarTodosAnunciantes();
@@ -49,6 +53,7 @@ namespace SecondFloor.Web.Mvc.Controllers
         }
 
         [HttpGet]
+        [Authorize]
         public PartialViewResult Detail(string id)
         {
 
@@ -66,6 +71,7 @@ namespace SecondFloor.Web.Mvc.Controllers
         }
 
         [HttpGet]
+        [Authorize]
         public PartialViewResult Create()
         {
             ViewBag.Excluir = false;
@@ -86,6 +92,7 @@ namespace SecondFloor.Web.Mvc.Controllers
         }
 
         [HttpPost]
+        [Authorize]
         public PartialViewResult Create(AnuncianteViewModels anunciante)
         {
             //Cadastro Anunciante
@@ -134,6 +141,7 @@ namespace SecondFloor.Web.Mvc.Controllers
         }     
 
         [HttpGet]
+        [Authorize]
         public PartialViewResult Edit(string id)
         {
             var request = new EncontrarAnuncianteRequest() { Id = id };
@@ -153,6 +161,7 @@ namespace SecondFloor.Web.Mvc.Controllers
         }
 
         [HttpPost]
+        [Authorize]
         public PartialViewResult Edit(AnuncianteViewModels anunciante)
         {
             var request = new AlterarAnuncianteRequest() {Anunciante = anunciante.ConvertToAnuncianteDto()};
@@ -173,6 +182,7 @@ namespace SecondFloor.Web.Mvc.Controllers
         }
 
         [HttpGet]
+        [CustomAuthorize("Anunciante", "Delete")]
         public PartialViewResult Delete(string id)
         {
             var request = new EncontrarAnuncianteRequest() { Id = id };
@@ -195,6 +205,7 @@ namespace SecondFloor.Web.Mvc.Controllers
         }
 
         [HttpPost]
+        [CustomAuthorize("Anunciante", "Delete")]
         public PartialViewResult Delete(AnuncianteViewModels anunciante)
         {
             var request = new ExcluirAnuncianteRequest(){Id=anunciante.Id};
@@ -296,17 +307,27 @@ namespace SecondFloor.Web.Mvc.Controllers
             }
             
             //TODO: Caso Anunciante (aproveitando o usuario salvo na sessao)
-            ViewBag.Title = "Detalhes";
-            return RedirectToAction("Detalhes", new { Id = response.Id });
+            //ViewBag.Title = "Detalhes";
+            //return RedirectToAction("Detalhes", new { Id = response.Id });
 
             //TODO: Caso Administrador listar todos anunciantes
-            //ViewBag.Title = Resources.AnuncianteController_HttpPost_Cadastro_Action_ViewBagTitle_Adm;
-            //return RedirectToAction("Listar");
+            ViewBag.Title = Resources.AnuncianteController_HttpPost_Cadastro_Action_ViewBagTitle_Adm;
+            return RedirectToAction("Listar");
         }
 
         [HttpGet]
+        //[CustomAuthorize("Anunciante", "Listar")]
+        [Authorize]
         public ActionResult Listar()
         {
+            //TODO: caso seja anuncinte manda para Detalhes
+            //var principal = ClaimsPrincipal.Current;
+            //var userid = principal.FindFirst(ClaimTypes.NameIdentifier).Value;
+            //if (!principal.HasClaim(ClaimTypes.NameIdentifier,default(Guid).ToString()))
+            //{
+            //    return Redirect("Anunciante/Detalhes/" + userid); //View("Detalhes", new {id = userid});
+            //}
+
             ViewBag.Title = Resources.AnuncianteController_HttpGet_Listar_Action_ViewBagTitle;
 
             var response = _anuncianteService.EncontrarTodosAnunciantes();
@@ -319,6 +340,7 @@ namespace SecondFloor.Web.Mvc.Controllers
         }
         
         [HttpGet]
+        [Authorize]
         public ActionResult Detalhes(string id)
         {
             var request = new EncontrarAnuncianteRequest() { Id = id };
