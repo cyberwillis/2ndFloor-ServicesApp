@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.IdentityModel.Services;
+using System.IdentityModel.Tokens;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -26,29 +28,22 @@ namespace SecondFloor.Web.Mvc
             BundleConfig.RegisterBundles(BundleTable.Bundles);
         }
 
-        /*protected void Application_BeginRequest()
+        //Fix sugerido por
+        //http://brockallen.com/2012/10/22/dealing-with-session-token-exceptions-with-wif-in-asp-net/
+        void Application_OnError()
         {
-
+            var ex = Context.Error;
+            if (ex is SecurityTokenException)
+            {
+                Context.ClearError();
+                if (FederatedAuthentication.SessionAuthenticationModule != null)
+                {
+                    FederatedAuthentication.SessionAuthenticationModule.SignOut();
+                }
+                Response.Redirect("~/");
+            }
         }
 
-        protected void Application_AuthenticateEndRequest()
-        {
-            //TODO: authenticate a credential (if presentaut) or cookie, set principal, WindowsAuthentication, FormsAuthentication, WSFederation
-        }
-
-        protected void Application_PostAuthenticateRequest()
-        {
-            //TODO: Add Claims para principal, roles ou outro claim arbitrario
-        }
-
-        protected void Application_AuthorizeRequest()
-        {
-            //TODO: determinar se o usuario esta vlaidado para acessar o recurrso
-        }
-
-        protected void Application_EndRequest()
-        {
-            //TODO: errors codes, post processing, redirect, login novamente
-        }*/
+        
     }
 }
