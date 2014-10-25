@@ -1,6 +1,8 @@
 ﻿using System;
 using System.ServiceModel;
 using System.ServiceModel.Activation;
+using Microsoft.Practices.ObjectBuilder2;
+using SecondFloor.DataContracts.Messages.Anuncio;
 using SecondFloor.DataContracts.Messages.Consumidor;
 using SecondFloor.DataContracts.Messages.ConsumidorOfertas;
 using SecondFloor.I18n;
@@ -15,12 +17,18 @@ namespace SecondFloor.Service
     [AspNetCompatibilityRequirements(RequirementsMode = AspNetCompatibilityRequirementsMode.Allowed)]
     public class ConsumidorService : IConsumidorService
     {
+        private readonly IAnuncioRepository _anuncioRepository;
         private readonly IOfertaRepository _ofertaRepository;
         private readonly IFeedbackRepository _feedbackRepository;
         private readonly IConsumidorRepository _consumidorRepository;
 
-        public ConsumidorService( IOfertaRepository ofertaRepository, IFeedbackRepository feedbackRepository, IConsumidorRepository consumidorRepository )
+        public ConsumidorService( 
+            IOfertaRepository ofertaRepository, 
+            IFeedbackRepository feedbackRepository, 
+            IConsumidorRepository consumidorRepository,
+            IAnuncioRepository anuncioRepository)
         {
+            _anuncioRepository = anuncioRepository;
             _ofertaRepository = ofertaRepository;
             _feedbackRepository = feedbackRepository;
             _consumidorRepository = consumidorRepository;

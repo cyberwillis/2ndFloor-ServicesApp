@@ -12,5 +12,7 @@ namespace SecondFloor.Model
         void AtualizarAnunciante(Anunciante anunciante);
         void ExcluirAnunciante(Anunciante anunciante);
         IList<Anunciante> EncontrarTodosAnunciantes();
+        IList<Anunciante> EncontrarAnunciantesPorEmail(string email);
+        IList<Anunciante> EncontrarAnunciantesPorCnpj(string cnpj);
     }
 }

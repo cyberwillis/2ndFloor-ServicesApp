@@ -25,5 +25,30 @@ namespace SecondFloor.Web.Mvc
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
         }
+
+        /*protected void Application_BeginRequest()
+        {
+
+        }
+
+        protected void Application_AuthenticateEndRequest()
+        {
+            //TODO: authenticate a credential (if presentaut) or cookie, set principal, WindowsAuthentication, FormsAuthentication, WSFederation
+        }
+
+        protected void Application_PostAuthenticateRequest()
+        {
+            //TODO: Add Claims para principal, roles ou outro claim arbitrario
+        }
+
+        protected void Application_AuthorizeRequest()
+        {
+            //TODO: determinar se o usuario esta vlaidado para acessar o recurrso
+        }
+
+        protected void Application_EndRequest()
+        {
+            //TODO: errors codes, post processing, redirect, login novamente
+        }*/
     }
 }

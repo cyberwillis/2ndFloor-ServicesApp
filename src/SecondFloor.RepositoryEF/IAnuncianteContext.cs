@@ -1,6 +1,6 @@
 ﻿namespace SecondFloor.RepositoryEF
 {
-    public interface IAnuncioContext
+    public interface IAnuncianteContext
     {
          
     }

@@ -1528,6 +1528,15 @@ namespace SecondFloor.I18n {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to User Log in.
+        /// </summary>
+        public static string UsuarioController_HttpGet_Login_Action_ViewBagTitle {
+            get {
+                return ResourceManager.GetString("UsuarioController_HttpGet_Login_Action_ViewBagTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Errors occurred:.
         /// </summary>
         public static string UsuarioService_CadastrarUsuario_Error {
@@ -1596,6 +1605,33 @@ namespace SecondFloor.I18n {
         public static string UsuarioServices_EncontrarUsuarioPor_Success {
             get {
                 return ResourceManager.GetString("UsuarioServices_EncontrarUsuarioPor_Success", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to E-mail.
+        /// </summary>
+        public static string UsuarioViewModels_Attribute_Email {
+            get {
+                return ResourceManager.GetString("UsuarioViewModels_Attribute_Email", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Remember me?.
+        /// </summary>
+        public static string UsuarioViewModels_Attribute_Lembrar {
+            get {
+                return ResourceManager.GetString("UsuarioViewModels_Attribute_Lembrar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Password.
+        /// </summary>
+        public static string UsuarioViewModels_Attribute_Senha {
+            get {
+                return ResourceManager.GetString("UsuarioViewModels_Attribute_Senha", resourceCulture);
             }
         }
         
@@ -1839,6 +1875,24 @@ namespace SecondFloor.I18n {
         public static string View_Produto_ProdutoPartialView_Botao_Salvar {
             get {
                 return ResourceManager.GetString("View_Produto_ProdutoPartialView_Botao_Salvar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Log in.
+        /// </summary>
+        public static string View_Usuario_UsuarioLogin_Botao_Login {
+            get {
+                return ResourceManager.GetString("View_Usuario_UsuarioLogin_Botao_Login", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Use a local account to acess.
+        /// </summary>
+        public static string View_Usuario_UsuarioLogin_Slogan {
+            get {
+                return ResourceManager.GetString("View_Usuario_UsuarioLogin_Slogan", resourceCulture);
             }
         }
     }

@@ -1,7 +1,16 @@
 ﻿using System.Collections.Generic;
+using System.Threading.Tasks;
+using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.Owin;
+using SecondFloor.DataContracts.DTO;
 using SecondFloor.DataContracts.Messages.Anunciante;
+using SecondFloor.DataContracts.Messages.Usuario;
 using SecondFloor.I18n;
+using SecondFloor.Infrastructure;
+using SecondFloor.Service.ExtensionMethods;
 using SecondFloor.ServiceContracts;
 using SecondFloor.Web.Mvc.Models;
 using SecondFloor.Web.Mvc.Services;
@@ -9,13 +18,17 @@ using WebGrease.Css.Extensions;
 
 namespace SecondFloor.Web.Mvc.Controllers
 {
+    [Authorize]
+    
     public class AnuncianteController : BaseController
     {
         private readonly IAnuncianteService _anuncianteService;
+        private readonly IUsuarioService _usuarioService;
 
-        public AnuncianteController(IAnuncianteService anuncianteService)
+        public AnuncianteController(IAnuncianteService anuncianteService, IUsuarioService usuarioService)
         {
             _anuncianteService = anuncianteService;
+            _usuarioService = usuarioService;
         }
 
         #region For Ajax Action
@@ -75,19 +88,47 @@ namespace SecondFloor.Web.Mvc.Controllers
         [HttpPost]
         public PartialViewResult Create(AnuncianteViewModels anunciante)
         {
-            var request = new CadastrarAnuncianteRequest() { Anunciante = anunciante.ConvertToAnuncianteDto() };
-            var response = _anuncianteService.CadastrarAnunciante(request);
+            //Cadastro Anunciante
+            var cadastroAnuncianteRequest = new CadastrarAnuncianteRequest() { Anunciante = anunciante.ConvertToAnuncianteDto() };
+            var cadastrarAnuncianteResponse = _anuncianteService.CadastrarAnunciante(cadastroAnuncianteRequest);
 
             ViewBag.Excluir = false;
             ViewBag.Title = Resources.AnuncianteController_HttpPost_Create_Action_ViewBagTitle;
-            ViewBag.Message = response.Message;
-            ViewBag.MessageType = response.MessageType;
+            ViewBag.Message = cadastrarAnuncianteResponse.Message;
+            ViewBag.MessageType = cadastrarAnuncianteResponse.MessageType;
 
-            if (!response.Success)
+            if (!cadastrarAnuncianteResponse.Success)
             {
-                response.Rules.ForEach(x => ModelState.AddModelError(x.Key,x.Value));
+                cadastrarAnuncianteResponse.Rules.ForEach(x => ModelState.AddModelError(x.Key,x.Value));
                 return PartialView("AnunciantePartialView", anunciante); //erro de cadastro
             }
+
+            //Usando account manager infrastructure
+            var password = new PasswordGenerator().Generate(); //enviar por email
+            var registerView = new RegisterViewModel()
+            {
+                Email = anunciante.Email,
+                Password = password,
+                ConfirmPassword = password
+            };
+            
+            //Cadastro de Usuario customizado
+            /*var usuarioId = cadastrarAnuncianteResponse.Id;
+            var cadastroUsuarioRequest = new CadastrarUsuarioRequest() {
+                Usuario = new UsuarioDto()
+                {
+                    Id = usuarioId,
+                    Login = anunciante.Email,
+                    Password = new PasswordGenerator().Generate()
+                }
+            };
+
+            var cadastrarUsuarioResponse = _usuarioService.CadastrarUsuario(cadastroUsuarioRequest);
+
+            if (cadastrarUsuarioResponse.Success)
+            {
+                //TODO: Enviar email
+            }*/
 
             return PartialView("Sucesso");
         }     
@@ -178,12 +219,14 @@ namespace SecondFloor.Web.Mvc.Controllers
 
         #region Friendly Actions
         [HttpGet]
+        [AllowAnonymous]
         public ActionResult Index()
         {
             return RedirectToAction("Cadastro");
         }
 
         [HttpGet]
+        [AllowAnonymous]
         public ActionResult Cadastro()
         {
             ViewBag.Excluir = false;
@@ -203,6 +246,7 @@ namespace SecondFloor.Web.Mvc.Controllers
         }
 
         [HttpPost]
+        [AllowAnonymous]
         public ActionResult Cadastro([Bind(Exclude = "Id")] AnuncianteViewModels anunciante)
         {
             ViewBag.Excluir = false;
@@ -224,13 +268,40 @@ namespace SecondFloor.Web.Mvc.Controllers
                 return View("Cadastro", anunciante);
             }
 
+            //Usando account manager infrastructure
+            /*var password = new PasswordGenerator().Generate(); //enviar por email
+            var registerView = new RegisterViewModel()
+            {
+                Email = anunciante.Email,
+                Password = password,
+                ConfirmPassword = password
+            };*/
+
+            //Cadastro de Usuario customizado
+            var usuarioId = response.Id;
+            var cadastroUsuarioRequest = new CadastrarUsuarioRequest() {
+                Usuario = new UsuarioDto()
+                {
+                    Id = usuarioId,
+                    Login = anunciante.Email,
+                    Password = "1234567890" //new PasswordGenerator().Generate()
+                }
+            };
+
+            var cadastrarUsuarioResponse = _usuarioService.CadastrarUsuario(cadastroUsuarioRequest);
+
+            if (cadastrarUsuarioResponse.Success)
+            {
+                //TODO: Enviar email
+            }
+            
             //TODO: Caso Anunciante (aproveitando o usuario salvo na sessao)
-            //ViewBag.Title = "Detalhes";
-            //return RedirectToAction("Detalhes", new { Id = response.Id });
+            ViewBag.Title = "Detalhes";
+            return RedirectToAction("Detalhes", new { Id = response.Id });
 
             //TODO: Caso Administrador listar todos anunciantes
-            ViewBag.Title = Resources.AnuncianteController_HttpPost_Cadastro_Action_ViewBagTitle_Adm;
-            return RedirectToAction("Listar");
+            //ViewBag.Title = Resources.AnuncianteController_HttpPost_Cadastro_Action_ViewBagTitle_Adm;
+            //return RedirectToAction("Listar");
         }
 
         [HttpGet]
@@ -269,5 +340,7 @@ namespace SecondFloor.Web.Mvc.Controllers
             return View("Error");
         }
         #endregion
+
+
     }
 }

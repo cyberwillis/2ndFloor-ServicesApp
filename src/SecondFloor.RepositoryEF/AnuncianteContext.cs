@@ -5,7 +5,7 @@ using SecondFloor.RepositoryEF.Mappings;
 
 namespace SecondFloor.RepositoryEF
 {
-    public class AnuncianteContext : DbContext, IAnuncioContext 
+    public class AnuncianteContext : DbContext, IAnuncianteContext 
     {
         public DbSet<Anunciante> Anunciantes { get; set; }
         public DbSet<Endereco> Enderecos { get; set; }
@@ -15,6 +15,7 @@ namespace SecondFloor.RepositoryEF
         public DbSet<Estado> Estados { get; set; }
         public DbSet<Feedback> Feedbacks { get; set; }
         public DbSet<Consumidor> Consumidors { get; set; }
+        public DbSet<Usuario> Usuarios { get; set; }
 
         public AnuncianteContext() : base("DefaultConnection")
         {
@@ -29,6 +30,7 @@ namespace SecondFloor.RepositoryEF
             modelBuilder.Configurations.Add(new AnuncioConfiguration());
             modelBuilder.Configurations.Add(new OfertaConfiguration());
             modelBuilder.Configurations.Add(new ConsumidorConfiguration());
+            modelBuilder.Configurations.Add(new UsuarioConfiguration());
 
             modelBuilder.Configurations.Add(new FeedbackConfiguration());
 

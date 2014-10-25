@@ -18,6 +18,24 @@ namespace SecondFloor.RepositoryEF.Repositories
             return this.FindAll();
         }
 
+        public IList<Anunciante> EncontrarAnunciantesPorEmail(string email)
+        {
+            var query = from a in AnuncianteContextFactory.GetAnuncianteContext().Anunciantes
+                where a.Email == email
+                select a;
+
+            return query.ToList();
+        }
+
+        public IList<Anunciante> EncontrarAnunciantesPorCnpj(string cnpj)
+        {
+            var query = from a in AnuncianteContextFactory.GetAnuncianteContext().Anunciantes
+                        where a.Cnpj == cnpj
+                        select a;
+
+            return query.ToList();
+        }
+
         /*public Anunciante EncontrarAnunciantePorToken(string anuncianteToken)
         {
             var queryAnunciante = from a in AnuncianteContextFactory.GetAnuncianteContext().Anunciantes

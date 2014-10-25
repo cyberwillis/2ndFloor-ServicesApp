@@ -711,4 +711,22 @@
   <data name="View_Layout_Cultura_Portugues" xml:space="preserve">
     <value>Português</value>
   </data>
+  <data name="UsuarioViewModels_Attribute_Email" xml:space="preserve">
+    <value>E-mail</value>
+  </data>
+  <data name="UsuarioViewModels_Attribute_Lembrar" xml:space="preserve">
+    <value>Lembrar-se de mim?</value>
+  </data>
+  <data name="UsuarioViewModels_Attribute_Senha" xml:space="preserve">
+    <value>Senha</value>
+  </data>
+  <data name="UsuarioController_HttpGet_Login_Action_ViewBagTitle" xml:space="preserve">
+    <value>Login de Usuario</value>
+  </data>
+  <data name="View_Usuario_UsuarioLogin_Botao_Login" xml:space="preserve">
+    <value>Acessar</value>
+  </data>
+  <data name="View_Usuario_UsuarioLogin_Slogan" xml:space="preserve">
+    <value>Use uma conta de usuario local para acessar</value>
+  </data>
 </root>

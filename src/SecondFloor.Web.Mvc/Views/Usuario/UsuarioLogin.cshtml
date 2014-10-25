@@ -1,0 +1,78 @@
+﻿@using SecondFloor.I18n
+@model SecondFloor.Web.Mvc.Models.UsuarioViewModel
+
+<div class="modal-dialog">
+    <div class="modal-content">
+
+        <div class="modal-header">
+            <h4 id="myModalLabel" class="modal-title">&nbsp;@ViewBag.Title</h4>
+        </div>
+        @if (!string.IsNullOrEmpty(ViewBag.MessageType))
+        {
+            <div class="alert @ViewBag.MessageType fade in">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                <small>@Html.Raw(ViewBag.Message)</small>
+            </div>
+        }
+        <div id="myModalBody" class="modal-body">
+            <div id="conteudo-modal">
+                @*<section id="loginForm">*@
+                    @*@using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))*@
+                    @using (Ajax.BeginForm(new AjaxOptions { HttpMethod = "post", InsertionMode = InsertionMode.Replace, UpdateTargetId = "myModal" }))
+                    {
+                        @Html.AntiForgeryToken()
+    
+                        <div class="form-horizontal col-md-offset-2">
+                            <h4>@Resources.View_Usuario_UsuarioLogin_Slogan</h4><br/>
+                            
+
+                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.Email, new { @class = "col-md-3 control-label" })
+                                <div class="col-md-6">
+                                    @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.Password, new { @class = "col-md-3 control-label" })
+                                <div class="col-md-6">
+                                    @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-offset-2 col-md-6">
+                                    <div class="checkbox">
+                                        @Html.CheckBoxFor(m => m.RememberMe)
+                                        @Html.LabelFor(m => m.RememberMe)
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-offset-3 col-md-6">
+                                    <input type="submit" value="@Resources.View_Usuario_UsuarioLogin_Botao_Login" class="btn btn-sm btn-danger" />
+                                </div>
+                            </div>
+                            <p>&nbsp;</p>
+                            @* Enable this once you have account confirmation enabled for password reset functionality
+                                <p>
+                                    @Html.ActionLink("Forgot your password?", "ForgotPassword")
+                                </p>*@
+                        </div>
+                    }
+                @*</section>*@
+            </div>
+        </div>
+        <div class="modal-footer form-horizontal">
+            <!--<a href="#" id="criarFuncionario" role="button" class="btn btn-sm btn-danger">Salvar</a>-->
+        </div>
+    </div>
+    <div class="col-md-4">
+
+    </div>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

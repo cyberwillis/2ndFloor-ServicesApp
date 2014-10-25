@@ -226,5 +226,46 @@ namespace SecondFloor.Web.Mvc.Controllers
 
             return response.Endereco.ConvertToEnderecoViewModel();
         }
+
+
+        [HttpGet]
+        public PartialViewResult Publish(string id)
+        {
+            var request = new EncontrarAnuncioRequest() {Id = id};
+            var response = _anuncioService.EncontrarAnuncioPor(request);
+
+            ViewBag.Excluir = true;
+            ViewBag.Title = "Publicar Anuncio";
+            ViewBag.Message = response.Message;
+            ViewBag.MessageType = response.MessageType;
+
+            if (!response.Success)
+            {
+                return PartialView("Error");
+            }
+
+            return PartialView("AnuncioAlterarPartialView", response.Anuncio.ConvertToAnuncioViewModels());
+        }
+
+        [HttpPost]
+        public PartialViewResult Publish(AnuncioViewModels anuncio)
+        {
+            var request = new PublicarAnuncioRequest() {Id = anuncio.Id};
+            var response = _anuncioService.EnviarAnuncioParaPublicacao(request);
+
+            ViewBag.Excluir = false;
+            ViewBag.Title = "Publicar Anuncio";
+            ViewBag.Message = response.Message;
+            ViewBag.MessageType = response.MessageType;
+
+            if (!response.Success)
+            {
+                return PartialView("Error");
+            }
+
+            
+
+            return PartialView("Sucesso");
+        }
     }
 }

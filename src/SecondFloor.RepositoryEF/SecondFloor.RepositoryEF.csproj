@@ -51,6 +51,7 @@
     <Compile Include="Mappings\EstadoConfiguration.cs" />
     <Compile Include="Mappings\FeedbackConfiguration.cs" />
     <Compile Include="Mappings\ProdutoConfiguration.cs" />
+    <Compile Include="Mappings\UsuarioConfiguration.cs" />
     <Compile Include="Repositories\AnuncianteRepository.cs" />
     <Compile Include="AnuncianteContext.cs" />
     <Compile Include="AnuncianteContextFactory.cs" />
@@ -59,7 +60,7 @@
     <Compile Include="DataContextStorage\HttpDataContextStorageContainer.cs" />
     <Compile Include="DataContextStorage\IDataContextStorageContainer.cs" />
     <Compile Include="DataContextStorage\ThreadDataContextStorageContainer.cs" />
-    <Compile Include="IAnuncioContext.cs" />
+    <Compile Include="IAnuncianteContext.cs" />
     <Compile Include="Mappings\AnuncianteConfiguration.cs" />
     <Compile Include="Mappings\AnuncioConfiguration.cs" />
     <Compile Include="Mappings\EnderecoConfiguration.cs" />
@@ -74,6 +75,7 @@
     <Compile Include="Repositories\ProdutoRepository.cs" />
     <Compile Include="Repositories\RepositoryBase.cs" />
     <Compile Include="EFUnitOfWork.cs" />
+    <Compile Include="Repositories\UsuarioRepository.cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

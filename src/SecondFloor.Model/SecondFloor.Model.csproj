@@ -49,6 +49,7 @@
     <Compile Include="IFeedbackRepository.cs" />
     <Compile Include="IOfertaRepository.cs" />
     <Compile Include="IProdutoRepository.cs" />
+    <Compile Include="IUsuarioRepository.cs" />
     <Compile Include="Produto.cs" />
     <Compile Include="Rules\AnuncianteServices.cs" />
     <Compile Include="Rules\AnuncioServices.cs" />
@@ -70,9 +71,16 @@
     <Compile Include="Rules\Specifications\OfertaSpecification.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Rules\Specifications\ProdutoSpecification.cs" />
+    <Compile Include="Rules\Specifications\UsuarioSpecification.cs" />
+    <Compile Include="Rules\UsuarioServices.cs" />
     <Compile Include="TipoAcesso.cs" />
+    <Compile Include="Usuario.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\SecondFloor.DataContracts\SecondFloor.DataContracts.csproj">
+      <Project>{005BD132-A35B-4F72-9840-0228FCEFAFF5}</Project>
+      <Name>SecondFloor.DataContracts</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SecondFloor.I18n\SecondFloor.I18n.csproj">
       <Project>{081B4D0E-A964-4084-B2FE-1EF30CDE6B0F}</Project>
       <Name>SecondFloor.I18n</Name>

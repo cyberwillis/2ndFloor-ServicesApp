@@ -31,7 +31,7 @@ namespace SecondFloor.RepositoryEF.Repositories
             return ofertas.ToList();
         }
 
-        public IList<Oferta> EncontrarOdertasPorAnuncio(Guid id)
+        public IList<Oferta> EncontrarOfertasPorAnuncio(Guid id)
         {
             var anuncio = (from a in AnuncianteContextFactory.GetAnuncianteContext().Anuncios
                 where a.Id == id

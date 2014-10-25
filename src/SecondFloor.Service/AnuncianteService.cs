@@ -12,57 +12,12 @@ namespace SecondFloor.Service
     
     public class AnuncianteService : IAnuncianteService
     {
-        private IAnuncioRepository _anuncioRepository;
-        private IAnuncianteRepository _anuncianteRepository;
+        private readonly IAnuncianteRepository _anuncianteRepository;
 
-        public AnuncianteService(IAnuncioRepository anuncioRepository, IAnuncianteRepository anuncianteRepository )
+        public AnuncianteService( IAnuncianteRepository anuncianteRepository )
         {
             _anuncianteRepository = anuncianteRepository;
-            _anuncioRepository = anuncioRepository;
         }
-
-        /*public CadastrarAnuncioResponse CadastrarAnuncio(CadastrarAnuncioRequest request )
-        {
-            var response = new CadastrarAnuncioResponse();
-
-            var anunciante = _anuncianteRepository.EncontrarAnunciantePor(Guid.Parse(request.AnuncianteId)); //(Contexto Anunciante)
-            //var anunciante = _anuncianteRepository.EncontrarAnunciantePorToken(request.AnuncianteToken); //(Contexto Anunciante)
-            if (anunciante == null)
-            {
-                response.Message = "Anunciante não identificado.";
-                response.MessageType = "alert-warning";
-                response.Success = false;
-                return response;
-            }
-            
-            var anuncio = request.Anuncio.ConvertToAnuncio();
-            anuncio.Anunciante = anunciante; //(Contexto Anuncio), hidratacao por fora para que possamos passar para o contexto especifico, não há necessidade de cache
-            if (anuncio.GetBrokenBusinessRules().Count != 0)
-            {
-                response.Message = anuncio.GetErrorMessages().ToString();
-                response.MessageType = "alert-warning";
-                response.Success = false;
-                return response;
-            }
-
-            try
-            {
-                _anuncioRepository.InserirAnuncio(anuncio);
-                _anuncioRepository.Persist();
-
-                response.Message = "Anuncio cadastrado com sucesso.";
-                response.MessageType = "alert-info";
-                response.Success = true;
-            }
-            catch (Exception ex)
-            {
-                response.Message = "Ocorreu um erro:\n" + ex.Message;
-                response.MessageType = "alert-danger";
-                response.Success = false;
-            }
-
-            return response;
-        }*/
 
         public CadastrarAnuncianteResponse CadastrarAnunciante(CadastrarAnuncianteRequest request)
         {
@@ -81,6 +36,24 @@ namespace SecondFloor.Service
 
             try
             {
+                var anuncianteEmail = _anuncianteRepository.EncontrarAnunciantesPorEmail(anunciante.Email);
+                if (anuncianteEmail.Count > 0)
+                {
+                    response.Message = "E-mail indisponível para cadastro";
+                    response.MessageType = "alert-warning";
+                    response.Success = false;
+                    return response;
+                }
+
+                var anuncianteCnpj = _anuncianteRepository.EncontrarAnunciantesPorCnpj(anunciante.Cnpj);
+                if (anuncianteCnpj.Count > 0)
+                {
+                    response.Message = "Cnpj indisponível para cadastro";
+                    response.MessageType = "alert-warning";
+                    response.Success = false;
+                    return response;
+                }
+                
                 _anuncianteRepository.InserirAnunciante(anunciante);
                 _anuncianteRepository.Persist();
 

@@ -41,5 +41,14 @@ namespace SecondFloor.RepositoryEF.Repositories
             //if(anuncio != null)
             this.Delete(anuncio);
         }
+
+        public IList<Anuncio> EncontrarAnunciosPorStatus(AnuncioStatusEnum status)
+        {
+            var anuncio = from a in AnuncianteContextFactory.GetAnuncianteContext().Anuncios
+                           where a.Status == AnuncioStatusEnum.Agendado
+                           select a;
+
+            return anuncio.ToList();
+        }
     }
 }

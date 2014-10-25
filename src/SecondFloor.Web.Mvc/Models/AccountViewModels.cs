@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using SecondFloor.I18n;
 
 namespace SecondFloor.Web.Mvc.Models
 {
@@ -48,17 +49,20 @@ namespace SecondFloor.Web.Mvc.Models
 
     public class LoginViewModel
     {
-        [Required]
-        [Display(Name = "Email")]
-        [EmailAddress]
+        //[Required]
+        //[Display(Name = "Email")]
+        [Display(Name = "UsuarioViewModels_Attribute_Email", ResourceType = typeof(Resources))]
+        //[EmailAddress]
         public string Email { get; set; }
 
-        [Required]
+        //[Required]
         [DataType(DataType.Password)]
-        [Display(Name = "Password")]
+        //[Display(Name = "Password")]
+        [Display(Name = "UsuarioViewModels_Attribute_Senha", ResourceType = typeof(Resources))]
         public string Password { get; set; }
 
-        [Display(Name = "Remember me?")]
+        //[Display(Name = "Remember me?")]
+        [Display(Name = "UsuarioViewModels_Attribute_Lembrar", ResourceType = typeof(Resources))]
         public bool RememberMe { get; set; }
     }
 

@@ -10,6 +10,7 @@ namespace SecondFloor.ServiceContracts
         CadastrarAnuncioResponse CadastrarAnuncio(CadastrarAnuncioRequest request);
         AlterarAnuncioResponse AlterarAnuncio(AlterarAnuncioRequest request);
         ExcluirAnuncioResponse ExcluirAnuncio(ExcluirAnuncioRequest request);
-        PublicarAnuncioResponse PublicarAnuncio(PublicarAnuncioRequest request);
+        PublicarAnuncioResponse EnviarAnuncioParaPublicacao(PublicarAnuncioRequest request);
+        EfetuarPublicacaoResponse PublicarAnuncio();
     }
 }

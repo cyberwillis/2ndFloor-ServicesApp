@@ -12,11 +12,16 @@ namespace SecondFloor.Infrastructure
         /// <returns>40-character hex string</returns>
         public static string SHA1HashStringForUTF8String(string s)
         {
-            byte[] bytes = Encoding.UTF8.GetBytes(s);
- 
-            var sha1 = SHA1.Create();
-            byte[] hashBytes = sha1.ComputeHash(bytes);
-            return HexStringFromBytes(hashBytes);
+            if (!string.IsNullOrEmpty(s))
+            {
+                byte[] bytes = Encoding.UTF8.GetBytes(s);
+
+                var sha1 = SHA1.Create();
+                byte[] hashBytes = sha1.ComputeHash(bytes);
+                return HexStringFromBytes(hashBytes);
+            }
+
+            return "";
         }
  
         /// <summary>

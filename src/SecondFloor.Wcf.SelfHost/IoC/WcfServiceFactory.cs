@@ -28,7 +28,7 @@ namespace SecondFloor.Wcf.SelfHost.IoC
                 .RegisterType<IFeedbackRepository, FeedbackRepository>()
                 .RegisterType<IConsumidorRepository, ConsumidorRepository>()
                 .RegisterType<IConsumidorService, ConsumidorService>()
-                .RegisterType<IAnuncioContext, AnuncianteContext>( new HierarchicalLifetimeManager() );
+                .RegisterType<IAnuncianteContext, AnuncianteContext>( new HierarchicalLifetimeManager() );
 
             /*container.RegisterInstance<TimerViewModel>(new TimerViewModel());
             container.RegisterType<IPieceImageManager, PieceImageManager>();

@@ -69,8 +69,10 @@
     <Compile Include="ExtensionMethods\EstadoExtensionMethod.cs" />
     <Compile Include="ExtensionMethods\OfertaExtensionMethod.cs" />
     <Compile Include="ExtensionMethods\ProdutoExtensionMethod.cs" />
+    <Compile Include="ExtensionMethods\UsuarioExtensionMethod.cs" />
     <Compile Include="ProdutoService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UsuarioService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SecondFloor.DataContracts\SecondFloor.DataContracts.csproj">

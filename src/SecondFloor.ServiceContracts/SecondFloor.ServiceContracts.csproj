@@ -47,6 +47,7 @@
     <Compile Include="IEnderecoService.cs" />
     <Compile Include="IEstadoService.cs" />
     <Compile Include="IProdutoService.cs" />
+    <Compile Include="IUsuarioService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

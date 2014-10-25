@@ -7,6 +7,6 @@ namespace SecondFloor.Model
     {
         Oferta EncontrarOfertaPor(Guid id);
         IList<Oferta> EncontrarOfertasPorProduto(string nomeProduto);
-        IList<Oferta> EncontrarOdertasPorAnuncio(Guid id);
+        IList<Oferta> EncontrarOfertasPorAnuncio(Guid id);
     }
 }

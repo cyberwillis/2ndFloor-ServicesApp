@@ -11,5 +11,6 @@ namespace SecondFloor.Model
         void InserirAnuncio(Anuncio anuncio);
         void AtualizarAnuncio(Anuncio anuncio);
         void ExcluirAnuncio(Anuncio anuncio);
+        IList<Anuncio> EncontrarAnunciosPorStatus(AnuncioStatusEnum status);
     }
 }

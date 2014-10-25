@@ -1,5 +1,7 @@
-﻿using System.Data.Entity;
+﻿using System;
+using System.Data.Entity;
 using System.Data.Entity.Migrations;
+using SecondFloor.Infrastructure;
 using SecondFloor.Model;
 
 namespace SecondFloor.RepositoryEF.Migrations
@@ -14,6 +16,7 @@ namespace SecondFloor.RepositoryEF.Migrations
 
         protected override void Seed(AnuncianteContext context)
         {
+            //cadastro estados
             context.Estados.Add(new Estado() { Id = 1, Sigla = "AC", Nome = "Acre", });
             context.Estados.Add(new Estado() { Id = 2, Sigla = "AL", Nome = "Alagoas" });
             context.Estados.Add(new Estado() { Id = 3, Sigla = "AP", Nome = "Amapá" });
@@ -41,6 +44,14 @@ namespace SecondFloor.RepositoryEF.Migrations
             context.Estados.Add(new Estado() { Id = 25, Sigla = "SP", Nome = "São Paulo" });
             context.Estados.Add(new Estado() { Id = 26, Sigla = "SE", Nome = "Sergipe" });
             context.Estados.Add(new Estado() { Id = 27, Sigla = "TO", Nome = "Tocantins" });
+
+            //cadastro admin
+            context.Usuarios.Add(new Usuario()
+            {
+                Id = new Guid(),
+                Login = "admin",
+                Password = Sha1Util.SHA1HashStringForUTF8String("admin")
+            });
 
             base.Seed(context);
         }

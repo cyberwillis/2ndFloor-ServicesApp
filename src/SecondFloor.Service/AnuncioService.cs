@@ -2,6 +2,7 @@
 using Microsoft.Practices.ObjectBuilder2;
 using SecondFloor.DataContracts.Messages.Anunciante;
 using SecondFloor.DataContracts.Messages.Anuncio;
+using SecondFloor.I18n;
 using SecondFloor.Model;
 using SecondFloor.Model.Rules;
 using SecondFloor.Service.ExtensionMethods;
@@ -32,20 +33,20 @@ namespace SecondFloor.Service
                 var anunciante = _anuncianteRepository.EncontrarAnunciantePor(id);
                 if (anunciante == null)
                 {
-                    response.Message = "Os dados deste Anunciante não foram encontrados";
+                    response.Message = Resources.AnuncioService_EncontrarTodosAnuncios_NotFound;
                     response.MessageType = "alert-warning";
                     response.Success = false;
                     return response;
                 }
 
-                response.Message = string.Format("Encontrado {0} anunciantes", anunciante.Produtos);
+                response.Message = string.Format(Resources.AnuncioService_EncontrarTodosAnuncios_Success, anunciante.Produtos);
                 response.MessageType = "alert-info";
                 response.Success = true;
                 response.Anuncios = anunciante.Anuncios.ConvertToListaAnunciosDtos();
             }
             catch (Exception ex)
             {
-                response.Message = "Ocorreu um erro\n" + ex.Message;
+                response.Message = Resources.AnuncioService_EncontrarTodosAnuncios_Error + "\n" + ex.Message;
                 response.MessageType = "alert-danger";
                 response.Success = false;
             }
@@ -63,20 +64,20 @@ namespace SecondFloor.Service
                 var anuncio = _anuncioRepository.EncontrarAnuncioPor(id);
                 if (anuncio == null)
                 {
-                    response.Message = "Anuncio não encontrado";
+                    response.Message = Resources.AnuncioService_EncontrarAnuncioPor_NotFound;
                     response.MessageType = "alert-warning";
                     response.Success = false;
                     return response;
                 }
 
-                response.Message = "Anuncio encontrado!";
+                response.Message = Resources.AnuncioService_EncontrarAnuncioPor_Success;
                 response.MessageType = "alert-info";
                 response.Success = true;
                 response.Anuncio = anuncio.ConvertToAnuncioDto();
             }
             catch (Exception ex)
             {
-                response.Message = "Ocorreu um erro\n" + ex.Message;
+                response.Message = Resources.AnuncioService_EncontrarAnuncioPor_Error + "\n" + ex.Message;
                 response.MessageType = "alert-danger";
                 response.Success = false;
             }
@@ -105,7 +106,7 @@ namespace SecondFloor.Service
                 var anunciante = _anuncianteRepository.FindBy(anuncianteId);
                 if (anunciante == null)
                 {
-                    response.Message = "Anunciante não encontrado para inclusão do novo Anuncio";
+                    response.Message = Resources.AnuncioService_CadastrarAnuncio_NotFound;
                     response.MessageType = "alert-warning";
                     response.Success = false;
                     return response;
@@ -121,20 +122,20 @@ namespace SecondFloor.Service
                     return response;
                 }*/
                 
-                anuncio.Status=AnuncioStatusEnum.Publicado;
+                anuncio.Status = AnuncioStatusEnum.Cadastrado;
                 anunciante.Anuncios.Add(anuncio);
                 
                 //anuncio.Anunciante = anunciante;
                 _anuncioRepository.InserirAnuncio(anuncio);
                 _anuncioRepository.Persist();
 
-                response.Message = "Anuncio cadastrado com sucesso.";
+                response.Message = Resources.AnuncioService_CadastrarAnuncio_Success;
                 response.MessageType = "alert-info";
                 response.Success = true;
             }
             catch (Exception ex)
             {
-                response.Message = "Ocorreu um erro:\n" + ex.Message;
+                response.Message = Resources.AnuncioService_CadastrarAnuncio_Error + "\n" + ex.Message;
                 response.MessageType = "alert-danger";
                 response.Success = false;
             }
@@ -238,7 +239,7 @@ namespace SecondFloor.Service
             return response;
         }
 
-        public PublicarAnuncioResponse PublicarAnuncio(PublicarAnuncioRequest request)
+        public PublicarAnuncioResponse EnviarAnuncioParaPublicacao(PublicarAnuncioRequest request)
         {
             var response = new PublicarAnuncioResponse();
 
@@ -248,7 +249,7 @@ namespace SecondFloor.Service
                 var anuncio = _anuncioRepository.EncontrarAnuncioPor(id);
                 if (anuncio == null)
                 {
-                    response.Message = "Anuncio não encontrado!";
+                    response.Message = Resources.AnuncioService_EnviarAnuncioParaPublicacao_NotFound;
                     response.MessageType = "alert-warning";
                     response.Success = false;
                     return response;
@@ -260,13 +261,47 @@ namespace SecondFloor.Service
                 _anuncioRepository.AtualizarAnuncio(anuncio);
                 _anuncioRepository.Persist();
 
-                response.Message = "Anuncio atualizado com sucesso!";
+                response.Message = Resources.AnuncioService_EnviarAnuncioParaPublicacao_Success;
                 response.MessageType = "alert-info";
                 response.Success = true;
             }
             catch (Exception ex)
             {
-                response.Message = "Ocorreu um erro\n" + ex.Message;
+                response.Message = Resources.AnuncioService_EnviarAnuncioParaPublicacao_Error + "\n" + ex.Message;
+                response.MessageType = "alert-danger";
+                response.Success = false;
+            }
+
+            return response;
+        }
+
+        public EfetuarPublicacaoResponse PublicarAnuncio()
+        {
+            var response = new EfetuarPublicacaoResponse();
+
+            const AnuncioStatusEnum status = AnuncioStatusEnum.Agendado;
+            var anuncios = _anuncioRepository.EncontrarAnunciosPorStatus(status);
+            if (anuncios.Count == 0)
+            {
+                response.Message = Resources.AnuncioService_PublicarAnuncio_NotFound;
+                response.MessageType = "alert-warning";
+                response.Success = false;
+                return response;
+            }
+
+            try
+            {
+                anuncios.ForEach(anuncio => anuncio.Status = AnuncioStatusEnum.Publicado);
+                anuncios.ForEach(anuncio => _anuncioRepository.AtualizarAnuncio(anuncio));
+                _anuncioRepository.Persist();
+
+                response.Message = Resources.AnuncioService_PublicarAnuncio_Success;
+                response.MessageType = "alert-info";
+                response.Success = true;
+            }
+            catch (Exception ex)
+            {
+                response.Message = Resources.AnuncioService_PublicarAnuncio_Error + "\n" + ex.Message;
                 response.MessageType = "alert-danger";
                 response.Success = false;
             }

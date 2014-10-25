@@ -5,23 +5,34 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
+using SecondFloor.DataContracts.Messages.Usuario;
+using SecondFloor.Infrastructure;
+using SecondFloor.Model;
+using SecondFloor.RepositoryEF;
+using SecondFloor.RepositoryEF.Repositories;
+using SecondFloor.Service;
+using SecondFloor.ServiceContracts;
 using SecondFloor.Web.Mvc.Models;
 
 namespace SecondFloor.Web.Mvc.Controllers
 {
     [Authorize]
-    public class AccountController : Controller
+    public class AccountController : BaseController
     {
         private ApplicationUserManager _userManager;
 
-        public AccountController()
+        private IUsuarioService _usuarioService;
+
+        public AccountController(IUsuarioService usuarioService)
         {
+            _usuarioService = usuarioService;
         }
 
-        public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager )
+        public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager)
         {
             UserManager = userManager;
             SignInManager = signInManager;

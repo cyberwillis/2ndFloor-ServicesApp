@@ -101,6 +101,8 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.IdentityModel" />
+    <Reference Include="System.identitymodel.services" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -196,10 +198,10 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ProdutoController.cs" />
+    <Compile Include="Controllers\UsuarioController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="HtmlHelperExtensions.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AnuncianteViewModels.cs" />
     <Compile Include="Models\AnuncioViewModels.cs" />
@@ -210,13 +212,16 @@
     <Compile Include="Models\CheckBoxes.cs" />
     <Compile Include="Models\OfertaViewModels.cs" />
     <Compile Include="Models\ProdutoViewModels.cs" />
+    <Compile Include="Models\UsuarioViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Security\ClaimsTransformer.cs" />
     <Compile Include="Services\AnuncianteViewModelExtensionMethods.cs" />
     <Compile Include="Services\AnuncioViewModelExtensionMethods.cs" />
     <Compile Include="Services\EnderecoViewModelExtensionMethods.cs" />
     <Compile Include="Services\EstadoViewModelExtensionMethods.cs" />
     <Compile Include="Services\OfertaViewModelExtensionMethods.cs" />
     <Compile Include="Services\ProdutoViewModelExtensionMethod.cs" />
+    <Compile Include="Services\UsuarioViewModelExtensionMethod.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -459,10 +464,12 @@
     <Content Include="Views\Anuncio\OfertasPartialView.cshtml" />
     <Content Include="Views\Anuncio\ListaOfertasPartialView.cshtml" />
     <Content Include="Views\Anuncio\AnuncioAlterarPartialView.cshtml" />
+    <Content Include="Views\Usuario\UsuarioLogin.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Content\bootstrap-datepicker\build\" />
+    <Folder Include="Filters\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config">
