@@ -28,7 +28,7 @@ namespace SecondFloor.Web.Mvc.Controllers
             return View();
         }
 
-        public ActionResult SetCulture(string culture)
+        public RedirectResult SetCulture(string culture,string url)
         {
             culture = CultureHelper.GetImplementedCulture(culture);
 
@@ -46,7 +46,8 @@ namespace SecondFloor.Web.Mvc.Controllers
 
             Response.Cookies.Add(cookie);
 
-            return RedirectToAction("Index");
+            return Redirect(url);
+            //return RedirectToAction("Index");
         }
     }
 }

@@ -729,4 +729,74 @@
   <data name="View_Usuario_UsuarioLogin_Slogan" xml:space="preserve">
     <value>Use uma conta de usuario local para acessar</value>
   </data>
+  <data name="View_LayoutNav_LogIn" xml:space="preserve">
+    <value>Entrar</value>
+  </data>
+  <data name="View_LayoutNav_LogOff" xml:space="preserve">
+    <value>Sair</value>
+  </data>
+  <data name="View_LayoutNav_Ola" xml:space="preserve">
+    <value>Olá</value>
+  </data>
+  <data name="View_Home_ContentSlide1" xml:space="preserve">
+    <value>Aproximando seu negócio do seu cliente</value>
+  </data>
+  <data name="View_Home_ContentSlide2" xml:space="preserve">
+    <value>Os anúncios podem ser feitos de forma simples e rápida.</value>
+  </data>
+  <data name="View_Home_ContentSlide3" xml:space="preserve">
+    <value>Facilidade de pesquisa para produtos e serviços na ponta dos dedos. Aproximando as duas pontas</value>
+  </data>
+  <data name="View_Home_Subcontent1" xml:space="preserve">
+    <value>O aplicativo propõe facilitar a divulgação de produtos e serviços de pequenas empresas e profissionais autônomos proporcionando maior visibilidade junto aos consumidores.</value>
+  </data>
+  <data name="View_Home_Subcontent2" xml:space="preserve">
+    <value>The tool offers ads with initial cost subsidized by us (deadline TBD) .The application proposes to facilitate the dissemination of products and small businesses and independent professionals providing greater visibility among consumers services.</value>
+  </data>
+  <data name="View_Home_Subcontent3" xml:space="preserve">
+    <value>Empresas que não possuem estratégia de divulgação de suas marcas terão uma ferramenta conectada a rede social, com maior quantidade de fotos e melhor posicionamento.</value>
+  </data>
+  <data name="View_Home_TitleSlide1" xml:space="preserve">
+    <value>Ofertame</value>
+  </data>
+  <data name="View_Home_TitleSlide2" xml:space="preserve">
+    <value>Agilidade</value>
+  </data>
+  <data name="View_Home_TitleSlide3" xml:space="preserve">
+    <value>Aproximando as duas pontas</value>
+  </data>
+  <data name="View_Home_TitleSubcontent1" xml:space="preserve">
+    <value>Oportunidade</value>
+  </data>
+  <data name="View_Home_TitleSubcontent2" xml:space="preserve">
+    <value>Benefício</value>
+  </data>
+  <data name="View_Home_TitleSubcontent3" xml:space="preserve">
+    <value>Audiência</value>
+  </data>
+  <data name="View_Contato_Conteudo" xml:space="preserve">
+    <value>&lt;address&gt;
+    Rafael Anjos - rafael.sanjos at gmail &lt;br /&gt;
+    Rafael Favretti - rafael.favretti at gmail &lt;br /&gt;
+    Victor Lemos - desnuey at gmail &lt;br/&gt;
+    Willismar Medeiros - cyberwillis at gmail
+&lt;/address&gt;
+
+&lt;address&gt;
+    &lt;strong&gt;Suporte:...&lt;/strong&gt;   &lt;br /&gt;
+    &lt;strong&gt;Vendas:...&lt;/strong&gt; 
+&lt;/address&gt;</value>
+  </data>
+  <data name="View_Contato_SubTitulo" xml:space="preserve">
+    <value />
+  </data>
+  <data name="View_Contato_Title" xml:space="preserve">
+    <value>Para entrar em contato</value>
+  </data>
+  <data name="View_Sobre_Titulo" xml:space="preserve">
+    <value>Sobre</value>
+  </data>
+  <data name="View_Sobre_Conteudo" xml:space="preserve">
+    <value>Content here...</value>
+  </data>
 </root>

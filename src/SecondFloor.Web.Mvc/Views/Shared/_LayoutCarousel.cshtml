@@ -53,7 +53,9 @@
                             }
                             else
                             {
-                                <li>@Html.ActionLink(Resources.View_LayoutNav_Painel, "Detalhes", "Anunciante", new {id = userid}, new {})</li>
+                                <li>
+                                    @Html.ActionLink(Resources.View_LayoutNav_Painel, "Detalhes", "Anunciante", new {id = userid}, new {})
+                                </li>
                             }
                         }
                         else
@@ -70,9 +72,9 @@
             </div>
         </div>
     </div>
-    
+    @RenderBody()
     <div class="container body-content">
-        @RenderBody()
+        
         <hr />
         <footer>
             

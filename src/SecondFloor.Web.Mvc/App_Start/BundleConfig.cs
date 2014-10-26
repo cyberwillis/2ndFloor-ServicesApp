@@ -25,7 +25,8 @@ namespace SecondFloor.Web.Mvc
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
-                      "~/Content/site.css"));
+                      "~/Content/site.css",
+                      "~/Content/carousel.css"));
 
             //Empresa =================================================
             bundles.Add(new ScriptBundle("~/bundles/2ndfloor").Include(

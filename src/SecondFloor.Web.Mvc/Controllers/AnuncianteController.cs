@@ -304,30 +304,32 @@ namespace SecondFloor.Web.Mvc.Controllers
             if (cadastrarUsuarioResponse.Success)
             {
                 //TODO: Enviar email
+
+                ViewBag.Message = response.Message;
+                ViewBag.MessageType = response.MessageType;
+
+                return View("CadastroSucesso", anunciante);
             }
+
+            ViewBag.Message = cadastrarUsuarioResponse.Message;
+            ViewBag.MessageType = cadastrarUsuarioResponse.MessageType;
+
+            return View("Cadastro");
+            
             
             //TODO: Caso Anunciante (aproveitando o usuario salvo na sessao)
             //ViewBag.Title = "Detalhes";
             //return RedirectToAction("Detalhes", new { Id = response.Id });
 
             //TODO: Caso Administrador listar todos anunciantes
-            ViewBag.Title = Resources.AnuncianteController_HttpPost_Cadastro_Action_ViewBagTitle_Adm;
-            return RedirectToAction("Listar");
+            //ViewBag.Title = Resources.AnuncianteController_HttpPost_Cadastro_Action_ViewBagTitle_Adm;
+            //return RedirectToAction("Listar");
         }
 
         [HttpGet]
-        //[CustomAuthorize("Anunciante", "Listar")]
-        [Authorize]
+        [CustomAuthorize("Anunciante", "Listar")]
         public ActionResult Listar()
         {
-            //TODO: caso seja anuncinte manda para Detalhes
-            //var principal = ClaimsPrincipal.Current;
-            //var userid = principal.FindFirst(ClaimTypes.NameIdentifier).Value;
-            //if (!principal.HasClaim(ClaimTypes.NameIdentifier,default(Guid).ToString()))
-            //{
-            //    return Redirect("Anunciante/Detalhes/" + userid); //View("Detalhes", new {id = userid});
-            //}
-
             ViewBag.Title = Resources.AnuncianteController_HttpGet_Listar_Action_ViewBagTitle;
 
             var response = _anuncianteService.EncontrarTodosAnunciantes();

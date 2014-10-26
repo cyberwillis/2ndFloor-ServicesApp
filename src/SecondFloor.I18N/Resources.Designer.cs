@@ -1762,6 +1762,43 @@ namespace SecondFloor.I18n {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &lt;address&gt;
+        ///    Rafael Anjos - rafael.sanjos at gmail &lt;br /&gt;
+        ///    Rafael Favretti - rafael.favretti at gmail &lt;br /&gt;
+        ///    Victor Lemos - desnuey at gmail &lt;br/&gt;
+        ///    Willismar Medeiros - cyberwillis at gmail
+        ///&lt;/address&gt;
+        ///
+        ///&lt;address&gt;
+        ///    &lt;strong&gt;Support:...&lt;/strong&gt;   &lt;br /&gt;
+        ///    &lt;strong&gt;Marketing:...&lt;/strong&gt; 
+        ///&lt;/address&gt;.
+        /// </summary>
+        public static string View_Contato_Conteudo {
+            get {
+                return ResourceManager.GetString("View_Contato_Conteudo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string View_Contato_SubTitulo {
+            get {
+                return ResourceManager.GetString("View_Contato_SubTitulo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Contact.
+        /// </summary>
+        public static string View_Contato_Title {
+            get {
+                return ResourceManager.GetString("View_Contato_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Cancel.
         /// </summary>
         public static string View_Endereco_EnderecoPartialView_Botao_Cancelar {
@@ -1785,6 +1822,114 @@ namespace SecondFloor.I18n {
         public static string View_Endereco_ListaEnderecoPartialView_Botao_NovoEndereco {
             get {
                 return ResourceManager.GetString("View_Endereco_ListaEnderecoPartialView_Botao_NovoEndereco", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Approaching your business to your customer.
+        /// </summary>
+        public static string View_Home_ContentSlide1 {
+            get {
+                return ResourceManager.GetString("View_Home_ContentSlide1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Announcements can be made ​​simply and quickly..
+        /// </summary>
+        public static string View_Home_ContentSlide2 {
+            get {
+                return ResourceManager.GetString("View_Home_ContentSlide2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Facility to search for products and services at your fingertips. Approaching the two ends..
+        /// </summary>
+        public static string View_Home_ContentSlide3 {
+            get {
+                return ResourceManager.GetString("View_Home_ContentSlide3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The application proposes to facilitate the dissemination of products and small businesses and independent professionals providing greater visibility among consumers services..
+        /// </summary>
+        public static string View_Home_Subcontent1 {
+            get {
+                return ResourceManager.GetString("View_Home_Subcontent1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to A ferramenta oferece anúncios com custo inicial subsidiado por nós (prazo a ser determinado)..
+        /// </summary>
+        public static string View_Home_Subcontent2 {
+            get {
+                return ResourceManager.GetString("View_Home_Subcontent2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Companies that do not have to publicize its brand strategy will have a tool connected to social network with the largest amount of shots and better positioning..
+        /// </summary>
+        public static string View_Home_Subcontent3 {
+            get {
+                return ResourceManager.GetString("View_Home_Subcontent3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ofertame.
+        /// </summary>
+        public static string View_Home_TitleSlide1 {
+            get {
+                return ResourceManager.GetString("View_Home_TitleSlide1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Agility.
+        /// </summary>
+        public static string View_Home_TitleSlide2 {
+            get {
+                return ResourceManager.GetString("View_Home_TitleSlide2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Approaching the two ends.
+        /// </summary>
+        public static string View_Home_TitleSlide3 {
+            get {
+                return ResourceManager.GetString("View_Home_TitleSlide3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Opportunity.
+        /// </summary>
+        public static string View_Home_TitleSubcontent1 {
+            get {
+                return ResourceManager.GetString("View_Home_TitleSubcontent1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Benefit.
+        /// </summary>
+        public static string View_Home_TitleSubcontent2 {
+            get {
+                return ResourceManager.GetString("View_Home_TitleSubcontent2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Audience.
+        /// </summary>
+        public static string View_Home_TitleSubcontent3 {
+            get {
+                return ResourceManager.GetString("View_Home_TitleSubcontent3", resourceCulture);
             }
         }
         
@@ -1834,6 +1979,33 @@ namespace SecondFloor.I18n {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Log In.
+        /// </summary>
+        public static string View_LayoutNav_LogIn {
+            get {
+                return ResourceManager.GetString("View_LayoutNav_LogIn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to LogOff.
+        /// </summary>
+        public static string View_LayoutNav_LogOff {
+            get {
+                return ResourceManager.GetString("View_LayoutNav_LogOff", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hello.
+        /// </summary>
+        public static string View_LayoutNav_Ola {
+            get {
+                return ResourceManager.GetString("View_LayoutNav_Ola", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Manager .
         /// </summary>
         public static string View_LayoutNav_Painel {
@@ -1875,6 +2047,24 @@ namespace SecondFloor.I18n {
         public static string View_Produto_ProdutoPartialView_Botao_Salvar {
             get {
                 return ResourceManager.GetString("View_Produto_ProdutoPartialView_Botao_Salvar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Conteudo aqui....
+        /// </summary>
+        public static string View_Sobre_Conteudo {
+            get {
+                return ResourceManager.GetString("View_Sobre_Conteudo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to About.
+        /// </summary>
+        public static string View_Sobre_Titulo {
+            get {
+                return ResourceManager.GetString("View_Sobre_Titulo", resourceCulture);
             }
         }
         

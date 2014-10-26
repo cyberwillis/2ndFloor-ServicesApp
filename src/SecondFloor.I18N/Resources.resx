@@ -729,4 +729,74 @@
   <data name="View_Usuario_UsuarioLogin_Slogan" xml:space="preserve">
     <value>Use a local account to acess</value>
   </data>
+  <data name="View_LayoutNav_LogIn" xml:space="preserve">
+    <value>Log In</value>
+  </data>
+  <data name="View_LayoutNav_LogOff" xml:space="preserve">
+    <value>LogOff</value>
+  </data>
+  <data name="View_LayoutNav_Ola" xml:space="preserve">
+    <value>Hello</value>
+  </data>
+  <data name="View_Home_ContentSlide1" xml:space="preserve">
+    <value>Approaching your business to your customer</value>
+  </data>
+  <data name="View_Home_ContentSlide2" xml:space="preserve">
+    <value>Announcements can be made ​​simply and quickly.</value>
+  </data>
+  <data name="View_Home_ContentSlide3" xml:space="preserve">
+    <value>Facility to search for products and services at your fingertips. Approaching the two ends.</value>
+  </data>
+  <data name="View_Home_Subcontent1" xml:space="preserve">
+    <value>The application proposes to facilitate the dissemination of products and small businesses and independent professionals providing greater visibility among consumers services.</value>
+  </data>
+  <data name="View_Home_Subcontent2" xml:space="preserve">
+    <value>A ferramenta oferece anúncios com custo inicial subsidiado por nós (prazo a ser determinado).</value>
+  </data>
+  <data name="View_Home_Subcontent3" xml:space="preserve">
+    <value>Companies that do not have to publicize its brand strategy will have a tool connected to social network with the largest amount of shots and better positioning.</value>
+  </data>
+  <data name="View_Home_TitleSlide1" xml:space="preserve">
+    <value>Ofertame</value>
+  </data>
+  <data name="View_Home_TitleSlide2" xml:space="preserve">
+    <value>Agility</value>
+  </data>
+  <data name="View_Home_TitleSlide3" xml:space="preserve">
+    <value>Approaching the two ends</value>
+  </data>
+  <data name="View_Home_TitleSubcontent1" xml:space="preserve">
+    <value>Opportunity</value>
+  </data>
+  <data name="View_Home_TitleSubcontent2" xml:space="preserve">
+    <value>Benefit</value>
+  </data>
+  <data name="View_Home_TitleSubcontent3" xml:space="preserve">
+    <value>Audience</value>
+  </data>
+  <data name="View_Contato_Conteudo" xml:space="preserve">
+    <value>&lt;address&gt;
+    Rafael Anjos - rafael.sanjos at gmail &lt;br /&gt;
+    Rafael Favretti - rafael.favretti at gmail &lt;br /&gt;
+    Victor Lemos - desnuey at gmail &lt;br/&gt;
+    Willismar Medeiros - cyberwillis at gmail
+&lt;/address&gt;
+
+&lt;address&gt;
+    &lt;strong&gt;Support:...&lt;/strong&gt;   &lt;br /&gt;
+    &lt;strong&gt;Marketing:...&lt;/strong&gt; 
+&lt;/address&gt;</value>
+  </data>
+  <data name="View_Contato_SubTitulo" xml:space="preserve">
+    <value />
+  </data>
+  <data name="View_Contato_Title" xml:space="preserve">
+    <value>Contact</value>
+  </data>
+  <data name="View_Sobre_Conteudo" xml:space="preserve">
+    <value>Conteudo aqui...</value>
+  </data>
+  <data name="View_Sobre_Titulo" xml:space="preserve">
+    <value>About</value>
+  </data>
 </root>

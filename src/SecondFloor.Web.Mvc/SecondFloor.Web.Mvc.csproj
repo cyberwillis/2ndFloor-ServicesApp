@@ -332,6 +332,7 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\carousel.css" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -467,6 +468,8 @@
     <Content Include="Views\Anuncio\ListaOfertasPartialView.cshtml" />
     <Content Include="Views\Anuncio\AnuncioAlterarPartialView.cshtml" />
     <Content Include="Views\Usuario\UsuarioLogin.cshtml" />
+    <Content Include="Views\Anunciante\CadastroSucesso.cshtml" />
+    <Content Include="Views\Shared\_LayoutCarousel.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -72,7 +72,7 @@ namespace SecondFloor.Web.Mvc.Security
 
         public void Logout()
         {
-            //FederatedAuthentication.SessionAuthenticationModule.DeleteSessionTokenCookie();
+            FederatedAuthentication.SessionAuthenticationModule.DeleteSessionTokenCookie();
             FederatedAuthentication.SessionAuthenticationModule.SignOut();
         }
     }
