@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Text.RegularExpressions;
+using System.Threading;
 using SecondFloor.DataContracts.DTO;
 using SecondFloor.Model;
 
@@ -29,9 +30,9 @@ namespace SecondFloor.Service.ExtensionMethods
             produto.Referencia = produtoDto.Referencia;
 
             if ( !string.IsNullOrEmpty(produtoDto.Valor) )
-                produto.Valor = decimal.Parse( produtoDto.ConvertToValorNormal(), new CultureInfo("pt-BR") );
+                produto.Valor = decimal.Parse(produtoDto.ConvertToValorNormal(), Thread.CurrentThread.CurrentCulture);
             else
-                produto.Valor = decimal.Parse("0.00");
+                produto.Valor = decimal.Parse("0", Thread.CurrentThread.CurrentCulture);
 
             return produto;
 
@@ -46,7 +47,7 @@ namespace SecondFloor.Service.ExtensionMethods
             produtoDto.Fabricante = produto.Fabricante;
             produtoDto.Descricao = produto.Descricao;
             produtoDto.Referencia = produto.Referencia;
-            produtoDto.Valor = produto.Valor.ToString("c", new CultureInfo("pt-BR"));
+            produtoDto.Valor = produto.Valor.ToString("C", Thread.CurrentThread.CurrentCulture);
             produtoDto.AnuncianteId = produto.Anunciante.Id.ToString(); //facilitar a identificacao do Parent deste objeto
 
             return produtoDto;
@@ -61,8 +62,9 @@ namespace SecondFloor.Service.ExtensionMethods
 
         public static string ConvertToValorNormal(this ProdutoDto produtoDto)
         {
-            var pattern = new Regex(@"\d+\,\d{2}"); //xxxxxx,xx ou x.xxx,xx
-            var valor = Regex.Replace(produtoDto.Valor, @"[^0-9\,]", string.Empty);
+            //var pattern = new Regex(@"\d+\,\d{2}|\d+\.\d{2}"); //xxxxxx,xx ou x.xxx,xx  //(((\d{1,3},)+\d{3})|\d+)\.\d{2}   (((\d{1.3}.)+\d{3})|\d+)\,\d{2}
+            var pattern = new Regex(@"(((\d{1,3},)+\d{3})|\d+)\.\d{2}|(((\d{1.3}.)+\d{3})|\d+)\,\d{2}|\d+"); 
+            var valor = Regex.Replace(produtoDto.Valor, @"[^0-9\,\.]", string.Empty);
 
             if (pattern.IsMatch(valor))
             {
@@ -70,7 +72,7 @@ namespace SecondFloor.Service.ExtensionMethods
             }
             else
             {
-                produtoDto.Valor = "0,00"; //caso nao tenha sigo valor valido ignora e seta um valor basico
+                produtoDto.Valor = "0"; //caso nao tenha sigo valor valido ignora e seta um valor basico
             }
             return produtoDto.Valor;
         }

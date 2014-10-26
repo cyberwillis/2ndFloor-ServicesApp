@@ -46,7 +46,7 @@ namespace SecondFloor.Web.Mvc.Controllers
         [HttpGet]
         public PartialViewResult Create(string id)
         {
-            ViewBag.Excluir = false;
+            ViewBag.Publish = false;
             ViewBag.Title = Resources.AnuncioController_HttpGet_Create_Action_ViewBagTitle;
 
             var enderecos = GetEnderecosPorAnunciante(id);
@@ -86,7 +86,7 @@ namespace SecondFloor.Web.Mvc.Controllers
             var request = new CadastrarAnuncioRequest(){ Anuncio = anuncio.ConvertToAnuncioDto(),  AnuncianteId = anuncio.AnuncianteId };
             var response = _anuncioService.CadastrarAnuncio(request);
 
-            ViewBag.Excluir = false;
+            ViewBag.Publish = false;
             ViewBag.Title = Resources.AnuncioController_HttpPost_Create_Action_ViewBagTitle;
             ViewBag.Message = response.Message;
             ViewBag.MessageType = response.MessageType;
@@ -116,7 +116,7 @@ namespace SecondFloor.Web.Mvc.Controllers
             var request = new EncontrarAnuncioRequest(){ Id = id};
             var response = _anuncioService.EncontrarAnuncioPor(request);
 
-            ViewBag.Excluir = false;
+            ViewBag.Publish = false;
             ViewBag.Title = "Alterar Anuncio";
 
             if (!response.Success)
@@ -166,7 +166,7 @@ namespace SecondFloor.Web.Mvc.Controllers
             var request = new AlterarAnuncioRequest(){ AnuncianteId = anuncio.AnuncianteId, Anuncio = anuncio.ConvertToAnuncioDto() };
             var response = _anuncioService.AlterarAnuncio(request);
 
-            ViewBag.Excluir = false;
+            ViewBag.Publish = false;
             ViewBag.Title = "Alterar Anuncio";
             ViewBag.Message = response.Message;
             ViewBag.MessageType = response.MessageType;
@@ -234,9 +234,9 @@ namespace SecondFloor.Web.Mvc.Controllers
             var request = new EncontrarAnuncioRequest() {Id = id};
             var response = _anuncioService.EncontrarAnuncioPor(request);
 
-            ViewBag.Excluir = true;
+            ViewBag.Publish = true;
             ViewBag.Title = "Publicar Anuncio";
-            ViewBag.Message = response.Message;
+            ViewBag.Message = "Deseja enviar para pubicação?";//response.Message;
             ViewBag.MessageType = response.MessageType;
 
             if (!response.Success)
@@ -253,7 +253,7 @@ namespace SecondFloor.Web.Mvc.Controllers
             var request = new PublicarAnuncioRequest() {Id = anuncio.Id};
             var response = _anuncioService.EnviarAnuncioParaPublicacao(request);
 
-            ViewBag.Excluir = false;
+            ViewBag.Publish = false;
             ViewBag.Title = "Publicar Anuncio";
             ViewBag.Message = response.Message;
             ViewBag.MessageType = response.MessageType;

@@ -28,43 +28,77 @@
                         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                         <div class="form-group">
                             @Html.LabelFor(model => model.Titulo, htmlAttributes: new { @class = "control-label col-sm-3" })
-                            <div class="col-sm-6">
-                                @Html.EditorFor(model => model.Titulo, new { htmlAttributes = new { @class = "form-control" } })
-                                @Html.ValidationMessageFor(model => model.Titulo, "", new { @class = "text-danger" })
-                            </div>
+                            @if (!ViewBag.Publish)
+                            {
+                                <div class="col-sm-6">
+                                    @Html.EditorFor(model => model.Titulo, new {htmlAttributes = new {@class = "form-control"}})
+                                    @Html.ValidationMessageFor(model => model.Titulo, "", new {@class = "text-danger"})
+                                </div>
+                            }
+                            else
+                            {
+                                <div class="col-sm-6">
+                                    @Html.DisplayFor(model => model.Titulo)
+                                </div>
+                            }
                         </div>
 
                         <div class="form-group">
                             @Html.LabelFor(model => model.DataInicio, htmlAttributes: new { @class = "control-label col-sm-3" })
-
-                            <div id="date-container1" class="form-inline">
-                                <div id="dp1" class="input-group col-sm-3 date">
-                                    @Html.EditorFor(model => model.DataInicio, new { htmlAttributes = new { @class = "form-control datepicker", @readonly = "", size = "10" } })
-                                    <span class="input-group-addon"><span class="glyphicon glyphicon-calendar small"></span></span>
+                            @if (!ViewBag.Publish)
+                            {
+                                <div id="date-container1" class="form-inline">
+                                    <div id="dp1" class="input-group col-sm-3 date">
+                                        @Html.EditorFor(model => model.DataInicio, new {htmlAttributes = new {@class = "form-control datepicker", @readonly = "", size = "10"}})
+                                        <span class="input-group-addon"><span class="glyphicon glyphicon-calendar small"></span></span>
+                                    </div>
+                                    @Html.ValidationMessageFor(model => model.DataInicio, "", new {@class = "text-danger"})
                                 </div>
-                                @Html.ValidationMessageFor(model => model.DataInicio, "", new { @class = "text-danger" })
-                            </div>
+                            }
+                            else
+                            {
+                                <div class="col-sm-6">
+                                    @Html.DisplayFor(model => model.DataInicio)
+                                </div>
+                            }
                         </div>
 
                         <div class="form-group">
                             @Html.LabelFor(model => model.DataFim, htmlAttributes: new { @class = "control-label col-sm-3" })
-
-                            <div id="date-container2" class="form-inline">
-                                <div id="dp2" class="input-group col-sm-3 date">
-                                    @Html.EditorFor(model => model.DataFim, new { htmlAttributes = new { @class = "form-control  datepicker", @readonly = "", size = "10" } })
-                                    <span class="input-group-addon"><span class="glyphicon glyphicon-calendar small"></span></span>
+                            @if (!ViewBag.Publish)
+                            {
+                                <div id="date-container2" class="form-inline">
+                                    <div id="dp2" class="input-group col-sm-3 date">
+                                        @Html.EditorFor(model => model.DataFim, new {htmlAttributes = new {@class = "form-control  datepicker", @readonly = "", size = "10"}})
+                                        <span class="input-group-addon"><span class="glyphicon glyphicon-calendar small"></span></span>
+                                    </div>
+                                    @Html.ValidationMessageFor(model => model.DataFim, "", new {@class = "text-danger"})
                                 </div>
-                                @Html.ValidationMessageFor(model => model.DataFim, "", new { @class = "text-danger" })
-                            </div>
-
+                            }
+                            else
+                            {
+                                <div class="col-sm-6">
+                                    @Html.DisplayFor(model => model.DataFim)
+                                </div>
+                            }
                         </div>
 
                         <div class="form-group">
                             @Html.LabelFor(model => model.Endereco.Logradouro, htmlAttributes: new { @class = "control-label col-md-3" })
-                            <div class="col-md-6">
-                                @Html.DisplayFor(model => model.Endereco.Logradouro, new { @class = "form-control" })
-                                @Html.DisplayFor(model => model.Endereco.Bairro, new { @class = "form-control" })
-                            </div>
+                            @if (!ViewBag.Publish)
+                            {
+                                <div class="col-md-6">
+                                    @Html.DisplayFor(model => model.Endereco.Logradouro, new {@class = "form-control"})
+                                    @Html.DisplayFor(model => model.Endereco.Bairro, new {@class = "form-control"})
+                                </div>
+                            }
+                            else
+                            {
+                                <div class="col-md-6">
+                                    @Html.DisplayFor(model => model.Endereco.Logradouro, new {@class = "form-control"})
+                                    @Html.DisplayFor(model => model.Endereco.Bairro, new {@class = "form-control"})
+                                </div>
+                            }
                         </div>
 
                         <div class="form-group">
@@ -73,11 +107,27 @@
                             <div class="col-md-6">
                                 @Html.ValidationMessageFor(model => model.Ofertas, "", new { @class = "text-danger" })
                                 <table class="table">
-                                    @foreach (var item in Model.Ofertas)
+                                    @if (!ViewBag.Publish)
+                                    {
+                                        foreach (var item in Model.Ofertas)
+                                        {
+                                            <tr>
+                                                <td>@Html.CheckBoxFor(modelItem => item.Checked, new {id = "Ofertas", value = item.Id, @checked = item.Checked})</td>
+                                                <td>@Html.DisplayFor(modelItem => item.NomeProduto)</td>
+                                            </tr>
+                                        }
+                                    }
+                                    else
                                     {
                                         <tr>
-                                            <td>@Html.CheckBoxFor(modelItem => item.Checked, new { id = "Ofertas", value = item.Id, @checked = item.Checked })</td>
-                                            <td>@Html.DisplayFor(modelItem => item.NomeProduto)</td>
+                                            <td>@Html.LabelFor(modelItem => Model.Ofertas)</td>
+                                            <td>
+                                                @foreach (var item in Model.Ofertas)
+                                                {
+                                                    <i>@Html.DisplayFor(modelItem => item.NomeProduto) ,</i>
+
+                                                }
+                                            </td>
                                         </tr>
                                     }
                                 </table>

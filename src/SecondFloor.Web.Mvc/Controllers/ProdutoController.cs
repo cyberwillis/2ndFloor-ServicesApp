@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Threading;
 using System.Web.Mvc;
 using SecondFloor.DataContracts.Messages.Produto;
 using SecondFloor.I18n;
@@ -49,7 +51,7 @@ namespace SecondFloor.Web.Mvc.Controllers
                 Fabricante = "BomBrill",
                 Descricao = "Lavar panelas",
                 Referencia = "0001",
-                Valor = "3.40"
+                Valor = ((double)3.40).ToString("C", Thread.CurrentThread.CurrentCulture) //fixed!!!
             };
 
             return PartialView("ProdutoPartialView", produto);
