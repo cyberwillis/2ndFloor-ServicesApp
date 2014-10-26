@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using NUnit.Framework;
+using SecondFloor.I18n;
 using SecondFloor.Model.Rules.Specifications;
 
 namespace SecondFloor.Model.UnitTest.Anuncio_Tests.Produto_Tests
@@ -26,8 +27,8 @@ namespace SecondFloor.Model.UnitTest.Anuncio_Tests.Produto_Tests
             _produto.Fabricante = string.Empty;
             _produto.Descricao = string.Empty;
 
-            var brNomeProduto = new Dictionary<string, string>() { { "NomeProduto", "O nome do produto não foi especificado." } };
-            var brReferencia = new Dictionary<string, string>() { { "Descricao", "A descrição do produto não foi especificada." } };
+            var brNomeProduto = new Dictionary<string, string>() { { "NomeProduto", Resources.Model_Rules_Produto_Specification_NomeProduto_NotNull } };
+            var brReferencia = new Dictionary<string, string>() { { "Descricao", Resources.Model_Rules_Produto_Specification_Descricao_NotNull } };
             //var brFabricante = new Dictionary<string, string>() { { "", "" } };
             //var brDescricao = new Dictionary<string, string>() { { "", "" } };
 

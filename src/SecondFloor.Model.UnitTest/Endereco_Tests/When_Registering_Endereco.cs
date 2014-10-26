@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using NUnit.Framework;
+using SecondFloor.I18n;
 using SecondFloor.Model.Rules.Specifications;
 using SecondFloor.Model.UnitTest.Anuncio_Tests;
 
@@ -37,11 +38,11 @@ namespace SecondFloor.Model.UnitTest.Endereco_Tests
             _endereco.Cidade = string.Empty;
             _endereco.Estado = string.Empty;
 
-            var brLogradouro = new Dictionary<string, string>() {{"Logradouro", "O logradouro não foi especificado."}};
-            var brNumero = new Dictionary<string, string>() {{"Numero", "O número do logradouro não foi especificado."}};
-            var brBairro = new Dictionary<string, string>() {{"Bairro", "O bairro não foi especificado."}};
-            var brCidade = new Dictionary<string, string>() {{"Cidade", "A cidade não foi especificada."}};
-            var brEstado = new Dictionary<string, string>() {{"Estado", "O estado não foi especificado."}};
+            var brLogradouro = new Dictionary<string, string>() { { "Logradouro", Resources.Model_Rules_Specification_Endereco_Logradouro_NotNull } };
+            var brNumero = new Dictionary<string, string>() { { "Numero", Resources.Model_Rules_Specification_Endereco_Numero_NotNull } };
+            var brBairro = new Dictionary<string, string>() { { "Bairro", Resources.Model_Rules_Specification_Endereco_Bairro_NotNull } };
+            var brCidade = new Dictionary<string, string>() { { "Cidade", Resources.Model_Rules_Specification_Endereco_Cidade_NotNull } };
+            var brEstado = new Dictionary<string, string>() { { "Estado", Resources.Model_Rules_Specification_Endereco_Estado_NotNull } };
 
             Assert.IsTrue(_endereco.Validate().Contains(brLogradouro.First()));
             Assert.IsTrue(_endereco.Validate().Contains(brNumero.First()));

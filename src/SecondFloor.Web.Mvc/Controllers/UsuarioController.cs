@@ -33,7 +33,8 @@ namespace SecondFloor.Web.Mvc.Controllers
         public ActionResult Login(string returnUrl)
         {
             ViewBag.Title = "Login de Usuario";
-
+            //ViewBag.Message = "teste";
+            //ViewBag.MessageType = "";
             ViewBag.ReturnUrl = returnUrl;
 
             return View("UsuarioLogin");

@@ -799,4 +799,10 @@
   <data name="View_Sobre_Titulo" xml:space="preserve">
     <value>About</value>
   </data>
+  <data name="Model_Rules_Specification_Endereco_Estado_Long" xml:space="preserve">
+    <value>The State must have at most (10) characters</value>
+  </data>
+  <data name="Model_Rules_Specification_Endereco_Estado_NotNull" xml:space="preserve">
+    <value>The State cannot be null.</value>
+  </data>
 </root>

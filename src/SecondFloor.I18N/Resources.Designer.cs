@@ -1213,6 +1213,24 @@ namespace SecondFloor.I18n {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The State must have at most (10) characters.
+        /// </summary>
+        public static string Model_Rules_Specification_Endereco_Estado_Long {
+            get {
+                return ResourceManager.GetString("Model_Rules_Specification_Endereco_Estado_Long", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The State cannot be null..
+        /// </summary>
+        public static string Model_Rules_Specification_Endereco_Estado_NotNull {
+            get {
+                return ResourceManager.GetString("Model_Rules_Specification_Endereco_Estado_NotNull", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Street address must have at most (250) characters..
         /// </summary>
         public static string Model_Rules_Specification_Endereco_Logradouro_Long {

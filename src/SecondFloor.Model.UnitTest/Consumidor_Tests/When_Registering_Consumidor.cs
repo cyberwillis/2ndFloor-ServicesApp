@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using NUnit.Framework;
+using SecondFloor.I18n;
 using SecondFloor.Model.Rules.Specifications;
 using SecondFloor.Model.UnitTest.Anuncio_Tests;
 
@@ -34,8 +35,8 @@ namespace SecondFloor.Model.UnitTest.Consumidor_Tests
             _consumidor.Nome = string.Empty;
             _consumidor.Email = string.Empty;
 
-            var brNomeNull = new Dictionary<string, string>() {{"Nome", "O nome do consumidor não foi especificado."}};
-            var brEmailNUll = new Dictionary<string, string>() {{"Email", "O email do consumidor não foi especificado."}};
+            var brNomeNull = new Dictionary<string, string>() { { "Nome", Resources.Model_Rules_Specification_Consumidor_Nome_NotNull } };
+            var brEmailNUll = new Dictionary<string, string>() { { "Email", Resources.Model_Rules_Specification_Consumidor_Email_NotNull } };
 
             Assert.IsTrue(_consumidor.Validate().Contains(brNomeNull.First()));
             Assert.IsTrue(_consumidor.Validate().Contains(brEmailNUll.First()));
@@ -46,7 +47,7 @@ namespace SecondFloor.Model.UnitTest.Consumidor_Tests
         {
             _consumidor.Email = "bolinha";
 
-            var brEmail = new Dictionary<string, string>() {{"Email", "O email do consumidor está inválido."}};
+            var brEmail = new Dictionary<string, string>() { { "Email", Resources.Model_Rules_Specification_Consumidor_Email_Invalid } };
             Assert.IsTrue(_consumidor.Validate().Contains(brEmail.First()));
         }
     }

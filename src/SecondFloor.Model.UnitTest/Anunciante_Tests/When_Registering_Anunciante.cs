@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using NUnit.Framework;
+using SecondFloor.I18n;
 using SecondFloor.Model.Rules.Specifications;
 using SecondFloor.Model.UnitTest.Anuncio_Tests;
 
@@ -27,10 +28,10 @@ namespace SecondFloor.Model.UnitTest.Anunciante_Tests
             anunciante.RazaoSocial = "";
             anunciante.Cnpj = "";
 
-            var brResponsavel = new Dictionary<string, string>() { { "Responsavel", "O Responsável não pode ser nulo." } };
-            var brEmail = new Dictionary<string, string>() { { "Email", "O Email não pode ser nulo." } };
-            var brRazaoSocial = new Dictionary<string, string>() {{"Razao Social", "A razão social não pode ser nula."}};
-            var brCNPJ = new Dictionary<string, string>() {{"Cnpj", "O Cnpj não pode ser nulo."}};
+            var brResponsavel = new Dictionary<string, string>() { { "NomeResponsavel", Resources.Model_Rules_Specification_Anunciante_NomeResponsavel_NotNull } };
+            var brEmail = new Dictionary<string, string>() { { "Email", Resources.Model_Rules_Specification_Anunciante_Email_NotNull } };
+            var brRazaoSocial = new Dictionary<string, string>() { { "RazaoSocial", Resources.Model_Rules_Specification_Anunciante_RazaoSocial_NotNull } };
+            var brCNPJ = new Dictionary<string, string>() { { "Cnpj", Resources.Model_Rules_Specification_Anunciante_Cnpj_NotNull } };
 
             Assert.IsTrue(anunciante.Validate().Contains(brResponsavel.First()));
             Assert.IsTrue(anunciante.Validate().Contains(brEmail.First()));
@@ -44,7 +45,7 @@ namespace SecondFloor.Model.UnitTest.Anunciante_Tests
             //Cnpj incorreto
             anunciante.Cnpj = "40.123.456.0001-20";
 
-            var expected = new Dictionary<string,string>(){{"Cnpj", "O Cnpj está invalido"}};
+            var expected = new Dictionary<string, string>() { { "Cnpj", Resources.Model_Rules_Specification_Anunciante_Cnpj_Invalid } };
             Assert.IsTrue(anunciante.Validate().Contains(expected.First()));
         }
 
@@ -54,7 +55,7 @@ namespace SecondFloor.Model.UnitTest.Anunciante_Tests
             //Email incorreto
             anunciante.Email = "fulano";
 
-            var expected = new Dictionary<string, string>() { { "Email", "O Email está invalido" } };
+            var expected = new Dictionary<string, string>() { { "Email", Resources.Model_Rules_Specification_Anunciante_Email_Invalid } };
             Assert.IsTrue(anunciante.Validate().Contains(expected.First()));
         }
     }

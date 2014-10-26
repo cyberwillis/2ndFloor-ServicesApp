@@ -799,4 +799,10 @@
   <data name="View_Sobre_Conteudo" xml:space="preserve">
     <value>Content here...</value>
   </data>
+  <data name="Model_Rules_Specification_Endereco_Estado_Long" xml:space="preserve">
+    <value>O Estado deve conter no máximo (10) caracteres.</value>
+  </data>
+  <data name="Model_Rules_Specification_Endereco_Estado_NotNull" xml:space="preserve">
+    <value>O Estado não foi especificado.</value>
+  </data>
 </root>

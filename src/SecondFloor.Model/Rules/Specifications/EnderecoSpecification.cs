@@ -53,21 +53,21 @@ namespace SecondFloor.Model.Rules.Specifications
             }
 
             //Estado
-            /*if (string.IsNullOrEmpty(endereco.Estado))
+            if (string.IsNullOrEmpty(endereco.Estado))
             {
-                endereco.BrokenRules.Add("Estado", "O estado não foi especificado.");
+                endereco.BrokenRules.Add("Estado", Resources.Model_Rules_Specification_Endereco_Estado_NotNull);
             } else if (endereco.Estado.Length > 10)
             {
-                endereco.BrokenRules.Add("Estado", "O estado deve conter no máximo (10) caracteres.");   
-            }*/
+                endereco.BrokenRules.Add("Estado", Resources.Model_Rules_Specification_Endereco_Estado_Long);   
+            }
 
             if (string.IsNullOrEmpty(endereco.Cep))
             {
-                endereco.BrokenRules.Add("CEP","O Cep não foi especificado");
+                endereco.BrokenRules.Add("Cep", Resources.Model_Rules_Specification_Endereco_Cep_NotNull);
             } 
             else if (endereco.Cep.Length > 9)
             {
-                endereco.BrokenRules.Add("CEP", "O Cep deve conter no máximo (9) caracters.");
+                endereco.BrokenRules.Add("Cep", Resources.Model_Rules_Specification_Endereco_Cep_Long);
             }
 
             return endereco.BrokenRules;
