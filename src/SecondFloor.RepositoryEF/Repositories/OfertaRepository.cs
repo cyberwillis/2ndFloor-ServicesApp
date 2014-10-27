@@ -22,7 +22,7 @@ namespace SecondFloor.RepositoryEF.Repositories
 
         public IList<Oferta> EncontrarOfertasPorProduto(string nomeProduto)
         {
-            var ofertas = AnuncianteContextFactory.GetAnuncianteContext().Ofertas.Where(o => o.NomeProduto.Contains(nomeProduto));
+            var ofertas = AnuncianteContextFactory.GetAnuncianteContext().Ofertas.Where(o => o.NomeProduto.Contains(nomeProduto)).Where(o=>o.Anuncio.Status == AnuncioStatusEnum.Publicado);
 
             /*var ofertas = from o in AnuncianteContextFactory.GetAnuncianteContext().Ofertas
                           where SqlMethods.Like(o.NomeProduto, nomeProduto)

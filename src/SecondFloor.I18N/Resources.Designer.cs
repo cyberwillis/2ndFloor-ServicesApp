@@ -1970,7 +1970,7 @@ namespace SecondFloor.I18n {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Sign In.
+        ///   Looks up a localized string similar to Register.
         /// </summary>
         public static string View_LayoutNav_Cadastro {
             get {
